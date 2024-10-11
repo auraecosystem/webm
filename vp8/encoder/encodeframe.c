@@ -666,7 +666,11 @@ static void sum_coef_counts(MACROBLOCK *x, MACROBLOCK *x_thread) {
 }
 #endif  // CONFIG_MULTITHREAD
 
+void log_vp8_encode_frame_hist(long long t);
+
 void vp8_encode_frame(VP8_COMP *cpi) {
+  long long st = get_time(CLOCK_MONOTONIC);
+
   int mb_row;
   MACROBLOCK *const x = &cpi->mb;
   VP8_COMMON *const cm = &cpi->common;
@@ -965,6 +969,8 @@ void vp8_encode_frame(VP8_COMP *cpi) {
     vp8_convert_rfct_to_prob(cpi);
   }
 #endif
+  long long ed = get_time(CLOCK_MONOTONIC);
+  log_vp8_encode_frame_hist(ed-st);
 }
 void vp8_setup_block_ptrs(MACROBLOCK *x) {
   int r, c;

@@ -876,7 +876,11 @@ static void init_frame(VP8D_COMP *pbi) {
   if (pc->full_pixel) xd->fullpixel_mask = ~7;
 }
 
+void log_vp8_decode_frame_hist(long long t);
+
 int vp8_decode_frame(VP8D_COMP *pbi) {
+  long long st = get_time(CLOCK_MONOTONIC);
+
   vp8_reader *const bc = &pbi->mbc[8];
   VP8_COMMON *const pc = &pbi->common;
   MACROBLOCKD *const xd = &pbi->mb;
@@ -1258,6 +1262,9 @@ int vp8_decode_frame(VP8D_COMP *pbi) {
     fclose(f);
   }
 #endif
+
+  long long ed = get_time(CLOCK_MONOTONIC);
+  log_vp8_decode_frame_hist(ed-st);
 
   return 0;
 }
