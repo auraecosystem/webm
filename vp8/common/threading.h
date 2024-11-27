@@ -101,12 +101,33 @@ static INLINE long long get_time(clockid_t clk) {
   return cur.tv_sec * 1000000000ll + cur.tv_nsec;
 }
 
+static INLINE void sevl() {
+  __asm__ volatile("sevl");
+}
+
+static INLINE void wfe() {
+  __asm__ volatile("wfe" : : : "memory");
+}
+
+static INLINE int ldaxr(const volatile int *ptr) {
+  int res;
+  __asm__ volatile("ldaxr %w0, [%1]"
+                   : "=&r" (res)
+                   : "r" (ptr)
+                   : "memory");
+  return res;
+}
+
 static INLINE void vp8_atomic_spin_wait(
     int mb_col, const vpx_atomic_int *last_row_current_mb_col,
     const int nsync) {
   long long stt = get_time(CLOCK_THREAD_CPUTIME_ID);
   long long st = get_time(CLOCK_MONOTONIC), cnt=0;
-  while (mb_col > (vpx_atomic_load_acquire(last_row_current_mb_col) - nsync)) {
+  if (mb_col > (vpx_atomic_load_acquire(last_row_current_mb_col) - nsync)) {
+    sevl();
+    while(wfe(), mb_col > (ldaxr(&last_row_current_mb_col->value) - nsync)) {
+      cnt++;
+    }
     x86_pause_hint();
     thread_sleep(0);
     cnt++;
