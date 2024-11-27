@@ -110,7 +110,7 @@ static THREADFN thread_encoding_proc(void *p_data) {
         /* for each macroblock col in image */
         for (mb_col = 0; mb_col < cm->mb_cols; ++mb_col) {
           if (((mb_col - 1) % nsync) == 0) {
-            vpx_atomic_store_release(current_mb_col, mb_col - 1);
+            vp8_atomic_store_wake(current_mb_col, mb_col - 1);
           }
 
           if (mb_row && !(mb_col & (nsync - 1))) {
@@ -286,7 +286,7 @@ static THREADFN thread_encoding_proc(void *p_data) {
         vp8_extend_mb_row(&cm->yv12_fb[dst_fb_idx], xd->dst.y_buffer + 16,
                           xd->dst.u_buffer + 8, xd->dst.v_buffer + 8);
 
-        vpx_atomic_store_release(current_mb_col, mb_col + nsync);
+        vp8_atomic_store_wake(current_mb_col, mb_col + nsync);
 
         /* this is to account for the border */
         xd->mode_info_context++;

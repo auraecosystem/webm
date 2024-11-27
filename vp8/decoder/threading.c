@@ -361,7 +361,7 @@ static void mt_decode_mb_rows(VP8D_COMP *pbi, MACROBLOCKD *xd,
 
     for (mb_col = 0; mb_col < pc->mb_cols; ++mb_col) {
       if (((mb_col - 1) % nsync) == 0) {
-        vpx_atomic_store_release(current_mb_col, mb_col - 1);
+        vp8_atomic_store_wake(current_mb_col, mb_col - 1);
       }
 
       if (mb_row && !(mb_col & (nsync - 1))) {
@@ -412,7 +412,7 @@ static void mt_decode_mb_rows(VP8D_COMP *pbi, MACROBLOCKD *xd,
         for (; mb_row < pc->mb_rows;
              mb_row += (pbi->decoding_thread_count + 1)) {
           current_mb_col = &pbi->mt_current_mb_col[mb_row];
-          vpx_atomic_store_release(current_mb_col, pc->mb_cols + nsync);
+          vp8_atomic_store_wake(current_mb_col, pc->mb_cols + nsync);
         }
         vpx_internal_error(&xd->error_info, VPX_CODEC_CORRUPT_FRAME,
                            "Corrupted reference frame");
@@ -567,7 +567,7 @@ static void mt_decode_mb_rows(VP8D_COMP *pbi, MACROBLOCKD *xd,
     }
 
     /* last MB of row is ready just after extension is done */
-    vpx_atomic_store_release(current_mb_col, mb_col + nsync);
+    vp8_atomic_store_wake(current_mb_col, mb_col + nsync);
 
     ++xd->mode_info_context; /* skip prediction column */
     xd->up_available = 1;

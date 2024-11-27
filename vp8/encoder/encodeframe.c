@@ -411,7 +411,7 @@ static void encode_mb_row(VP8_COMP *cpi, VP8_COMMON *cm, int mb_row,
 #if CONFIG_MULTITHREAD
     if (vpx_atomic_load_acquire(&cpi->b_multi_threaded) != 0) {
       if (((mb_col - 1) % nsync) == 0) {
-        vpx_atomic_store_release(current_mb_col, mb_col - 1);
+        vp8_atomic_store_wake(current_mb_col, mb_col - 1);
       }
 
       if (mb_row && !(mb_col & (nsync - 1))) {
@@ -564,7 +564,7 @@ static void encode_mb_row(VP8_COMP *cpi, VP8_COMMON *cm, int mb_row,
 
 #if CONFIG_MULTITHREAD
   if (vpx_atomic_load_acquire(&cpi->b_multi_threaded) != 0) {
-    vpx_atomic_store_release(current_mb_col,
+    vp8_atomic_store_wake(current_mb_col,
                              vpx_atomic_load_acquire(&rightmost_col));
   }
 #endif
