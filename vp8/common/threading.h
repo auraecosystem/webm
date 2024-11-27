@@ -118,6 +118,10 @@ static INLINE void vp8_atomic_spin_wait(
   }
 }
 
+static INLINE void vp8_atomic_store_wake(vpx_atomic_int *atomic, int value) {
+  vpx_atomic_store_release(atomic, value);
+}
+
 #endif /* CONFIG_OS_SUPPORT && CONFIG_MULTITHREAD */
 
 #ifdef __cplusplus
