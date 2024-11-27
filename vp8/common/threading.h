@@ -114,7 +114,10 @@ static INLINE void vp8_atomic_spin_wait(
   int tmp;
   while (mb_col > ((tmp = vpx_atomic_load_acquire(last_row_current_mb_col)) - nsync)) {
 #if defined(__linux__) && defined(VPX_ARCH_AARCH64)
-    syscall(SYS_futex, &last_row_current_mb_col->value, FUTEX_WAIT_PRIVATE, tmp, NULL, NULL, 0);
+    if (cnt >= 128) {
+      syscall(SYS_futex, &last_row_current_mb_col->value, FUTEX_WAIT_PRIVATE, tmp, NULL, NULL, 0);
+      continue;
+    }
 #endif
     x86_pause_hint();
     thread_sleep(0);
