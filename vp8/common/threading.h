@@ -106,18 +106,32 @@ static INLINE long long get_time(clockid_t clk) {
   return cur.tv_sec * 1000000000ll + cur.tv_nsec;
 }
 
+static INLINE void wfe() {
+  __asm__ volatile("wfe" : : : "memory");
+}
+
+static INLINE int ldaxr(const volatile int *ptr) {
+  int res;
+  __asm__ volatile("ldaxr %w0, [%1]"
+                   : "=&r" (res)
+                   : "r" (ptr)
+                   : "memory");
+  return res;
+}
+
 static INLINE void vp8_atomic_spin_wait(
     int mb_col, const vpx_atomic_int *last_row_current_mb_col,
     const int nsync) {
   long long stt = get_time(CLOCK_THREAD_CPUTIME_ID);
   long long st = get_time(CLOCK_MONOTONIC), cnt=0;
   int tmp;
-  while (mb_col > ((tmp = vpx_atomic_load_acquire(last_row_current_mb_col)) - nsync)) {
+  while (mb_col > ((tmp = ldaxr(&last_row_current_mb_col->value)) - nsync)) {
 #if defined(__linux__) && defined(VPX_ARCH_AARCH64)
-    if (cnt >= 64) {
+    if (cnt >= 1) {
       syscall(SYS_futex, &last_row_current_mb_col->value, FUTEX_WAIT_PRIVATE, tmp, NULL, NULL, 0);
       continue;
     }
+    wfe();
 #endif
     x86_pause_hint();
     thread_sleep(0);
