@@ -93,6 +93,11 @@ static INLINE int vp8_sem_wait(vp8_sem_t *sem) {
 #include "vpx_util/vpx_atomics.h"
 
 #include <time.h>
+#if defined(__linux__) && defined(VPX_ARCH_AARCH64)
+#include <limits.h>
+#include <sys/syscall.h>
+#include <linux/futex.h>
+#endif
 void log_vp8_spin_wait_hist(long long t, long long cnt, long long tt);
 
 static INLINE long long get_time(clockid_t clk) {
@@ -106,7 +111,11 @@ static INLINE void vp8_atomic_spin_wait(
     const int nsync) {
   long long stt = get_time(CLOCK_THREAD_CPUTIME_ID);
   long long st = get_time(CLOCK_MONOTONIC), cnt=0;
-  while (mb_col > (vpx_atomic_load_acquire(last_row_current_mb_col) - nsync)) {
+  int tmp;
+  while (mb_col > ((tmp = vpx_atomic_load_acquire(last_row_current_mb_col)) - nsync)) {
+#if defined(__linux__) && defined(VPX_ARCH_AARCH64)
+    syscall(SYS_futex, &last_row_current_mb_col->value, FUTEX_WAIT_PRIVATE, tmp, NULL, NULL, 0);
+#endif
     x86_pause_hint();
     thread_sleep(0);
     cnt++;
@@ -120,6 +129,9 @@ static INLINE void vp8_atomic_spin_wait(
 
 static INLINE void vp8_atomic_store_wake(vpx_atomic_int *atomic, int value) {
   vpx_atomic_store_release(atomic, value);
+#if defined(__linux__) && defined(VPX_ARCH_AARCH64)
+  syscall(SYS_futex, &atomic->value, FUTEX_WAKE_PRIVATE, INT_MAX, NULL, NULL, 0);
+#endif
 }
 
 #endif /* CONFIG_OS_SUPPORT && CONFIG_MULTITHREAD */
