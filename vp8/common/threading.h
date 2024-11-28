@@ -101,12 +101,25 @@ static INLINE long long get_time(clockid_t clk) {
   return cur.tv_sec * 1000000000ll + cur.tv_nsec;
 }
 
+static INLINE void wfe() {
+  __asm__ volatile("wfe" : : :"memory");
+}
+
+static INLINE void sev() {
+  __asm__ volatile("sev" : : :);
+}
+
+static INLINE void dsb() {
+  __asm__ volatile("dsb sy" : : :"memory");
+}
+
 static INLINE void vp8_atomic_spin_wait(
     int mb_col, const vpx_atomic_int *last_row_current_mb_col,
     const int nsync) {
   long long stt = get_time(CLOCK_THREAD_CPUTIME_ID);
   long long st = get_time(CLOCK_MONOTONIC), cnt=0;
   while (mb_col > (vpx_atomic_load_acquire(last_row_current_mb_col) - nsync)) {
+    wfe();
     x86_pause_hint();
     thread_sleep(0);
     cnt++;
@@ -120,6 +133,8 @@ static INLINE void vp8_atomic_spin_wait(
 
 static INLINE void vp8_atomic_store_wake(vpx_atomic_int *atomic, int value) {
   vpx_atomic_store_release(atomic, value);
+  dsb();
+  sev();
 }
 
 #endif /* CONFIG_OS_SUPPORT && CONFIG_MULTITHREAD */
