@@ -186,7 +186,7 @@ void vp9_init_layer_context(VP9_COMP *const cpi) {
     svc->layer_context[0].gold_ref_idx = alt_ref_idx;
 }
 
-// Update the layer context from a change_config() call.
+// Update the layer context from the encoder change_config() call.
 void vp9_update_layer_context_change_config(VP9_COMP *const cpi,
                                             const int target_bandwidth) {
   SVC *const svc = &cpi->svc;
