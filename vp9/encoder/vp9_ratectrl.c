@@ -1299,6 +1299,16 @@ static int rc_pick_q_and_bounds_one_pass_vbr(const VP9_COMP *cpi,
   } else {
     q = vp9_rc_regulate_q(cpi, rc->this_frame_target, active_best_quality,
                           active_worst_quality);
+
+    // For no lookahead: if the buffer_level indicates overshoot, then avoid
+    // going to very low QP.
+    // Issue: 376707227
+    if (cpi->oxcf.lag_in_frames == 0 &&
+        rc->buffer_level < rc->optimal_buffer_level && q < 24) {
+      q = 24;
+      *top_index = VPXMAX(*top_index, q);
+    }
+
     if (q > *top_index) {
       // Special case when we are targeting the max allowed rate
       if (rc->this_frame_target >= rc->max_frame_bandwidth)
