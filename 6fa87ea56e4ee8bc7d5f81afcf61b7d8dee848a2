@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "257d22ab_d967050a",
+        "filename": "vpx_dsp/vpx_dsp_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-12-20T23:32:48Z",
+      "side": 1,
+      "message": "https://learn.microsoft.com/en-us/cpp/overview/compiler-versions?view\u003dmsvc-170#version-macros",
+      "range": {
+        "startLine": 56,
+        "startChar": 36,
+        "endLine": 56,
+        "endChar": 40
+      },
+      "revId": "6fa87ea56e4ee8bc7d5f81afcf61b7d8dee848a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
