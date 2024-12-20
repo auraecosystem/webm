@@ -133,13 +133,13 @@ void idct8x8_64_add_12_sse2(const tran_low_t *in, uint8_t *out, int stride) {
 #endif  // HAVE_SSE2
 #endif  // CONFIG_VP9_HIGHBITDEPTH
 
-// Visual Studio 2022 (cl.exe) targeting AArch64 with optimizations enabled
-// produces invalid code in RunExtremalCheck() and RunInvAccuracyCheck().
+// Visual Studio 2022 < 17.12.3 (cl.exe) targeting AArch64 with optimizations
+// enabled produces invalid code in RunExtremalCheck() and
+// RunInvAccuracyCheck().
 // See:
 // https://developercommunity.visualstudio.com/t/1770-preview-1:-Misoptimization-for-AR/10369786
-// TODO(jzern): check the compiler version after a fix for the issue is
-// released.
-#if defined(_MSC_VER) && defined(_M_ARM64) && !defined(__clang__)
+#if defined(_MSC_FULL_VER) && _MSC_FULL_VER == 194234435 && \
+    defined(_M_ARM64) && !defined(__clang__)
 #pragma optimize("", off)
 #endif
 class FwdTrans8x8TestBase {
@@ -533,7 +533,8 @@ class FwdTrans8x8TestBase {
   vpx_bit_depth_t bit_depth_;
   int mask_;
 };
-#if defined(_MSC_VER) && defined(_M_ARM64) && !defined(__clang__)
+#if defined(_MSC_FULL_VER) && _MSC_FULL_VER < 194234435 && \
+    defined(_M_ARM64) && !defined(__clang__)
 #pragma optimize("", on)
 #endif
 
