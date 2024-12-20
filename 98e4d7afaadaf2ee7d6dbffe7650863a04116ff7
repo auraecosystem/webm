@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f96970c7_882deef6",
+        "filename": "tools/set_analyzer_env.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-12-20T02:56:20Z",
+      "side": 1,
+      "message": "This has been around since 2012:\n\nhttps://github.com/llvm/llvm-project/commit/d902b34e6669d9404055efb429e77af4d546b480",
+      "revId": "98e4d7afaadaf2ee7d6dbffe7650863a04116ff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
