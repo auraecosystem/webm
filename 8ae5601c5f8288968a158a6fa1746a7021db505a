@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a6f5bae_93f2e754",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-12-21T08:20:34Z",
+      "side": 1,
+      "message": "Please ignore this comment. I misunderstood the nested if statements. Sorry!",
+      "parentUuid": "df2de4eb_6269096e",
+      "revId": "8ae5601c5f8288968a158a6fa1746a7021db505a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03cb73c2_5b7bb83b",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-12-21T08:10:51Z",
       "side": 1,
       "message": "Note that `last_error` must be \u003c\u003d 0 because of the test in line 859.",
+      "revId": "8ae5601c5f8288968a158a6fa1746a7021db505a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a215d83f_3a326c85",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-12-21T08:20:34Z",
+      "side": 1,
+      "message": "I misunderstood the nested if statement. `last_error` must be \u003e 0.",
+      "parentUuid": "12b1df07_b4f10220",
       "revId": "8ae5601c5f8288968a158a6fa1746a7021db505a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
