@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a00ef5a8_8edec714",
+        "filename": "test/fdct8x8_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-12-21T19:26:07Z",
+      "side": 1,
+      "message": "\u003e Optional: This could be moved to the previous line.\n\nDone.",
+      "parentUuid": "4a34b955_3b6433a0",
+      "revId": "8e015f4741aae558f69c50c43b5b5f806100ebd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00cda1cd_7bb12ba9",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-12-21T07:52:26Z",
       "side": 1,
       "message": "Is 194234435 the currently reported full version?",
+      "range": {
+        "startLine": 141,
+        "startChar": 46,
+        "endLine": 141,
+        "endChar": 55
+      },
+      "revId": "8e015f4741aae558f69c50c43b5b5f806100ebd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc1fbbc_5c0f8f12",
+        "filename": "test/fdct8x8_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-12-21T19:26:07Z",
+      "side": 1,
+      "message": "\u003e Is 194234435 the currently reported full version?\n\nYes, it\u0027s 17.12.3. 17.12.1 was 19.42.34433 (I missed the 17.12.2 update), 17.12.3 reports 19.42.34435. In the first patchset I had a leftover `\u003d\u003d` where I was testing 17.12.3 with a `#error` to make sure I had the value correct.\n\nhttps://learn.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view\u003dmsvc-170#microsoft-specific-predefined-macros",
+      "parentUuid": "00cda1cd_7bb12ba9",
       "range": {
         "startLine": 141,
         "startChar": 46,
