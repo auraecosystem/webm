@@ -72,6 +72,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ab34b824_9021b086",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-12-21T08:24:50Z",
+      "side": 1,
+      "message": "I proved that this cannot happen, because we cannot reach line 863 in the first iteration of the while loop.\n\nIn the first iteration of the while loop, `last_error` is equal to its initial value `INT_MAX`, so the test at line 860 must be true and we will take the `if` branch.",
+      "parentUuid": "03cb73c2_5b7bb83b",
+      "revId": "8ae5601c5f8288968a158a6fa1746a7021db505a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "12b1df07_b4f10220",
         "filename": "vp9/encoder/vp9_ratectrl.c",
         "patchSetId": 3
