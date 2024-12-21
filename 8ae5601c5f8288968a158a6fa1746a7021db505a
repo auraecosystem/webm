@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10280be2_a1bd2164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-12-21T08:10:51Z",
+      "side": 1,
+      "message": "While studying this CL, I found a test that seems wrong in `vp9_rc_regulate_q()`. Please see my comments in that function.",
+      "revId": "8ae5601c5f8288968a158a6fa1746a7021db505a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df2de4eb_6269096e",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-12-21T08:10:51Z",
+      "side": 1,
+      "message": "IMPORTANT: `last_error` is initialized to `INT_MAX` (line 837). But as soon as line 867 is executed, `last_error` will be \u003c\u003d 0. Since `target_bits_per_mb - bits_per_mb_at_this_q` is \u003e\u003d 0, that means this test will never be true unless both sides are equal to 0.\n\nThis seems wrong.",
+      "revId": "8ae5601c5f8288968a158a6fa1746a7021db505a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03cb73c2_5b7bb83b",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-12-21T08:10:51Z",
+      "side": 1,
+      "message": "This may cause us to return a value of `q` less than `active_best_quality`. Is this correct?",
+      "revId": "8ae5601c5f8288968a158a6fa1746a7021db505a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b1df07_b4f10220",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-12-21T08:10:51Z",
+      "side": 1,
+      "message": "Note that `last_error` must be \u003c\u003d 0 because of the test in line 859.",
+      "revId": "8ae5601c5f8288968a158a6fa1746a7021db505a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
