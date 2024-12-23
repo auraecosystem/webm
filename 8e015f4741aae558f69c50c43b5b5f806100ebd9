@@ -81,6 +81,30 @@
       },
       "revId": "8e015f4741aae558f69c50c43b5b5f806100ebd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95af136b_a10cd701",
+        "filename": "test/fdct8x8_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-12-23T14:25:22Z",
+      "side": 1,
+      "message": "Thanks for the info!",
+      "parentUuid": "3fc1fbbc_5c0f8f12",
+      "range": {
+        "startLine": 141,
+        "startChar": 46,
+        "endLine": 141,
+        "endChar": 55
+      },
+      "revId": "8e015f4741aae558f69c50c43b5b5f806100ebd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
