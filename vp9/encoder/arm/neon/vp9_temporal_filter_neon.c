@@ -1069,3 +1069,38 @@ void vpx_convolve12_vert_neon(const uint8_t *src, ptrdiff_t src_stride,
     w -= 8;
   } while (w != 0);
 }
+
+void vpx_convolve12_neon(const uint8_t *src, ptrdiff_t src_stride, uint8_t *dst,
+                         ptrdiff_t dst_stride, const InterpKernel12 *filter,
+                         int x0_q4, int x_step_q4, int y0_q4, int y_step_q4,
+                         int w, int h) {
+  // Scaling not supported by Neon implementation.
+  if (x_step_q4 != 16 || y_step_q4 != 16) {
+    vpx_convolve12_c(src, src_stride, dst, dst_stride, filter, x0_q4, x_step_q4,
+                     y0_q4, y_step_q4, w, h);
+    return;
+  }
+
+  assert(w == 32 || w == 16 || w == 8);
+  assert(h == 32 || h == 16 || h == 8);
+
+  DECLARE_ALIGNED(32, uint8_t, im_block[BW * (BH + MAX_FILTER_TAP)]);
+
+  const int im_stride = BW;
+  // Account for the vertical pass needing MAX_FILTER_TAP / 2 - 1 lines prior
+  // and MAX_FILTER_TAP / 2 lines post. (+1 to make total divisible by 4.)
+  const int im_height = h + MAX_FILTER_TAP;
+  const ptrdiff_t border_offset = MAX_FILTER_TAP / 2 - 1;
+
+  // Filter starting border_offset rows back. The Neon implementation will
+  // ignore the given height and filter a multiple of 4 lines. Since this goes
+  // into the temporary buffer which has lots of extra room and is subsequently
+  // discarded, this is safe, if somewhat less than ideal.
+  vpx_convolve12_horiz_neon(src - src_stride * border_offset, src_stride,
+                            im_block, im_stride, filter, x0_q4, x_step_q4,
+                            y0_q4, y_step_q4, w, im_height);
+
+  vpx_convolve12_vert_neon(im_block + im_stride * border_offset, im_stride, dst,
+                           dst_stride, filter, x0_q4, x_step_q4, y0_q4,
+                           y_step_q4, w, h);
+}
