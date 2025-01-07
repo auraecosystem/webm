@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f805741c_0ef2dc30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-01-07T19:07:57Z",
+      "side": 1,
+      "message": "This should be c\u003d10, a\u003d1, r\u003d0, because `MAJOR \u003d c-a, MINOR \u003d a, PATCH \u003d r` and MAJOR\u003d9, MINOR\u003d1, PATCH\u003d0.",
+      "revId": "21f454d40ff75181cec9696f8aac9c6ed2e23ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ded1dc5b_cffcbaee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-01-07T19:07:57Z",
+      "side": 1,
+      "message": "This should be r\u003d1.",
+      "revId": "21f454d40ff75181cec9696f8aac9c6ed2e23ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bac7ad32_1aa9dcf9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-01-07T19:07:57Z",
+      "side": 1,
+      "message": "This should be c\u003d11, r\u003d0.",
+      "revId": "21f454d40ff75181cec9696f8aac9c6ed2e23ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "052c92e0_dcdf94b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-01-07T19:07:57Z",
+      "side": 1,
+      "message": "This should be c\u003d11, a\u003d0, r\u003d0.",
+      "revId": "21f454d40ff75181cec9696f8aac9c6ed2e23ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b235843_ec711a19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-01-07T19:07:57Z",
+      "side": 1,
+      "message": "This should be 11.\n\nIf we want to avoid jumping from libvpx.so.9 to libvpx.so.11 (skipping libvpx.so.10), we can switch to the simpler [Semantic Versioning](https://semver.org/) scheme and operate on MAJOR,  MINOR, and PATCH directly.",
+      "revId": "21f454d40ff75181cec9696f8aac9c6ed2e23ac2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
