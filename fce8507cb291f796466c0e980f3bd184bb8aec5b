@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d9bc6a_e7df7e20",
+        "filename": "vpx_dsp/arm/fdct_partial_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-01-07T17:18:21Z",
+      "side": 1,
+      "message": "Optional: It seems better to move `(cl.exe) before the version number \"2022 \u003c 17.7\". But this will make it harder to search for the string \"Visual Studio 2022\". Or perhaps we can say \"Visual Studio 2022 (cl.exe) \u003c 17.7\".",
+      "revId": "fce8507cb291f796466c0e980f3bd184bb8aec5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
