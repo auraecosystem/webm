@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7efc3b7c_9e116777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-01-07T00:30:44Z",
+      "side": 1,
+      "message": "Note the presubmit instances don\u0027t support AVX-512. I ran the tests locally.",
+      "revId": "2b9c624c39ed3f20ec97230b3165383355fcf6f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "405c2eda_726dbc3c",
         "filename": "vpx_dsp/x86/sad4d_avx512.c",
         "patchSetId": 1
