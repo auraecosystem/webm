@@ -45,7 +45,8 @@ typedef enum {
 typedef enum {
   FRAMEFLAGS_KEY = 1,
   FRAMEFLAGS_GOLDEN = 2,
-  FRAMEFLAGS_ALTREF = 4
+  FRAMEFLAGS_ALTREF = 4,
+  FRAMEFLAGS_PSNR = 8
 } FRAMETYPE_FLAGS;
 
 #include <assert.h>
