@@ -3,7 +3,7 @@
   optimizations, improvements to RTC encoding and bug fixes.
 
   - Upgrading:
-    This release is ABI compatible with the previous release.
+    This release is ABI incompatible with the previous release.
 
     Temporal filtering improvement that can be turned on with the new codec
     control VP9E_SET_KEY_FRAME_FILTERING, which gives 1+% BD-rate saving with
