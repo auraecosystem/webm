@@ -16,6 +16,24 @@
       "message": "I think you should add some stronger wording here discouraging the use of this release, noting the shared object was versioned incorrectly and adding a reference to the bug.",
       "revId": "ec5bab76a1985e02bec27cd2c7e78207b52ff6c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "018651e0_df222c66",
+        "filename": "CHANGELOG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-01-09T19:28:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15da3c35_ccdebfcf",
+      "revId": "ec5bab76a1985e02bec27cd2c7e78207b52ff6c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
