@@ -33,6 +33,24 @@
       "message": "I remember some of the ABI version macros in the public headers should also be bumped. Let me look at the diffs in the public headers and comment in bug webm:384672478.",
       "revId": "336254f997d76ccf64bfbbc86eec7120db6fb6e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93cfb5f6_2ae48da2",
+        "filename": "CHANGELOG",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-01-09T19:53:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c432c9a6_a8eb92b9",
+      "revId": "336254f997d76ccf64bfbbc86eec7120db6fb6e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
