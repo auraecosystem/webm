@@ -953,6 +953,10 @@ static vpx_codec_err_t vp8e_encode(vpx_codec_alg_priv_t *ctx,
 
     /* Convert API flags to internal codec lib flags */
     lib_flags = (flags & VPX_EFLAG_FORCE_KF) ? FRAMEFLAGS_KEY : 0;
+    if ((flags & VPX_EFLAG_CALCULATE_PSNR) &&
+        !(ctx->base.init_flags & VPX_CODEC_USE_PSNR)) {
+      lib_flags |= FRAMEFLAGS_PSNR;
+    }
 
     if (img != NULL) {
       YV12_BUFFER_CONFIG sd;

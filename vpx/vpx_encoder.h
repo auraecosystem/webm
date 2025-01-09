@@ -266,6 +266,7 @@ enum vpx_kf_mode {
  */
 typedef long vpx_enc_frame_flags_t;
 #define VPX_EFLAG_FORCE_KF (1 << 0) /**< Force this frame to be a keyframe */
+#define VPX_EFLAG_CALCULATE_PSNR (1 << 1) /**< Calculate PSNR for this frame */
 
 /*!\brief Encoder configuration structure
  *
