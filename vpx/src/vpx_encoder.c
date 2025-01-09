@@ -205,7 +205,12 @@ vpx_codec_err_t vpx_codec_encode(vpx_codec_ctx_t *ctx, const vpx_image_t *img,
   else if (duration > UINT32_MAX || deadline > UINT32_MAX)
     res = VPX_CODEC_INVALID_PARAM;
 #endif
-  else {
+  else if ((flags & VPX_EFLAG_CALCULATE_PSNR) &&
+           (!(ctx->iface->caps & VPX_CODEC_CAP_PSNR) ||
+            ctx->config.enc->g_lag_in_frames != 0)) {
+    ctx->err_detail = "Conflicting PSNR flags.";
+    res = VPX_CODEC_INCAPABLE;
+  } else {
     unsigned int num_enc = ctx->priv->enc.total_encoders;
 
     /* Execute in a normalized floating point environment, if the platform

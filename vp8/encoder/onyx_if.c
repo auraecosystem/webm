@@ -5144,7 +5144,8 @@ int vp8_get_compressed_data(VP8_COMP *cpi, unsigned int *frame_flags,
   }
 #endif
 
-  if (cpi->b_calculate_psnr && cpi->pass != 1 && cm->show_frame) {
+  if ((cpi->b_calculate_psnr || (*frame_flags & FRAMEFLAGS_PSNR)) &&
+      cpi->pass != 1 && cm->show_frame) {
     generate_psnr_packet(cpi);
   }
 
@@ -5157,7 +5158,7 @@ int vp8_get_compressed_data(VP8_COMP *cpi, unsigned int *frame_flags,
       cpi->common.show_frame_mi = cpi->common.mi;
       cpi->count++;
 
-      if (cpi->b_calculate_psnr) {
+      if (cpi->b_calculate_psnr || (*frame_flags & FRAMEFLAGS_PSNR)) {
         uint64_t ye, ue, ve;
         double frame_psnr;
         YV12_BUFFER_CONFIG *orig = cpi->Source;
