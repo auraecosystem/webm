@@ -1422,7 +1422,8 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
     unsigned char *cx_data;
 
     // Set up internal flags
-    if (ctx->base.init_flags & VPX_CODEC_USE_PSNR) cpi->b_calculate_psnr = 1;
+    cpi->b_calculate_psnr = (enc_flags & VPX_EFLAG_CALCULATE_PSNR) ||
+                            (ctx->base.init_flags & VPX_CODEC_USE_PSNR);
 
     if (img != NULL) {
       YV12_BUFFER_CONFIG sd;
