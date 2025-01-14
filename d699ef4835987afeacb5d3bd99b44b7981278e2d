@@ -16,6 +16,23 @@
       "message": "I\u0027ll update libaom after we agree on the format here.",
       "revId": "d699ef4835987afeacb5d3bd99b44b7981278e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b5e609_5f47e300",
+        "filename": "README",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-01-14T00:10:45Z",
+      "side": 1,
+      "message": "We can consider recommending NASM only.\n\nYasm was last updated in 2014, which is worrisome. But the [binary distributions on GitHub](https://github.com/yasm/yasm/releases/tag/v1.3.0) were released in 2019. Strange! Either way, it does not seem to be actively maintained.",
+      "revId": "d699ef4835987afeacb5d3bd99b44b7981278e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
