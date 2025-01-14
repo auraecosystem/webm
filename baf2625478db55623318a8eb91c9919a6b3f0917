@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4823df02_2e6e0790",
+        "filename": "vpx_scale/generic/yv12config.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-01-14T00:59:57Z",
+      "side": 1,
+      "message": "`frame_size` is declared as `uint64_t` here (line 188 or line 191).",
+      "revId": "baf2625478db55623318a8eb91c9919a6b3f0917",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
