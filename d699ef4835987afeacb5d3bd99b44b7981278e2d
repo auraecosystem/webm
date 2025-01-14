@@ -51,6 +51,24 @@
       "parentUuid": "83b5e609_5f47e300",
       "revId": "d699ef4835987afeacb5d3bd99b44b7981278e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2944012d_d4c94535",
+        "filename": "README",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-01-14T02:31:56Z",
+      "side": 1,
+      "message": "\u003e \u003e We can consider recommending NASM only.\n\u003e \u003e \n\u003e \u003e Yasm was last updated in 2014, which is worrisome. But the [binary distributions on GitHub](https://github.com/yasm/yasm/releases/tag/v1.3.0) were released in 2019. Strange! Either way, it does not seem to be actively maintained.\n\u003e \n\u003e You\u0027re right. This was part of the reasoning in https://issues.chromium.org/40540725. I thought it would be best to add the NASM recommendation first and then follow up by making nasm the default (or only) option.\n\nhttps://issues.webmproject.org/389796810 \u0026 https://aomedia.issues.chromium.org/389797443",
+      "parentUuid": "dc2d1c21_27550c54",
+      "revId": "d699ef4835987afeacb5d3bd99b44b7981278e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
