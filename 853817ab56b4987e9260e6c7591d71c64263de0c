@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac4c1d7f_8f39c44d",
+        "filename": "vp9/simple_encode.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-01-16T00:52:49Z",
+      "side": 1,
+      "message": "capitalize this and add a period to match the next line.",
+      "range": {
+        "startLine": 968,
+        "startChar": 12,
+        "endLine": 968,
+        "endChar": 13
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "fdb01a5c_39c35043",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "vp9/simple_encode.cc",
+              "range": {
+                "startLine": 968,
+                "startChar": 0,
+                "endLine": 969,
+                "endChar": 0
+              },
+              "replacement": "    // (1). The last member in FIRSTPASS_STATS is not double.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "853817ab56b4987e9260e6c7591d71c64263de0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
