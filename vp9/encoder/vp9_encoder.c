@@ -2310,8 +2310,10 @@ static void update_initial_width(VP9_COMP *cpi, int use_highbitdepth,
     cm->use_highbitdepth = use_highbitdepth;
 #endif
     alloc_util_frame_buffers(cpi);
-    cpi->initial_width = cm->width;
-    cpi->initial_height = cm->height;
+    if (cm->width > cpi->initial_width || cm->height > cpi->initial_height) {
+      cpi->initial_width = cm->width;
+      cpi->initial_height = cm->height;
+    }
     cpi->initial_mbs = cm->MBs;
   }
 }
