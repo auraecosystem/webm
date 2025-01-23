@@ -1889,7 +1889,6 @@ static vpx_codec_err_t ctrl_set_svc_parameters(vpx_codec_alg_priv_t *ctx,
       lc->loopfilter_ctrl = params->loopfilter_ctrl[sl];
     }
   }
-
   return VPX_CODEC_OK;
 }
 
