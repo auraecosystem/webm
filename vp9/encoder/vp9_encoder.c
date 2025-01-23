@@ -2069,6 +2069,24 @@ static void free_copy_partition_data(VP9_COMP *cpi) {
   cpi->copied_frame_cnt = NULL;
 }
 
+#if CONFIG_VP9_TEMPORAL_DENOISING
+static void setup_denoiser_buffer(VP9_COMP *cpi) {
+  VP9_COMMON *const cm = &cpi->common;
+  if (cpi->oxcf.noise_sensitivity > 0 &&
+      !cpi->denoiser.frame_buffer_initialized) {
+    if (vp9_denoiser_alloc(cm, &cpi->svc, &cpi->denoiser, cpi->use_svc,
+                           cpi->oxcf.noise_sensitivity, cm->width, cm->height,
+                           cm->subsampling_x, cm->subsampling_y,
+#if CONFIG_VP9_HIGHBITDEPTH
+                           cm->use_highbitdepth,
+#endif
+                           VP9_ENC_BORDER_IN_PIXELS))
+      vpx_internal_error(&cm->error, VPX_CODEC_MEM_ERROR,
+                         "Failed to allocate denoiser");
+  }
+}
+#endif
+
 void vp9_change_config(struct VP9_COMP *cpi, const VP9EncoderConfig *oxcf) {
   VP9_COMMON *const cm = &cpi->common;
   RATE_CONTROL *const rc = &cpi->rc;
@@ -2175,6 +2193,48 @@ void vp9_change_config(struct VP9_COMP *cpi, const VP9EncoderConfig *oxcf) {
     CHECK_MEM_ERROR(
         &cm->error, cpi->skin_map,
         vpx_calloc(cm->mi_rows * cm->mi_cols, sizeof(*cpi->skin_map)));
+
+    /*
+        if (cpi->svc.number_spatial_layers > 1) {
+    #if CONFIG_VP9_TEMPORAL_DENOISING
+          // Reset the denoiser for svc on the resize change.
+          if (cpi->oxcf.noise_sensitivity > 0) {
+            vp9_denoiser_free(&(cpi->denoiser));
+            setup_denoiser_buffer(cpi);
+          }
+    #endif
+          if (cpi->oxcf.aq_mode == CYCLIC_REFRESH_AQ) {
+            for (int sl = 0; sl < cpi->svc.number_spatial_layers; ++sl) {
+              int layer = LAYER_IDS_TO_IDX(sl, 0,
+    cpi->svc.number_temporal_layers); LAYER_CONTEXT *const lc =
+    &cpi->svc.layer_context[layer]; size_t last_coded_q_map_size; size_t
+    consec_zero_mv_size; lc->sb_index = 0; lc->actual_num_seg1_blocks = 0;
+              lc->actual_num_seg2_blocks = 0;
+              lc->counter_encode_maxq_scene_change = 0;
+              vpx_free(lc->map);
+              CHECK_MEM_ERROR(
+                  &cm->error, lc->map,
+                  vpx_malloc(cm->mi_rows * cm->mi_cols * sizeof(*lc->map)));
+              memset(lc->map, 0, cm->mi_rows * cm->mi_cols);
+              last_coded_q_map_size =
+                  cm->mi_rows * cm->mi_cols * sizeof(*lc->last_coded_q_map);
+              vpx_free(lc->last_coded_q_map);
+              CHECK_MEM_ERROR(&cm->error, lc->last_coded_q_map,
+                              vpx_malloc(last_coded_q_map_size));
+              assert(MAXQ <= 255);
+              memset(lc->last_coded_q_map, MAXQ, last_coded_q_map_size);
+              consec_zero_mv_size =
+                  cm->mi_rows * cm->mi_cols * sizeof(*lc->consec_zero_mv);
+              vpx_free(lc->consec_zero_mv);
+              CHECK_MEM_ERROR(&cm->error, lc->consec_zero_mv,
+                              vpx_malloc(consec_zero_mv_size));
+              memset(lc->consec_zero_mv, 0, consec_zero_mv_size);
+            }
+            cpi->refresh_golden_frame = 1;
+            cpi->refresh_alt_ref_frame = 1;
+          }
+        }
+    */
 
     free_copy_partition_data(cpi);
     alloc_copy_partition_data(cpi);
@@ -2345,24 +2405,6 @@ static INLINE void vpx_img_chroma_subsampling(vpx_img_fmt_t fmt,
 static INLINE int vpx_img_use_highbitdepth(vpx_img_fmt_t fmt) {
   return fmt & VPX_IMG_FMT_HIGHBITDEPTH;
 }
-
-#if CONFIG_VP9_TEMPORAL_DENOISING
-static void setup_denoiser_buffer(VP9_COMP *cpi) {
-  VP9_COMMON *const cm = &cpi->common;
-  if (cpi->oxcf.noise_sensitivity > 0 &&
-      !cpi->denoiser.frame_buffer_initialized) {
-    if (vp9_denoiser_alloc(cm, &cpi->svc, &cpi->denoiser, cpi->use_svc,
-                           cpi->oxcf.noise_sensitivity, cm->width, cm->height,
-                           cm->subsampling_x, cm->subsampling_y,
-#if CONFIG_VP9_HIGHBITDEPTH
-                           cm->use_highbitdepth,
-#endif
-                           VP9_ENC_BORDER_IN_PIXELS))
-      vpx_internal_error(&cm->error, VPX_CODEC_MEM_ERROR,
-                         "Failed to allocate denoiser");
-  }
-}
-#endif
 
 void vp9_update_compressor_with_img_fmt(VP9_COMP *cpi, vpx_img_fmt_t img_fmt) {
   const VP9EncoderConfig *oxcf = &cpi->oxcf;

@@ -85,6 +85,7 @@ class DatarateOnePassCbrSvc : public OnePassCbrSvc {
       prev_frame_height_[i] = 240;
     }
     ksvc_flex_noupd_tlenh_ = false;
+    external_resize_dynamic_drop_layer_ = false;
   }
   void BeginPassHook(unsigned int /*pass*/) override {}
 
@@ -316,7 +317,63 @@ class DatarateOnePassCbrSvc : public OnePassCbrSvc {
       encoder->Config(&cfg_);
     }
 
-    if (dynamic_drop_layer_ && !single_layer_resize_) {
+    if (external_resize_dynamic_drop_layer_) {
+      if (video->frame() == 1 || video->frame() == 150) {
+        // Chhange layer bitrates to set two top layers to 0.
+        // This will trigger skip encoding/dropping of top two spatial layers.
+        cfg_.rc_target_bitrate -=
+            (cfg_.layer_target_bitrate[1] + cfg_.layer_target_bitrate[2]);
+        middle_bitrate_ = cfg_.layer_target_bitrate[1];
+        top_bitrate_ = cfg_.layer_target_bitrate[2];
+        cfg_.layer_target_bitrate[1] = 0;
+        cfg_.layer_target_bitrate[2] = 0;
+        encoder->Config(&cfg_);
+        for (int sl = 0; sl < 3; sl++) {
+          svc_params_.min_quantizers[sl] = 40;
+          svc_params_.max_quantizers[sl] = 63;
+          svc_params_.scaling_factor_num[sl] = 1;
+          svc_params_.scaling_factor_den[sl] = 1;
+        }
+        encoder->Control(VP9E_SET_SVC_PARAMETERS, &svc_params_);
+      } else if (video->frame() == 50 || video->frame() == 200) {
+        // Change layer bitrates to set top layers to 0.
+        // This will trigger skip encoding/dropping of top spatial layer.
+        cfg_.layer_target_bitrate[1] = middle_bitrate_;
+        cfg_.layer_target_bitrate[2] = 0;
+        cfg_.rc_target_bitrate +=
+            cfg_.layer_target_bitrate[1] + cfg_.layer_target_bitrate[2];
+        encoder->Config(&cfg_);
+        for (int sl = 0; sl < 3; sl++) {
+          svc_params_.min_quantizers[sl] = 40;
+          svc_params_.max_quantizers[sl] = 63;
+        }
+        svc_params_.scaling_factor_num[0] = 1;
+        svc_params_.scaling_factor_den[0] = 2;
+        svc_params_.scaling_factor_num[1] = 1;
+        svc_params_.scaling_factor_den[1] = 1;
+        svc_params_.scaling_factor_num[2] = 1;
+        svc_params_.scaling_factor_den[2] = 1;
+        encoder->Control(VP9E_SET_SVC_PARAMETERS, &svc_params_);
+      } else if (video->frame() == 100 || video->frame() == 250) {
+        // Change layer bitrates to nonzero for all layers.
+        cfg_.layer_target_bitrate[1] = middle_bitrate_;
+        cfg_.layer_target_bitrate[2] = top_bitrate_;
+        cfg_.rc_target_bitrate +=
+            cfg_.layer_target_bitrate[1] + cfg_.layer_target_bitrate[2];
+        encoder->Config(&cfg_);
+        for (int sl = 0; sl < 3; sl++) {
+          svc_params_.min_quantizers[sl] = 40;
+          svc_params_.max_quantizers[sl] = 63;
+        }
+        svc_params_.scaling_factor_num[0] = 1;
+        svc_params_.scaling_factor_den[0] = 4;
+        svc_params_.scaling_factor_num[1] = 1;
+        svc_params_.scaling_factor_den[1] = 2;
+        svc_params_.scaling_factor_num[2] = 1;
+        svc_params_.scaling_factor_den[2] = 1;
+        encoder->Control(VP9E_SET_SVC_PARAMETERS, &svc_params_);
+      }
+    } else if (dynamic_drop_layer_ && !single_layer_resize_) {
       if (video->frame() == 0) {
         // Change layer bitrates to set top layers to 0. This will trigger skip
         // encoding/dropping of top two spatial layers.
@@ -469,6 +526,7 @@ class DatarateOnePassCbrSvc : public OnePassCbrSvc {
   }
 
   void FramePktHook(const vpx_codec_cx_pkt_t *pkt) override {
+    if (external_resize_dynamic_drop_layer_) return;
     uint32_t sizes[8] = { 0 };
     uint32_t sizes_parsed[8] = { 0 };
     int count = 0;
@@ -637,6 +695,7 @@ class DatarateOnePassCbrSvc : public OnePassCbrSvc {
   unsigned int prev_frame_width_[VPX_MAX_LAYERS];
   unsigned int prev_frame_height_[VPX_MAX_LAYERS];
   bool ksvc_flex_noupd_tlenh_;
+  bool external_resize_dynamic_drop_layer_;
 
  private:
   void SetConfig(const int num_temporal_layer) override {
@@ -660,6 +719,49 @@ class DatarateOnePassCbrSvc : public OnePassCbrSvc {
 
   unsigned int num_nonref_frames_;
   unsigned int mismatch_nframes_;
+};
+
+void ScaleForFrameNumber(unsigned int frame, unsigned int initial_w,
+                         unsigned int initial_h, unsigned int *w,
+                         unsigned int *h) {
+  *w = initial_w;
+  *h = initial_h;
+
+  if (frame < 50) {
+    *w = initial_w / 4;
+    *h = initial_h / 4;
+  } else if (frame < 100) {
+    *w = initial_w / 2;
+    *h = initial_h / 2;
+  } else if (frame < 150) {
+    *w = initial_w;
+    *h = initial_h;
+  } else if (frame < 200) {
+    *w = initial_w / 4;
+    *h = initial_h / 4;
+  } else if (frame < 250) {
+    *w = initial_w / 2;
+    *h = initial_h / 2;
+  }
+}
+
+class ResizingVideoSource : public ::libvpx_test::DummyVideoSource {
+ public:
+  ResizingVideoSource() {
+    SetSize(1280, 720);
+    limit_ = 300;
+  }
+  ~ResizingVideoSource() override = default;
+
+ protected:
+  void Next() override {
+    ++frame_;
+    unsigned int width = 0;
+    unsigned int height = 0;
+    ScaleForFrameNumber(frame_, 1280, 720, &width, &height);
+    SetSize(width, height);
+    FillFrame();
+  }
 };
 
 // Params: speed setting.
@@ -1070,7 +1172,7 @@ TEST_P(DatarateOnePassCbrSvcSingleBR, OnePassCbrSvc2SL_SingleLayerResize) {
 #endif
 }
 
-// For  pass CBR SVC with 1 spatial and 2 temporal layers with dynamic resize
+// For 1 pass CBR SVC with 1 spatial and 2 temporal layers with dynamic resize
 // and denoiser enabled. The resizer will resize the single layer down and back
 // up again, as the bitrate goes back up.
 TEST_P(DatarateOnePassCbrSvcSingleBR, OnePassCbrSvc1SL2TL_DenoiseResize) {
@@ -1150,6 +1252,38 @@ TEST_P(DatarateOnePassCbrSvcSingleBR, OnePassCbrSvc2SL1TL5x5MultipleRuns) {
   // encoder will avoid loopfilter on these frames.
   EXPECT_EQ(GetNonRefFrames(), GetMismatchFrames());
 #endif
+}
+
+// For 1 pass CBR SVC with 3 spatial and 1 temporal layer with external resize
+// and denoiser enabled. The external resizer will resize down and back up,
+// setting 0/nonzero bitrate on spatial enhancement layers to disable/enable
+// layers.
+TEST_P(DatarateOnePassCbrSvcSingleBR,
+       OnePassCbrSvc3SL1TL_DenoiseExternalResize) {
+  SetSvcConfig(3, 1);
+  cfg_.rc_buf_initial_sz = 500;
+  cfg_.rc_buf_optimal_sz = 500;
+  cfg_.rc_buf_sz = 1000;
+  cfg_.rc_min_quantizer = 40;
+  cfg_.rc_max_quantizer = 63;
+  cfg_.g_threads = 1;
+  cfg_.temporal_layering_mode = 0;
+  cfg_.rc_dropframe_thresh = 30;
+  cfg_.kf_max_dist = 50;
+  cfg_.kf_min_dist = 50;
+  cfg_.rc_resize_allowed = 0;
+  ResizingVideoSource video;
+  top_sl_width_ = 1280;
+  top_sl_height_ = 720;
+  cfg_.rc_target_bitrate = 800;
+  ResetModel();
+  dynamic_drop_layer_ = false;
+  single_layer_resize_ = false;
+  denoiser_on_ = 1;
+  base_speed_setting_ = speed_setting_;
+  external_resize_dynamic_drop_layer_ = true;
+  AssignLayerBitrates();
+  ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
 }
 
 // Params: speed setting and index for bitrate array.
