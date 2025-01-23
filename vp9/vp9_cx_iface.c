@@ -1889,6 +1889,10 @@ static vpx_codec_err_t ctrl_set_svc_parameters(vpx_codec_alg_priv_t *ctx,
       lc->loopfilter_ctrl = params->loopfilter_ctrl[sl];
     }
   }
+  if (cpi->common.current_video_frame == 0) {
+    cpi->initial_width = cpi->oxcf.width;
+    cpi->initial_height = cpi->oxcf.height;
+  }
 
   return VPX_CODEC_OK;
 }
