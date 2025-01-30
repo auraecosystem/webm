@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08474d68_8bcc0cce",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 2207,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-01-30T23:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "737d9985_db879f18",
+      "range": {
+        "startLine": 2207,
+        "startChar": 10,
+        "endLine": 2207,
+        "endChar": 13
+      },
+      "revId": "e2033fbaa98edbfb355c45e845f17522f96df476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a2230d9_20964702",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2af7b7e9_740676c6",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-01-30T23:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a2230d9_20964702",
+      "range": {
+        "startLine": 2209,
+        "startChar": 10,
+        "endLine": 2210,
+        "endChar": 36
+      },
+      "revId": "e2033fbaa98edbfb355c45e845f17522f96df476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d61b595d_7f623b94",
@@ -60,6 +108,30 @@
       "writtenOn": "2025-01-30T01:23:09Z",
       "side": 1,
       "message": "remove this; MAXQ is defined as 255",
+      "range": {
+        "startLine": 2225,
+        "startChar": 0,
+        "endLine": 2225,
+        "endChar": 30
+      },
+      "revId": "e2033fbaa98edbfb355c45e845f17522f96df476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be3f5e71_85547acc",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 2225,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-01-30T23:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d61b595d_7f623b94",
       "range": {
         "startLine": 2225,
         "startChar": 0,
