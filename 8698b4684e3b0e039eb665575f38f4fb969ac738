@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9e53f1_2f9d2edd",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 2217,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-01-30T23:46:04Z",
+      "side": 1,
+      "message": "You can use\n```\nvpx_calloc(cm-\u003emi_rows * cm-\u003emi_cols, sizeof(*lc-\u003emap));\n```\nand remove `memset` below.\n\nsame for `lc-\u003econsec_zero_mv`.",
+      "range": {
+        "startLine": 2217,
+        "startChar": 15,
+        "endLine": 2217,
+        "endChar": 69
+      },
+      "revId": "8698b4684e3b0e039eb665575f38f4fb969ac738",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
