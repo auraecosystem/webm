@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737d9985_db879f18",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 2207,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-01-30T01:23:09Z",
+      "side": 1,
+      "message": "const int",
+      "range": {
+        "startLine": 2207,
+        "startChar": 10,
+        "endLine": 2207,
+        "endChar": 13
+      },
+      "revId": "e2033fbaa98edbfb355c45e845f17522f96df476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a2230d9_20964702",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-01-30T01:23:09Z",
+      "side": 1,
+      "message": "I don\u0027t think you need these two because both `last_coded_q_map` and `consec_zero_mv_size` is `uint8_t` which is 1 byte, so their size will be `cm-\u003emi_rows * cm-\u003emi_cols`",
+      "range": {
+        "startLine": 2209,
+        "startChar": 10,
+        "endLine": 2210,
+        "endChar": 36
+      },
+      "revId": "e2033fbaa98edbfb355c45e845f17522f96df476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d61b595d_7f623b94",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 2225,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-01-30T01:23:09Z",
+      "side": 1,
+      "message": "remove this; MAXQ is defined as 255",
+      "range": {
+        "startLine": 2225,
+        "startChar": 0,
+        "endLine": 2225,
+        "endChar": 30
+      },
+      "revId": "e2033fbaa98edbfb355c45e845f17522f96df476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
