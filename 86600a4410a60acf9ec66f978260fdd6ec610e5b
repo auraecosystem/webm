@@ -16,6 +16,24 @@
       "message": "It seems like `cpi-\u003edenoiser.frame_buffer_initialized` should be set after this succeeds, no?",
       "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c72c859_76d6d6cc",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-01-31T19:47:30Z",
+      "side": 1,
+      "message": "It\u0027s set in the vp9_denoiser_alloc() when it succeeds (before it returns 0).",
+      "parentUuid": "6dc02a8a_b92bf310",
+      "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
