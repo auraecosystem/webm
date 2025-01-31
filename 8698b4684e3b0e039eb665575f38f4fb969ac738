@@ -3,6 +3,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dae9c5d_2fd1f7aa",
+        "filename": "test/svc_datarate_test.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-01-31T02:25:23Z",
+      "side": 1,
+      "message": "Change",
+      "range": {
+        "startLine": 332,
+        "startChar": 11,
+        "endLine": 332,
+        "endChar": 18
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7da83b6d_bb3a9443",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/svc_datarate_test.cc",
+              "range": {
+                "startLine": 332,
+                "startChar": 0,
+                "endLine": 333,
+                "endChar": 0
+              },
+              "replacement": "        // Change layer bitrates to set two top layers to 0.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8698b4684e3b0e039eb665575f38f4fb969ac738",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a9e53f1_2f9d2edd",
         "filename": "vp9/encoder/vp9_encoder.c",
         "patchSetId": 29
