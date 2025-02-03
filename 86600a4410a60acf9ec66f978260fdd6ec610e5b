@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ab293b3_e8c87e1f",
+        "filename": "test/svc_datarate_test.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-02-03T22:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b888e8fb_a1f5d4c5",
+      "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dc02a8a_b92bf310",
@@ -88,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "664e6c87_fd2d418e",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 2201,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-02-03T22:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd990680_e3bca08a",
+      "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86146c26_82917216",
@@ -107,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b8f2e97_68cec968",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 2368,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-02-03T22:19:55Z",
+      "side": 1,
+      "message": "Added comment.",
+      "parentUuid": "86146c26_82917216",
+      "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4dee1771_4eff1b73",
         "filename": "vp9/vp9_cx_iface.c",
         "patchSetId": 30
@@ -118,6 +172,24 @@
       "writtenOn": "2025-01-31T23:41:59Z",
       "side": 1,
       "message": "This if statement is not related to SVC parameters. It is strange that we need to do this work in `ctrl_set_svc_parameters()`. Is there a better place to do this work? It seems that this work should be done during initialization or when we reset `cpi-\u003ecommon.current_video_frame` to 0.",
+      "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746b8d86_04659e07",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 1895,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-02-03T22:19:55Z",
+      "side": 1,
+      "message": "That should work. Moved it to create_compressor(), after init_frame_indexes(), where the cpi-\u003ecommon.current_video_frame is set to 0.",
+      "parentUuid": "4dee1771_4eff1b73",
       "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
