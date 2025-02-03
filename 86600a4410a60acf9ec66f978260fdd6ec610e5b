@@ -159,6 +159,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e809b815_3bedbb82",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 2368,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-02-03T22:38:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b8f2e97_68cec968",
+      "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dee1771_4eff1b73",
@@ -190,6 +208,24 @@
       "side": 1,
       "message": "That should work. Moved it to create_compressor(), after init_frame_indexes(), where the cpi-\u003ecommon.current_video_frame is set to 0.",
       "parentUuid": "4dee1771_4eff1b73",
+      "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f53aca6_264151f0",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 1895,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-02-03T22:38:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "746b8d86_04659e07",
       "revId": "86600a4410a60acf9ec66f978260fdd6ec610e5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

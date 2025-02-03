@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "effe4720_3d2de01e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-02-03T22:38:23Z",
+      "side": 1,
+      "message": "Marco: Since I am not familiar with initial_width/height, I did not set Code-Review+2. But I have no objections either. I can try to take another look tomorrow if this is not urgent.",
+      "revId": "5bfc5c3f2f135e409b49c4d4d862021217032b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e82133e_94fc86ad",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 2375,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-02-03T22:38:23Z",
+      "side": 1,
+      "message": "I wonder if we should use `\u0026\u0026` instead of `||` in this check.",
+      "revId": "5bfc5c3f2f135e409b49c4d4d862021217032b70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
