@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cc40495_0400c4f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2025-02-08T04:54:56Z",
+      "side": 1,
+      "message": "\u003e Can you provide the timing numbers you\u0027re seeing on your machine (and the device info)?\n\u003e \n\u003e Try: `./test_libvpx --gtest_filter\u003dAVX2/SAD*Speed*:AVX512/SAD*Speed* --gtest_also_run_disabled_tests`.\n\nSADx4 tests were not part of the change, so I tweaked the command line a little bit and compared the results between\n\n\"./test_libvpx --gtest_filter\u003dAVX2/SAD*Speed*:-*x4* --gtest_also_run_disabled_tests\" and\n\"./test_libvpx --gtest_filter\u003dAVX512/SAD*Speed*:-*x4* --gtest_also_run_disabled_tests\"\n\nAcross 5 runs, AVX2 took an average of 112ms, while AVX512 took an average of 105ms, so AVX512 was about 6% faster.\n\nTests were done on an AMD Ryzen 7 7840HS, which has a 256 bit FP datapath. Ryzen 5 and newer CPUs should see bigger gain.",
+      "parentUuid": "fccd668f_d770de06",
+      "revId": "acf8f1b6f0c8100010c055e13036bce088d5cf1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf561ef2_a5ba453b",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf6b930_e8695d15",
+        "filename": "vpx_dsp/x86/sad_avx512.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2025-02-08T04:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf561ef2_a5ba453b",
+      "range": {
+        "startLine": 2,
+        "startChar": 18,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "acf8f1b6f0c8100010c055e13036bce088d5cf1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8add8dd_fb2e46a5",
@@ -54,6 +96,30 @@
       "writtenOn": "2025-02-07T17:48:01Z",
       "side": 1,
       "message": "I know this is based on sad_avx2.c, but in this code could you please correct the const order? `__m512i const *` -\u003e `const __m512i *` and similarly for the `__m256i` instances. The issue in the original code was missed during its review.",
+      "range": {
+        "startLine": 22,
+        "startChar": 34,
+        "endLine": 22,
+        "endChar": 49
+      },
+      "revId": "acf8f1b6f0c8100010c055e13036bce088d5cf1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e2b1072_0a819931",
+        "filename": "vpx_dsp/x86/sad_avx512.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2025-02-08T04:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8add8dd_fb2e46a5",
       "range": {
         "startLine": 22,
         "startChar": 34,
