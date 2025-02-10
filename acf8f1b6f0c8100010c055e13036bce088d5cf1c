@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a62622a1_7dc1fe75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-02-10T19:06:44Z",
+      "side": 1,
+      "message": "\u003e \u003e Can you provide the timing numbers you\u0027re seeing on your machine (and the device info)?\n\u003e \u003e \n\u003e \u003e Try: `./test_libvpx --gtest_filter\u003dAVX2/SAD*Speed*:AVX512/SAD*Speed* --gtest_also_run_disabled_tests`.\n\u003e \n\u003e SADx4 tests were not part of the change, so I tweaked the command line a little bit and compared the results between\n\u003e \n\u003e \"./test_libvpx --gtest_filter\u003dAVX2/SAD*Speed*:-*x4* --gtest_also_run_disabled_tests\" and\n\u003e \"./test_libvpx --gtest_filter\u003dAVX512/SAD*Speed*:-*x4* --gtest_also_run_disabled_tests\"\n\u003e \n\u003e Across 5 runs, AVX2 took an average of 112ms, while AVX512 took an average of 105ms, so AVX512 was about 6% faster.\n\u003e \n\u003e Tests were done on an AMD Ryzen 7 7840HS, which has a 256 bit FP datapath. Ryzen 5 and newer CPUs should see bigger gain.\n\nThank you for running the numbers. On a Core i7-1185G7 in performance mode I see slightly larger gains, though 32x16 \u0026 32x32 are neutral to slightly negative depending on the test with gcc 14.2.0. I boosted the count of runs and this holds.\n\nIn that case the assembly is minorly different, but clang 16.0.6 does not make any changes to sad32x64 for example. The runtimes vary a little between them, so this may be down to normal fluctuations or perhaps code layout. Given this I\u0027d prefer to focus only on the 64xN variants in this change. The others can be added later if there\u0027s a change in the assembly that produces a positive effect.",
+      "parentUuid": "1cc40495_0400c4f6",
+      "revId": "acf8f1b6f0c8100010c055e13036bce088d5cf1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf561ef2_a5ba453b",
