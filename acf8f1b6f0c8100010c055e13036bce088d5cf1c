@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f154964_8bff7614",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2025-02-23T20:40:12Z",
+      "side": 1,
+      "message": "Addressed in the latest revision; only apply AVX512 to sad64 variants",
+      "parentUuid": "a62622a1_7dc1fe75",
+      "revId": "acf8f1b6f0c8100010c055e13036bce088d5cf1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf561ef2_a5ba453b",
