@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ebe6173_d4026c28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-02-25T01:07:17Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Spellchecker: \"neccesarily\" is a possible misspelling of \"necessarily\".\n\nAnalyzer Description: Checks for common typos.\nOwner: chops-source-team@google.com\n\n\"neccesarily\" is a possible misspelling of \"necessarily\".\n\nTo bypass Spellchecker, add a footer with DISABLE_SPELLCHECKER",
+      "range": {
+        "startLine": 10,
+        "startChar": 43,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "1634074b7c9a9c0cdd7e07cbc74ebbdecea7dc69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
