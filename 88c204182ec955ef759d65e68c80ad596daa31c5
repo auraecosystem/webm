@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4554e37_8f406af2",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-02-25T03:36:55Z",
+      "side": 1,
+      "message": "These inners ()s look like they may be unncesary, but this condition is getting fairly involved, so I\u0027m not sure if one or the other is more readable.",
+      "range": {
+        "startLine": 820,
+        "startChar": 9,
+        "endLine": 820,
+        "endChar": 10
+      },
+      "revId": "88c204182ec955ef759d65e68c80ad596daa31c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
