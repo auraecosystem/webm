@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83fff382_e539182f",
+        "filename": "vpx_ports/vpx_timer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-07T19:16:15Z",
+      "side": 1,
+      "message": "Check to see if `CLOCK_MONOTONIC_RAW` is defined and use it if available. This version isn\u0027t affected by frequency adjustments.\n\nhttps://www.man7.org/linux/man-pages/man3/clock_gettime.3.html",
+      "revId": "ebc5cffe03dfe436dbadd729f128f83fc58dafb5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
