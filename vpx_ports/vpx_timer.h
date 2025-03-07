@@ -31,17 +31,17 @@
 /*
  * POSIX specific includes
  */
-#include <sys/time.h>
+#include <time.h>
 
 /* timersub is not provided by msys at this time. */
-#ifndef timersub
-#define timersub(a, b, result)                       \
+#ifndef timersub_ns
+#define timersub_ns(a, b, result)                    \
   do {                                               \
     (result)->tv_sec = (a)->tv_sec - (b)->tv_sec;    \
-    (result)->tv_usec = (a)->tv_usec - (b)->tv_usec; \
-    if ((result)->tv_usec < 0) {                     \
+    (result)->tv_nsec = (a)->tv_nsec - (b)->tv_nsec; \
+    if ((result)->tv_nsec < 0) {                     \
       --(result)->tv_sec;                            \
-      (result)->tv_usec += 1000000;                  \
+      (result)->tv_nsec += 1000000000;               \
     }                                                \
   } while (0)
 #endif
@@ -51,7 +51,7 @@ struct vpx_usec_timer {
 #if defined(_WIN32)
   LARGE_INTEGER begin, end;
 #else
-  struct timeval begin, end;
+  struct timespec begin, end;
 #endif
 };
 
@@ -59,7 +59,7 @@ static INLINE void vpx_usec_timer_start(struct vpx_usec_timer *t) {
 #if defined(_WIN32)
   QueryPerformanceCounter(&t->begin);
 #else
-  gettimeofday(&t->begin, NULL);
+  clock_gettime(CLOCK_MONOTONIC, &t->begin);
 #endif
 }
 
@@ -67,7 +67,7 @@ static INLINE void vpx_usec_timer_mark(struct vpx_usec_timer *t) {
 #if defined(_WIN32)
   QueryPerformanceCounter(&t->end);
 #else
-  gettimeofday(&t->end, NULL);
+  clock_gettime(CLOCK_MONOTONIC, &t->end);
 #endif
 }
 
@@ -80,18 +80,18 @@ static INLINE int64_t vpx_usec_timer_elapsed(struct vpx_usec_timer *t) {
   QueryPerformanceFrequency(&freq);
   return diff.QuadPart * 1000000 / freq.QuadPart;
 #else
-  struct timeval diff;
+  struct timespec diff;
 
-  timersub(&t->end, &t->begin, &diff);
-  return (int64_t)diff.tv_sec * 1000000 + diff.tv_usec;
+  timersub_ns(&t->end, &t->begin, &diff);
+  return (int64_t)diff.tv_sec * 1000000 + diff.tv_nsec / 1000;
 #endif
 }
 
 #else /* CONFIG_OS_SUPPORT = 0*/
 
 /* Empty timer functions if CONFIG_OS_SUPPORT = 0 */
-#ifndef timersub
-#define timersub(a, b, result)
+#ifndef timersub_ns
+#define timersub_ns(a, b, result)
 #endif
 
 struct vpx_usec_timer {
