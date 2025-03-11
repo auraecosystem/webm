@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9de79ca1_ee71b6d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-11T22:26:20Z",
+      "side": 1,
+      "message": "I\u0027m trying to get access to the bug before approving this. After I +2 it, it will need one further approval.",
+      "revId": "3e2cfbfe048eaff43f5693b3b87e15658c33a0f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
