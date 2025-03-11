@@ -16,6 +16,23 @@
       "message": "I\u0027m trying to get access to the bug before approving this. After I +2 it, it will need one further approval.",
       "revId": "3e2cfbfe048eaff43f5693b3b87e15658c33a0f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3714118a_8c65dcbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-11T23:24:10Z",
+      "side": 1,
+      "message": "Marco, we collect some timing, but don\u0027t use it meaningfully. I have the feeling that use of the timer should be guarded by `CONFIG_INTERNAL_STATS`.",
+      "revId": "3e2cfbfe048eaff43f5693b3b87e15658c33a0f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
