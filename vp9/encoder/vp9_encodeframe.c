@@ -1302,7 +1302,8 @@ static int choose_partitioning(VP9_COMP *cpi, const TileInfo *const tile,
   }
 
   // Always use 4x4 partition for key frame.
-  const int use_4x4_partition = frame_is_intra_only(cm);
+  const int use_4x4_partition =
+      frame_is_intra_only(cm) && !cpi->external_resize;
   const int low_res = (cm->width <= 352 && cm->height <= 288);
   int variance4x4downsample[16];
   int segment_id;
