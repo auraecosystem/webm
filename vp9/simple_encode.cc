@@ -911,7 +911,8 @@ void SimpleEncode::ComputeFirstPassStats() {
           timebase_units_to_ticks(&oxcf.g_timebase_in_ts, next_show_idx + 1);
       YV12_BUFFER_CONFIG sd;
       image2yuvconfig(&img, &sd);
-      vp9_lookahead_push(lookahead, &sd, ts_start, ts_end, use_highbitdepth, 0);
+      vp9_lookahead_push(lookahead, &sd, ts_start, ts_end, use_highbitdepth, 0,
+                         0);
       {
         int64_t time_stamp;
         int64_t time_end;
@@ -1191,7 +1192,8 @@ void SimpleEncode::EncodeFrame(EncodeFrameResult *encode_frame_result) {
                                                next_show_idx + 1);
       YV12_BUFFER_CONFIG sd;
       image2yuvconfig(&impl_ptr_->tmp_img, &sd);
-      vp9_lookahead_push(lookahead, &sd, ts_start, ts_end, use_highbitdepth, 0);
+      vp9_lookahead_push(lookahead, &sd, ts_start, ts_end, use_highbitdepth, 0,
+                         0);
     } else {
       break;
     }

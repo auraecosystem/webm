@@ -92,7 +92,7 @@ int vp9_lookahead_next_show_idx(const struct lookahead_ctx *ctx) {
 
 int vp9_lookahead_push(struct lookahead_ctx *ctx, YV12_BUFFER_CONFIG *src,
                        int64_t ts_start, int64_t ts_end, int use_highbitdepth,
-                       vpx_enc_frame_flags_t flags) {
+                       vpx_enc_frame_flags_t flags, int has_spatial_layers) {
   struct lookahead_entry *buf;
   int width = src->y_crop_width;
   int height = src->y_crop_height;
@@ -119,7 +119,7 @@ int vp9_lookahead_push(struct lookahead_ctx *ctx, YV12_BUFFER_CONFIG *src,
       uv_width > buf->img.uv_crop_width || uv_height > buf->img.uv_crop_height;
   assert(!larger_dimensions || new_dimensions);
 
-  if (larger_dimensions) {
+  if (larger_dimensions || (new_dimensions && has_spatial_layers)) {
     YV12_BUFFER_CONFIG new_img;
     memset(&new_img, 0, sizeof(new_img));
     if (vpx_alloc_frame_buffer(&new_img, width, height, subsampling_x,
