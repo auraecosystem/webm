@@ -90,7 +90,7 @@ int vp9_lookahead_next_show_idx(const struct lookahead_ctx *ctx);
  */
 int vp9_lookahead_push(struct lookahead_ctx *ctx, YV12_BUFFER_CONFIG *src,
                        int64_t ts_start, int64_t ts_end, int use_highbitdepth,
-                       vpx_enc_frame_flags_t flags);
+                       vpx_enc_frame_flags_t flags, int has_spatial_layers);
 
 /**\brief Get the next source buffer to encode
  *

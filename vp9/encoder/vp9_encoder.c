@@ -6049,7 +6049,8 @@ int vp9_receive_raw_frame(VP9_COMP *cpi, vpx_enc_frame_flags_t frame_flags,
   vpx_usec_timer_start(&timer);
 
   if (vp9_lookahead_push(cpi->lookahead, sd, time_stamp, end_time,
-                         use_highbitdepth, frame_flags))
+                         use_highbitdepth, frame_flags,
+                         cpi->svc.number_spatial_layers > 1))
     res = -1;
   vpx_usec_timer_mark(&timer);
   cpi->time_receive_data += vpx_usec_timer_elapsed(&timer);
