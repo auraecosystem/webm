@@ -16,6 +16,29 @@
       "message": "PTAL, this change is related to https://android-review.git.corp.google.com/c/platform/external/libvpx/+/3531772.\nThank you!",
       "revId": "7e78c71691bf349baf84f151f9f9a445cac93736",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09fdaad5_8c8f7764",
+        "filename": "examples.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-12T22:21:33Z",
+      "side": 1,
+      "message": "\u0027gyp\u0027 is an anachronism, but this is consisten with the other source lists.",
+      "range": {
+        "startLine": 372,
+        "startChar": 73,
+        "endLine": 372,
+        "endChar": 76
+      },
+      "revId": "7e78c71691bf349baf84f151f9f9a445cac93736",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
