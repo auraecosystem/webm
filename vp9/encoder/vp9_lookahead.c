@@ -95,6 +95,7 @@ int vp9_lookahead_push(struct lookahead_ctx *ctx, YV12_BUFFER_CONFIG *src,
                        vpx_enc_frame_flags_t flags) {
   struct lookahead_entry *buf;
   int width = src->y_crop_width;
+  int aligned_width = ALIGN_POWER_OF_TWO(width, 3);
   int height = src->y_crop_height;
   int uv_width = src->uv_crop_width;
   int uv_height = src->uv_crop_height;
@@ -142,6 +143,9 @@ int vp9_lookahead_push(struct lookahead_ctx *ctx, YV12_BUFFER_CONFIG *src,
     buf->img.uv_crop_height = src->uv_crop_height;
     buf->img.subsampling_x = src->subsampling_x;
     buf->img.subsampling_y = src->subsampling_y;
+    buf->img.y_stride =
+        ALIGN_POWER_OF_TWO((aligned_width + 2 * buf->img.border), 5);
+    buf->img.uv_stride = buf->img.y_stride >> subsampling_x;
   }
   vp9_copy_and_extend_frame(src, &buf->img);
 
