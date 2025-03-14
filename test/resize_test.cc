@@ -93,10 +93,19 @@ struct FrameInfo {
 void ScaleForFrameNumber(unsigned int frame, unsigned int initial_w,
                          unsigned int initial_h, unsigned int *w,
                          unsigned int *h, bool flag_codec,
-                         bool smaller_width_larger_size_) {
+                         bool smaller_width_larger_size_,
+                         bool random_input_one_half_only_) {
   *w = initial_w;
   *h = initial_h;
 
+  if (random_input_one_half_only_ == 1) {
+    if (frame < 100) {
+      return;
+    }
+    *w = initial_w / 2;
+    *h = initial_h / 2;
+    return;
+  }
   if (smaller_width_larger_size_) {
     if (frame < 30) {
       return;
@@ -236,13 +245,17 @@ void ScaleForFrameNumber(unsigned int frame, unsigned int initial_w,
 
 class ResizingVideoSource : public ::libvpx_test::DummyVideoSource {
  public:
-  ResizingVideoSource() {
-    SetSize(kInitialWidth, kInitialHeight);
+  ResizingVideoSource(int width, int height)
+      : smaller_width_larger_size_(false), random_input_one_half_only_(false),
+        top_width_(width), top_height_(height) {
     limit_ = 350;
-    smaller_width_larger_size_ = false;
+    SetSize(top_width_, top_height_);
   }
   bool flag_codec_;
   bool smaller_width_larger_size_;
+  bool random_input_one_half_only_;
+  int top_width_;
+  int top_height_;
   ~ResizingVideoSource() override = default;
 
  protected:
@@ -250,10 +263,22 @@ class ResizingVideoSource : public ::libvpx_test::DummyVideoSource {
     ++frame_;
     unsigned int width = 0;
     unsigned int height = 0;
-    ScaleForFrameNumber(frame_, kInitialWidth, kInitialHeight, &width, &height,
-                        flag_codec_, smaller_width_larger_size_);
+    ScaleForFrameNumber(frame_, top_width_, top_height_, &width, &height,
+                        flag_codec_, smaller_width_larger_size_,
+                        random_input_one_half_only_);
     SetSize(width, height);
     FillFrame();
+  }
+
+  void FillFrame() override {
+    if (img_) memset(img_->img_data, 0, raw_sz_);
+    if (random_input_one_half_only_) {
+      libvpx_test::ACMRandom rnd(libvpx_test::ACMRandom::DeterministicSeed());
+      unsigned char *image = img_->planes[0];
+      for (size_t i = 0; i < raw_sz_; ++i) {
+        image[i] = rnd.Rand8();
+      }
+    }
   }
 };
 
@@ -296,26 +321,25 @@ class ResizeTest
 };
 
 TEST_P(ResizeTest, TestExternalResizeWorks) {
-  ResizingVideoSource video;
+  ResizingVideoSource video(kInitialWidth, kInitialHeight);
   video.flag_codec_ = false;
   video.smaller_width_larger_size_ = false;
   cfg_.g_lag_in_frames = 0;
   ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
 
-  for (std::vector<FrameInfo>::const_iterator info = frame_info_list_.begin();
-       info != frame_info_list_.end(); ++info) {
-    const unsigned int frame = static_cast<unsigned>(info->pts);
+  for (const auto &info : frame_info_list_) {
+    const unsigned int frame = static_cast<unsigned>(info.pts);
     unsigned int expected_w;
     unsigned int expected_h;
-    const size_t idx = info - frame_info_list_.begin();
-    ASSERT_EQ(info->w, GetFrameWidth(idx));
-    ASSERT_EQ(info->h, GetFrameHeight(idx));
+    const size_t idx = &info - &frame_info_list_[0];
+    ASSERT_EQ(info.w, GetFrameWidth(idx));
+    ASSERT_EQ(info.h, GetFrameHeight(idx));
     ScaleForFrameNumber(frame, kInitialWidth, kInitialHeight, &expected_w,
                         &expected_h, video.flag_codec_,
-                        video.smaller_width_larger_size_);
-    EXPECT_EQ(expected_w, info->w)
+                        video.smaller_width_larger_size_, false);
+    EXPECT_EQ(expected_w, info.w)
         << "Frame " << frame << " had unexpected width";
-    EXPECT_EQ(expected_h, info->h)
+    EXPECT_EQ(expected_h, info.h)
         << "Frame " << frame << " had unexpected height";
   }
 }
@@ -419,15 +443,14 @@ TEST_P(ResizeInternalTest, TestInternalResizeWorks) {
   cfg_.g_lag_in_frames = 0;
   ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
 
-  for (std::vector<FrameInfo>::const_iterator info = frame_info_list_.begin();
-       info != frame_info_list_.end(); ++info) {
-    const vpx_codec_pts_t pts = info->pts;
+  for (const auto &info : frame_info_list_) {
+    const vpx_codec_pts_t pts = info.pts;
     if (pts >= kStepDownFrame && pts < kStepUpFrame) {
-      ASSERT_EQ(282U, info->w) << "Frame " << pts << " had unexpected width";
-      ASSERT_EQ(173U, info->h) << "Frame " << pts << " had unexpected height";
+      ASSERT_EQ(282U, info.w) << "Frame " << pts << " had unexpected width";
+      ASSERT_EQ(173U, info.h) << "Frame " << pts << " had unexpected height";
     } else {
-      EXPECT_EQ(352U, info->w) << "Frame " << pts << " had unexpected width";
-      EXPECT_EQ(288U, info->h) << "Frame " << pts << " had unexpected height";
+      EXPECT_EQ(352U, info.w) << "Frame " << pts << " had unexpected width";
+      EXPECT_EQ(288U, info.h) << "Frame " << pts << " had unexpected height";
     }
   }
 }
@@ -453,6 +476,10 @@ class ResizeRealtimeTest
     if (video->frame() == 0) {
       encoder->Control(VP9E_SET_AQ_MODE, 3);
       encoder->Control(VP8E_SET_CPUUSED, set_cpu_used_);
+      if (cfg_.g_threads > 0) {
+        encoder->Control(VP9E_SET_ROW_MT, 1);
+        encoder->Control(VP9E_SET_TILE_COLUMNS, cfg_.g_threads >> 1);
+      }
     }
 
     if (change_bitrate_ && video->frame() == 120) {
@@ -528,7 +555,7 @@ class ResizeRealtimeTest
 };
 
 TEST_P(ResizeRealtimeTest, TestExternalResizeWorks) {
-  ResizingVideoSource video;
+  ResizingVideoSource video(kInitialWidth, kInitialHeight);
   video.flag_codec_ = true;
   video.smaller_width_larger_size_ = false;
   DefaultConfig();
@@ -539,24 +566,56 @@ TEST_P(ResizeRealtimeTest, TestExternalResizeWorks) {
   mismatch_nframes_ = 0;
   ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
 
-  for (std::vector<FrameInfo>::const_iterator info = frame_info_list_.begin();
-       info != frame_info_list_.end(); ++info) {
-    const unsigned int frame = static_cast<unsigned>(info->pts);
+  for (const auto &info : frame_info_list_) {
+    const unsigned int frame = static_cast<unsigned>(info.pts);
     unsigned int expected_w;
     unsigned int expected_h;
     ScaleForFrameNumber(frame, kInitialWidth, kInitialHeight, &expected_w,
                         &expected_h, video.flag_codec_,
-                        video.smaller_width_larger_size_);
-    EXPECT_EQ(expected_w, info->w)
+                        video.smaller_width_larger_size_, false);
+    EXPECT_EQ(expected_w, info.w)
         << "Frame " << frame << " had unexpected width";
-    EXPECT_EQ(expected_h, info->h)
+    EXPECT_EQ(expected_h, info.h)
+        << "Frame " << frame << " had unexpected height";
+    EXPECT_EQ(static_cast<unsigned int>(0), GetMismatchFrames());
+  }
+}
+
+// This tests uses 4 threads with small keyframe spacing, random input,
+// and uses 640x480 as initial resolution.
+TEST_P(ResizeRealtimeTest, TestExternalResizeWorks4Threads) {
+  ResizingVideoSource video(640, 480);
+  video.flag_codec_ = true;
+  video.smaller_width_larger_size_ = false;
+  video.random_input_one_half_only_ = true;
+  DefaultConfig();
+  // Disable internal resize for this test.
+  cfg_.rc_resize_allowed = 0;
+  cfg_.g_threads = 4;
+  cfg_.kf_max_dist = 50;
+  cfg_.kf_min_dist = 50;
+  change_bitrate_ = false;
+  mismatch_psnr_ = 0.0;
+  mismatch_nframes_ = 0;
+  ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
+
+  for (const auto &info : frame_info_list_) {
+    const unsigned int frame = static_cast<unsigned>(info.pts);
+    unsigned int expected_w;
+    unsigned int expected_h;
+    ScaleForFrameNumber(frame, 640, 480, &expected_w, &expected_h,
+                        video.flag_codec_, video.smaller_width_larger_size_,
+                        video.random_input_one_half_only_);
+    EXPECT_EQ(expected_w, info.w)
+        << "Frame " << frame << " had unexpected width";
+    EXPECT_EQ(expected_h, info.h)
         << "Frame " << frame << " had unexpected height";
     EXPECT_EQ(static_cast<unsigned int>(0), GetMismatchFrames());
   }
 }
 
 TEST_P(ResizeRealtimeTest, TestExternalResizeSmallerWidthBiggerSize) {
-  ResizingVideoSource video;
+  ResizingVideoSource video(kInitialWidth, kInitialHeight);
   video.flag_codec_ = true;
   video.smaller_width_larger_size_ = true;
   DefaultConfig();
@@ -567,17 +626,16 @@ TEST_P(ResizeRealtimeTest, TestExternalResizeSmallerWidthBiggerSize) {
   mismatch_nframes_ = 0;
   ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
 
-  for (std::vector<FrameInfo>::const_iterator info = frame_info_list_.begin();
-       info != frame_info_list_.end(); ++info) {
-    const unsigned int frame = static_cast<unsigned>(info->pts);
+  for (const auto &info : frame_info_list_) {
+    const unsigned int frame = static_cast<unsigned>(info.pts);
     unsigned int expected_w;
     unsigned int expected_h;
     ScaleForFrameNumber(frame, kInitialWidth, kInitialHeight, &expected_w,
                         &expected_h, video.flag_codec_,
-                        video.smaller_width_larger_size_);
-    EXPECT_EQ(expected_w, info->w)
+                        video.smaller_width_larger_size_, false);
+    EXPECT_EQ(expected_w, info.w)
         << "Frame " << frame << " had unexpected width";
-    EXPECT_EQ(expected_h, info->h)
+    EXPECT_EQ(expected_h, info.h)
         << "Frame " << frame << " had unexpected height";
     EXPECT_EQ(static_cast<unsigned int>(0), GetMismatchFrames());
   }
@@ -601,14 +659,13 @@ TEST_P(ResizeRealtimeTest, TestInternalResizeDown) {
   unsigned int last_w = cfg_.g_w;
   unsigned int last_h = cfg_.g_h;
   int resize_count = 0;
-  for (std::vector<FrameInfo>::const_iterator info = frame_info_list_.begin();
-       info != frame_info_list_.end(); ++info) {
-    if (info->w != last_w || info->h != last_h) {
+  for (const auto &info : frame_info_list_) {
+    if (info.w != last_w || info.h != last_h) {
       // Verify that resize down occurs.
-      ASSERT_LT(info->w, last_w);
-      ASSERT_LT(info->h, last_h);
-      last_w = info->w;
-      last_h = info->h;
+      ASSERT_LT(info.w, last_w);
+      ASSERT_LT(info.h, last_h);
+      last_w = info.w;
+      last_h = info.h;
       resize_count++;
     }
   }
@@ -643,24 +700,23 @@ TEST_P(ResizeRealtimeTest, TestInternalResizeDownUpChangeBitRate) {
   unsigned int last_w = cfg_.g_w;
   unsigned int last_h = cfg_.g_h;
   int resize_count = 0;
-  for (std::vector<FrameInfo>::const_iterator info = frame_info_list_.begin();
-       info != frame_info_list_.end(); ++info) {
-    const size_t idx = info - frame_info_list_.begin();
-    ASSERT_EQ(info->w, GetFrameWidth(idx));
-    ASSERT_EQ(info->h, GetFrameHeight(idx));
-    if (info->w != last_w || info->h != last_h) {
+  for (const auto &info : frame_info_list_) {
+    const size_t idx = &info - &frame_info_list_[0];
+    ASSERT_EQ(info.w, GetFrameWidth(idx));
+    ASSERT_EQ(info.h, GetFrameHeight(idx));
+    if (info.w != last_w || info.h != last_h) {
       resize_count++;
       if (resize_count <= 2) {
         // Verify that resize down occurs.
-        ASSERT_LT(info->w, last_w);
-        ASSERT_LT(info->h, last_h);
+        ASSERT_LT(info.w, last_w);
+        ASSERT_LT(info.h, last_h);
       } else if (resize_count > 2) {
         // Verify that resize up occurs.
-        ASSERT_GT(info->w, last_w);
-        ASSERT_GT(info->h, last_h);
+        ASSERT_GT(info.w, last_w);
+        ASSERT_GT(info.h, last_h);
       }
-      last_w = info->w;
-      last_h = info->h;
+      last_w = info.w;
+      last_h = info.h;
     }
   }
 
