@@ -574,7 +574,11 @@ class DatarateOnePassCbrSvc : public OnePassCbrSvc {
     const bool key_frame =
         (pkt->data.frame.flags & VPX_FRAME_IS_KEY) ? true : false;
     if (external_resize_dynamic_drop_layer_) {
-      ASSERT_FALSE(key_frame && superframe_cnt_ > 1);
+      if (static_cast<const unsigned int>(superframe_count_) ==
+          cfg_.kf_max_dist)
+        ASSERT_TRUE(key_frame);
+      else
+        ASSERT_FALSE(key_frame && superframe_cnt_ > 1);
     }
     if (key_frame) {
       // For test that inserts layer sync frames: requesting a layer_sync on
@@ -811,7 +815,7 @@ void ScaleForFrameNumber(unsigned int frame, unsigned int initial_w,
 class ResizingVideoSource : public ::libvpx_test::DummyVideoSource {
  public:
   ResizingVideoSource() {
-    SetSize(1280, 720);
+    SetSize(1280, 960);
     limit_ = 300;
   }
   int external_resize_pattern_ = 1;
@@ -824,7 +828,7 @@ class ResizingVideoSource : public ::libvpx_test::DummyVideoSource {
     unsigned int width = 0;
     unsigned int height = 0;
     libvpx_test::ACMRandom rnd(libvpx_test::ACMRandom::DeterministicSeed());
-    ScaleForFrameNumber(frame_, 1280, 720, &width, &height,
+    ScaleForFrameNumber(frame_, 1280, 960, &width, &height,
                         external_resize_pattern_);
     SetSize(width, height);
     FillFrame();
@@ -1349,9 +1353,9 @@ TEST_P(DatarateOnePassCbrSvcSingleBR,
   cfg_.kf_min_dist = 10000;
   cfg_.rc_resize_allowed = 0;
   cfg_.g_w = 1280;
-  cfg_.g_h = 720;
+  cfg_.g_h = 960;
   top_sl_width_ = 1280;
-  top_sl_height_ = 720;
+  top_sl_height_ = 960;
   ResizingVideoSource video;
   video.external_resize_pattern_ = 1;
   video.force_zero_source_ = 0;
@@ -1390,9 +1394,51 @@ TEST_P(DatarateOnePassCbrSvcSingleBR,
   cfg_.kf_min_dist = 10000;
   cfg_.rc_resize_allowed = 0;
   cfg_.g_w = 1280;
-  cfg_.g_h = 720;
+  cfg_.g_h = 960;
   top_sl_width_ = 1280;
-  top_sl_height_ = 720;
+  top_sl_height_ = 960;
+  ResizingVideoSource video;
+  video.external_resize_pattern_ = 2;
+  video.force_zero_source_ = 0;
+  cfg_.rc_target_bitrate = 1000;
+  ResetModel();
+  dynamic_drop_layer_ = false;
+  single_layer_resize_ = false;
+  denoiser_on_ = 1;
+  base_speed_setting_ = speed_setting_;
+  external_resize_dynamic_drop_layer_ = true;
+  external_resize_pattern_ = video.external_resize_pattern_;
+  AssignLayerBitrates();
+  ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
+}
+
+// For 1 pass CBR SVC with 3 spatial and 3 temporal layers with external resize
+// and denoiser enabled. The external resizer will resize down and back up,
+// setting 0/nonzero bitrate on spatial enhancement layers to disable/enable
+// layers. Resizing starts on first frame and the pattern is:
+//  1/2 -> 1/4 -> 1 -> 1/2 -> 1/4. This test used 4 threads with small keyframe
+// spacing and top resolution is 128x960.
+TEST_P(DatarateOnePassCbrSvcSingleBR,
+       OnePassCbrSvc3SL3TL_DenoiseExternalResizePattern2Key4Threads) {
+  SetSvcConfig(3, 3);
+  cfg_.rc_buf_initial_sz = 500;
+  cfg_.rc_buf_optimal_sz = 500;
+  cfg_.rc_buf_sz = 1000;
+  cfg_.rc_min_quantizer = 40;
+  cfg_.rc_max_quantizer = 63;
+  cfg_.g_threads = 4;
+  cfg_.temporal_layering_mode = 3;
+  cfg_.ts_rate_decimator[0] = 4;
+  cfg_.ts_rate_decimator[1] = 2;
+  cfg_.ts_rate_decimator[2] = 1;
+  cfg_.rc_dropframe_thresh = 1;
+  cfg_.kf_max_dist = 40;
+  cfg_.kf_min_dist = 40;
+  cfg_.rc_resize_allowed = 0;
+  cfg_.g_w = 1280;
+  cfg_.g_h = 960;
+  top_sl_width_ = 1280;
+  top_sl_height_ = 960;
   ResizingVideoSource video;
   video.external_resize_pattern_ = 2;
   video.force_zero_source_ = 0;
@@ -1432,9 +1478,9 @@ TEST_P(DatarateOnePassCbrSvcSingleBR,
   cfg_.kf_min_dist = 10000;
   cfg_.rc_resize_allowed = 0;
   cfg_.g_w = 1280;
-  cfg_.g_h = 720;
+  cfg_.g_h = 960;
   top_sl_width_ = 1280;
-  top_sl_height_ = 720;
+  top_sl_height_ = 960;
   ResizingVideoSource video;
   video.external_resize_pattern_ = 1;
   video.force_zero_source_ = 1;
