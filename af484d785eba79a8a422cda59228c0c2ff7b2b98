@@ -1,0 +1,360 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80ce7014_e3cf17c5",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-03-17T13:46:51Z",
+      "side": 1,
+      "message": "these can be put in initialization list:\n\n```\nResizingVideoSource(int width, int height): top_width_(width), top_height_(height) {}\n```",
+      "range": {
+        "startLine": 252,
+        "startChar": 4,
+        "endLine": 253,
+        "endChar": 25
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e2834138_1e1012c0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 248,
+                "startChar": 0,
+                "endLine": 254,
+                "endChar": 0
+              },
+              "replacement": "  ResizingVideoSource(int width, int height)\n      : limit_(350),\n        smaller_width_larger_size_(false),\n        random_input_one_half_only_(false),\n        top_width_(width),\n        top_height_(height) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "af484d785eba79a8a422cda59228c0c2ff7b2b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "801fdef8_179aa996",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-03-17T13:46:51Z",
+      "side": 1,
+      "message": "Can you explain in the comment what `top_` prefix means here?",
+      "range": {
+        "startLine": 259,
+        "startChar": 6,
+        "endLine": 259,
+        "endChar": 16
+      },
+      "revId": "af484d785eba79a8a422cda59228c0c2ff7b2b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0743a6b3_5385a654",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-03-17T13:46:51Z",
+      "side": 1,
+      "message": "I think it\u0027s more appropriate to put this block in `FillFrame() override`",
+      "range": {
+        "startLine": 273,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 5
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "96a44a62_0740be38",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 273,
+                "startChar": 0,
+                "endLine": 280,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "af484d785eba79a8a422cda59228c0c2ff7b2b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5fae61e_1e739d71",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-03-17T13:46:51Z",
+      "side": 1,
+      "message": "you can write this as\n\n```\nfor (const auto \u0026info : frame_info_list_)\n```",
+      "range": {
+        "startLine": 603,
+        "startChar": 2,
+        "endLine": 604,
+        "endChar": 46
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "58b3bc05_2c527635",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 328,
+                "startChar": 0,
+                "endLine": 331,
+                "endChar": 0
+              },
+              "replacement": "  for (const auto \u0026info : frame_info_list_) {\n    const unsigned int frame \u003d static_cast\u003cunsigned\u003e(info.pts);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 333,
+                "startChar": 0,
+                "endLine": 336,
+                "endChar": 0
+              },
+              "replacement": "    const size_t idx \u003d \u0026info - \u0026frame_info_list_[0];\n    ASSERT_EQ(info.w, GetFrameWidth(idx));\n    ASSERT_EQ(info.h, GetFrameHeight(idx));\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 339,
+                "startChar": 0,
+                "endLine": 340,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(expected_w, info.w)\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 341,
+                "startChar": 0,
+                "endLine": 342,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(expected_h, info.h)\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 445,
+                "startChar": 0,
+                "endLine": 448,
+                "endChar": 0
+              },
+              "replacement": "  for (const auto \u0026info : frame_info_list_) {\n    const vpx_codec_pts_t pts \u003d info.pts;\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 449,
+                "startChar": 0,
+                "endLine": 451,
+                "endChar": 0
+              },
+              "replacement": "      ASSERT_EQ(282U, info.w) \u003c\u003c \"Frame \" \u003c\u003c pts \u003c\u003c \" had unexpected width\";\n      ASSERT_EQ(173U, info.h) \u003c\u003c \"Frame \" \u003c\u003c pts \u003c\u003c \" had unexpected height\";\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 452,
+                "startChar": 0,
+                "endLine": 454,
+                "endChar": 0
+              },
+              "replacement": "      EXPECT_EQ(352U, info.w) \u003c\u003c \"Frame \" \u003c\u003c pts \u003c\u003c \" had unexpected width\";\n      EXPECT_EQ(288U, info.h) \u003c\u003c \"Frame \" \u003c\u003c pts \u003c\u003c \" had unexpected height\";\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 569,
+                "startChar": 0,
+                "endLine": 572,
+                "endChar": 0
+              },
+              "replacement": "  for (const auto \u0026info : frame_info_list_) {\n    const unsigned int frame \u003d static_cast\u003cunsigned\u003e(info.pts);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 577,
+                "startChar": 0,
+                "endLine": 578,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(expected_w, info.w)\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 579,
+                "startChar": 0,
+                "endLine": 580,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(expected_h, info.h)\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 603,
+                "startChar": 0,
+                "endLine": 606,
+                "endChar": 0
+              },
+              "replacement": "  for (const auto \u0026info : frame_info_list_) {\n    const unsigned int frame \u003d static_cast\u003cunsigned\u003e(info.pts);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 611,
+                "startChar": 0,
+                "endLine": 612,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(expected_w, info.w)\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 613,
+                "startChar": 0,
+                "endLine": 614,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(expected_h, info.h)\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 631,
+                "startChar": 0,
+                "endLine": 634,
+                "endChar": 0
+              },
+              "replacement": "  for (const auto \u0026info : frame_info_list_) {\n    const unsigned int frame \u003d static_cast\u003cunsigned\u003e(info.pts);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 639,
+                "startChar": 0,
+                "endLine": 640,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(expected_w, info.w)\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 641,
+                "startChar": 0,
+                "endLine": 642,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_EQ(expected_h, info.h)\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 665,
+                "startChar": 0,
+                "endLine": 668,
+                "endChar": 0
+              },
+              "replacement": "  for (const auto \u0026info : frame_info_list_) {\n    if (info.w !\u003d last_w || info.h !\u003d last_h) {\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 669,
+                "startChar": 0,
+                "endLine": 673,
+                "endChar": 0
+              },
+              "replacement": "      ASSERT_LT(info.w, last_w);\n      ASSERT_LT(info.h, last_h);\n      last_w \u003d info.w;\n      last_h \u003d info.h;\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 707,
+                "startChar": 0,
+                "endLine": 713,
+                "endChar": 0
+              },
+              "replacement": "  for (const auto \u0026info : frame_info_list_) {\n    const size_t idx \u003d \u0026info - \u0026frame_info_list_[0];\n    ASSERT_EQ(info.w, GetFrameWidth(idx));\n    ASSERT_EQ(info.h, GetFrameHeight(idx));\n    if (info.w !\u003d last_w || info.h !\u003d last_h) {\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 716,
+                "startChar": 0,
+                "endLine": 718,
+                "endChar": 0
+              },
+              "replacement": "        ASSERT_LT(info.w, last_w);\n        ASSERT_LT(info.h, last_h);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 720,
+                "startChar": 0,
+                "endLine": 722,
+                "endChar": 0
+              },
+              "replacement": "        ASSERT_GT(info.w, last_w);\n        ASSERT_GT(info.h, last_h);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 723,
+                "startChar": 0,
+                "endLine": 725,
+                "endChar": 0
+              },
+              "replacement": "      last_w \u003d info.w;\n      last_h \u003d info.h;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "af484d785eba79a8a422cda59228c0c2ff7b2b98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
