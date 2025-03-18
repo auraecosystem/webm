@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a0ed736_17b6e75d",
+        "filename": "vp9/encoder/vp9_lookahead.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-03-18T22:15:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e11cc76c_642b31e2",
+      "revId": "f7ef729e3868a95b4eb38ccee634fecf2b01013f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69d920ed_f00879a0",
@@ -65,6 +83,42 @@
       "writtenOn": "2025-03-18T21:32:28Z",
       "side": 1,
       "message": "Optional: It is correct for a stride to be larger than it needs to be. So we should not need to reduce the strides here. This seems to imply that certain code is using the strides improperly, e.g.,\n- some code may assume there are no unnecessary padding bytes in the strides, or\n- some code may use the stride when it should use the width + 2 * borders.\n\nIt would be good to track down and fix that code. Since the single-threaded code apparently works when the strides are larger than they need to be, the mistake is likely in the multi-threaded code.",
+      "revId": "f7ef729e3868a95b4eb38ccee634fecf2b01013f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77577b34_df4bdbb8",
+        "filename": "vp9/encoder/vp9_lookahead.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-03-18T22:15:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "901ad61f_e2e7067e",
+      "revId": "f7ef729e3868a95b4eb38ccee634fecf2b01013f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e953ac_072c850e",
+        "filename": "vp9/encoder/vp9_lookahead.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-03-18T22:15:03Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "69d920ed_f00879a0",
       "revId": "f7ef729e3868a95b4eb38ccee634fecf2b01013f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
