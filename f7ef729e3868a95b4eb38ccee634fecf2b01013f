@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf279855_8ab9c55f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-03-18T21:32:28Z",
+      "side": 1,
+      "message": "Marco: I didn\u0027t review the tests. I only reviewed vp9_lookahead.c.",
+      "revId": "f7ef729e3868a95b4eb38ccee634fecf2b01013f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e11cc76c_642b31e2",
+        "filename": "vp9/encoder/vp9_lookahead.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-03-18T21:32:28Z",
+      "side": 1,
+      "message": "Nit: Move this variable declaration into the `else if` block that uses this variable.",
+      "revId": "f7ef729e3868a95b4eb38ccee634fecf2b01013f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69d920ed_f00879a0",
+        "filename": "vp9/encoder/vp9_lookahead.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-03-18T21:32:28Z",
+      "side": 1,
+      "message": "IMPORTANT: `y_stride` is closely associated with `y_buffer`, and `uv_stride` is closely associated with `u_buffer` and `v_buffer`. It seems wrong to modify `y_stride` and `uv_stride` without modifying `y_buffer`, `u_buffer`, and `v_buffer` at the same time. If it is correct, please add a comment to justify it.",
+      "revId": "f7ef729e3868a95b4eb38ccee634fecf2b01013f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "901ad61f_e2e7067e",
+        "filename": "vp9/encoder/vp9_lookahead.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-03-18T21:32:28Z",
+      "side": 1,
+      "message": "Optional: It is correct for a stride to be larger than it needs to be. So we should not need to reduce the strides here. This seems to imply that certain code is using the strides improperly, e.g.,\n- some code may assume there are no unnecessary padding bytes in the strides, or\n- some code may use the stride when it should use the width + 2 * borders.\n\nIt would be good to track down and fix that code. Since the single-threaded code apparently works when the strides are larger than they need to be, the mistake is likely in the multi-threaded code.",
+      "revId": "f7ef729e3868a95b4eb38ccee634fecf2b01013f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
