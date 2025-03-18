@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58711eae_dfddad0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-03-18T15:06:38Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Spellchecker: \"occuring\" is a possible misspelling of \"occurring\".\n\nAnalyzer Description: Checks for common typos.\nOwner: chops-source-team@google.com\n\n\"occuring\" is a possible misspelling of \"occurring\".\n\nTo bypass Spellchecker, add a footer with DISABLE_SPELLCHECKER",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "311c561d3e8c9ba160383e86c4c508523b19eb86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
