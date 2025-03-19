@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac88b17e_7322e7bf",
+        "filename": "vpx_util/vpx_thread.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-19T23:40:42Z",
+      "side": 1,
+      "message": "This undoes some of your earlier cleanup. We can skip this one if you\u0027d prefer.",
+      "revId": "73574b76b96740a111f283b6ba52cf22a49bdb3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
