@@ -1703,8 +1703,12 @@ static void map_write(RowMTWorkerData *const row_mt_worker_data, int map_idx,
 #if CONFIG_MULTITHREAD
   pthread_mutex_lock(&row_mt_worker_data->recon_sync_mutex[sync_idx]);
   row_mt_worker_data->recon_map[map_idx] = 1;
-  pthread_cond_signal(&row_mt_worker_data->recon_sync_cond[sync_idx]);
+  // Note the associated mutex does not need to be held when signaling the
+  // condition. Unlocking the mutex first may improve performance in some
+  // implementations, avoiding the case where the waiting thread can't
+  // reacquire the mutex when woken.
   pthread_mutex_unlock(&row_mt_worker_data->recon_sync_mutex[sync_idx]);
+  pthread_cond_signal(&row_mt_worker_data->recon_sync_cond[sync_idx]);
 #else
   (void)row_mt_worker_data;
   (void)map_idx;

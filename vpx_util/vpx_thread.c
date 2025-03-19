@@ -61,8 +61,8 @@ static THREADFN thread_loop(void *ptr) {
     pthread_setname_np(pthread_self(), thread_name);
   }
 #endif
-  pthread_mutex_lock(&worker->impl_->mutex_);
   for (;;) {
+    pthread_mutex_lock(&worker->impl_->mutex_);
     while (worker->status_ == VPX_WORKER_STATUS_OK) {  // wait in idling mode
       pthread_cond_wait(&worker->impl_->condition_, &worker->impl_->mutex_);
     }
@@ -79,13 +79,18 @@ static THREADFN thread_loop(void *ptr) {
       assert(worker->status_ == VPX_WORKER_STATUS_WORKING);
       worker->status_ = VPX_WORKER_STATUS_OK;
       // signal to the main thread that we're done (for sync())
+      // Note the associated mutex does not need to be held when signaling the
+      // condition. Unlocking the mutex first may improve performance in some
+      // implementations, avoiding the case where the waiting thread can't
+      // reacquire the mutex when woken.
+      pthread_mutex_unlock(&worker->impl_->mutex_);
       pthread_cond_signal(&worker->impl_->condition_);
     } else {
       assert(worker->status_ == VPX_WORKER_STATUS_NOT_OK);  // finish the worker
+      pthread_mutex_unlock(&worker->impl_->mutex_);
       break;
     }
   }
-  pthread_mutex_unlock(&worker->impl_->mutex_);
   return THREAD_EXIT_SUCCESS;  // Thread is finished
 }
 
@@ -105,7 +110,13 @@ static void change_state(VPxWorker *const worker, VPxWorkerStatus new_status) {
     // assign new status and release the working thread if needed
     if (new_status != VPX_WORKER_STATUS_OK) {
       worker->status_ = new_status;
+      // Note the associated mutex does not need to be held when signaling the
+      // condition. Unlocking the mutex first may improve performance in some
+      // implementations, avoiding the case where the waiting thread can't
+      // reacquire the mutex when woken.
+      pthread_mutex_unlock(&worker->impl_->mutex_);
       pthread_cond_signal(&worker->impl_->condition_);
+      return;
     }
   }
   pthread_mutex_unlock(&worker->impl_->mutex_);
