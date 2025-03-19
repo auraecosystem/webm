@@ -1,0 +1,283 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23acb8b8_0acaf1f1",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-19T04:58:04Z",
+      "side": 1,
+      "message": "No trailing `_` for a function parameter.",
+      "range": {
+        "startLine": 97,
+        "startChar": 56,
+        "endLine": 97,
+        "endChar": 57
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "249f4455_b9e2d266",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 96,
+                "startChar": 0,
+                "endLine": 98,
+                "endChar": 0
+              },
+              "replacement": "                         bool smaller_width_larger_size,\n                         bool random_input_one_half_only) {\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 101,
+                "startChar": 0,
+                "endLine": 102,
+                "endChar": 0
+              },
+              "replacement": "  if (random_input_one_half_only \u003d\u003d 1) {\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 109,
+                "startChar": 0,
+                "endLine": 110,
+                "endChar": 0
+              },
+              "replacement": "  if (smaller_width_larger_size) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "841e28bf00b11553bd137235eb46dc2a84ebdc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885cb7ab_c9179ec1",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-19T04:58:04Z",
+      "side": 1,
+      "message": "Maybe \u0027original_\u0027 or \u0027configured_\u0027?",
+      "fixSuggestions": [
+        {
+          "fixId": "62eab1aa_764c994e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 250,
+                "startChar": 0,
+                "endLine": 251,
+                "endChar": 0
+              },
+              "replacement": "        configured_width_(width), configured_height_(height) {\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 252,
+                "startChar": 0,
+                "endLine": 253,
+                "endChar": 0
+              },
+              "replacement": "    SetSize(configured_width_, configured_height_);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 257,
+                "startChar": 0,
+                "endLine": 260,
+                "endChar": 0
+              },
+              "replacement": "  // configured_width_/height_ is the configured resolution when codec is created.\n  int configured_width_;\n  int configured_height_;\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 267,
+                "startChar": 0,
+                "endLine": 268,
+                "endChar": 0
+              },
+              "replacement": "    ScaleForFrameNumber(frame_, configured_width_, configured_height_, \u0026width, \u0026height,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "841e28bf00b11553bd137235eb46dc2a84ebdc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b718fcd1_6d745af1",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-19T04:58:04Z",
+      "side": 1,
+      "message": "This may be enough for the test, but you\u0027ll get the same pattern for each frame since `rnd` is local.",
+      "revId": "841e28bf00b11553bd137235eb46dc2a84ebdc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ada6324c_af567d88",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-19T04:58:04Z",
+      "side": 1,
+      "message": "You could add `/*random_input_one_half_only\u003d*/false` to document the paramter",
+      "range": {
+        "startLine": 342,
+        "startChar": 58,
+        "endLine": 342,
+        "endChar": 63
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0ae8f838_fc422573",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 342,
+                "startChar": 0,
+                "endLine": 343,
+                "endChar": 0
+              },
+              "replacement": "                        video.smaller_width_larger_size_,\n                        /*random_input_one_half_only\u003d*/false);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 578,
+                "startChar": 0,
+                "endLine": 579,
+                "endChar": 0
+              },
+              "replacement": "                        video.smaller_width_larger_size_,\n                        /*random_input_one_half_only\u003d*/false);\n"
+            },
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 638,
+                "startChar": 0,
+                "endLine": 639,
+                "endChar": 0
+              },
+              "replacement": "                        video.smaller_width_larger_size_,\n                        /*random_input_one_half_only\u003d*/false);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "841e28bf00b11553bd137235eb46dc2a84ebdc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f59070_de4de5df",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-19T04:58:04Z",
+      "side": 1,
+      "message": "Swap the order of parameters here, similar to what would be used in an if statement. `0u` is also an option.",
+      "revId": "841e28bf00b11553bd137235eb46dc2a84ebdc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b45cee6_6e208c5f",
+        "filename": "test/resize_test.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-19T04:58:04Z",
+      "side": 1,
+      "message": "test",
+      "range": {
+        "startLine": 587,
+        "startChar": 8,
+        "endLine": 587,
+        "endChar": 13
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d0d57eb6_836552d7",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/resize_test.cc",
+              "range": {
+                "startLine": 587,
+                "startChar": 0,
+                "endLine": 588,
+                "endChar": 0
+              },
+              "replacement": "// This test uses 4 threads with small keyframe spacing, random input,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "841e28bf00b11553bd137235eb46dc2a84ebdc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f561b9_19f7f0c4",
+        "filename": "vp9/encoder/vp9_lookahead.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-19T04:58:04Z",
+      "side": 1,
+      "message": "long line. I\u0027m not sure why clang-format didn\u0027t catch this.",
+      "revId": "841e28bf00b11553bd137235eb46dc2a84ebdc38",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
