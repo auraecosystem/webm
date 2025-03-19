@@ -76,8 +76,12 @@ static INLINE void sync_write(VP9LfSync *const lf_sync, int r, int c,
 
     lf_sync->cur_sb_col[r] = cur;
 
-    pthread_cond_signal(&lf_sync->cond[r]);
+    // Note the associated mutex does not need to be held when signaling the
+    // condition. Unlocking the mutex first may improve performance in some
+    // implementations, avoiding the case where the waiting thread can't
+    // reacquire the mutex when woken.
     pthread_mutex_unlock(&lf_sync->mutex[r]);
+    pthread_cond_signal(&lf_sync->cond[r]);
   }
 #else
   (void)lf_sync;
@@ -421,9 +425,13 @@ static int get_next_row(VP9_COMMON *cm, VP9LfSync *lf_sync) {
     int row = return_val >> MI_BLOCK_SIZE_LOG2;
     pthread_mutex_lock(&lf_sync->mutex[row]);
     lf_sync->cur_sb_col[row] = INT_MAX;
-    pthread_cond_signal(&lf_sync->cond[row]);
+    // Note the associated mutex does not need to be held when signaling the
+    // condition. Unlocking the mutex first may improve performance in some
+    // implementations, avoiding the case where the waiting thread can't
+    // reacquire the mutex when woken.
     pthread_mutex_unlock(&lf_sync->mutex[row]);
-    return_val = -1;
+    pthread_cond_signal(&lf_sync->cond[row]);
+    return -1;
   }
   pthread_mutex_unlock(lf_sync->lf_mutex);
 #else
@@ -459,7 +467,13 @@ void vp9_set_row(VP9LfSync *lf_sync, int num_tiles, int row, int is_last_row,
   pthread_mutex_unlock(lf_sync->lf_mutex);
   pthread_mutex_lock(&lf_sync->recon_done_mutex[row]);
   lf_sync->num_tiles_done[row] += 1;
-  if (num_tiles == lf_sync->num_tiles_done[row]) {
+  const int num_tiles_done = lf_sync->num_tiles_done[row];
+  // Note the associated mutex does not need to be held when signaling the
+  // condition. Unlocking the mutex first may improve performance in some
+  // implementations, avoiding the case where the waiting thread can't
+  // reacquire the mutex when woken.
+  pthread_mutex_unlock(&lf_sync->recon_done_mutex[row]);
+  if (num_tiles == num_tiles_done) {
     if (is_last_row) {
       /* The last 2 rows wait on the last row to be done.
        * So, we have to broadcast the signal in this case.
@@ -469,7 +483,6 @@ void vp9_set_row(VP9LfSync *lf_sync, int num_tiles, int row, int is_last_row,
       pthread_cond_signal(&lf_sync->recon_done_cond[row]);
     }
   }
-  pthread_mutex_unlock(&lf_sync->recon_done_mutex[row]);
 #else
   (void)lf_sync;
   (void)num_tiles;

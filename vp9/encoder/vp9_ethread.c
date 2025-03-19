@@ -395,8 +395,12 @@ void vp9_row_mt_sync_write(VP9RowMTSync *const row_mt_sync, int r, int c,
 
     row_mt_sync->cur_col[r] = cur;
 
-    pthread_cond_signal(&row_mt_sync->cond[r]);
+    // Note the associated mutex does not need to be held when signaling the
+    // condition. Unlocking the mutex first may improve performance in some
+    // implementations, avoiding the case where the waiting thread can't
+    // reacquire the mutex when woken.
     pthread_mutex_unlock(&row_mt_sync->mutex[r]);
+    pthread_cond_signal(&row_mt_sync->cond[r]);
   }
 #else
   (void)row_mt_sync;

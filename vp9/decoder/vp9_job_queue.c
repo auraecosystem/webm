@@ -60,7 +60,6 @@ void vp9_jobq_terminate(JobQueueRowMt *jobq) {
 }
 
 int vp9_jobq_queue(JobQueueRowMt *jobq, void *job, size_t job_size) {
-  int ret = 0;
 #if CONFIG_MULTITHREAD
   pthread_mutex_lock(&jobq->mutex);
 #endif
@@ -68,18 +67,22 @@ int vp9_jobq_queue(JobQueueRowMt *jobq, void *job, size_t job_size) {
     memcpy(jobq->buf_wr, job, job_size);
     jobq->buf_wr = jobq->buf_wr + job_size;
 #if CONFIG_MULTITHREAD
+    // Note the associated mutex does not need to be held when signaling the
+    // condition. Unlocking the mutex first may improve performance in some
+    // implementations, avoiding the case where the waiting thread can't
+    // reacquire the mutex when woken.
+    pthread_mutex_unlock(&jobq->mutex);
     pthread_cond_signal(&jobq->cond);
 #endif
-    ret = 0;
-  } else {
-    /* Wrap around case is not supported */
-    assert(0);
-    ret = 1;
+    return 0;
   }
+
 #if CONFIG_MULTITHREAD
   pthread_mutex_unlock(&jobq->mutex);
 #endif
-  return ret;
+  /* Wrap around case is not supported */
+  assert(0);
+  return 1;
 }
 
 int vp9_jobq_dequeue(JobQueueRowMt *jobq, void *job, size_t job_size,
