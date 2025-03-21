@@ -3,6 +3,41 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5a13e183_f61880f9",
+        "filename": "vp9/common/vp9_thread_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-21T02:38:51Z",
+      "side": 1,
+      "message": "The assumption when these are freed is that the worker hooks have completed. The worker threads are currently stopped by a call to `vp9_encode_free_mt_data` *after* destroying these, however. So an additional assumption is that the encode call is synchronous, which is true for vp9. Still it makes the calls hard to reason about so I\u0027ll fix that order if it\u0027s not too intrusive.",
+      "fixSuggestions": [
+        {
+          "fixId": "85d27eda_6ede2d58",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "vp9/common/vp9_thread_common.c",
+              "range": {
+                "startLine": 389,
+                "startChar": 0,
+                "endLine": 392,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "73574b76b96740a111f283b6ba52cf22a49bdb3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ac88b17e_7322e7bf",
         "filename": "vpx_util/vpx_thread.c",
         "patchSetId": 2
