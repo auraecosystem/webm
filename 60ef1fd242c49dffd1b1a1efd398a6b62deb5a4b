@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb6f56d0_fcc1279c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-25T19:04:29Z",
+      "side": 1,
+      "message": "I think `Bug: webm:42330754` is related, no?",
+      "revId": "60ef1fd242c49dffd1b1a1efd398a6b62deb5a4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
