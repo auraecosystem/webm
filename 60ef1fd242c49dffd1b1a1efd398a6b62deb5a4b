@@ -16,6 +16,24 @@
       "message": "I think `Bug: webm:42330754` is related, no?",
       "revId": "60ef1fd242c49dffd1b1a1efd398a6b62deb5a4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf36c45_59b9ce08",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1129564
+      },
+      "writtenOn": "2025-03-25T21:25:37Z",
+      "side": 1,
+      "message": "It is related. Added to the description.\n\nThe build failed because we the number of tests is different. That\u0027s as expected since we remote the test. How could we resolve the build failure?",
+      "parentUuid": "fb6f56d0_fcc1279c",
+      "revId": "60ef1fd242c49dffd1b1a1efd398a6b62deb5a4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
