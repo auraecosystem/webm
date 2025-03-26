@@ -52,6 +52,24 @@
       "parentUuid": "fcf36c45_59b9ce08",
       "revId": "60ef1fd242c49dffd1b1a1efd398a6b62deb5a4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56d3c723_42502e98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1129564
+      },
+      "writtenOn": "2025-03-26T18:19:29Z",
+      "side": 1,
+      "message": "--enable-experimental --enable-rate-ctrl is still helpful. The external rate control API still depends on it.\n\nBut \"test_simple_encode\" is removed.",
+      "parentUuid": "37bfcc6b_29dfa292",
+      "revId": "60ef1fd242c49dffd1b1a1efd398a6b62deb5a4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
