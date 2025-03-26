@@ -34,6 +34,24 @@
       "parentUuid": "fb6f56d0_fcc1279c",
       "revId": "60ef1fd242c49dffd1b1a1efd398a6b62deb5a4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37bfcc6b_29dfa292",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-26T17:30:12Z",
+      "side": 1,
+      "message": "\u003e It is related. Added to the description.\n\u003e \n\u003e The build failed because we the number of tests is different. That\u0027s as expected since we remote the test. How could we resolve the build failure?\n\nThe build is failing with:\n\n```\nmake[1]: *** No rule to make target \u0027test_simple_encode\u0027.  Stop.\n```\n\nThe test was checking for `rate_ctrl` in `configure` to enable `--enable-experimental --enable-rate-ctrl`. Can all of this be removed?\n\nI retriggered the build.",
+      "parentUuid": "fcf36c45_59b9ce08",
+      "revId": "60ef1fd242c49dffd1b1a1efd398a6b62deb5a4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
