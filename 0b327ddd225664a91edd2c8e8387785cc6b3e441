@@ -52,6 +52,24 @@
       "parentUuid": "6209ba10_52017ec9",
       "revId": "0b327ddd225664a91edd2c8e8387785cc6b3e441",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c89e6df1_93636d63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1129564
+      },
+      "writtenOn": "2025-03-27T20:17:02Z",
+      "side": 1,
+      "message": "I tried to remove CONFIG_RATE_CTRL completely, but there will be unit tests failures for ExtRateCtrlTest.\n\nI estimate that we need more work to decouple some code in CONFIG_RATE_CTRL with ext rate control api, but may not be an easy change.\n\nI recommend to proceed with the current change since it removes simple_encode, and its test, to unblock any c++ feature changes. Although \"use_simple_encode\" will remain in the codebase value of 0.",
+      "parentUuid": "f3fc1db2_9dca5e60",
+      "revId": "0b327ddd225664a91edd2c8e8387785cc6b3e441",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
