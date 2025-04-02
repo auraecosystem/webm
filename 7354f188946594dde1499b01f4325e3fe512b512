@@ -16,6 +16,24 @@
       "message": "thanks for making this consistent with aom! i assume we don\u0027t need to support gcc10 with a similar v8.5 workaround here?",
       "revId": "7354f188946594dde1499b01f4325e3fe512b512",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df79e8fc_b6b10cbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-02T20:17:06Z",
+      "side": 1,
+      "message": "Hmm... You are right. I neglected this issue. We can wait until someone asks for gcc 10 support.\n\nIn libaom, we check if this compiler flag is available before using it, so this issue doesn\u0027t apply to libaom.",
+      "parentUuid": "a026c3be_bcdcd6e4",
+      "revId": "7354f188946594dde1499b01f4325e3fe512b512",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
