@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "277aa967_e91122ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-04-10T17:12:14Z",
+      "side": 1,
+      "message": "`Bug: 42330754` might be worth adding to document the cleanup and close it out.",
+      "revId": "17f7619c86767aa81037aee6416c07d5d514c5e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
