@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d876b5a4_3e5cce55",
+        "filename": "vpx_ports/x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-04-17T19:20:00Z",
+      "side": 1,
+      "message": "Thanks for reviewing this CL too!\n\nI think `xgetbv()` is to get the support of registers (YMM and ZMM) which are designated for avx/avx2 and avx512.\nSo this check is different from the feature check I have above.",
+      "parentUuid": "e74802b2_7a122eaf",
+      "revId": "ff1d193f4b9dfa9b2ced51efbb6ec7a69e58e88c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e7fd93b_87f340fd",
@@ -48,6 +66,24 @@
       "writtenOn": "2025-04-17T19:09:18Z",
       "side": 1,
       "message": "Use the FEATURE_SET macro here?",
+      "revId": "ff1d193f4b9dfa9b2ced51efbb6ec7a69e58e88c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d5a43c9_a0d342ec",
+        "filename": "vpx_ports/x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-04-17T19:20:00Z",
+      "side": 1,
+      "message": "See response above.",
+      "parentUuid": "5e7fd93b_87f340fd",
       "revId": "ff1d193f4b9dfa9b2ced51efbb6ec7a69e58e88c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
