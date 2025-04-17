@@ -16,6 +16,40 @@
       "message": "This is from https://aomedia-review.googlesource.com/c/aom/+/199121",
       "revId": "ff1d193f4b9dfa9b2ced51efbb6ec7a69e58e88c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e74802b2_7a122eaf",
+        "filename": "vpx_ports/x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-17T19:09:18Z",
+      "side": 1,
+      "message": "Use the `FEATURE_SET` macro here?",
+      "revId": "ff1d193f4b9dfa9b2ced51efbb6ec7a69e58e88c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e7fd93b_87f340fd",
+        "filename": "vpx_ports/x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-17T19:09:18Z",
+      "side": 1,
+      "message": "Use the FEATURE_SET macro here?",
+      "revId": "ff1d193f4b9dfa9b2ced51efbb6ec7a69e58e88c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
