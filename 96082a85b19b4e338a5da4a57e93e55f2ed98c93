@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82fab527_804be485",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-24T21:50:47Z",
+      "side": 1,
+      "message": "I suggest we also check the return value of `sscanf` calls.\n\nhttps://en.cppreference.com/w/c/io/fscanf\n\n\u003e Number of receiving arguments successfully assigned (which may be zero in case a matching failure occurred before the first receiving argument was assigned), or EOF if input failure occurs before the first receiving argument was assigned.",
+      "revId": "96082a85b19b4e338a5da4a57e93e55f2ed98c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57b12681_bfadb965",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-24T21:50:47Z",
+      "side": 1,
+      "message": "Add `goto clean_up;`",
+      "revId": "96082a85b19b4e338a5da4a57e93e55f2ed98c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
