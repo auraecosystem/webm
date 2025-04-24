@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a4a996_7b22858f",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-24T22:40:18Z",
+      "side": 1,
+      "message": "Optional: In Chrome and libavif, we check the width/height product:\n\n```\n    if (w \u003c 1 || h \u003c 1 || h \u003e (16384 * 16384) / w) {\n```",
+      "revId": "165054473abc3020a3497c543c5c774675bb1365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "defad06c_83a5e940",
