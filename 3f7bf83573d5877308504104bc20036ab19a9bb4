@@ -1,5 +1,40 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e5e6a7d_3d65d46a",
+        "filename": "examples/vpx_temporal_svc_encoder.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-24T21:11:35Z",
+      "side": 1,
+      "message": "We should also check the return value of `fscanf`:\nhttps://en.cppreference.com/w/c/io/fscanf\n\n\u003e Number of receiving arguments successfully assigned (which may be zero in case a matching failure occurred before the first receiving argument was assigned), or EOF if input failure occurs before the first receiving argument was assigned.\n\nFor this call, we should return 0 (false) if the return value is not equal to 2 because we expect to read two integers.",
+      "revId": "3f7bf83573d5877308504104bc20036ab19a9bb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "150d6bf5_4f24cf91",
+        "filename": "examples/vpx_temporal_svc_encoder.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-24T21:11:35Z",
+      "side": 1,
+      "message": "Check the return value of `fscanf`. Return 0 (false) if the return value is not equal to 1.",
+      "revId": "3f7bf83573d5877308504104bc20036ab19a9bb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
