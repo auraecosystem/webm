@@ -341,6 +341,10 @@ int main(int argc, char *argv[]) {
 
   if (argc > 3) {
     sscanf(argv[3], "%dx%d", &w, &h);
+    // Limit width/height to 4K. The frame_size set below at line 135
+    // will still be within range.
+    if (w > 4096 || h > 4096)
+      fprintf(stderr, "width or height is too large, above 4096. !\n");
   }
 
   if (argc > 6) {
