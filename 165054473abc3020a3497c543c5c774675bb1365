@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05596f36_1cdd3ba0",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-04-24T22:44:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "defad06c_83a5e940",
+      "revId": "165054473abc3020a3497c543c5c774675bb1365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a04da39c_282971a1",
@@ -65,6 +83,24 @@
       "writtenOn": "2025-04-24T22:30:55Z",
       "side": 1,
       "message": "Check the return value of sscanf.",
+      "revId": "165054473abc3020a3497c543c5c774675bb1365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e9ea16f_289f2a44",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-04-24T22:44:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a04da39c_282971a1",
       "revId": "165054473abc3020a3497c543c5c774675bb1365",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
