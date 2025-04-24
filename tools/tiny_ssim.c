@@ -340,7 +340,17 @@ int main(int argc, char *argv[]) {
   }
 
   if (argc > 3) {
-    sscanf(argv[3], "%dx%d", &w, &h);
+    if (sscanf(argv[3], "%dx%d", &w, &h) != 2) {
+      fprintf(stderr, "arguments for w/h not assigned!\n");
+      goto clean_up;
+    }
+    // Limit width/height to 4K. The frame_size set in the function
+    // open_input_file() will still be within range of int.
+    if (w < 1 || w > 4096 || h < 1 || h > 4096) {
+      fprintf(stderr,
+              "width or height is too large (above 4096) or below 1!\n");
+      goto clean_up;
+    }
   }
 
   if (argc > 6) {
