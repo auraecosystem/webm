@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91a447b_cce2f92e",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-04-24T22:21:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82fab527_804be485",
+      "revId": "96082a85b19b4e338a5da4a57e93e55f2ed98c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f64cbd9a_39301935",
