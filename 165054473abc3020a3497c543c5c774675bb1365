@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25ab8184_ba805793",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-04-24T22:31:06Z",
+      "side": 1,
+      "message": "Higher resolutions might come up in the future, but 4K is fine to start with.",
+      "revId": "165054473abc3020a3497c543c5c774675bb1365",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "defad06c_83a5e940",
