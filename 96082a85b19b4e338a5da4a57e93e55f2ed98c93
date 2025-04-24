@@ -20,6 +20,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f64cbd9a_39301935",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-24T21:58:48Z",
+      "side": 1,
+      "message": "The line number 134 will change if this file is modified. It would be good to use the function name `open_input_file()` instead.",
+      "revId": "96082a85b19b4e338a5da4a57e93e55f2ed98c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d56cb2cb_25499467",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-24T21:58:48Z",
+      "side": 1,
+      "message": "Add \"of int\" after \"within range\".",
+      "revId": "96082a85b19b4e338a5da4a57e93e55f2ed98c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a017c0_23c18f10",
+        "filename": "tools/tiny_ssim.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-24T21:58:48Z",
+      "side": 1,
+      "message": "We should also reject negative and zero sizes:\n\n```\n    if (w \u003c\u003d 0 || w \u003e 4096 || h \u003c\u003d 0 || h \u003e 4096)\n```",
+      "revId": "96082a85b19b4e338a5da4a57e93e55f2ed98c93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57b12681_bfadb965",
         "filename": "tools/tiny_ssim.c",
         "patchSetId": 2
