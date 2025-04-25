@@ -611,11 +611,11 @@ static int read_mask(FILE *mask_file, int *seg_map, int allowed_mask_rows,
                      int allowed_mask_cols) {
   int mask_rows, mask_cols, i, j;
   int *map_start = seg_map;
-  fscanf(mask_file, "%d %d\n", &mask_cols, &mask_rows);
+  if (fscanf(mask_file, "%d %d\n", &mask_cols, &mask_rows) != 2) return 0;
   if (mask_rows == allowed_mask_rows && mask_cols == allowed_mask_cols) {
     for (i = 0; i < mask_rows; i++) {
       for (j = 0; j < mask_cols; j++) {
-        fscanf(mask_file, "%d ", &seg_map[j]);
+        if (fscanf(mask_file, "%d ", &seg_map[j]) != 1) return 0;
         // reverse the bit
         seg_map[j] = 1 - seg_map[j];
       }
