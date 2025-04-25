@@ -33,6 +33,24 @@
       "message": "Optional: Change this to an early return so that we handle errors with a consistent pattern in this function. Need to invert the condition.\n\n```\n  if (mask_rows !\u003d allowed_mask_rows || mask_cols !\u003d allowed_mask_cols) {\n    return 0;\n  }\n```",
       "revId": "a72172383b4ed83115575089d1fbf6693e170f8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7411de5_0ab4f4e4",
+        "filename": "examples/vpx_temporal_svc_encoder.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-04-25T17:59:19Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "148ceda7_d6b757f6",
+      "revId": "a72172383b4ed83115575089d1fbf6693e170f8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
