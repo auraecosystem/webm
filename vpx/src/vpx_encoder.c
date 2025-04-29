@@ -97,6 +97,7 @@ vpx_codec_err_t vpx_codec_enc_init_multi_ver(
     if (!(res = iface->enc.mr_get_mem_loc(cfg, &mem_loc))) {
       for (i = 0; i < num_enc; i++) {
         vpx_codec_priv_enc_mr_cfg_t mr_cfg;
+        mr_cfg.mem_loc_owned = 0;
 
         /* Validate down-sampling factor. */
         if (dsf->num < 1 || dsf->num > 4096 || dsf->den < 1 ||
@@ -115,6 +116,9 @@ vpx_codec_err_t vpx_codec_enc_init_multi_ver(
           ctx->init_flags = flags;
           ctx->config.enc = cfg;
           res = ctx->iface->init(ctx, &mr_cfg);
+#if CONFIG_MULTI_RES_ENCODING
+          mem_loc_owned = mem_loc_owned || mr_cfg.mem_loc_owned; 
+#endif 
         }
 
         if (res) {
@@ -131,7 +135,7 @@ vpx_codec_err_t vpx_codec_enc_init_multi_ver(
             i--;
           }
 #if CONFIG_MULTI_RES_ENCODING
-          if (!mem_loc_owned) {
+          if (!mem_loc_owned && !mr_cfg.mem_loc_owned) {
             assert(mem_loc);
             free(((LOWER_RES_FRAME_INFO *)mem_loc)->mb_info);
             free(mem_loc);
@@ -139,9 +143,6 @@ vpx_codec_err_t vpx_codec_enc_init_multi_ver(
 #endif
           return SAVE_STATUS(ctx, res);
         }
-#if CONFIG_MULTI_RES_ENCODING
-        mem_loc_owned = 1;
-#endif
         ctx++;
         cfg++;
         dsf++;
