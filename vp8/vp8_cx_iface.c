@@ -731,6 +731,9 @@ static vpx_codec_err_t vp8e_init(vpx_codec_ctx_t *ctx,
       reduce_ratio(&priv->timestamp_ratio);
 
       set_vp8e_config(&priv->oxcf, priv->cfg, priv->vp8_cfg, mr_cfg);
+#if CONFIG_MULTI_RES_ENCODING
+      mr_cfg->mem_loc_owned = 1;
+#endif
       priv->cpi = vp8_create_compressor(&priv->oxcf);
       if (!priv->cpi) res = VPX_CODEC_MEM_ERROR;
     }
