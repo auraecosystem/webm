@@ -399,6 +399,7 @@ static vpx_codec_err_t set_vp8e_config(VP8_CONFIG *oxcf,
     oxcf->mr_down_sampling_factor.num = mr_cfg->mr_down_sampling_factor.num;
     oxcf->mr_down_sampling_factor.den = mr_cfg->mr_down_sampling_factor.den;
     oxcf->mr_low_res_mode_info = mr_cfg->mr_low_res_mode_info;
+    mr_cfg->mem_loc_owned = 1;
   }
 #else
   (void)mr_cfg;
