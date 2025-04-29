@@ -362,6 +362,7 @@ struct vpx_codec_priv_enc_mr_cfg {
   unsigned int mr_encoder_id;
   struct vpx_rational mr_down_sampling_factor;
   void *mr_low_res_mode_info;
+  int mem_loc_owned;
 };
 
 #undef VPX_CTRL_USE_TYPE
