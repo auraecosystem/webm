@@ -16,6 +16,24 @@
       "message": "At the end of `vp8e_init()`, we have:\n\n```\n      set_vp8e_config(\u0026priv-\u003eoxcf, priv-\u003ecfg, priv-\u003evp8_cfg, mr_cfg);\n      priv-\u003ecpi \u003d vp8_create_compressor(\u0026priv-\u003eoxcf);\n      if (!priv-\u003ecpi) res \u003d VPX_CODEC_MEM_ERROR;\n```\n\nIf you modify the source code to make that `vp8_create_compressor()` return a null pointer, the `vpx_codec_destroy()` call here will free `mem_loc`, and then we will free `mem_loc` again below because `mem_loc_owned` is false if `i` is equal to 0.",
       "revId": "b32e98f52fb99e00bc99ea8f2b57a8015b71aa39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc6d9cfd_c3c58311",
+        "filename": "vpx/src/vpx_encoder.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-04-30T21:52:48Z",
+      "side": 0,
+      "message": "yes this is how i\u0027m reproducing the crash.",
+      "parentUuid": "86a24394_fc47e817",
+      "revId": "b32e98f52fb99e00bc99ea8f2b57a8015b71aa39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
