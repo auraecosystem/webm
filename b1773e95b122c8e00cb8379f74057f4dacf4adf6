@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c8eecec_3d786194",
+        "filename": "vpx/internal/vpx_codec_internal.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-30T21:51:15Z",
+      "side": 1,
+      "message": "Please document how this member should be used.",
+      "revId": "b1773e95b122c8e00cb8379f74057f4dacf4adf6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d7b38b_1b99b6dc",
+        "filename": "vpx/internal/vpx_codec_internal.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-04-30T21:51:15Z",
+      "side": 1,
+      "message": "This member should be named `mr_low_res_mode_info_owned`.\n\n`mem_loc` is the name of a local variable in vpx/src/vpx_encoder.c. Without knowing that, the name `mem_loc_owned` doesn\u0027t make sense here.",
+      "revId": "b1773e95b122c8e00cb8379f74057f4dacf4adf6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12502612_814408d8",
         "filename": "vpx/src/vpx_encoder.c",
         "patchSetId": 8
