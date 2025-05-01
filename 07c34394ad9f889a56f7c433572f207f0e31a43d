@@ -16,6 +16,23 @@
       "message": "passes my tests.",
       "revId": "07c34394ad9f889a56f7c433572f207f0e31a43d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb923e0_05d303aa",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-01T20:04:28Z",
+      "side": 1,
+      "message": "Optional: In vpx/src/vpx_encoder.c, above the `ctx-\u003eiface-\u003einit()` call at line 117, add the following comment to document the contract:\n\n```\n          // ctx takes ownership of mr_cfg.mr_low_res_mode_info if and only if\n          // this call succeeds.\n          res \u003d ctx-\u003eiface-\u003einit(ctx, \u0026mr_cfg);\n```",
+      "revId": "07c34394ad9f889a56f7c433572f207f0e31a43d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
