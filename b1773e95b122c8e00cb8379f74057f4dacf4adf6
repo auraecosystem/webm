@@ -50,6 +50,24 @@
       "message": "Instead of the new flag, I think we can just say that if `init` fails the encoder should not take ownership of the memory. In that case the stored pointers could be cleared before returning so `vpx_codec_destroy` is a noop.",
       "revId": "b1773e95b122c8e00cb8379f74057f4dacf4adf6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ded49d6_c7f1f8e3",
+        "filename": "vpx/src/vpx_encoder.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-01T01:48:03Z",
+      "side": 1,
+      "message": "I like this fix better.\n\nIt would be cleaner to add a reference count to `mem_loc`, but that would require more changes. I can try that tomorrow.",
+      "parentUuid": "12502612_814408d8",
+      "revId": "b1773e95b122c8e00cb8379f74057f4dacf4adf6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
