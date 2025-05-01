@@ -33,6 +33,24 @@
       "message": "Optional: In vpx/src/vpx_encoder.c, above the `ctx-\u003eiface-\u003einit()` call at line 117, add the following comment to document the contract:\n\n```\n          // ctx takes ownership of mr_cfg.mr_low_res_mode_info if and only if\n          // this call succeeds.\n          res \u003d ctx-\u003eiface-\u003einit(ctx, \u0026mr_cfg);\n```",
       "revId": "07c34394ad9f889a56f7c433572f207f0e31a43d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca6fafc7_c14fef0b",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-01T20:07:29Z",
+      "side": 1,
+      "message": "We may want to further document that it is the first ctx in the array (which counterintuitively has the largest mr_cfg.mr_encoder_id) that owns mr_cfg.mr_low_res_mode_info and is responsible for freeing it.",
+      "parentUuid": "2fb923e0_05d303aa",
+      "revId": "07c34394ad9f889a56f7c433572f207f0e31a43d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
