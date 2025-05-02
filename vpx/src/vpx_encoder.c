@@ -15,9 +15,7 @@
 #include <assert.h>
 #include <limits.h>
 #include <stdint.h>
-#include <stdlib.h>
 #include <string.h>
-#include "vp8/common/blockd.h"
 #include "vpx_config.h"
 #include "vpx/internal/vpx_codec_internal.h"
 
@@ -91,34 +89,38 @@ vpx_codec_err_t vpx_codec_enc_init_multi_ver(
 #if CONFIG_MULTI_RES_ENCODING
     int mem_loc_owned = 0;
 #endif
-    void *mem_loc = NULL;
+    void *mem_loc;
 
     if (iface->enc.mr_get_mem_loc == NULL) return VPX_CODEC_INCAPABLE;
 
     if (!(res = iface->enc.mr_get_mem_loc(cfg, &mem_loc))) {
       for (i = 0; i < num_enc; i++) {
-        vpx_codec_priv_enc_mr_cfg_t mr_cfg;
-
         /* Validate down-sampling factor. */
         if (dsf->num < 1 || dsf->num > 4096 || dsf->den < 1 ||
             dsf->den > dsf->num) {
           res = VPX_CODEC_INVALID_PARAM;
         } else {
+          ctx->iface = iface;
+          ctx->name = iface->name;
+          ctx->priv = NULL;
+          ctx->init_flags = flags;
+          ctx->config.enc = cfg;
+
+#if CONFIG_MULTI_RES_ENCODING
+          vpx_codec_priv_enc_mr_cfg_t mr_cfg;
           mr_cfg.mr_low_res_mode_info = mem_loc;
           mr_cfg.mr_total_resolutions = num_enc;
           mr_cfg.mr_encoder_id = num_enc - 1 - i;
           mr_cfg.mr_down_sampling_factor.num = dsf->num;
           mr_cfg.mr_down_sampling_factor.den = dsf->den;
 
-          ctx->iface = iface;
-          ctx->name = iface->name;
-          ctx->priv = NULL;
-          ctx->init_flags = flags;
-          ctx->config.enc = cfg;
           // ctx takes ownership of mr_cfg.mr_low_res_mode_info if and only if
           // this call succeeds. The first ctx entry in the array is
           // responsible for freeing the memory.
           res = ctx->iface->init(ctx, &mr_cfg);
+#else
+          res = ctx->iface->init(ctx, NULL);
+#endif
         }
 
         if (res) {
@@ -137,8 +139,7 @@ vpx_codec_err_t vpx_codec_enc_init_multi_ver(
 #if CONFIG_MULTI_RES_ENCODING
           if (!mem_loc_owned) {
             assert(mem_loc);
-            free(((LOWER_RES_FRAME_INFO *)mem_loc)->mb_info);
-            free(mem_loc);
+            iface->enc.mr_free_mem_loc(mem_loc);
           }
 #endif
           return SAVE_STATUS(ctx, res);

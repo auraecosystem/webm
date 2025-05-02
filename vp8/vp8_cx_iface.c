@@ -8,6 +8,7 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
+#include <assert.h>
 #include <limits.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -402,6 +403,7 @@ static vpx_codec_err_t set_vp8e_config(VP8_CONFIG *oxcf,
   }
 #else
   (void)mr_cfg;
+  assert(!mr_cfg);
 #endif
 
   oxcf->cpu_used = vp8_cfg.cpu_used;
@@ -667,9 +669,20 @@ static vpx_codec_err_t vp8e_mr_alloc_mem(const vpx_codec_enc_cfg_t *cfg,
   }
 #else
   (void)cfg;
-  (void)mem_loc;
+  *mem_loc = NULL;
 #endif
   return res;
+}
+
+static void vp8e_mr_free_mem(void *mem_loc) {
+#if CONFIG_MULTI_RES_ENCODING
+  LOWER_RES_FRAME_INFO *shared_mem_loc = (LOWER_RES_FRAME_INFO *)mem_loc;
+  free(shared_mem_loc->mb_info);
+  free(mem_loc);
+#else
+  (void)mem_loc;
+  assert(!"vp8e_mr_free_mem not reached");
+#endif
 }
 
 static vpx_codec_err_t vp8e_init(vpx_codec_ctx_t *ctx,
@@ -754,10 +767,7 @@ static vpx_codec_err_t vp8e_destroy(vpx_codec_alg_priv_t *ctx) {
   /* Free multi-encoder shared memory */
   if (ctx->oxcf.mr_total_resolutions > 0 &&
       (ctx->oxcf.mr_encoder_id == ctx->oxcf.mr_total_resolutions - 1)) {
-    LOWER_RES_FRAME_INFO *shared_mem_loc =
-        (LOWER_RES_FRAME_INFO *)ctx->oxcf.mr_low_res_mode_info;
-    free(shared_mem_loc->mb_info);
-    free(ctx->oxcf.mr_low_res_mode_info);
+    vp8e_mr_free_mem(ctx->oxcf.mr_low_res_mode_info);
   }
 #endif
 
@@ -1431,5 +1441,6 @@ CODEC_INTERFACE(vpx_codec_vp8_cx) = {
       NULL,
       vp8e_get_preview,
       vp8e_mr_alloc_mem,
+      vp8e_mr_free_mem,
   } /* encoder functions */
 };
