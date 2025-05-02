@@ -15,9 +15,7 @@
 #include <assert.h>
 #include <limits.h>
 #include <stdint.h>
-#include <stdlib.h>
 #include <string.h>
-#include "vp8/common/blockd.h"
 #include "vpx_config.h"
 #include "vpx/internal/vpx_codec_internal.h"
 
@@ -90,7 +88,7 @@ vpx_codec_err_t vpx_codec_enc_init_multi_ver(
 #if CONFIG_MULTI_RES_ENCODING
     int mem_loc_owned = 0;
 #endif
-    void *mem_loc = NULL;
+    void *mem_loc;
 
     if (iface->enc.mr_get_mem_loc == NULL) return VPX_CODEC_INCAPABLE;
 
@@ -136,8 +134,7 @@ vpx_codec_err_t vpx_codec_enc_init_multi_ver(
 #if CONFIG_MULTI_RES_ENCODING
           if (!mem_loc_owned) {
             assert(mem_loc);
-            free(((LOWER_RES_FRAME_INFO *)mem_loc)->mb_info);
-            free(mem_loc);
+            iface->enc.mr_free_mem_loc(mem_loc);
           }
 #endif
           return SAVE_STATUS(ctx, res);
