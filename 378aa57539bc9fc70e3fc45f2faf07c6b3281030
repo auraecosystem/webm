@@ -18,6 +18,58 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d8deb91_e2877adc",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-05T19:03:43Z",
+      "side": 1,
+      "message": "`*mem_loc \u003d NULL` should be added here in case of failure.",
+      "fixSuggestions": [
+        {
+          "fixId": "2c760db6_11971ea3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "vp8/vp8_cx_iface.c",
+              "range": {
+                "startLine": 654,
+                "startChar": 0,
+                "endLine": 654,
+                "endChar": 0
+              },
+              "replacement": "  *mem_loc \u003d NULL;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "378aa57539bc9fc70e3fc45f2faf07c6b3281030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945766d8_9d290c32",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-05T19:03:43Z",
+      "side": 1,
+      "message": "I didn\u0027t look closely at the free behavior when an error occurs. Could `mem_loc` be NULL?",
+      "revId": "378aa57539bc9fc70e3fc45f2faf07c6b3281030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "375e1691_7fc40d0f",
