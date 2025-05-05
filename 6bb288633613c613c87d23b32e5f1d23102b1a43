@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1f5fcdf_14b4b2b5",
+        "filename": "vpx/src/vpx_encoder.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-05T18:27:35Z",
+      "side": 0,
+      "message": "After the two `free()` calls are removed, this file no longer calls any functions declared in \u003cstdlib.h\u003e,",
+      "revId": "6bb288633613c613c87d23b32e5f1d23102b1a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dc30211_c959088e",
+        "filename": "vpx/src/vpx_encoder.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-05T18:27:35Z",
+      "side": 0,
+      "message": "This file should be codec-agnostic, so it should not include the VP8 header vp8/common/blockd.h.",
+      "revId": "6bb288633613c613c87d23b32e5f1d23102b1a43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

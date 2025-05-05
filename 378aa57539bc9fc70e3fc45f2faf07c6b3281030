@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69cffb08_bc87ab45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-05T18:27:35Z",
+      "side": 1,
+      "message": "Hi James,\n\nThis CL is optional and less important than the other CL that corrects the comments for the multi-encoder init function.\n\nWe should also double check the ABI check results because this CL doesn\u0027t modify any public headers.",
+      "revId": "378aa57539bc9fc70e3fc45f2faf07c6b3281030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "375e1691_7fc40d0f",
+        "filename": "vpx/src/vpx_encoder.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-05T18:27:35Z",
+      "side": 1,
+      "message": "`mem_loc` doesn\u0027t need to be initialized.\n\nWe never use `mem_loc` if the `iface-\u003eenc.mr_get_mem_loc()` call at line 95 fails. And we now make sure that `iface-\u003eenc.mr_get_mem_loc()` always sets `mem_loc` on success.",
+      "revId": "378aa57539bc9fc70e3fc45f2faf07c6b3281030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
