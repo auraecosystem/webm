@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc995fbc_a89f7771",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1585857
+      },
+      "writtenOn": "2025-05-07T20:27:25Z",
+      "side": 1,
+      "message": "Ack. LGTM. Thanks for letting me know.",
+      "parentUuid": "638e12e7_e171c9e8",
+      "revId": "378aa57539bc9fc70e3fc45f2faf07c6b3281030",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d8deb91_e2877adc",
