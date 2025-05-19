@@ -33,6 +33,42 @@
       "message": "I also suggest we add the following assertion to vp9/encoder/vp9_bitstream.c:\n\n```\ndiff --git a/vp9/encoder/vp9_bitstream.c b/vp9/encoder/vp9_bitstream.c\nindex be3427124..0be2b1f6b 100644\n--- a/vp9/encoder/vp9_bitstream.c\n+++ b/vp9/encoder/vp9_bitstream.c\n@@ -1249,6 +1249,7 @@ static void write_bitdepth_colorspace_sampling(\n     }\n   } else {\n     assert(cm-\u003eprofile \u003d\u003d PROFILE_1 || cm-\u003eprofile \u003d\u003d PROFILE_3);\n+    assert(cm-\u003esubsampling_x \u003d\u003d 0 \u0026\u0026 cm-\u003esubsampling_y \u003d\u003d 0);\n     vpx_wb_write_bit(wb, 0);  // unused\n   }\n }\n```",
       "revId": "127bb6efb0798632b8676316096814aed9e11f96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a621b5_57d65883",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2012,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-05-19T22:41:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26b34993_29fc9fdc",
+      "revId": "127bb6efb0798632b8676316096814aed9e11f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61b0d395_3624fdb7",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2012,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-05-19T22:41:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0affbfe_960a7efa",
+      "revId": "127bb6efb0798632b8676316096814aed9e11f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
