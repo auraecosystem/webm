@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e61dfc7_0f620eb4",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 5793,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-19T22:47:45Z",
+      "side": 1,
+      "message": "Optional: The `cm-\u003ecolor_space \u003d\u003d VPX_CS_SRGB` check is common to these two if statements. We can use nested if statements:\n\n```\n  if (cm-\u003ecolor_space \u003d\u003d VPX_CS_SRGB) {\n    if (cm-\u003eprofile \u003d\u003d PROFILE_0 || cm-\u003eprofile \u003d\u003d PROFILE_2) {\n      vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_INVALID_PARAM,\n                         \"SRGB color space requires profile 1 or 3\");\n      res \u003d -1;\n    }\n    if (subsampling_x !\u003d 0 || subsampling_y !\u003d 0) {\n      vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_INVALID_PARAM,\n                         \"SRGB color space requires 4:4:4\");\n      res \u003d -1;\n    }\n  }\n```",
+      "revId": "4c8d736d0c3df98d6950e4d39ae476651b81c178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
