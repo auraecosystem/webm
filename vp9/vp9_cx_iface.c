@@ -2006,6 +2006,10 @@ static vpx_codec_err_t ctrl_set_color_space(vpx_codec_alg_priv_t *ctx,
                                             va_list args) {
   struct vp9_extracfg extra_cfg = ctx->extra_cfg;
   extra_cfg.color_space = CAST(VP9E_SET_COLOR_SPACE, args);
+  if (extra_cfg.color_space == VPX_CS_SRGB &&
+      ctx->cpi->common.profile != PROFILE_1 &&
+      ctx->cpi->common.profile != PROFILE_3)
+    return VPX_CODEC_INVALID_PARAM;
   return update_extra_cfg(ctx, &extra_cfg);
 }
 
