@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b34993_29fc9fdc",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2012,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-19T22:20:30Z",
+      "side": 1,
+      "message": "Performing the check here means we must set the profile before setting the color space. Although the profile is set in `vpx_codec_enc_init()`, it can be changed with `vpx_codec_enc_config_set()` later. The check here won\u0027t be able to handle that kind of change.\n\nAlso, should we also require 4:4:4 (i.e., both sumsampling_x and subsampling_y are equal to 0)?\n\nIt seems that a better place to perform this check is at the end of the `vp9_receive_raw_frame()` function:\n\n```\nint vp9_receive_raw_frame(VP9_COMP *cpi, vpx_enc_frame_flags_t frame_flags,\n                          YV12_BUFFER_CONFIG *sd, int64_t time_stamp,\n                          int64_t end_time) {\n  ...\n\n  if ((cm-\u003eprofile \u003d\u003d PROFILE_0 || cm-\u003eprofile \u003d\u003d PROFILE_2) \u0026\u0026\n      (subsampling_x !\u003d 1 || subsampling_y !\u003d 1)) {\n    vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_INVALID_PARAM,\n                       \"Non-4:2:0 color format requires profile 1 or 3\");\n    res \u003d -1;\n  }\n  if ((cm-\u003eprofile \u003d\u003d PROFILE_1 || cm-\u003eprofile \u003d\u003d PROFILE_3) \u0026\u0026\n      (subsampling_x \u003d\u003d 1 \u0026\u0026 subsampling_y \u003d\u003d 1)) {\n    vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_INVALID_PARAM,\n                       \"4:2:0 color format requires profile 0 or 2\");\n    res \u003d -1;\n  }\n\n  return res;\n}\n```",
+      "revId": "127bb6efb0798632b8676316096814aed9e11f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
