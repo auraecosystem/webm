@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b479009_9b531c4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-19T23:35:03Z",
+      "side": 1,
+      "message": "Can an `Invalid...` test be added to encode_api_test.cc to cover this case?",
+      "revId": "4c8d736d0c3df98d6950e4d39ae476651b81c178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e61dfc7_0f620eb4",
         "filename": "vp9/encoder/vp9_encoder.c",
         "patchSetId": 4
