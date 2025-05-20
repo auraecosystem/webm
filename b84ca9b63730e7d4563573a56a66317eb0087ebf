@@ -1,5 +1,67 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f85d0de5_8f05a66c",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 5790,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-05-20T14:12:29Z",
+      "side": 1,
+      "message": "according to the spec I thought only 420 is invalid for SRGB under profile 1 or 3, but 422 and 440 are valid.",
+      "range": {
+        "startLine": 5790,
+        "startChar": 26,
+        "endLine": 5790,
+        "endChar": 57
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c2356345_b5ab94d6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "vp9/encoder/vp9_encoder.c",
+              "range": {
+                "startLine": 5784,
+                "startChar": 0,
+                "endLine": 5786,
+                "endChar": 0
+              },
+              "replacement": "      vpx_internal_error(\n          \u0026cm-\u003eerror, VPX_CODEC_INVALID_PARAM,\n          \"SRGB color space requires profile 1 or 3\");\n"
+            },
+            {
+              "path": "vp9/encoder/vp9_encoder.c",
+              "range": {
+                "startLine": 5788,
+                "startChar": 0,
+                "endLine": 5789,
+                "endChar": 0
+              },
+              "replacement": "    if ((cm-\u003eprofile \u003d\u003d PROFILE_1 || cm-\u003eprofile \u003d\u003d PROFILE_3) \u0026\u0026\n        (subsampling_x !\u003d 0 || subsampling_y !\u003d 0)) {\n"
+            },
+            {
+              "path": "vp9/encoder/vp9_encoder.c",
+              "range": {
+                "startLine": 6208,
+                "startChar": 0,
+                "endLine": 6209,
+                "endChar": 0
+              },
+              "replacement": "  // Enable the Jingning\u0027s new \"multi_layer_arf\" code if \"enable_auto_arf\" is\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b84ca9b63730e7d4563573a56a66317eb0087ebf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
