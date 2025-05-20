@@ -88,6 +88,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4e613b35_98c8a95a",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 5790,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-05-20T20:13:58Z",
+      "side": 1,
+      "message": "This is in conflict with the table on page 62 section 7.2 in the spec you mentioned...\n\nor is the table meant to show the feature supported by profiles, but there\u0027s no correlation between color space and yuv subsampling indicated by that table?",
+      "parentUuid": "37b28ee6_74fc3fd3",
+      "range": {
+        "startLine": 5790,
+        "startChar": 26,
+        "endLine": 5790,
+        "endChar": 57
+      },
+      "revId": "b84ca9b63730e7d4563573a56a66317eb0087ebf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "de207b02_5e52286e",
         "filename": "vp9/encoder/vp9_encoder.c",
         "patchSetId": 6
