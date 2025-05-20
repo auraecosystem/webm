@@ -60,6 +60,30 @@
       ],
       "revId": "b84ca9b63730e7d4563573a56a66317eb0087ebf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37b28ee6_74fc3fd3",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 5790,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-20T19:59:27Z",
+      "side": 1,
+      "message": "Jerome: There are two ways to conclude SRGB should only be used with 4:4:4.\n\n1. The [Draft VP9 specification](https://www.webmproject.org/vp9/) says in Section 6.2.2, page 30, that if `color_space` is equal to `CS_RGB`, then `subsampling_x` and `subsampling_y` are set to 0. The corresponding code in libvpx is the following code in vp9/decoder/vp9_decodeframe.c:\n\n```\nstatic void read_bitdepth_colorspace_sampling(VP9_COMMON *cm,\n                                              struct vpx_read_bit_buffer *rb) {\n  ...\n  cm-\u003ecolor_space \u003d vpx_rb_read_literal(rb, 3);\n  if (cm-\u003ecolor_space !\u003d VPX_CS_SRGB) {\n    ...\n  } else {\n    cm-\u003ecolor_range \u003d VPX_CR_FULL_RANGE;\n    if (cm-\u003eprofile \u003d\u003d PROFILE_1 || cm-\u003eprofile \u003d\u003d PROFILE_3) {\n      // Note if colorspace is SRGB then 4:4:4 chroma sampling is assumed.\n      // 4:2:2 or 4:4:0 chroma sampling is not allowed.\n      cm-\u003esubsampling_y \u003d cm-\u003esubsampling_x \u003d 0;\n      if (vpx_rb_read_bit(rb))\n        vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_UNSUP_BITSTREAM,\n                           \"Reserved bit set\");\n    } else {\n      vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_UNSUP_BITSTREAM,\n                         \"4:4:4 color not supported in profile 0 or 2\");\n    }\n  }\n}\n```\n\n2. Chroma subsampling formats such as 4:2:0, 4:2:2, and 4:4:0 are all based on the fact that chroma is less important than luma perceptually. Therefore they should not be used with a color space such as SRGB in which the planes are not luma and chroma.",
+      "parentUuid": "f85d0de5_8f05a66c",
+      "range": {
+        "startLine": 5790,
+        "startChar": 26,
+        "endLine": 5790,
+        "endChar": 57
+      },
+      "revId": "b84ca9b63730e7d4563573a56a66317eb0087ebf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
