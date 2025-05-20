@@ -112,6 +112,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "20d2a717_600436dd",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 5790,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-20T20:50:45Z",
+      "side": 1,
+      "message": "I see. Yes, the table on page 62 in Section 7.2 is a little ambiguous. We can disambiguate by using the two arguments I gave earlier. So, the table is meant to show SRGB is supported by profile 1 or 3, but there\u0027s no correlation between the SRGB color space and chroma subsampling indicated by that table.",
+      "parentUuid": "4e613b35_98c8a95a",
+      "range": {
+        "startLine": 5790,
+        "startChar": 26,
+        "endLine": 5790,
+        "endChar": 57
+      },
+      "revId": "b84ca9b63730e7d4563573a56a66317eb0087ebf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "de207b02_5e52286e",
         "filename": "vp9/encoder/vp9_encoder.c",
         "patchSetId": 6
