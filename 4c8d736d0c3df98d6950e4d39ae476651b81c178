@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "736a5c35_90b6ff78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-05-20T00:14:50Z",
+      "side": 1,
+      "message": "ok i\u0027ll take a look at adding that.",
+      "parentUuid": "1b479009_9b531c4b",
+      "revId": "4c8d736d0c3df98d6950e4d39ae476651b81c178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e61dfc7_0f620eb4",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-05-19T22:47:45Z",
       "side": 1,
       "message": "Optional: The `cm-\u003ecolor_space \u003d\u003d VPX_CS_SRGB` check is common to these two if statements. We can use nested if statements:\n\n```\n  if (cm-\u003ecolor_space \u003d\u003d VPX_CS_SRGB) {\n    if (cm-\u003eprofile \u003d\u003d PROFILE_0 || cm-\u003eprofile \u003d\u003d PROFILE_2) {\n      vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_INVALID_PARAM,\n                         \"SRGB color space requires profile 1 or 3\");\n      res \u003d -1;\n    }\n    if (subsampling_x !\u003d 0 || subsampling_y !\u003d 0) {\n      vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_INVALID_PARAM,\n                         \"SRGB color space requires 4:4:4\");\n      res \u003d -1;\n    }\n  }\n```",
+      "revId": "4c8d736d0c3df98d6950e4d39ae476651b81c178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ecf32d1_199aa05a",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 5793,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-05-20T00:14:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e61dfc7_0f620eb4",
       "revId": "4c8d736d0c3df98d6950e4d39ae476651b81c178",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
