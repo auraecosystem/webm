@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f502354_38205b49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-20T00:56:10Z",
+      "side": 1,
+      "message": "Please correct the spelling of \"additonal\"",
+      "revId": "fed2703eb178b9fef6a4dd9660bdaa23f30e996a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
