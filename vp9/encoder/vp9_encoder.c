@@ -4679,8 +4679,8 @@ static void encode_with_recode_loop(VP9_COMP *cpi, size_t *size, uint8_t *dest,
                (!rc->is_src_frame_alt_ref &&
                 (rc->projected_frame_size >=
                  big_rate_miss_high_threshold(cpi))))) {
-            int max_rate = VPXMAX(1, VPXMIN(rc->max_frame_bandwidth,
-                                            big_rate_miss_high_threshold(cpi)));
+            int max_rate = clamp(rc->max_frame_bandwidth, 1,
+                                 big_rate_miss_high_threshold(cpi));
             double q_val_high;
             q_val_high = vp9_convert_qindex_to_q(q_high, cm->bit_depth);
             q_val_high =
@@ -5039,8 +5039,7 @@ static void spatial_denoise_frame(VP9_COMP *cpi) {
   // Base the filter strength on the current active max Q.
   const int q = (int)(vp9_convert_qindex_to_q(twopass->active_worst_quality,
                                               cm->bit_depth));
-  int strength =
-      VPXMAX(oxcf->arnr_strength >> 2, VPXMIN(oxcf->arnr_strength, (q >> 4)));
+  int strength = clamp(q >> 4, oxcf->arnr_strength >> 2, oxcf->arnr_strength);
 
   // Denoise each of Y,U and V buffers.
   spatial_denoise_buffer(cpi, src->y_buffer, src->y_stride, src->y_width,

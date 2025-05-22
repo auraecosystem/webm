@@ -278,13 +278,14 @@ static void accumulate_fp_tile_stat(TileDataEnc *tile_data,
   tile_data->fp_data.sum_in_vectors += tile_data_t->fp_data.sum_in_vectors;
   tile_data->fp_data.intra_smooth_count +=
       tile_data_t->fp_data.intra_smooth_count;
-  tile_data->fp_data.image_data_start_row =
+  const int start_row =
       VPXMIN(tile_data->fp_data.image_data_start_row,
-             tile_data_t->fp_data.image_data_start_row) == INVALID_ROW
+             tile_data_t->fp_data.image_data_start_row) == INVALID_ROW;
+  tile_data->fp_data.image_data_start_row =
+      (start_row == INVALID_ROW)
           ? VPXMAX(tile_data->fp_data.image_data_start_row,
                    tile_data_t->fp_data.image_data_start_row)
-          : VPXMIN(tile_data->fp_data.image_data_start_row,
-                   tile_data_t->fp_data.image_data_start_row);
+          : start_row;
 }
 #endif  // !CONFIG_REALTIME_ONLY
 
