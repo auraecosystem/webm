@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5be276_1f59c11a",
+        "filename": "CHANGELOG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-05-28T19:48:20Z",
+      "side": 1,
+      "message": "Nit: I suggest also adding the libvpx bug number, e.g., \"CVE-2025-5283 (bug webm:413411335)\".",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 34
+      },
+      "revId": "c5b19fc6942d0121653cc3d6680db54da2a43f2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
