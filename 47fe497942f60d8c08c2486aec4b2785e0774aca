@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b52f3978_b59f5330",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 4683,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-06-03T23:26:39Z",
+      "side": 1,
+      "message": "\u003e This requires `big_rate_miss_high_threshold(cpi) \u003e\u003d 1`, which is true if `rc-\u003ethis_frame_target \u003e 0`.\n\u003e \n\u003e Do we know if `rc-\u003ethis_frame_target` is nonzero?\n\nI would hope so, but let\u0027s be safe and revert this one for now.",
+      "parentUuid": "4d69ad46_0e707cc4",
+      "revId": "47fe497942f60d8c08c2486aec4b2785e0774aca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db8f125c_7a316cbd",
@@ -31,6 +49,30 @@
       "writtenOn": "2025-06-03T21:55:35Z",
       "side": 1,
       "message": "Nit: I suggest naming this variable `min_start_row` or `start_row_min`.",
+      "range": {
+        "startLine": 281,
+        "startChar": 12,
+        "endLine": 281,
+        "endChar": 21
+      },
+      "revId": "47fe497942f60d8c08c2486aec4b2785e0774aca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "731297f4_914f88f0",
+        "filename": "vp9/encoder/vp9_ethread.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-06-03T23:26:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db8f125c_7a316cbd",
       "range": {
         "startLine": 281,
         "startChar": 12,
@@ -58,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66cff537_d16bf90a",
+        "filename": "vp9/encoder/vp9_ethread.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-06-03T23:26:39Z",
+      "side": 1,
+      "message": "\u003e IMPORTANT: Delete `\u003d\u003d INVALID_ROW`\n\nGood catch. I\u0027m surprised this didn\u0027t break anything.",
+      "parentUuid": "a287c80b_764b9040",
+      "revId": "47fe497942f60d8c08c2486aec4b2785e0774aca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98c151af_32f35218",
@@ -75,6 +135,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38aac399_64bdcb8c",
+        "filename": "vp9/encoder/vp9_firstpass.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-06-03T23:26:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98c151af_32f35218",
+      "revId": "47fe497942f60d8c08c2486aec4b2785e0774aca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "595332d5_cc8e0bfa",
@@ -88,6 +166,24 @@
       "writtenOn": "2025-06-03T21:55:35Z",
       "side": 1,
       "message": "IMPORTANT: This is incorrect. We should keep the original structure and the original code for `CONFIG_REALTIME_ONLY`:\n\n```\n  extra_cfg.cpu_used \u003d clamp(extra_cfg.cpu_used, -9, 9);\n#if CONFIG_REALTIME_ONLY\n  if (extra_cfg.cpu_used \u003e -5 \u0026\u0026 extra_cfg.cpu_used \u003c 5)\n    extra_cfg.cpu_used \u003d (extra_cfg.cpu_used \u003e 0) ? 5 : -5;\n#endif\n```",
+      "revId": "47fe497942f60d8c08c2486aec4b2785e0774aca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61cd0d25_a646ff1b",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-06-03T23:26:39Z",
+      "side": 1,
+      "message": "\u003e IMPORTANT: This is incorrect. We should keep the original structure and the original code for `CONFIG_REALTIME_ONLY`:\n\u003e \n\u003e ```\n\u003e   extra_cfg.cpu_used \u003d clamp(extra_cfg.cpu_used, -9, 9);\n\u003e #if CONFIG_REALTIME_ONLY\n\u003e   if (extra_cfg.cpu_used \u003e -5 \u0026\u0026 extra_cfg.cpu_used \u003c 5)\n\u003e     extra_cfg.cpu_used \u003d (extra_cfg.cpu_used \u003e 0) ? 5 : -5;\n\u003e #endif\n\u003e ```\n\nYou\u0027re right, I didn\u0027t check this one carefully enough.",
+      "parentUuid": "595332d5_cc8e0bfa",
       "revId": "47fe497942f60d8c08c2486aec4b2785e0774aca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
