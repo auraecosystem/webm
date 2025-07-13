@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e71426_24b134eb",
+        "filename": "vp8/encoder/ratectrl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-13T19:19:23Z",
+      "side": 1,
+      "message": "I don\u0027t understand the code in this function, but this change seems reasonable because this conditional expression is now similar to the conditonal expression at lines 627-628.",
+      "revId": "d88b0c86847536b952965a1af4765ffd20d53e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "621e4062_76fb6208",
+        "filename": "vp8/encoder/ratectrl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-13T19:19:23Z",
+      "side": 1,
+      "message": "With the change above, I believe this if statement should be deleted. However, it may make sense to move this to the `else` branch, after line 621. See my next comment.",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 619,
+        "endChar": 9
+      },
+      "revId": "d88b0c86847536b952965a1af4765ffd20d53e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf035ee3_9c072552",
+        "filename": "vp8/encoder/ratectrl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-13T19:19:23Z",
+      "side": 1,
+      "message": "This `else` branch now seems problematic because `cpi-\u003ethis_frame_target` may become smaller than `min_frame_target`. I wonder if we should move the if statement at lines 617-619 here.\n\nBut note that we check `cpi-\u003ethis_frame_target \u003e min_frame_target` at line 628. So it\u0027s not clear whether we need to prevent `cpi-\u003ethis_frame_target` from becoming smaller than `min_frame_target` here.",
+      "revId": "d88b0c86847536b952965a1af4765ffd20d53e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4290abea_1115c60a",
+        "filename": "vp8/encoder/ratectrl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-13T19:19:23Z",
+      "side": 1,
+      "message": "Lines 656-658 apparently assume `cpi-\u003ethis_frame_target - min_frame_target` is positive. I wonder if should add `\u0026\u0026 cpi-\u003ethis_frame_target \u003e min_frame_target` here.",
+      "revId": "d88b0c86847536b952965a1af4765ffd20d53e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
