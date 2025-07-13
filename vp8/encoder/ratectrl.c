@@ -596,7 +596,8 @@ static void calc_pframe_target_size(VP8_COMP *cpi) {
        * Test to see if the key frame inter data rate correction
        * should still be in force
        */
-      if (cpi->kf_overspend_bits > 0) {
+      if (cpi->kf_overspend_bits > 0 &&
+          cpi->per_frame_bandwidth > min_frame_target) {
         Adjustment = (cpi->kf_bitrate_adjustment <= cpi->kf_overspend_bits)
                          ? cpi->kf_bitrate_adjustment
                          : cpi->kf_overspend_bits;
