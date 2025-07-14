@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5eb1c8f5_5cce22b4",
+        "filename": "vp8/encoder/ratectrl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-07-14T21:31:19Z",
+      "side": 1,
+      "message": "What is the value of cpi-\u003eper_frame_bandwidth in the test that crashes? min_frame_target \u003d per_frame_bandwidth/4 (for cpi-\u003epass \u003d 1) so the condition at line 600 is always true unless per_frame_bandwidth is 0.",
+      "revId": "d88b0c86847536b952965a1af4765ffd20d53e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "621e4062_76fb6208",
         "filename": "vp8/encoder/ratectrl.c",
         "patchSetId": 1
