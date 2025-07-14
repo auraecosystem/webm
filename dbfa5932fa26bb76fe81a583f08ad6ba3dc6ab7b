@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5198b37c_c899d1bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-14T21:39:48Z",
+      "side": 1,
+      "message": "marpan@: can you please take a look? You might be the best person to review both this in the libaom change. AV1 *might* be easier since VP9 has SVC support which... seems to work a bit differently.\n\nSee the WebRTC CL for the intended usage which took a while to get spec agreement.",
+      "revId": "dbfa5932fa26bb76fe81a583f08ad6ba3dc6ab7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
