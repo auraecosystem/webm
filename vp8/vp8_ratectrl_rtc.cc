@@ -223,7 +223,11 @@ FrameDropDecision VP8RateControlRTC::ComputeQP(
     vp8_update_layer_contexts(cpi_);
     /* Restore layer specific context & set frame rate */
     vp8_restore_layer_context(cpi_, layer);
+    const double ref_framerate = cpi_->ref_framerate;
     vp8_new_framerate(cpi_, cpi_->layer_context[layer].framerate);
+    // cpi_->ref_framerate should not get updated by the layer framerate,
+    // so restore it to (stream) value before the call to vp8_new_framerate().
+    cpi_->ref_framerate = ref_framerate;
   }
   cm->frame_type = static_cast<FRAME_TYPE>(frame_params.frame_type);
   cm->refresh_golden_frame = (cm->frame_type == KEY_FRAME) ? 1 : 0;
