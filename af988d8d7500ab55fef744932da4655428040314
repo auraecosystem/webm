@@ -16,6 +16,24 @@
       "message": "Quick question: for this cherry-pick to work correctly, should the hashes in Chrome\u0027s src/third_party/webrtc/DEPS and src/DEPS for the webm/libvpx.git match?",
       "revId": "af988d8d7500ab55fef744932da4655428040314",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b340c879_bec690cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-07-15T20:01:43Z",
+      "side": 1,
+      "message": "Hmm, I think WebRTC would pick up the libvpx version in src/DEPS so we don\u0027t have to manually change third_party/webrtc/DEPS? @mbonadei@chromium.org should know better than I do...",
+      "parentUuid": "2d467bc1_c46b25dc",
+      "revId": "af988d8d7500ab55fef744932da4655428040314",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
