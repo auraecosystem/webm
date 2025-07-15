@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7148efb_6f3a6338",
+        "filename": "vp8/encoder/ratectrl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-07-15T14:49:12Z",
+      "side": 1,
+      "message": "Thanks, from the log the issue seems to be cpi-\u003eref_framerate going to zero which then causes lc-\u003eavg_frame_size_for_layer to overflow. This doesn\u0027t happen in vp9 because of the function vp9_new_framerate(), which resets for very low framerate.\n\nSimilar function exists in vp8, but it is not called before the temporal layer (lc-\u003e) params are set. Possible fix is here: https://chromium-review.googlesource.com/c/webm/libvpx/+/6733319.",
+      "parentUuid": "fb549df0_87eaabdb",
+      "revId": "d88b0c86847536b952965a1af4765ffd20d53e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "621e4062_76fb6208",
