@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fd2534c_044c869d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-15T17:53:15Z",
+      "side": 1,
+      "message": "Can we mimic the test Hiro had in one of our unit tests? Is all that\u0027s needed is to set the timebase to 1 fps then increment timestamps like they\u0027re 25fps?",
+      "revId": "e0152c558ae46b323d7a9fdfe4038efc8d5a3ec4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
