@@ -1267,6 +1267,7 @@ void vp8_new_framerate(VP8_COMP *cpi, double framerate) {
 
   cpi->framerate = framerate;
   cpi->output_framerate = framerate;
+  cpi->ref_framerate = framerate;
   const double per_frame_bandwidth =
       round(cpi->oxcf.target_bandwidth / cpi->output_framerate);
   cpi->per_frame_bandwidth = (int)VPXMIN(per_frame_bandwidth, INT_MAX);
@@ -4983,6 +4984,7 @@ int vp8_get_compressed_data(VP8_COMP *cpi, unsigned int *frame_flags,
         }
       }
 #endif
+      vp8_new_framerate(cpi, cpi->ref_framerate);
       if (cpi->oxcf.number_of_layers > 1) {
         unsigned int i;
 
@@ -4993,8 +4995,6 @@ int vp8_get_compressed_data(VP8_COMP *cpi, unsigned int *frame_flags,
           LAYER_CONTEXT *lc = &cpi->layer_context[i];
           lc->framerate = cpi->ref_framerate / cpi->oxcf.rate_decimator[i];
         }
-      } else {
-        vp8_new_framerate(cpi, cpi->ref_framerate);
       }
     }
 
