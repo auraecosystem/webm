@@ -34,6 +34,24 @@
       "parentUuid": "2d467bc1_c46b25dc",
       "revId": "af988d8d7500ab55fef744932da4655428040314",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e88462_1ce10619",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1178490
+      },
+      "writtenOn": "2025-07-16T07:07:45Z",
+      "side": 1,
+      "message": "WebRTC\u0027s DEPS file (https://source.chromium.org/chromium/chromium/src/+/main:third_party/webrtc/DEPS) only applies to the WebRTC standalone build (the build without Chromium).\n\nSince here we are targeting Chromium, I think you need to ensure that Chromium\u0027s DEPS file points to the right libvpx revision (e.g. here https://source.chromium.org/chromium/chromium/src/+/main:DEPS;l\u003d2483;drc\u003d4686fcc404bd4ec17f806f5e3f08f8789cff64cf) so when `gclient sync` executes it will sync `third_party/libvpx/source/libvpx` at the right revision.\n\nBut I don\u0027t have a lot of knowledge about cherry picks outside WebRTC. \n\nI know gtsitovich@ is working on cherry picks so they might be able to help here and ensure this is the only thing you need or if you need more.",
+      "parentUuid": "b340c879_bec690cc",
+      "revId": "af988d8d7500ab55fef744932da4655428040314",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
