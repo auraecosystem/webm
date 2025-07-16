@@ -70,6 +70,24 @@
       "parentUuid": "42e88462_1ce10619",
       "revId": "af988d8d7500ab55fef744932da4655428040314",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b116ac_93fcc5e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1357282
+      },
+      "writtenOn": "2025-07-16T08:16:15Z",
+      "side": 1,
+      "message": "Updating src/DEPS at crrev.com/c/6759631",
+      "parentUuid": "91019e79_0bb72641",
+      "revId": "af988d8d7500ab55fef744932da4655428040314",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
