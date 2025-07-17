@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be7c9041_2be41d82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-07-17T17:39:56Z",
+      "side": 1,
+      "message": "I meant the existing vp8_new_framerate(), which has the same clamp as the vp9 one",
+      "parentUuid": "b0d379ea_0bd435ac",
+      "range": {
+        "startLine": 15,
+        "startChar": 14,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "c5bd67433639187fce587a424239dbda6ca80c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9a7fc3f_f0598057",
@@ -49,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8a0719a2_ff44789f",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-07-17T17:39:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9a7fc3f_f0598057",
+      "range": {
+        "startLine": 483,
+        "startChar": 35,
+        "endLine": 483,
+        "endChar": 39
+      },
+      "revId": "c5bd67433639187fce587a424239dbda6ca80c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b3a4ba2a_395f4b85",
         "filename": "vp8/encoder/onyx_if.c",
         "patchSetId": 11
@@ -60,6 +108,30 @@
       "writtenOn": "2025-07-17T17:20:15Z",
       "side": 1,
       "message": "`clamp_framerate` might be enough",
+      "range": {
+        "startLine": 1266,
+        "startChar": 14,
+        "endLine": 1266,
+        "endChar": 40
+      },
+      "revId": "c5bd67433639187fce587a424239dbda6ca80c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fc06440_d0d6eb56",
+        "filename": "vp8/encoder/onyx_if.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-07-17T17:39:56Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "b3a4ba2a_395f4b85",
       "range": {
         "startLine": 1266,
         "startChar": 14,
