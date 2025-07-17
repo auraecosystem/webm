@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0d379ea_0bd435ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-17T17:20:15Z",
+      "side": 1,
+      "message": "Did you mean `vp9_new_framerate`?",
+      "range": {
+        "startLine": 15,
+        "startChar": 14,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "c5bd67433639187fce587a424239dbda6ca80c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9a7fc3f_f0598057",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-17T17:20:15Z",
+      "side": 1,
+      "message": "i.e.,",
+      "range": {
+        "startLine": 483,
+        "startChar": 35,
+        "endLine": 483,
+        "endChar": 39
+      },
+      "revId": "c5bd67433639187fce587a424239dbda6ca80c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a4ba2a_395f4b85",
+        "filename": "vp8/encoder/onyx_if.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-17T17:20:15Z",
+      "side": 1,
+      "message": "`clamp_framerate` might be enough",
+      "range": {
+        "startLine": 1266,
+        "startChar": 14,
+        "endLine": 1266,
+        "endChar": 40
+      },
+      "revId": "c5bd67433639187fce587a424239dbda6ca80c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
