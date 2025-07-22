@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede191b8_37ea4aa2",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-22T22:15:21Z",
+      "side": 1,
+      "message": "This should be protected like in the av1 change to avoid overriding `CONFIG_INTERNAL_STATS`.",
+      "revId": "0d89034327e42d699bbe5d8c422fb316d76d1028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
