@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "936c09be_68cbc352",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-22T21:51:39Z",
+      "side": 1,
+      "message": "Please mention that there are some non-formatting changes (e.g., the `do-while (0)` changes).",
+      "revId": "48f7b0f17bfef8ffab232d8d962bafe470ed4bd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8b33db50_2d0fe3c6",
