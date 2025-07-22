@@ -51,6 +51,24 @@
       "message": "Is there a good way to log an error message similar to libaom?",
       "revId": "dbfa5932fa26bb76fe81a583f08ad6ba3dc6ab7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2d2849a_0b4a4d5f",
+        "filename": "vpx/src/vpx_encoder.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-22T23:37:18Z",
+      "side": 1,
+      "message": "\u003e Is there a good way to log an error message similar to libaom?\n\n`vpx_internal_error` should work the same way as `aom_internal_error` if that\u0027s what you\u0027re referring to.",
+      "parentUuid": "12f4a7a6_b5fbfb39",
+      "revId": "dbfa5932fa26bb76fe81a583f08ad6ba3dc6ab7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
