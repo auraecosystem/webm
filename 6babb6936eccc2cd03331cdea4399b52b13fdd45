@@ -33,6 +33,24 @@
       "message": "Sorry, I forgot to publish my draft yesterday.",
       "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7958b662_bd5162ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-23T20:16:21Z",
+      "side": 1,
+      "message": "\u003e rebase worked and it seems to pass apart from the sanitizer. I can not reproduce locally with\n\u003e   source ../libvpx/tools/set_analyzer_env.sh integer \u0026\u0026 make clean \u0026\u0026 make \u0026\u0026 ./test_libvpx\n\u003e (also with --gtest_filter\u003d\"VP8/DatarateTestPsnr.PerFramePsnr/0\" --gtest_repeat\u003d5), any idea what I am doing wrong?\n\n\nThat\u0027s strange, as the failure looks unrelated on the surface:\n\n```\n10:33:36 [ RUN      ] VP8/DatarateTestPsnr.PerFramePsnr/0\n10:33:36 ../libvpx/test/encode_test_driver.h:122: Failure\n10:33:36 Expected equality of these values:\n10:33:36   VPX_CODEC_OK\n10:33:36     Which is: 0\n10:33:36   res\n10:33:36     Which is: 8\n10:33:36 noise_sensitivity out of range [..6]\n10:33:36 ../libvpx/test/vp8_datarate_test.cc:494: Failure\n10:33:36 Expected: RunLoop(\u0026video) doesn\u0027t generate new fatal failures in the current thread.\n10:33:36   Actual: it does.\n```",
+      "parentUuid": "ae4ec149_1e1f4aff",
+      "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
