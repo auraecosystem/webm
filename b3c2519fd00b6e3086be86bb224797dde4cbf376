@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64a1bfea_30c764c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-23T03:01:55Z",
+      "side": 1,
+      "message": "One thing I noticed was the the newly added VP9/DatarateTestVP9Psnr takes significantly longer than the VP8 variant, 16s vs 200ms for VP8. Is that expected?\n\nCONFIG_INTERNAL_STATS seems bust (just pulled 19c4082dc140d7f856aad8645d1835b65f58cf56).\n../libvpx/vp9/encoder/vp9_encoder.c: In function ‘vp9_get_compressed_data’:\n../libvpx/vp9/encoder/vp9_encoder.c:6805:37: error: ‘VP9_COMMON’ {aka ‘struct VP9Common’} has no member named ‘post_proc_buffer’\n\nI\u0027ll see if the ASAN failure persists, can not reproduce locally so far. Betting on missing super constructor...",
+      "revId": "b3c2519fd00b6e3086be86bb224797dde4cbf376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc86058f_12b1426d",
+        "filename": "vp8/encoder/onyx_if.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 5184,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-23T03:01:55Z",
+      "side": 1,
+      "message": "this is implicit inside the CONFIG_INTERNAL_STATS block? Does not hurt though.",
+      "revId": "b3c2519fd00b6e3086be86bb224797dde4cbf376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

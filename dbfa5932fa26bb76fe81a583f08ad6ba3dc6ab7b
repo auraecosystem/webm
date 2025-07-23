@@ -87,6 +87,24 @@
       "parentUuid": "f2d2849a_0b4a4d5f",
       "revId": "dbfa5932fa26bb76fe81a583f08ad6ba3dc6ab7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c24cb56a_2cebee70",
+        "filename": "vpx/src/vpx_encoder.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-23T03:01:55Z",
+      "side": 1,
+      "message": "err_detail seems to do the trick, thanks!",
+      "parentUuid": "7f9cd998_1fb18d69",
+      "revId": "dbfa5932fa26bb76fe81a583f08ad6ba3dc6ab7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
