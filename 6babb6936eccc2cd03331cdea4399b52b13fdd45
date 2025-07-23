@@ -69,6 +69,24 @@
       "parentUuid": "7958b662_bd5162ae",
       "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f5cd713_f97e1e68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-23T20:33:57Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e rebase worked and it seems to pass apart from the sanitizer. I can not reproduce locally with\n\u003e \u003e \u003e   source ../libvpx/tools/set_analyzer_env.sh integer \u0026\u0026 make clean \u0026\u0026 make \u0026\u0026 ./test_libvpx\n\u003e \u003e \u003e (also with --gtest_filter\u003d\"VP8/DatarateTestPsnr.PerFramePsnr/0\" --gtest_repeat\u003d5), any idea what I am doing wrong?\n\u003e \u003e \n\u003e \u003e \n\u003e \n\u003e The key seems to be running the tests with the shard configuration used, try:\n\u003e \n\u003e ```\n\u003e $ GTEST_TOTAL_SHARDS\u003d20 GTEST_SHARD_INDEX\u003d3 ./test_libvpx --gtest_filter\u003d\"-*Large*\"\n\u003e ```\n\u003e \n\u003e This could mean there is some bad interaction between tests.\n\nNote the sanitizer isn\u0027t needed when using the shards.",
+      "parentUuid": "13452d94_ec5c6b36",
+      "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
