@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0ab39fa_b2cb5f84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-23T03:49:02Z",
+      "side": 1,
+      "message": "Note there\u0027s an upgrade of clang-format (to clang-format-19) happening now. If you see new style check errors you can rebase on top of https://chromium-review.googlesource.com/c/webm/libvpx/+/6774652 when it lands.",
+      "revId": "0ca5ac236d789111891e3a84bb4012469d844a57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

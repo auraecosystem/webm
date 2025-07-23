@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7936e20f_8aa5d3da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-23T03:49:02Z",
+      "side": 1,
+      "message": "\u003e One thing I noticed was the the newly added VP9/DatarateTestVP9Psnr takes significantly longer than the VP8 variant, 16s vs 200ms for VP8. Is that expected?\n\u003e \n\nIt will depend on the speed setting used. If you\u0027re taking the default of 0, vp9 is expected to be slower. For this test you could use 1 or 2. See examples of the `VP8E_SET_CPUUSED` codec control.\n\n\u003e CONFIG_INTERNAL_STATS seems bust (just pulled 19c4082dc140d7f856aad8645d1835b65f58cf56).\n\u003e ../libvpx/vp9/encoder/vp9_encoder.c: In function ‘vp9_get_compressed_data’:\n\u003e ../libvpx/vp9/encoder/vp9_encoder.c:6805:37: error: ‘VP9_COMMON’ {aka ‘struct VP9Common’} has no member named ‘post_proc_buffer’\n\u003e \n\nThanks for pointing this out. We apparently don\u0027t have build coverage for this. I can take a look and get this cleaned up.\n\n\u003e I\u0027ll see if the ASAN failure persists, can not reproduce locally so far. Betting on missing super constructor...\n\nNote that test was `-fsanitize\u003dinteger` not asan.",
+      "parentUuid": "64a1bfea_30c764c7",
+      "revId": "b3c2519fd00b6e3086be86bb224797dde4cbf376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cc86058f_12b1426d",
         "filename": "vp8/encoder/onyx_if.c",
         "patchSetId": 9
