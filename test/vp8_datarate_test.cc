@@ -41,6 +41,7 @@ class DatarateTestLarge
     first_drop_ = 0;
     bits_total_ = 0;
     duration_ = 0.0;
+    denoiser_on_ = 0;
     denoiser_offon_test_ = 0;
     denoiser_offon_period_ = -1;
     gf_boost_ = 0;
