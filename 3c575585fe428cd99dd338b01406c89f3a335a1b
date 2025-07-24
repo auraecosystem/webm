@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c823e4_7676609d",
+        "filename": "test/vp8_datarate_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T01:52:27Z",
+      "side": 1,
+      "message": "This function is marked virtual for no particular reason, it isn\u0027t overriding a function from EncoderTest. `final` is fine, though there\u0027s nothing deriving from this class.",
+      "parentUuid": "a32bfeb1_69778733",
+      "revId": "3c575585fe428cd99dd338b01406c89f3a335a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fce36de_fa263839",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-07-24T00:16:36Z",
       "side": 1,
       "message": "IMPORTANT: Note that we set `denoiser_on_` to `j` at line 152. That will be overwritten by this `ResetModel()` call.",
+      "revId": "3c575585fe428cd99dd338b01406c89f3a335a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cec188e0_c0815aa0",
+        "filename": "test/vp8_datarate_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T01:52:27Z",
+      "side": 1,
+      "message": "\u003e IMPORTANT: Note that we set `denoiser_on_` to `j` at line 152. That will be overwritten by this `ResetModel()` call.\n\nGood catch. Unfortunately none of the tests failed. `ResetModel` has a dependency on `cfg_.rc_target_bitrate` so just `denoiser_on_` needs to be moved.",
+      "parentUuid": "1fce36de_fa263839",
       "revId": "3c575585fe428cd99dd338b01406c89f3a335a1b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
