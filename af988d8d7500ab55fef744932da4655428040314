@@ -88,6 +88,24 @@
       "parentUuid": "91019e79_0bb72641",
       "revId": "af988d8d7500ab55fef744932da4655428040314",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c2323dc_584466c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1357282
+      },
+      "writtenOn": "2025-07-24T14:57:11Z",
+      "side": 1,
+      "message": "It turned out that I did that previous CL wrong, and the correct update was crrev.com/c/6765026, which landed in 132.0.6834.182 (132.0.6834.180, but there was an unrelated bad CL).",
+      "parentUuid": "12b116ac_93fcc5e8",
+      "revId": "af988d8d7500ab55fef744932da4655428040314",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
