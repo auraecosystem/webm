@@ -16,6 +16,24 @@
       "message": "Optional: Since `ResetModel()` doesn\u0027t modify `cfg_.rc_target_bitrate` and this statement is independent of `j`, we can move this statement out of the for loop.\n\nWe can deal with this separately because it is unrelated to the `denoiser_on_` initialization bug.",
       "revId": "a985e5e847a2fe69bef3e547cf25088132194e39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aecaece_90382a93",
+        "filename": "test/vp8_datarate_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:05:15Z",
+      "side": 1,
+      "message": "\u003e Optional: Since `ResetModel()` doesn\u0027t modify `cfg_.rc_target_bitrate` and this statement is independent of `j`, we can move this statement out of the for loop.\n\u003e \n\u003e We can deal with this separately because it is unrelated to the `denoiser_on_` initialization bug.\n\nI\u0027m sure there\u0027s plenty of other clean up if we look closely at this and its siblings (vp9, svc). Let\u0027s try to normalize those separately.",
+      "parentUuid": "2846cca6_9d750753",
+      "revId": "a985e5e847a2fe69bef3e547cf25088132194e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
