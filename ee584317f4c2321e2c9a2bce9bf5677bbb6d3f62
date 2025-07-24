@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf90e951_8d5207b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-24T00:45:27Z",
+      "side": 1,
+      "message": "VP8 now follows the VP9/AOM approach, reviewing the patchset diff(s) might be less clear.",
+      "revId": "ee584317f4c2321e2c9a2bce9bf5677bbb6d3f62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

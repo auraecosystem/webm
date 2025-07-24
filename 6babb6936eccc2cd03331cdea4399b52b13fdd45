@@ -125,6 +125,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "023b9120_281ee0a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-24T00:45:27Z",
+      "side": 1,
+      "message": "Nice catch!",
+      "parentUuid": "9b9c656b_d8c51e04",
+      "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4a2692b_56232b84",
@@ -138,6 +156,30 @@
       "writtenOn": "2025-07-23T21:35:07Z",
       "side": 1,
       "message": "Nit: Change this to:\n\n```\n    EXPECT_EQ(had_psnr, (frame_flags_ \u0026 VPX_EFLAG_CALCULATE_PSNR) !\u003d 0);\n```\n\nOptional: it would be good to make this class similar to `DatarateTestVP9Psnr` by adopting the `expect_psnr_` approach. I will be happy to take care of this in a follow-up CL.",
+      "range": {
+        "startLine": 484,
+        "startChar": 0,
+        "endLine": 485,
+        "endChar": 54
+      },
+      "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cfab29a_8abc364d",
+        "filename": "test/vp8_datarate_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-24T00:45:27Z",
+      "side": 1,
+      "message": "Done, the define was required for VP8 too.",
+      "parentUuid": "c4a2692b_56232b84",
       "range": {
         "startLine": 484,
         "startChar": 0,
@@ -165,6 +207,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95bc8f7a_ebd71b04",
+        "filename": "vp8/common/onyx.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-24T00:45:27Z",
+      "side": 1,
+      "message": "That flag is gone now because below...",
+      "parentUuid": "87b32d2a_afc3fb0b",
+      "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5fd9eeb_19a2e3ee",
@@ -178,6 +238,24 @@
       "writtenOn": "2025-07-23T21:35:07Z",
       "side": 1,
       "message": "IMPORTANT: Why don\u0027t we support `VPX_EFLAG_CALCULATE_PSNR` by modifying this if statement? Does this not work for VP8?",
+      "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddb09210_794f137e",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-24T00:45:27Z",
+      "side": 1,
+      "message": "it has been a while since I wrote it but IIRC I first wrote the vpx code and modelled it after the existing frame flags.\n\nThis block of code is inside a \"Initialize the encoder instance on the first frame\" (line 946 above which had a missing whitespace in the comment) so I assumed it would be done only once but it gets called for every frame?\n\nUpdated to match the AV1/VP9 approach which also solved the next comment and is generally much... more uniform!",
+      "parentUuid": "c5fd9eeb_19a2e3ee",
       "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -199,6 +277,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e6df1f6_aa85abe9",
+        "filename": "vpx/src/vpx_encoder.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-24T00:45:27Z",
+      "side": 1,
+      "message": "Doing this inside vp8 and vp9 now which follows the same approach as av1.",
+      "parentUuid": "9b6ffc0f_7e8f79d8",
+      "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "234cf890_224e1cc0",
@@ -212,6 +308,24 @@
       "writtenOn": "2025-07-23T21:35:07Z",
       "side": 1,
       "message": "Document the restrictions (the codec supports VPX_CODEC_CAP_PSNR, and g_lag_in_frames is zero).",
+      "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "599928e8_876bd6a3",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-24T00:45:27Z",
+      "side": 1,
+      "message": "Done with the same text as av1.",
+      "parentUuid": "234cf890_224e1cc0",
       "revId": "6babb6936eccc2cd03331cdea4399b52b13fdd45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2e3b6d1c_9907a7e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-24T00:45:27Z",
+      "side": 1,
+      "message": "stock `./configure` with manual editing of the generated vpx_config.h.\nUpdated the test and VP8 passes with --enable-internal-stats too now.\n\nCPU adjusted to 1 which reduces this from 16s to 8s, thank you!",
+      "parentUuid": "6785447b_ea345d81",
+      "revId": "b3c2519fd00b6e3086be86bb224797dde4cbf376",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cc86058f_12b1426d",
         "filename": "vp8/encoder/onyx_if.c",
         "patchSetId": 9
