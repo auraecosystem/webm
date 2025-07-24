@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2846cca6_9d750753",
+        "filename": "test/vp8_datarate_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-24T15:56:40Z",
+      "side": 1,
+      "message": "Optional: Since `ResetModel()` doesn\u0027t modify `cfg_.rc_target_bitrate` and this statement is independent of `j`, we can move this statement out of the for loop.\n\nWe can deal with this separately because it is unrelated to the `denoiser_on_` initialization bug.",
+      "revId": "a985e5e847a2fe69bef3e547cf25088132194e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
