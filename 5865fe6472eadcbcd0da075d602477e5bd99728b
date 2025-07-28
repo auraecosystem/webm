@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b29916a9_d0b134b1",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-28T20:23:30Z",
+      "side": 1,
+      "message": "Nit: Use `//` for this comment.",
+      "revId": "5865fe6472eadcbcd0da075d602477e5bd99728b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "319c3cd4_8f81e1a6",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-28T20:23:30Z",
+      "side": 1,
+      "message": "ctx-\u003ecpi-\u003eb_calculate_psnr \u003d\u003e ((VP8_COMP *)ctx-\u003ecpi)-\u003eb_calculate_psnr",
+      "revId": "5865fe6472eadcbcd0da075d602477e5bd99728b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59aa6b51_0dcff27e",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-28T20:23:30Z",
+      "side": 1,
+      "message": "Nit: Use `//` for this comment.",
+      "range": {
+        "startLine": 1424,
+        "startChar": 0,
+        "endLine": 1425,
+        "endChar": 7
+      },
+      "revId": "5865fe6472eadcbcd0da075d602477e5bd99728b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac1b256f_1bc92c90",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-28T20:23:30Z",
+      "side": 1,
+      "message": "ppi \u003d\u003e cpi",
+      "range": {
+        "startLine": 1433,
+        "startChar": 11,
+        "endLine": 1433,
+        "endChar": 14
+      },
+      "revId": "5865fe6472eadcbcd0da075d602477e5bd99728b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3241deff_00bf1be5",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-28T20:23:30Z",
+      "side": 1,
+      "message": "enc_flags \u003d\u003e flags\n\nSee line 1426.",
+      "range": {
+        "startLine": 1436,
+        "startChar": 29,
+        "endLine": 1436,
+        "endChar": 38
+      },
+      "revId": "5865fe6472eadcbcd0da075d602477e5bd99728b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
