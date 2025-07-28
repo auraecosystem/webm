@@ -33,6 +33,24 @@
       "message": "the second parameter is (seems?) unused but I did not see a one-parameter variant?",
       "revId": "5ea0b19afc163db8299f57f34ee9194f97268597",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "066b9443_4de7a7f0",
+        "filename": "test/vp9_datarate_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T17:59:52Z",
+      "side": 1,
+      "message": "\u003e the second parameter is (seems?) unused but I did not see a one-parameter variant?\n\nYou should be able to use [`CodecTestWithParam`](https://chromium.googlesource.com/webm/libvpx/+/refs/tags/v1.15.2/test/codec_factory.h#56) when defining the `DatarateTestVP9Psnr` class.",
+      "parentUuid": "31bb7fba_7c8f9336",
+      "revId": "5ea0b19afc163db8299f57f34ee9194f97268597",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
