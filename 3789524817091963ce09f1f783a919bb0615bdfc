@@ -16,6 +16,24 @@
       "message": "Thanks for working through the review here and in libaom.",
       "revId": "3789524817091963ce09f1f783a919bb0615bdfc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d91a4ea_d32c4527",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3372062
+      },
+      "writtenOn": "2025-07-29T17:43:14Z",
+      "side": 1,
+      "message": "Heh, thank you for the reviews and taking it from proof-of-concept to being ship-able! 10/10, would contribute again.\n\nWill add some follow-up questions to the webrtc issue, mostly about AVX2/Neon optimizations and it seems we have a nice repro for https://source.chromium.org/chromium/chromium/src/+/main:third_party/libvpx/source/libvpx/vp9/vp9_cx_iface.c;l\u003d1541;drc\u003d99b6e0c14ba2ff4b37177af3a34c67f678af59d6",
+      "parentUuid": "26db3609_653cfa30",
+      "revId": "3789524817091963ce09f1f783a919bb0615bdfc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
