@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "453f2a3b_be780add",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-04T23:24:15Z",
+      "side": 1,
+      "message": "This link was modified to add a space after \u0027https:\u0027. I think that was probably due to this being seen as a footer. Adding a blank line before `Change-Id` should keep it from being modified.",
+      "revId": "6604c6621ac0094dbc200819daa7f2fd776d5792",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
