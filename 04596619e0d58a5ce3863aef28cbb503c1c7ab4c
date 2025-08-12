@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a73fae67_a6852456",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1620,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-12T17:36:05Z",
+      "side": 1,
+      "message": "This makes for a pretty large stack. To be safe, make this a heap allocation.",
+      "revId": "04596619e0d58a5ce3863aef28cbb503c1c7ab4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "186e1047_e1373954",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1636,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-12T17:36:05Z",
+      "side": 1,
+      "message": "Would `RandomVideoSource` work?",
+      "revId": "04596619e0d58a5ce3863aef28cbb503c1c7ab4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
