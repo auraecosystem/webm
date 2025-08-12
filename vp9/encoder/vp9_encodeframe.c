@@ -3895,7 +3895,8 @@ static int rd_pick_partition(VP9_COMP *cpi, ThreadData *td,
 
   if (cpi->sf.rd_ml_partition.var_pruning && !frame_is_intra_only(cm)) {
     const int do_rd_ml_partition_var_pruning =
-        partition_none_allowed && do_split &&
+        partition_none_allowed && do_split && cm->base_qindex > 0 &&
+        (bsize > BLOCK_8X8 || !cpi->sf.disable_split_mask) &&
         mi_row + num_8x8_blocks_high_lookup[bsize] <= cm->mi_rows &&
         mi_col + num_8x8_blocks_wide_lookup[bsize] <= cm->mi_cols;
     if (do_rd_ml_partition_var_pruning) {
