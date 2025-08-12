@@ -3901,6 +3901,18 @@ static int rd_pick_partition(VP9_COMP *cpi, ThreadData *td,
     if (do_rd_ml_partition_var_pruning) {
       ml_predict_var_rd_partitioning(cpi, x, pc_tree, bsize, mi_row, mi_col,
                                      &partition_none_allowed, &do_split);
+      // ml_predict_var_rd_partitioning() may prune out the
+      // partition_none_allowed mode, leaving only split, which at bsize =
+      // BLOCK_8X8 and rcost = INT64_MAX,
+      // the partitioon can get set to BLOCK_64X64
+      // via the code below at line 4248
+      // (see the line "if (bsize == BLOCK_64X64 && best_rdc.rdcost ==
+      // INT64_MAX) { ") The pruning out of partition_none_allowed
+      // (i.e., setting it to 0) can happen for 8x8 at QP = 0. So force it to 1
+      // here.
+      if (best_rdc.rdcost == INT64_MAX && bsize == BLOCK_8X8) {
+        partition_none_allowed = 1;
+      }
     } else {
       vp9_zero(pc_tree->mv);
     }
