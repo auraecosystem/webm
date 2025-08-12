@@ -1606,6 +1606,45 @@ TEST(EncodeAPI, Buganizer311294795) {
   encoder.Encode(false);
 }
 
+// Test case to capture assert issue triggered in
+// vp9_bistream.c for good_quality, speed 0/1, lossless,
+// comment#22 in issue:433941753
+TEST(EncodeAPI, AssertIssueGoodQualitySpeed1Lossless) {
+  // Initialize libvpx encoder.
+  vpx_codec_iface_t *const iface = vpx_codec_vp9_cx();
+  vpx_codec_ctx_t enc;
+  vpx_codec_enc_cfg_t cfg;
+  ASSERT_EQ(vpx_codec_enc_config_default(iface, &cfg, 0), VPX_CODEC_OK);
+  cfg.g_w = 1540;
+  cfg.g_h = 838;
+  uint8_t img[1540 * 838 * 3 / 2];
+  cfg.g_profile = 0;
+  cfg.g_bit_depth = VPX_BITS_8;
+  cfg.g_timebase.num = 1;
+  cfg.g_timebase.den = 10000;
+  cfg.g_pass = VPX_RC_ONE_PASS;
+  cfg.g_lag_in_frames = 0;
+  cfg.rc_end_usage = VPX_VBR;
+  ASSERT_EQ(vpx_codec_enc_init(&enc, iface, &cfg, 0), VPX_CODEC_OK);
+  ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_LOSSLESS, 1), VPX_CODEC_OK);
+  ASSERT_EQ(vpx_codec_control(&enc, VP8E_SET_CPUUSED, 1), VPX_CODEC_OK);
+  libvpx_test::ACMRandom rng;
+  vpx_image_t img_wrapper;
+  for (int num_frames = 0; num_frames < 10; num_frames++) {
+    // Generate random frame data and encode
+    for (size_t i = 0; i < sizeof(img); ++i) {
+      img[i] = rng.Rand8();
+    }
+    ASSERT_EQ(
+        vpx_img_wrap(&img_wrapper, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h, 1, img),
+        &img_wrapper);
+    ASSERT_EQ(vpx_codec_encode(&enc, &img_wrapper, num_frames, /*duration=*/300,
+                               0, VPX_DL_GOOD_QUALITY),
+              VPX_CODEC_OK);
+  }
+  ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
+}
+
 TEST(EncodeAPI, Buganizer317105128) {
   VP9Encoder encoder(-9);
   encoder.Configure(0, 1, 1, VPX_CBR, VPX_DL_GOOD_QUALITY);

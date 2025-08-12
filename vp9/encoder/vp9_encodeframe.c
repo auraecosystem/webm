@@ -3896,8 +3896,8 @@ static int rd_pick_partition(VP9_COMP *cpi, ThreadData *td,
   if (cpi->sf.rd_ml_partition.var_pruning && !frame_is_intra_only(cm)) {
     const int do_rd_ml_partition_var_pruning =
         partition_none_allowed && do_split &&
-        mi_row + num_8x8_blocks_high_lookup[bsize] <= cm->mi_rows &&
-        mi_col + num_8x8_blocks_wide_lookup[bsize] <= cm->mi_cols;
+        mi_row + num_8x8_blocks_high_lookup[bsize] < cm->mi_rows &&
+        mi_col + num_8x8_blocks_wide_lookup[bsize] < cm->mi_cols;
     if (do_rd_ml_partition_var_pruning) {
       ml_predict_var_rd_partitioning(cpi, x, pc_tree, bsize, mi_row, mi_col,
                                      &partition_none_allowed, &do_split);
