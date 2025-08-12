@@ -3901,6 +3901,20 @@ static int rd_pick_partition(VP9_COMP *cpi, ThreadData *td,
     if (do_rd_ml_partition_var_pruning) {
       ml_predict_var_rd_partitioning(cpi, x, pc_tree, bsize, mi_row, mi_col,
                                      &partition_none_allowed, &do_split);
+      // ml_predict_var_rd_partitioning() may prune out the
+      // partition_none_allowed mode, leaving only split, which at bsize =
+      // BLOCK_8X8 and rcost = INT64_MAX, the partition can get set to
+      // 64X64 via the code below at line 4248
+      // (see the line "if (bsize == BLOCK_64X64 && best_rdc.rdcost ==
+      // INT64_MAX) { "). If this is on the bounadry then the partition set
+      // will extend outside. The pruning out of partition_none_allowed
+      // (i.e., setting it to 0) can happen for 8x8 at QP = 0.
+      // So force it to 1 here.
+      if (mi_row + num_8x8_blocks_high_lookup[bsize] == cm->mi_rows &&
+          mi_col + num_8x8_blocks_wide_lookup[bsize] == cm->mi_cols &&
+          best_rdc.rdcost == INT64_MAX && bsize == BLOCK_8X8) {
+        partition_none_allowed = 1;
+      }
     } else {
       vp9_zero(pc_tree->mv);
     }
