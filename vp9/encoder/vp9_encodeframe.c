@@ -3901,6 +3901,15 @@ static int rd_pick_partition(VP9_COMP *cpi, ThreadData *td,
     if (do_rd_ml_partition_var_pruning) {
       ml_predict_var_rd_partitioning(cpi, x, pc_tree, bsize, mi_row, mi_col,
                                      &partition_none_allowed, &do_split);
+      // On the boundary for bsize = BLOCK_8X8: keep partition_none_allowed = 1
+      // as ml_predict_var_rd_partitioning() may prune it out (set it to 0). If
+      // this happens and only split is skipped below then the 64x64 may be set
+      // which will extend outside the range.
+      if ((mi_row + num_8x8_blocks_high_lookup[bsize] == cm->mi_rows ||
+           mi_col + num_8x8_blocks_wide_lookup[bsize] == cm->mi_cols) &&
+          bsize == BLOCK_8X8) {
+        partition_none_allowed = 1;
+      }
     } else {
       vp9_zero(pc_tree->mv);
     }
