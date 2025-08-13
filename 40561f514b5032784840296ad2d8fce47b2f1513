@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab8a8d3c_0a1ebd27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-13T12:21:26Z",
+      "side": 1,
+      "message": "Coverity also reported these two \"Wrong sizeof argument\" errors.",
+      "revId": "40561f514b5032784840296ad2d8fce47b2f1513",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
