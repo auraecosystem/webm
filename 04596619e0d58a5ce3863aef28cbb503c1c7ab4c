@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e683abb_56cb61fe",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1620,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-08-13T02:35:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a73fae67_a6852456",
+      "revId": "04596619e0d58a5ce3863aef28cbb503c1c7ab4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "186e1047_e1373954",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-08-12T17:36:05Z",
       "side": 1,
       "message": "Would `RandomVideoSource` work?",
+      "revId": "04596619e0d58a5ce3863aef28cbb503c1c7ab4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a03c39af_7ee7e0ad",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1636,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-08-13T02:35:16Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "186e1047_e1373954",
       "revId": "04596619e0d58a5ce3863aef28cbb503c1c7ab4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
