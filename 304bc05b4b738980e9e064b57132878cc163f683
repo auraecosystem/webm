@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75cc4af8_b71edaf2",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1610,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T19:18:40Z",
+      "side": 1,
+      "message": "bitstream",
+      "range": {
+        "startLine": 1610,
+        "startChar": 7,
+        "endLine": 1610,
+        "endChar": 15
+      },
+      "revId": "304bc05b4b738980e9e064b57132878cc163f683",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
