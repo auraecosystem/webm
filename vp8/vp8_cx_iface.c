@@ -1021,6 +1021,9 @@ static vpx_codec_err_t vp8e_encode(vpx_codec_alg_priv_t *ctx,
           pts_end * ctx->timestamp_ratio.num / ctx->timestamp_ratio.den;
 
       res = image2yuvconfig(img, &sd);
+     // should we check for alpha buffer as well?
+      if(!sd.y_buffer || !sd.u_buffer || !sd.v_buffer)
+        return VPX_CODEC_CORRUPT_FRAME;
 
       if (vp8_receive_raw_frame(ctx->cpi, ctx->next_frame_flag | lib_flags, &sd,
                                 dst_time_stamp, dst_end_time_stamp)) {
