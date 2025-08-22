@@ -548,14 +548,6 @@ vpx_codec_err_t vpx_svc_encode(SvcContext *svc_ctx, vpx_codec_ctx_t *codec_ctx,
   if (res != VPX_CODEC_OK) {
     return res;
   }
-  // save compressed data
-  iter = NULL;
-  while ((cx_pkt = vpx_codec_get_cx_data(codec_ctx, &iter))) {
-    switch (cx_pkt->kind) {
-      case VPX_CODEC_PSNR_PKT: ++si->psnr_pkt_received; break;
-      default: break;
-    }
-  }
 
   return VPX_CODEC_OK;
 }
@@ -607,7 +599,9 @@ void vpx_svc_dump_statistics(SvcContext *svc_ctx) {
             mse[1], mse[2], mse[3]);
 
     bytes_total += si->bytes_sum[i];
-    // Clear sums for next time.
+  }
+  // Clear sums for next time.
+  for (i = 0; i < svc_ctx->spatial_layers; ++i) {
     si->bytes_sum[i] = 0;
     for (j = 0; j < COMPONENTS; ++j) {
       si->psnr_sum[i][j] = 0;
