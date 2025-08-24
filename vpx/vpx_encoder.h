@@ -186,6 +186,8 @@ typedef struct vpx_codec_cx_pkt {
       /*!\brief Flag to indicate if spatial layer frame in this packet is
        * encoded or dropped. VP8 will always be set to 1.*/
       uint8_t spatial_layer_encoded[VPX_SS_MAX_LAYERS];
+      /*!\brief Flag to indicate spatial layer id in this packet.*/
+      int spatial_layer_id;
     } frame;                            /**< data for compressed frame packet */
     vpx_fixed_buf_t twopass_stats;      /**< data for two-pass packet */
     vpx_fixed_buf_t firstpass_mb_stats; /**< first pass mb packet */
