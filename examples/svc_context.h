@@ -58,6 +58,7 @@ typedef struct SvcInternal {
   double psnr_sum[VPX_SS_MAX_LAYERS][COMPONENTS];  // total/Y/U/V
   uint64_t sse_sum[VPX_SS_MAX_LAYERS][COMPONENTS];
   uint32_t bytes_sum[VPX_SS_MAX_LAYERS];
+  int number_of_frames[VPX_SS_MAX_LAYERS];
 
   // codec encoding values
   int width;    // width of highest layer
@@ -65,7 +66,6 @@ typedef struct SvcInternal {
   int kf_dist;  // distance between keyframes
 
   // state variables
-  int psnr_pkt_received;
   int layer;
   int use_multiple_frame_contexts;
 
