@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f298773_80f3566e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-08-26T14:36:13Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Spellchecker: \"verson\" is a possible misspelling of \"version\".\n\nTo bypass Spellchecker, add a ...\n\n\"verson\" is a possible misspelling of \"version\".\n\nTo bypass Spellchecker, add a footer with DISABLE_SPELLCHECKER",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 18
+      },
+      "revId": "6530b4b74bfeaa2183b3a62ce22cf619e4b5a400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
