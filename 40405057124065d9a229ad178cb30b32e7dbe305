@@ -16,6 +16,24 @@
       "message": "It is not necessary to bump up the ABI version for this change. The new struct member is added to the end of the struct. Since this struct is only allocated by libvpx, libvpx itself always uses the current version of this struct. Older clients don\u0027t know about the new struct member and have no problem accessing the old struct members. Therefore this change does not break any old clients.\n\nPlease check my analysis.\n\nIf my analysis is correct, we should change VPX_ENCODER_ABI_VERSION back to the old value to avoid bumping up the ABI version unnecessarily.\n\nNote: `VPX_ENCODER_ABI_VERSION` could be used to detect the presence of this new struct member, but it is better to add a dedicated feature detection macro for this, similar to how we allow our clients to detect the presence of a codec control.",
       "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa57783_702c4216",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-08-27T14:01:47Z",
+      "side": 1,
+      "message": "The added member is at the end of `vpx_psnr_pkt`, but it\u0027s still in the middle of the bigger `vpx_codec_cx_pkt`?",
+      "parentUuid": "747981be_b1788cf6",
+      "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
