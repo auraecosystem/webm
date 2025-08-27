@@ -34,6 +34,41 @@
       "parentUuid": "747981be_b1788cf6",
       "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36c7e845_55c5ec1d",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-27T15:48:44Z",
+      "side": 1,
+      "message": "No, `psnr` is at the end of the bigger `vpx_codec_cx_pkt`.\n\nDetails:\n\n`psnr` is a member of the `data` union, which is at the end of the bigger `vpx_codec_cx_pkt`. I added some more details at line 206.",
+      "parentUuid": "0aa57783_702c4216",
+      "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f645a31_0b4c812b",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-27T15:48:44Z",
+      "side": 1,
+      "message": "The vpx_codec_cx_pkt_t struct has only two members: `kind` (line 168) and `data`.\n\n`data` is a union. The `data` union has six members: `frame`, `twopass_stats`, `firstpass_mb_stats`, `psnr`, `raw`, and `pad`.\n\nThe `psnr` union member is a struct. This CL added a new member to the end of the `psnr` struct.\n\nThe `pad` union member is intended to be the largest member of the `data` union. Adding the `int spatial_layer_id` member to the `psnr` struct doesn\u0027t change the size of the `data` union.",
+      "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
