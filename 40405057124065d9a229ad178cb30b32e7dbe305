@@ -87,6 +87,24 @@
       "parentUuid": "4f645a31_0b4c812b",
       "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08ba1a5e_f593faa9",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-27T23:26:47Z",
+      "side": 1,
+      "message": "Thank you for the confirmation, James.\n\nMarco: Please undo the change to `VPX_ENCODER_ABI_VERSION`.",
+      "parentUuid": "a9213aa2_74575a0b",
+      "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
