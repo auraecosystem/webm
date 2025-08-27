@@ -69,6 +69,24 @@
       "message": "The vpx_codec_cx_pkt_t struct has only two members: `kind` (line 168) and `data`.\n\n`data` is a union. The `data` union has six members: `frame`, `twopass_stats`, `firstpass_mb_stats`, `psnr`, `raw`, and `pad`.\n\nThe `psnr` union member is a struct. This CL added a new member to the end of the `psnr` struct.\n\nThe `pad` union member is intended to be the largest member of the `data` union. Adding the `int spatial_layer_id` member to the `psnr` struct doesn\u0027t change the size of the `data` union.",
       "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9213aa2_74575a0b",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-27T23:21:14Z",
+      "side": 1,
+      "message": "\u003e The vpx_codec_cx_pkt_t struct has only two members: `kind` (line 168) and `data`.\n\u003e \n\u003e `data` is a union. The `data` union has six members: `frame`, `twopass_stats`, `firstpass_mb_stats`, `psnr`, `raw`, and `pad`.\n\u003e \n\u003e The `psnr` union member is a struct. This CL added a new member to the end of the `psnr` struct.\n\u003e \n\u003e The `pad` union member is intended to be the largest member of the `data` union. Adding the `int spatial_layer_id` member to the `psnr` struct doesn\u0027t change the size of the `data` union.\n\nI agree with the analysis. You can see this in the ABI warning message:\n\n```\n...\nunderlying type \"struct vpx_codec_cx_pkt\" at vpx_encoder.h:167:1 changed:\ntype size hasn\"t changed \u003c-- overall struct size hasn\u0027t changed\n1 data member change:\ntype of \"union {struct {void* buf; size_t sz; vpx_codec_pts_t pts; unsigned long int duration; vpx_codec_frame_flags_t flags; int partition_id; unsigned int width[5]; unsigned int height[5]; uint8_t spatial_layer_encoded[5];} frame; vpx_fixed_buf_t twopass_stats; vpx_fixed_buf_t firstpass_mb_stats; vpx_psnr_pkt psnr; vpx_fixed_buf_t raw; char pad[124];} data\" changed:\ntype size hasn\"t changed\n1 data member change:\ntype of \"vpx_psnr_pkt psnr\" changed:\ntype size changed from 640 to 704 (in bits) \u003c-- psnr struct changed (from 80 bytes to 88, 4 bytes + padding for the new type)\n1 data member insertion:\n\"int spatial_layer_id\", at offset 640 (in bits) at vpx_encoder.h:196:1\n```",
+      "parentUuid": "4f645a31_0b4c812b",
+      "revId": "40405057124065d9a229ad178cb30b32e7dbe305",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
