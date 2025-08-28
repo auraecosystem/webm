@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94361780_147c818f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-28T01:17:27Z",
+      "side": 1,
+      "message": "Add `BUG\u003dwebrtc:388070060`?",
+      "revId": "971c9bdaba3e3aceca2e65b69052299a501045c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d441f28b_0f479419",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-28T01:17:27Z",
+      "side": 1,
+      "message": "LGTM. Thanks!",
+      "revId": "971c9bdaba3e3aceca2e65b69052299a501045c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
