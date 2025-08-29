@@ -219,6 +219,7 @@ void vpx_calc_highbd_psnr(const YV12_BUFFER_CONFIG *a,
   psnr->samples[0] = total_samples;
   psnr->psnr[0] =
       vpx_sse_to_psnr((double)total_samples, peak, (double)total_sse);
+  psnr->spatial_layer_id = 0;
 }
 
 #endif  // !CONFIG_VP9_HIGHBITDEPTH
@@ -255,4 +256,5 @@ void vpx_calc_psnr(const YV12_BUFFER_CONFIG *a, const YV12_BUFFER_CONFIG *b,
   psnr->samples[0] = total_samples;
   psnr->psnr[0] =
       vpx_sse_to_psnr((double)total_samples, peak, (double)total_sse);
+  psnr->spatial_layer_id = 0;
 }
