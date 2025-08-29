@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "089dfaae_fc037520",
+        "filename": "vpx_dsp/psnr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-08-29T23:37:17Z",
+      "side": 1,
+      "message": "Thanks for the fix. Should we add comment here that for the packet_psnr the psnr-\u003espatial_layer_id will be properly set to current spatial_layer_id (line 1555 in vp9_cx_iface.c)?",
+      "revId": "5e5e5c7b05e415fca401925da811f923e97e29ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
