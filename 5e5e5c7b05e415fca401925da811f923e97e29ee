@@ -34,6 +34,24 @@
       "parentUuid": "089dfaae_fc037520",
       "revId": "5e5e5c7b05e415fca401925da811f923e97e29ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c62f3bb_659ee7e6",
+        "filename": "vpx_dsp/psnr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-08-30T00:07:05Z",
+      "side": 1,
+      "message": "Marked as resolved.",
+      "parentUuid": "ad023b20_6e7d0cd1",
+      "revId": "5e5e5c7b05e415fca401925da811f923e97e29ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
