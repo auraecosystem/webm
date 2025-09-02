@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd56be25_500ba90e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-02T23:19:53Z",
+      "side": 1,
+      "message": "Add an `assert` to https://chromium.googlesource.com/webm/libvpx/+/refs/tags/v1.15.2/vp9/encoder/vp9_bitstream.c#59\n\n```\nassert(mode \u003e\u003d DC_PRED \u0026\u0026 mode \u003c\u003d TM_PRED);\n```",
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c726c3d0_b4261453",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-02T23:19:53Z",
+      "side": 1,
+      "message": "Just `vpx_codec_enc_init` should be fine here.",
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db39a836_958f08d4",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1773,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-02T23:19:53Z",
+      "side": 1,
+      "message": "make this `static constexpr ...`",
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48765911_caa6a070",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-02T23:19:53Z",
+      "side": 1,
+      "message": "Since the choices are only 0 and 1 this can default to either REALTIME or BEST and then you only need one if at line 1777.",
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a984943_f70ff60f",
+        "filename": "vp9/encoder/vp9_encodeframe.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-02T23:19:53Z",
+      "side": 1,
+      "message": "maybe add an assert to this function to document that?",
+      "range": {
+        "startLine": 1307,
+        "startChar": 6,
+        "endLine": 1307,
+        "endChar": 25
+      },
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
