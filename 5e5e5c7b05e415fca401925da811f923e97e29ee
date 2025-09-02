@@ -52,6 +52,24 @@
       "parentUuid": "ad023b20_6e7d0cd1",
       "revId": "5e5e5c7b05e415fca401925da811f923e97e29ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "269fb1c0_bb6db23f",
+        "filename": "vpx_dsp/psnr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-02T15:34:10Z",
+      "side": 1,
+      "message": "Uploaded this to pass in the spatial_layer_id:\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/6906523",
+      "parentUuid": "5c62f3bb_659ee7e6",
+      "revId": "5e5e5c7b05e415fca401925da811f923e97e29ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
