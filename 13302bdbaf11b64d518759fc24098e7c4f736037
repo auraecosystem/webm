@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01f7bfb4_2f7048a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-03T01:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd56be25_500ba90e",
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c726c3d0_b4261453",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-09-02T23:19:53Z",
       "side": 1,
       "message": "Just `vpx_codec_enc_init` should be fine here.",
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "944efd9b_a808eba1",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-03T01:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c726c3d0_b4261453",
       "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8481179c_6fe45f72",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1773,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-03T01:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db39a836_958f08d4",
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48765911_caa6a070",
@@ -69,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f37d61ec_84976c22",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-03T01:29:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48765911_caa6a070",
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a984943_f70ff60f",
@@ -82,6 +154,30 @@
       "writtenOn": "2025-09-02T23:19:53Z",
       "side": 1,
       "message": "maybe add an assert to this function to document that?",
+      "range": {
+        "startLine": 1307,
+        "startChar": 6,
+        "endLine": 1307,
+        "endChar": 25
+      },
+      "revId": "13302bdbaf11b64d518759fc24098e7c4f736037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfaaa4f6_9a2c6e66",
+        "filename": "vp9/encoder/vp9_encodeframe.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-03T01:29:25Z",
+      "side": 1,
+      "message": "Done. Added the assert in function: vp9_pick_intra_mode.",
+      "parentUuid": "7a984943_f70ff60f",
       "range": {
         "startLine": 1307,
         "startChar": 6,
