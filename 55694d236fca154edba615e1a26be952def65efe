@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe081726_60ba2b39",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1771,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-03T02:32:51Z",
+      "side": 1,
+      "message": "Could be `kChoices` to match the naming style.",
+      "range": {
+        "startLine": 1771,
+        "startChar": 23,
+        "endLine": 1771,
+        "endChar": 30
+      },
+      "revId": "55694d236fca154edba615e1a26be952def65efe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
