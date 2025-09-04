@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67e25a99_3792d820",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-09-04T17:16:01Z",
+      "side": 1,
+      "message": "Today\u0027s Coverity run reported this Coverity defect is fixed.",
+      "revId": "7044671e11e34393c4abb7e5d3b2b521560f9fdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
