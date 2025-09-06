@@ -34,6 +34,29 @@
       "parentUuid": "30ffdcc1_2d599f57",
       "revId": "8d00aca60b951444582b1373e4e47f0ca6e0871c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c8f940f_dcc3a7e7",
+        "filename": "vpx/vpx_image.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-06T02:10:11Z",
+      "side": 1,
+      "message": "typo fixed in https://chromium-review.googlesource.com/c/webm/libvpx/+/6920371/",
+      "range": {
+        "startLine": 204,
+        "startChar": 52,
+        "endLine": 204,
+        "endChar": 60
+      },
+      "revId": "8d00aca60b951444582b1373e4e47f0ca6e0871c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
