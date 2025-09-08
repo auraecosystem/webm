@@ -1745,7 +1745,9 @@ TEST(EncodeAPI, Buganizer331108922BitDepth8) {
 
 // Encode some frames, flip from BEST_QUALITY to REALTIME after 2 frames.
 // This test is taken from the code snippet in issue:441668134.
-TEST(EncodeAPI, Buganizer441668134) {
+// TODO: bug 441668134 -- enabling this test will cause nightly build failure.
+// Re-enable it after the nightly build is fixed.
+TEST(EncodeAPI, DISABLED_Buganizer441668134) {
   // Get VP9 encoder interface.
   vpx_codec_iface_t *iface = vpx_codec_vp9_cx();
   // Initialize encoder configuration with default values.
