@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "540c98d2_1fc61912",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1749,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-08T22:07:36Z",
+      "side": 1,
+      "message": "It might be better to say \u0027... after the valgrind warnings are fixed.\u0027",
+      "range": {
+        "startLine": 1748,
+        "startChar": 47,
+        "endLine": 1749,
+        "endChar": 8
+      },
+      "revId": "2b1b4140cb43ee91e1b7f7c9ee08b7c431841b2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
