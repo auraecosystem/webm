@@ -188,7 +188,9 @@ INSTALL-LIBS-$(CONFIG_SHARED) += $(foreach p,$(VS_PLATFORMS),$(LIBSUBDIR)/$(p)/v
 endif
 else
 INSTALL-LIBS-$(CONFIG_STATIC) += $(LIBSUBDIR)/libvpx.a
+ifeq ($(CONFIG_STATIC),yes)
 INSTALL-LIBS-$(CONFIG_DEBUG_LIBS) += $(LIBSUBDIR)/libvpx_g.a
+endif
 endif
 
 CODEC_SRCS=$(call enabled,CODEC_SRCS)
