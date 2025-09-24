@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e5ec901_8ffa6ead",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-24T22:19:20Z",
+      "side": 1,
+      "message": "\u003e My main goal is to have a dynamic build possible via vcpkg. It uses https://github.com/microsoft/vcpkg/blob/9a98f93671f984351377044210854900bfd73171/ports/libvpx/portfile.cmake#L141 `--disable-examples --disable-tools --disable-docs --disable-unit-tests --enable-pic --disable-static --enable-shared`.\n\nThanks for the background and the command line. I think the change is fine, but I\u0027d like to balance it out in the MSVC path at line 185. You can make the change locally and amend the commit (not make a new commit like in github or similar). This way when you push the new patch it will be associated with this change (as specified by the Change-Id field in the commit message).",
+      "parentUuid": "8c1e2836_00af12b9",
+      "revId": "10e3a04496d81ebb53265b81e8d82380871a7dba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0f61c04_12b3801b",
