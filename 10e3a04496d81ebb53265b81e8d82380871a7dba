@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0f61c04_12b3801b",
+        "filename": "libs.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-24T17:40:31Z",
+      "side": 1,
+      "message": "Thanks for the patch. It looks like line 185 would need the same check if we want to say `--disable-static` overrides `--enable-debug-libs`, which makes sense.\n\nWhat configure command line were you using? There looks to be other issues with `--enable-debug-libs` and `--enable-shared`. If I use `--disable-examples --disable-unit-tests` I can see this library getting installed. With that configuration and `--disable-static` I see an error trying to install libvpx_g.a.",
+      "revId": "10e3a04496d81ebb53265b81e8d82380871a7dba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
