@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e100a809_8d92978e",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1785,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-25T23:18:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a0ac6ef_902369eb",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d90040c4_2b941412",
@@ -84,6 +102,30 @@
       "writtenOn": "2025-09-25T19:48:43Z",
       "side": 1,
       "message": "Did you mean to have a comma here instead of a period?",
+      "range": {
+        "startLine": 1788,
+        "startChar": 26,
+        "endLine": 1788,
+        "endChar": 27
+      },
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad06d6b2_97815467",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1788,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-25T23:18:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d90040c4_2b941412",
       "range": {
         "startLine": 1788,
         "startChar": 26,
@@ -111,6 +153,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea7ae04e_ff601deb",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-25T23:18:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95408d47_22792377",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb3354ac_aab9dc1d",
@@ -128,6 +188,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e59f3667_9877b163",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-25T23:18:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb3354ac_aab9dc1d",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7edf588b_4969c140",
@@ -141,6 +219,24 @@
       "writtenOn": "2025-09-25T19:48:43Z",
       "side": 1,
       "message": "You should be able to use `VPX_DL_REALTIME` here.",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3c7b0a7_f400fb27",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1828,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-25T23:18:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7edf588b_4969c140",
       "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
