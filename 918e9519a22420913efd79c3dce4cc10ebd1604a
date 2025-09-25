@@ -16,6 +16,23 @@
       "message": "Thanks for the patch and working through the review. This will need another +2 before we can land it.",
       "revId": "918e9519a22420913efd79c3dce4cc10ebd1604a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40527335_57b08d9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3452903
+      },
+      "writtenOn": "2025-09-25T17:42:27Z",
+      "side": 1,
+      "message": "Thanks. Sorry for not marking the comments resolved, it\u0027s been a while since I used Gerrit.\n\nOnce this lands, I\u0027ll update vcpkg pull request",
+      "revId": "918e9519a22420913efd79c3dce4cc10ebd1604a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
