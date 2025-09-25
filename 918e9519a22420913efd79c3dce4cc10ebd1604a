@@ -33,6 +33,24 @@
       "message": "Thanks. Sorry for not marking the comments resolved, it\u0027s been a while since I used Gerrit.\n\nOnce this lands, I\u0027ll update vcpkg pull request",
       "revId": "918e9519a22420913efd79c3dce4cc10ebd1604a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f125f9a9_7f62d852",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-25T17:45:45Z",
+      "side": 1,
+      "message": "\u003e Thanks. Sorry for not marking the comments resolved, it\u0027s been a while since I used Gerrit.\n\u003e \n\nNo problem at all. I don\u0027t expect many people to be familiar with the gerrit workflow.\n\n\u003e Once this lands, I\u0027ll update vcpkg pull request\n\nI\u0027ll submit this now.",
+      "parentUuid": "40527335_57b08d9e",
+      "revId": "918e9519a22420913efd79c3dce4cc10ebd1604a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
