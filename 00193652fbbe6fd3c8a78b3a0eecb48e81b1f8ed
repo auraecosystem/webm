@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "455e48d8_8bd4fe1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-25T19:48:43Z",
+      "side": 1,
+      "message": "This didn\u0027t cause any assertions in the presubmit. I thought we would have had a version with them enabled. I\u0027ll test this locally first before looking at the tests.",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a0ac6ef_902369eb",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1785,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-25T19:48:43Z",
+      "side": 1,
+      "message": "add a blank line after this one.",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d90040c4_2b941412",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1788,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-25T19:48:43Z",
+      "side": 1,
+      "message": "Did you mean to have a comma here instead of a period?",
+      "range": {
+        "startLine": 1788,
+        "startChar": 26,
+        "endLine": 1788,
+        "endChar": 27
+      },
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95408d47_22792377",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-25T19:48:43Z",
+      "side": 1,
+      "message": "I don\u0027t think the cast is necessary here.",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb3354ac_aab9dc1d",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-25T19:48:43Z",
+      "side": 1,
+      "message": "You can use `VPX_VBR` here.",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7edf588b_4969c140",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1828,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-25T19:48:43Z",
+      "side": 1,
+      "message": "You should be able to use `VPX_DL_REALTIME` here.",
+      "revId": "00193652fbbe6fd3c8a78b3a0eecb48e81b1f8ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
