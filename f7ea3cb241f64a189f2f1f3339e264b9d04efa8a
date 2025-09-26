@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70872d26_6b190cf2",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-26T18:40:56Z",
+      "side": 1,
+      "message": "Do you want to bring this in as `DISABLED_` and then enable it when you have the fix ready?",
+      "range": {
+        "startLine": 1793,
+        "startChar": 16,
+        "endLine": 1793,
+        "endChar": 34
+      },
+      "revId": "f7ea3cb241f64a189f2f1f3339e264b9d04efa8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
