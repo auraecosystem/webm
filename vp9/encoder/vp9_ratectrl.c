@@ -835,13 +835,14 @@ int vp9_rc_regulate_q(const VP9_COMP *cpi, int target_bits_per_frame,
   CYCLIC_REFRESH *const cr = cpi->cyclic_refresh;
   int q = active_worst_quality;
   int last_error = INT_MAX;
-  int i, target_bits_per_mb, bits_per_mb_at_this_q;
+  int i;
+  int64_t target_bits_per_mb, bits_per_mb_at_this_q;
   const double correction_factor = get_rate_correction_factor(cpi);
 
   // Calculate required scaling factor based on target frame size and size of
   // frame produced using previous Q.
   target_bits_per_mb =
-      (int)(((uint64_t)target_bits_per_frame << BPER_MB_NORMBITS) / cm->MBs);
+      ((uint64_t)target_bits_per_frame << BPER_MB_NORMBITS) / cm->MBs;
 
   i = active_best_quality;
 
@@ -849,22 +850,24 @@ int vp9_rc_regulate_q(const VP9_COMP *cpi, int target_bits_per_frame,
     if (cpi->oxcf.aq_mode == CYCLIC_REFRESH_AQ && cr->apply_cyclic_refresh &&
         (!cpi->oxcf.gf_cbr_boost_pct || !cpi->refresh_golden_frame)) {
       bits_per_mb_at_this_q =
-          (int)vp9_cyclic_refresh_rc_bits_per_mb(cpi, i, correction_factor);
+          vp9_cyclic_refresh_rc_bits_per_mb(cpi, i, correction_factor);
     } else {
       FRAME_TYPE frame_type = cm->intra_only ? KEY_FRAME : cm->frame_type;
       bits_per_mb_at_this_q = (int)vp9_rc_bits_per_mb(
           frame_type, i, correction_factor, cm->bit_depth);
     }
 
+    int diff_bits = VPXMIN(
+        VPXMAX(target_bits_per_mb - bits_per_mb_at_this_q, -INT_MAX), INT_MAX);
     if (bits_per_mb_at_this_q <= target_bits_per_mb) {
-      if ((target_bits_per_mb - bits_per_mb_at_this_q) <= last_error)
+      if (diff_bits <= last_error)
         q = i;
       else
         q = i - 1;
 
       break;
     } else {
-      last_error = bits_per_mb_at_this_q - target_bits_per_mb;
+      last_error = -diff_bits;
     }
   } while (++i <= active_worst_quality);
 
