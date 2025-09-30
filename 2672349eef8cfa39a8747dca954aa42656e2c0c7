@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c35fdd8_c4eb2940",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-09-30T18:42:07Z",
+      "side": 1,
+      "message": "If we get here, `diff_bits` is negative. If `diff_bits` can be `INT_MIN`, it cannot be negated. So clamping to `-INT_MAX` makes it safe to negate `diff_bits` here. I was just confirming whether that was your intent.\n\nIf we want to improve the current fix, declaring `last_error` and `diff_bits` as `int64_t` would allow us to get rid of the clamping and simplify the code.",
+      "revId": "2672349eef8cfa39a8747dca954aa42656e2c0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
