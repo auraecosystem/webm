@@ -858,7 +858,7 @@ int vp9_rc_regulate_q(const VP9_COMP *cpi, int target_bits_per_frame,
 
     int diff_bits = (int)VPXMIN(
         VPXMAX(((int64_t)target_bits_per_mb - (int64_t)bits_per_mb_at_this_q),
-               -INT_MAX),
+               INT_MIN),
         INT_MAX);
     if (bits_per_mb_at_this_q <= target_bits_per_mb) {
       if (diff_bits <= last_error)
