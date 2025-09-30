@@ -22,6 +22,30 @@
       },
       "revId": "d18c34c54a1b05797d245367ee5ac05a85cf1ccc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0ed34c8_31d1903c",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-30T18:26:53Z",
+      "side": 1,
+      "message": "yeah intended -INT_MAX, but INT_MIN is probably better, will fix it in another change.",
+      "parentUuid": "f7ae3de1_b8759935",
+      "range": {
+        "startLine": 861,
+        "startChar": 15,
+        "endLine": 861,
+        "endChar": 23
+      },
+      "revId": "d18c34c54a1b05797d245367ee5ac05a85cf1ccc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
