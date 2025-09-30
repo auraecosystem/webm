@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7ae3de1_b8759935",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-09-30T18:05:39Z",
+      "side": 1,
+      "message": "Just wanted to confirm that you meant to use `-INT_MAX` instead of `INT_MIN` here.\n\nOptional: It may be simpler to declare `last_error` as `int64_t` and initialize it to `INT64_MAX`. Then we can declare `diff_bits` as `int64_t` and get rid of the clamping.",
+      "range": {
+        "startLine": 861,
+        "startChar": 15,
+        "endLine": 861,
+        "endChar": 23
+      },
+      "revId": "d18c34c54a1b05797d245367ee5ac05a85cf1ccc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
