@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3b8debdd_3755050d",
+        "filename": "vp9/encoder/vp9_ratectrl.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-09-30T18:42:12Z",
+      "side": 1,
+      "message": "this fails the fuzz test, since diff_bits may get set to INT_MIN at line 859, and then -diff_bits at line 871 will be out of range.",
+      "revId": "2672349eef8cfa39a8747dca954aa42656e2c0c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5c35fdd8_c4eb2940",
         "filename": "vp9/encoder/vp9_ratectrl.c",
         "patchSetId": 1
