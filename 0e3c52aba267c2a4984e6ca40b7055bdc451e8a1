@@ -33,6 +33,23 @@
       "message": "Thank you for signed the CLA. After getting an answer to the comment I posted, I can upload a new patchset to get the tests to run. (This is only needed for your first commit, after that they will run automatically.)",
       "revId": "0e3c52aba267c2a4984e6ca40b7055bdc451e8a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcb96129_bf926c6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4388390
+      },
+      "writtenOn": "2025-10-02T02:43:06Z",
+      "side": 1,
+      "message": "I ran it with the following command line options:\n`--target\u003d\"x86_64-darwin13-gcc\" --as\u003dyasm --enable-static --enable-pic --enable-vp8 --enable-postproc`\n\nI am currently using an Apple M4 Pro, and the compiler and macOS SDK information are as follows.\n❯ clang -v\nApple clang version 17.0.0 (clang-1700.0.13.5)\nTarget: arm64-apple-darwin24.3.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n\n❯ xcrun --sdk macosx --show-sdk-version\n15.5\n\nIf necessary, I can share `configure.log`.",
+      "revId": "0e3c52aba267c2a4984e6ca40b7055bdc451e8a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
