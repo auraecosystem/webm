@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d707caf_3762faf9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-02T20:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26b472fa_87ff2dd9",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "0e3c52aba267c2a4984e6ca40b7055bdc451e8a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c63fca3c_374d9b63",
@@ -113,6 +137,24 @@
       "side": 1,
       "message": "\u003e I ran it with the following command line options:\n\u003e `--target\u003d\"x86_64-darwin13-gcc\" --as\u003dyasm --enable-static --enable-pic --enable-vp8 --enable-postproc`\n\u003e \n\u003e I am currently using an Apple M4 Pro, and the compiler and macOS SDK information are as follows.\n\u003e ❯ clang -v\n\u003e Apple clang version 17.0.0 (clang-1700.0.13.5)\n\u003e Target: arm64-apple-darwin24.3.0\n\u003e Thread model: posix\n\u003e InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n\u003e \n\u003e ❯ xcrun --sdk macosx --show-sdk-version\n\u003e 15.5\n\u003e \n\u003e If necessary, I can share `configure.log`.\n\nThanks for the detail. I see the following with Xcode 16.4 (`Apple clang version 17.0.0 (clang-1700.0.13.5)`)\n\n## Before\n\n```\n$ ../configure --enable-ccache --target\u003d\"x86_64-darwin13-gcc\" --enable-static --enable-pic --enable-vp8 --enable-postproc\n  enabling ccache\n  enabling pic\n  enabling vp8\n  enabling postproc\n  enabling vp9_encoder\n  enabling vp9_decoder\nConfiguring for target \u0027x86_64-darwin13-gcc\u0027\n  enabling x86_64\n  enabling runtime_cpu_detect\n    disabling avx512: not supported by compiler\n  using yasm\n  enabling unit_tests\n  enabling webm_io\n  enabling libyuv\nCreating makefiles for x86_64-darwin13-gcc libs\nCreating makefiles for x86_64-darwin13-gcc examples\nCreating makefiles for x86_64-darwin13-gcc tools\nCreating makefiles for x86_64-darwin13-gcc docs\n```\n\n## After\n\n```\n$ ../configure --enable-ccache --target\u003d\"x86_64-darwin13-gcc\" --enable-static --enable-pic --enable-vp8 --enable-postproc\n  enabling ccache\n  enabling pic\n  enabling vp8\n  enabling postproc\n  enabling vp9_encoder\n  enabling vp9_decoder\nConfiguring for target \u0027x86_64-darwin13-gcc\u0027\n  enabling x86_64\n  enabling runtime_cpu_detect\n  enabling mmx\n  enabling sse\n  enabling sse2\n  enabling sse3\n  enabling ssse3\n  enabling sse4_1\n  enabling avx\n  enabling avx2\n  enabling avx512\n  using yasm\n  enabling unit_tests\n  enabling webm_io\n  enabling libyuv\nCreating makefiles for x86_64-darwin13-gcc libs\nCreating makefiles for x86_64-darwin13-gcc examples\nCreating makefiles for x86_64-darwin13-gcc tools\nCreating makefiles for x86_64-darwin13-gcc docs\n```\n\nThe first output is a little misleading as all x86 optimizations are removed.",
       "parentUuid": "fcb96129_bf926c6e",
+      "revId": "0e3c52aba267c2a4984e6ca40b7055bdc451e8a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57aaed2c_35a99712",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-02T20:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c63fca3c_374d9b63",
       "revId": "0e3c52aba267c2a4984e6ca40b7055bdc451e8a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
