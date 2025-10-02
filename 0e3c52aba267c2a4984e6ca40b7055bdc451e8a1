@@ -16,6 +16,23 @@
       "message": "Thanks for the patch. Can you describe the environment and configure command line you were using that caused an issue? I\u0027d like to verify the behavior on my side.",
       "revId": "0e3c52aba267c2a4984e6ca40b7055bdc451e8a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9468df7_953c8827",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-02T02:33:38Z",
+      "side": 1,
+      "message": "Thank you for signed the CLA. After getting an answer to the comment I posted, I can upload a new patchset to get the tests to run. (This is only needed for your first commit, after that they will run automatically.)",
+      "revId": "0e3c52aba267c2a4984e6ca40b7055bdc451e8a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
