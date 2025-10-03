@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a3f04d_0f7319db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-03T02:38:49Z",
+      "side": 1,
+      "message": "Removing my +2 since I uploaded the last patchset. Jerome, I\u0027ll need your review here.",
+      "revId": "f4bf219b62a05de72dd9f3f552ad57dee3e3729b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
