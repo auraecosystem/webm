@@ -137,11 +137,11 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     if (flags & VPX_CODEC_USE_POSTPROC) {
       if (frame_cnt % 16 == 4) {
         vp8_postproc_cfg_t pp = { 0, 0, 0 };
-        if (vpx_codec_control(&codec, VP8_SET_POSTPROC, &pp)) goto out;
+        if (vpx_codec_control(&codec, VP8_SET_POSTPROC, &pp)) goto fail;
       } else if (frame_cnt % 16 == 12) {
         vp8_postproc_cfg_t pp = { VP8_DEBLOCK | VP8_DEMACROBLOCK | VP8_MFQE, 4,
                                   0 };
-        if (vpx_codec_control(&codec, VP8_SET_POSTPROC, &pp)) goto out;
+        if (vpx_codec_control(&codec, VP8_SET_POSTPROC, &pp)) goto fail;
       }
     }
 
@@ -154,7 +154,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     data += frame_size;
     size -= frame_size;
   }
-out:
+fail:
   vpx_codec_destroy(&codec);
   nalloc_end();
   return 0;
