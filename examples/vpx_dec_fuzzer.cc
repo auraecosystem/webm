@@ -92,9 +92,22 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
   // Set thread count in the range [1, 64].
   const unsigned int threads = (data[IVF_FILE_HDR_SZ] & 0x3f) + 1;
   vpx_codec_dec_cfg_t cfg = { threads, 0, 0 };
-  if (vpx_codec_dec_init(&codec, VPXD_INTERFACE(DECODER), &cfg, 0)) {
+  vpx_codec_flags_t flags = 0;
+  if ((data[IVF_FILE_HDR_SZ] & 0x40) != 0) {
+    flags |= VPX_CODEC_USE_POSTPROC;
+  }
+  int r = vpx_codec_dec_init(&codec, VPXD_INTERFACE(DECODER), &cfg, flags);
+  if (r == VPX_CODEC_INCAPABLE) {
+    // vpx_codec_dec_init may fail with VPX_CODEC_USE_POSTPROC
+    // if the library is configured with --disable-postproc.
+    flags = 0;
+    if (vpx_codec_dec_init(&codec, VPXD_INTERFACE(DECODER), &cfg, flags)) {
+      return 0;
+    }
+  } else if (r != 0) {
     return 0;
   }
+
   nalloc_start(data, size);
 
   if (threads > 1) {
@@ -107,6 +120,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
   data += IVF_FILE_HDR_SZ;
   size -= IVF_FILE_HDR_SZ;
 
+  int frame_cnt = 0;
   while (size > IVF_FRAME_HDR_SZ) {
     size_t frame_size = mem_get_le32(data);
     size -= IVF_FRAME_HDR_SZ;
@@ -119,6 +133,18 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
                                                      data, size, &stream_info);
     static_cast<void>(err);
 
+    ++frame_cnt;
+    if (flags & VPX_CODEC_USE_POSTPROC) {
+      if (frame_cnt % 16 == 4) {
+        vp8_postproc_cfg_t pp = { 0, 0, 0 };
+        if (vpx_codec_control(&codec, VP8_SET_POSTPROC, &pp)) goto fail;
+      } else if (frame_cnt % 16 == 12) {
+        vp8_postproc_cfg_t pp = { VP8_DEBLOCK | VP8_DEMACROBLOCK | VP8_MFQE, 4,
+                                  0 };
+        if (vpx_codec_control(&codec, VP8_SET_POSTPROC, &pp)) goto fail;
+      }
+    }
+
     err = vpx_codec_decode(&codec, data, frame_size, nullptr, 0);
     static_cast<void>(err);
     vpx_codec_iter_t iter = nullptr;
@@ -128,6 +154,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     data += frame_size;
     size -= frame_size;
   }
+fail:
   vpx_codec_destroy(&codec);
   nalloc_end();
   return 0;
