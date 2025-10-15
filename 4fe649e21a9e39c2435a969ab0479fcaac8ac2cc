@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "052935de_d6f532ae",
+        "filename": "examples/nalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-15T23:34:13Z",
+      "side": 1,
+      "message": "In libvpx we try to keep third party / contributions in a separate location for ease of license discovery.\n\nPlease add a nalloc folder under the `third_party/` directory and move `nalloc.h` there:\n\nhttps://chromium.googlesource.com/webm/libvpx/+/refs/tags/v1.15.2/third_party/\n\nThen you can use `libyuv/README.libvpx` and `libyuv/LICENSE` as a template, updating the `LICENSE` and description in `README.libvpx`, leaving the \u0027Local Modifications` section empty.",
+      "revId": "4fe649e21a9e39c2435a969ab0479fcaac8ac2cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8331d29e_e42d5a18",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-15T23:34:13Z",
+      "side": 1,
+      "message": "After moving the header, make this `third_party/nalloc/nalloc.h`.",
+      "revId": "4fe649e21a9e39c2435a969ab0479fcaac8ac2cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
