@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9d7a302_ed18f8d7",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-15T23:45:34Z",
+      "side": 1,
+      "message": "If the library is built with `--disable-postproc` this will fail when `flags` is set. You could add a call with `flags\u003d0` within this block to add more coverage in that case.",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc89991_149516f2",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-15T23:45:34Z",
+      "side": 1,
+      "message": "This looks to be unused.",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "515ba73e_486b321e",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-15T23:45:34Z",
+      "side": 1,
+      "message": "This check should still work if the update I suggested at line 99 includes setting `flags\u003d0`.",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
