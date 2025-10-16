@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc9db31d_72a18123",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-16T13:01:20Z",
+      "side": 1,
+      "message": "cool",
+      "parentUuid": "d9d7a302_ed18f8d7",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecc89991_149516f2",
         "filename": "examples/vpx_dec_fuzzer.cc",
         "patchSetId": 2
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f791723d_f5b9a1ae",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-16T13:01:20Z",
+      "side": 1,
+      "message": "oops, debug leftover removed",
+      "parentUuid": "ecc89991_149516f2",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "515ba73e_486b321e",
         "filename": "examples/vpx_dec_fuzzer.cc",
         "patchSetId": 2
@@ -48,6 +84,24 @@
       "writtenOn": "2025-10-15T23:45:34Z",
       "side": 1,
       "message": "This check should still work if the update I suggested at line 99 includes setting `flags\u003d0`.",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41f19fff_16df74b6",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-16T13:01:20Z",
+      "side": 1,
+      "message": "Not sure what you expect here, trying something...",
+      "parentUuid": "515ba73e_486b321e",
       "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
