@@ -94,6 +94,30 @@
       },
       "revId": "84a3c9dee9ef7f7b8433d6f7019c19ac7c4fddb2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c346569b_84ef191b",
+        "filename": "vpx_dsp/arm/mem_neon.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-17T21:16:02Z",
+      "side": 1,
+      "message": "When I googled this question, I got the following AI Overview answer:\n\n```\nint16x4_t create_int16x4_t(int16_t val0, int16_t val1, int16_t val2, int16_t val3) {\n    int16x4_t result \u003d vdup_n_s16(0); // Initialize with zeros or any default value\n    result \u003d vsetq_lane_s16(val0, result, 0);\n    result \u003d vsetq_lane_s16(val1, result, 1);\n    result \u003d vsetq_lane_s16(val2, result, 2);\n    result \u003d vsetq_lane_s16(val3, result, 3);\n    return result;\n}\n```\n\nThere is a bug. After changing `vsetq` to `vset`, it seems to be correct and compiles to the same instructions as your version:\n\n```\nint16x4_t create_int16x4_t(int16_t val0, int16_t val1, int16_t val2, int16_t val3) {\n    int16x4_t result \u003d vdup_n_s16(0); // Initialize with zeros or any default value\n    result \u003d vset_lane_s16(val0, result, 0);\n    result \u003d vset_lane_s16(val1, result, 1);\n    result \u003d vset_lane_s16(val2, result, 2);\n    result \u003d vset_lane_s16(val3, result, 3);\n    return result;\n}\n```\n\nShould we switch to this version?",
+      "parentUuid": "13203b23_1ab2d55e",
+      "range": {
+        "startLine": 47,
+        "startChar": 37,
+        "endLine": 47,
+        "endChar": 57
+      },
+      "revId": "84a3c9dee9ef7f7b8433d6f7019c19ac7c4fddb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
