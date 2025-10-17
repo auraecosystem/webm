@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07d2a9e0_6810acbb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-10-17T13:48:52Z",
+      "side": 1,
+      "message": "the title is too long:\n\n```\nThe commit subject: \u0027Fix left-shift overflow in create_s16x4_neon and create_s32x2_neon\u0027 is too long! (66 characters)\nTry to keep this to 50 or less (up to 65 is permitted for non-reverts).\n```",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 66
+      },
+      "revId": "7009bcb7b7695f0da19bf7731a3eb6e8e7ed13e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
