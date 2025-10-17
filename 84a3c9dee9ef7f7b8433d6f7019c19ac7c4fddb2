@@ -46,6 +46,30 @@
       },
       "revId": "84a3c9dee9ef7f7b8433d6f7019c19ac7c4fddb2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77e6e843_3e2f2c5b",
+        "filename": "vpx_dsp/arm/mem_neon.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-17T20:38:46Z",
+      "side": 1,
+      "message": "Thanks for the confirmation. Yes, `c2` above needs the intermediate cast to `uint16_t` to suppress the sign extension.\n\nFor `c1` above, it seems that we sign-extend it to `int`, cast it to `uint32_t`, left-shift it as `uint32_t` (so the sign-extended 1 bits, if any, are all shifted out), and then convert it to `uint64_t`. If my analysis is correct, this is very subtle.",
+      "parentUuid": "2b102c45_bf8f8004",
+      "range": {
+        "startLine": 47,
+        "startChar": 37,
+        "endLine": 47,
+        "endChar": 57
+      },
+      "revId": "84a3c9dee9ef7f7b8433d6f7019c19ac7c4fddb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
