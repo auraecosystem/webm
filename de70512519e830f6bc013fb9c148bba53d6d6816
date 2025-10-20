@@ -34,6 +34,24 @@
       "parentUuid": "56833a59_8104e55a",
       "revId": "de70512519e830f6bc013fb9c148bba53d6d6816",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ada49384_f9dcab90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T22:01:25Z",
+      "side": 1,
+      "message": "\u003e Thank you for noticing, I have submitted a fix patch https://chromium-review.googlesource.com/c/webm/libvpx/+/7062633/1\n\nThanks for fixing the issue.",
+      "parentUuid": "1dc51c6e_03d63790",
+      "revId": "de70512519e830f6bc013fb9c148bba53d6d6816",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
