@@ -33,6 +33,70 @@
       "message": "Add a comment before this line to note that `vpx_codec_dec_init` may fail when set to `VPX_CODEC_USE_POSTPROC` if the library is configured with --disable-postproc.",
       "revId": "74f837aaa907cbda211cfb8cdf35f72852fcfb45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6132735c_5ac5d077",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-20T23:19:14Z",
+      "side": 1,
+      "message": "If that\u0027s the reason, we should only retry with `flags\u003d0` if `vpx_codec_dec_init()` returns `VPX_CODEC_INCAPABLE`. For all other error, we should return 0.",
+      "parentUuid": "0385b2ca_d0711789",
+      "revId": "74f837aaa907cbda211cfb8cdf35f72852fcfb45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba0a074d_107fc98d",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-20T23:19:14Z",
+      "side": 1,
+      "message": "Not sure why we are testing `\u0026 0xa0`. Since 0xa0 contains two 1 bits, this increases the probability of `enable\u003d1` to 0.75.\n\nShould we change `0xa0` to `0x80`?",
+      "range": {
+        "startLine": 109,
+        "startChar": 48,
+        "endLine": 109,
+        "endChar": 52
+      },
+      "revId": "74f837aaa907cbda211cfb8cdf35f72852fcfb45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df7e27e_07798b0b",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-20T23:19:14Z",
+      "side": 1,
+      "message": "Nit: out \u003d\u003e fail\n\nThis label is most commonly named \"fail\" in libvpx.",
+      "range": {
+        "startLine": 135,
+        "startChar": 67,
+        "endLine": 135,
+        "endChar": 70
+      },
+      "revId": "74f837aaa907cbda211cfb8cdf35f72852fcfb45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
