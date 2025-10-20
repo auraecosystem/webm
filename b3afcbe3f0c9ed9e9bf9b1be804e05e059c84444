@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4b34a9_9e8e319b",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T23:02:20Z",
+      "side": 1,
+      "message": "\u0027This test sets ...\u0027 (drop the \u0027s\u0027 from tests)",
+      "range": {
+        "startLine": 1792,
+        "startChar": 3,
+        "endLine": 1792,
+        "endChar": 18
+      },
+      "revId": "b3afcbe3f0c9ed9e9bf9b1be804e05e059c84444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cfdcdbe_acfdd62c",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T23:02:20Z",
+      "side": 1,
+      "message": "tile_row? instead of tiles_row, here and line 1865.",
+      "range": {
+        "startLine": 1801,
+        "startChar": 33,
+        "endLine": 1801,
+        "endChar": 43
+      },
+      "revId": "b3afcbe3f0c9ed9e9bf9b1be804e05e059c84444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae7bc9f5_cb952dbb",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T23:02:20Z",
+      "side": 1,
+      "message": "test",
+      "range": {
+        "startLine": 1856,
+        "startChar": 8,
+        "endLine": 1856,
+        "endChar": 13
+      },
+      "revId": "b3afcbe3f0c9ed9e9bf9b1be804e05e059c84444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
