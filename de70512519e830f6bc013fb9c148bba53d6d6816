@@ -16,6 +16,24 @@
       "message": "I noticed some SVE unit test failures locally with this patch, but didn\u0027t get a chance to check the current status of the main branch. SVE isn\u0027t enabled in the presubmit. I\u0027ll get back to this next week.",
       "revId": "de70512519e830f6bc013fb9c148bba53d6d6816",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dc51c6e_03d63790",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4345756
+      },
+      "writtenOn": "2025-10-20T13:31:57Z",
+      "side": 1,
+      "message": "Thank you for noticing, I have submitted a fix patch https://chromium-review.googlesource.com/c/webm/libvpx/+/7062633/1",
+      "parentUuid": "56833a59_8104e55a",
+      "revId": "de70512519e830f6bc013fb9c148bba53d6d6816",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
