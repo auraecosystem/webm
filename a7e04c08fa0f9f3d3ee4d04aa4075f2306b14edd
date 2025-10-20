@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1c798e0_8d6ef9aa",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T22:14:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bc9db31d_72a18123",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecc89991_149516f2",
@@ -71,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffad695c_4f02b6d4",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T22:14:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f791723d_f5b9a1ae",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "515ba73e_486b321e",
@@ -102,6 +138,24 @@
       "side": 1,
       "message": "Not sure what you expect here, trying something...",
       "parentUuid": "515ba73e_486b321e",
+      "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f9fd55d_d336d663",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T22:14:18Z",
+      "side": 1,
+      "message": "\u003e Not sure what you expect here, trying something...\n\nYes, this looks like what I meant with setting `flags \u003d 0` at line 100.",
+      "parentUuid": "41f19fff_16df74b6",
       "revId": "a7e04c08fa0f9f3d3ee4d04aa4075f2306b14edd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
