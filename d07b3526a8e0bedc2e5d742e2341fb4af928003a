@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4cf12f5_a15dcc76",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T22:09:42Z",
+      "side": 1,
+      "message": "Move this before the libvpx to keep some rough sort order.",
+      "revId": "d07b3526a8e0bedc2e5d742e2341fb4af928003a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d292a3d_c4a97a5a",
+        "filename": "third_party/nalloc/README.libvpx",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T22:09:42Z",
+      "side": 1,
+      "message": "This could be \u0027allocation\u0027. The same for the commit message.",
+      "range": {
+        "startLine": 8,
+        "startChar": 27,
+        "endLine": 8,
+        "endChar": 38
+      },
+      "revId": "d07b3526a8e0bedc2e5d742e2341fb4af928003a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

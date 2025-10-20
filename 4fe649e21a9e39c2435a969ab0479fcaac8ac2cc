@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "060866dd_c1fa66fb",
+        "filename": "examples/nalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-20T22:09:42Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5132ee68_d46c2088",
+      "revId": "4fe649e21a9e39c2435a969ab0479fcaac8ac2cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8331d29e_e42d5a18",
