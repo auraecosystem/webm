@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67bfc24f_5903ae42",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1792,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-10-21T02:15:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a4b34a9_9e8e319b",
+      "range": {
+        "startLine": 1792,
+        "startChar": 3,
+        "endLine": 1792,
+        "endChar": 18
+      },
+      "revId": "b3afcbe3f0c9ed9e9bf9b1be804e05e059c84444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cfdcdbe_acfdd62c",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a90620aa_c195adc3",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-10-21T02:15:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cfdcdbe_acfdd62c",
+      "range": {
+        "startLine": 1801,
+        "startChar": 33,
+        "endLine": 1801,
+        "endChar": 43
+      },
+      "revId": "b3afcbe3f0c9ed9e9bf9b1be804e05e059c84444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae7bc9f5_cb952dbb",
@@ -60,6 +108,30 @@
       "writtenOn": "2025-10-20T23:02:20Z",
       "side": 1,
       "message": "test",
+      "range": {
+        "startLine": 1856,
+        "startChar": 8,
+        "endLine": 1856,
+        "endChar": 13
+      },
+      "revId": "b3afcbe3f0c9ed9e9bf9b1be804e05e059c84444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41fffbcb_e3660413",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-10-21T02:15:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae7bc9f5_cb952dbb",
       "range": {
         "startLine": 1856,
         "startChar": 8,
