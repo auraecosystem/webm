@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "161adedd_e890d46b",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:22:26Z",
+      "side": 1,
+      "message": "I wanted to focus on `vpx_codec_decode`...\n\nShould we call `vpx_codec_destroy(\u0026codec);` if `vpx_codec_dec_init(\u0026codec, ...` fails ?",
+      "parentUuid": "35a2e1f0_e00ccf5b",
+      "revId": "d07b3526a8e0bedc2e5d742e2341fb4af928003a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d292a3d_c4a97a5a",
         "filename": "third_party/nalloc/README.libvpx",
         "patchSetId": 3
