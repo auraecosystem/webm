@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d18dac7_ecaf0b0c",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:27:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6132735c_5ac5d077",
+      "revId": "74f837aaa907cbda211cfb8cdf35f72852fcfb45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba0a074d_107fc98d",
@@ -78,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb1f94b7_f6e5816a",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:27:30Z",
+      "side": 1,
+      "message": "I did not change this part, should I ?",
+      "parentUuid": "ba0a074d_107fc98d",
+      "range": {
+        "startLine": 109,
+        "startChar": 48,
+        "endLine": 109,
+        "endChar": 52
+      },
+      "revId": "74f837aaa907cbda211cfb8cdf35f72852fcfb45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5df7e27e_07798b0b",
         "filename": "examples/vpx_dec_fuzzer.cc",
         "patchSetId": 3
@@ -89,6 +131,30 @@
       "writtenOn": "2025-10-20T23:19:14Z",
       "side": 1,
       "message": "Nit: out \u003d\u003e fail\n\nThis label is most commonly named \"fail\" in libvpx.",
+      "range": {
+        "startLine": 135,
+        "startChar": 67,
+        "endLine": 135,
+        "endChar": 70
+      },
+      "revId": "74f837aaa907cbda211cfb8cdf35f72852fcfb45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23420438_f9f8c859",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:27:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5df7e27e_07798b0b",
       "range": {
         "startLine": 135,
         "startChar": 67,
