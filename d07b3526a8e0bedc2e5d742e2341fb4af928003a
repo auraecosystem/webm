@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e390cc61_a42bcba0",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-22T16:32:50Z",
+      "side": 1,
+      "message": "No. If `vpx_codec_dec_init()` fails, we should not call `vpx_codec_destroy()`.\n\nI found that this is not documented, but this is a common convention.\n\nI determined this by inspecting the source code:\n\n```\nvpx_codec_err_t vpx_codec_dec_init_ver(vpx_codec_ctx_t *ctx,\n                                       vpx_codec_iface_t *iface,\n                                       const vpx_codec_dec_cfg_t *cfg,\n                                       vpx_codec_flags_t flags, int ver) {\n  vpx_codec_err_t res;\n\n  if (ver !\u003d VPX_DECODER_ABI_VERSION)\n    res \u003d VPX_CODEC_ABI_MISMATCH;\n  else if (!ctx || !iface)\n    res \u003d VPX_CODEC_INVALID_PARAM;\n  else if (iface-\u003eabi_version !\u003d VPX_CODEC_INTERNAL_ABI_VERSION)\n    res \u003d VPX_CODEC_ABI_MISMATCH;\n  else if ((flags \u0026 VPX_CODEC_USE_POSTPROC) \u0026\u0026\n           !(iface-\u003ecaps \u0026 VPX_CODEC_CAP_POSTPROC))\n    res \u003d VPX_CODEC_INCAPABLE;\n  else if ((flags \u0026 VPX_CODEC_USE_ERROR_CONCEALMENT) \u0026\u0026\n           !(iface-\u003ecaps \u0026 VPX_CODEC_CAP_ERROR_CONCEALMENT))\n    res \u003d VPX_CODEC_INCAPABLE;\n  else if ((flags \u0026 VPX_CODEC_USE_INPUT_FRAGMENTS) \u0026\u0026\n           !(iface-\u003ecaps \u0026 VPX_CODEC_CAP_INPUT_FRAGMENTS))\n    res \u003d VPX_CODEC_INCAPABLE;\n  else if (!(iface-\u003ecaps \u0026 VPX_CODEC_CAP_DECODER))\n    res \u003d VPX_CODEC_INCAPABLE;\n  else {\n    memset(ctx, 0, sizeof(*ctx));\n    ctx-\u003eiface \u003d iface;\n    ctx-\u003ename \u003d iface-\u003ename;\n    ctx-\u003epriv \u003d NULL;\n    ctx-\u003einit_flags \u003d flags;\n    ctx-\u003econfig.dec \u003d cfg;\n\n    res \u003d ctx-\u003eiface-\u003einit(ctx, NULL);\n    if (res) {\n      ctx-\u003eerr_detail \u003d ctx-\u003epriv ? ctx-\u003epriv-\u003eerr_detail : NULL;\n      vpx_codec_destroy(ctx);\n    }\n  }\n\n  return SAVE_STATUS(ctx, res);\n}\n```\n\nNote that `vpx_codec_dec_init_ver()` calls `vpx_codec_destroy()`.\n\nAlso, I believe (but did not verify) that `vpx_codec_destroy() makes it safe to be called redundantly.",
+      "parentUuid": "161adedd_e890d46b",
+      "revId": "d07b3526a8e0bedc2e5d742e2341fb4af928003a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d292a3d_c4a97a5a",
         "filename": "third_party/nalloc/README.libvpx",
         "patchSetId": 3
