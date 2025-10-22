@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c77e8049_3f32754d",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:24:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c4cf12f5_a15dcc76",
+      "revId": "d07b3526a8e0bedc2e5d742e2341fb4af928003a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35a2e1f0_e00ccf5b",
@@ -66,6 +84,30 @@
       "writtenOn": "2025-10-20T22:09:42Z",
       "side": 1,
       "message": "This could be \u0027allocation\u0027. The same for the commit message.",
+      "range": {
+        "startLine": 8,
+        "startChar": 27,
+        "endLine": 8,
+        "endChar": 38
+      },
+      "revId": "d07b3526a8e0bedc2e5d742e2341fb4af928003a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "681fdb82_fb8e7861",
+        "filename": "third_party/nalloc/README.libvpx",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:24:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3d292a3d_c4a97a5a",
       "range": {
         "startLine": 8,
         "startChar": 27,
