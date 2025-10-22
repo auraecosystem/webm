@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b1e0a0f_7fca4f67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:29:55Z",
+      "side": 1,
+      "message": "Thanks for all the reviews, I hope have answered to everything, and left 2 questions pending on earlier commits",
+      "revId": "de8b5c724173e7cfae3d6bc485c3e0538df140cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc88196_569eb715",
@@ -24,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bfbf8f9_2e1bcddb",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:29:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ebc88196_569eb715",
+      "range": {
+        "startLine": 54,
+        "startChar": 16,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "de8b5c724173e7cfae3d6bc485c3e0538df140cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f51f390f_67d49b4b",
@@ -37,6 +78,24 @@
       "writtenOn": "2025-10-20T22:15:41Z",
       "side": 1,
       "message": "This fails the style check for `TODO`s which try to establish ownership:\n\n```\nInvalid TODO format:\n+  // TODO fuzz VPX_DL_REALTIME and BEST\n\nPrefer TODO statements with a bug number or other reference:\nTODO: bug NNN - detail\nTODO: https://crbug.com/webm/NNN - detail\nTODO: https://instructive.link - detail\n```",
+      "revId": "de8b5c724173e7cfae3d6bc485c3e0538df140cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45eaa68a_acf1d2ea",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-10-22T12:29:55Z",
+      "side": 1,
+      "message": "Forgot to remove this TODO as done",
+      "parentUuid": "f51f390f_67d49b4b",
       "revId": "de8b5c724173e7cfae3d6bc485c3e0538df140cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
