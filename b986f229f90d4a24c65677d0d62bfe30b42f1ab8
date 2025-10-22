@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4288a74a_0c6d27ca",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-22T16:15:41Z",
+      "side": 1,
+      "message": "Nit: The return type of vpx_codec_dec_init() is vpx_codec_err_t. I also suggest avoiding a single-letter variable name here. We can use `err` or `ret`:\n\n```\n  vpx_codec_err_t err \u003d vpx_codec_dec_init(\u0026codec, VPXD_INTERFACE(DECODER), \u0026cfg, flags);\n```",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9496fd4_998f4660",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-22T16:15:41Z",
+      "side": 1,
+      "message": "We can now remove the declaration of `err`.",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c008e2c7_7735deb1",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-22T16:15:41Z",
+      "side": 1,
+      "message": "Optional: I would also try removing all the `void` casts of `err` in the file and see if there are compiler warnings.",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae78708_23c2fbf4",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-22T16:15:41Z",
+      "side": 1,
+      "message": "Remove the declaration of `err`",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
