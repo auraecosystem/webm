@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d95c21_b081cb8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-24T21:49:39Z",
+      "side": 1,
+      "message": "With this set of commits, I see test failures like:\n\n```\n[ RUN      ] SVE2/ConvolveTest12Tap.MatchesReferenceSubpixelFilter/8\ntest_libvpx: ../vp9/encoder/arm/neon/vp9_highbd_temporal_filter_sve2.c:90: void vpx_highbd_convolve12_horiz_sve2(const uint16_t *, ptrdiff_t, uint16_t *, ptrdiff_t, const InterpKernel12 *, int, int, int, int, int, int, int): Assertion `h \u003d\u003d 32 || h \u003d\u003d 16 || h \u003d\u003d 8\u0027 failed.\n```",
+      "revId": "b09be9ce67fb4670b06393e8f81741081d76091c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
