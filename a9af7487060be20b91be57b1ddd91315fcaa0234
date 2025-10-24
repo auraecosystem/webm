@@ -34,6 +34,24 @@
       "parentUuid": "3c2581b8_e9cef8c9",
       "revId": "a9af7487060be20b91be57b1ddd91315fcaa0234",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eced288f_bb6ebcca",
+        "filename": "test/convolve_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2214,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-10-24T22:47:50Z",
+      "side": 1,
+      "message": "saw failure in a roll, was just testing, will adandon it",
+      "parentUuid": "7d9daae7_ce9bef42",
+      "revId": "a9af7487060be20b91be57b1ddd91315fcaa0234",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
