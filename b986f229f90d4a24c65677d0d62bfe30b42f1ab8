@@ -67,6 +67,29 @@
       "message": "Remove the declaration of `err`",
       "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d54fffc2_ec600326",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-28T04:59:25Z",
+      "side": 1,
+      "message": "This should be made `fail` here, not in follow up commit.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 3
+      },
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
