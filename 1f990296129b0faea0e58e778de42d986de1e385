@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cf996457_9b712511",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-10-28T17:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a1098ea_7b8baf2a",
+      "revId": "1f990296129b0faea0e58e778de42d986de1e385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "365bc4ff_a7ef61a5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2025-10-28T17:48:17Z",
       "side": 1,
       "message": "Nit: the bug number is missing a `4` in the front.",
+      "range": {
+        "startLine": 1789,
+        "startChar": 44,
+        "endLine": 1789,
+        "endChar": 52
+      },
+      "revId": "1f990296129b0faea0e58e778de42d986de1e385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "981baf98_9790ffb9",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-10-28T17:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0adc058_bfa89f93",
       "range": {
         "startLine": 1789,
         "startChar": 44,
