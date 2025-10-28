@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a1098ea_7b8baf2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-28T17:48:17Z",
+      "side": 1,
+      "message": "Should we add `Bug: 442105459` to the commit message since this is part of the test for the bug fix?",
+      "revId": "1f990296129b0faea0e58e778de42d986de1e385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "365bc4ff_a7ef61a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-28T17:48:17Z",
+      "side": 1,
+      "message": "LGTM. Thanks!",
+      "revId": "1f990296129b0faea0e58e778de42d986de1e385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0adc058_bfa89f93",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-28T17:48:17Z",
+      "side": 1,
+      "message": "Nit: the bug number is missing a `4` in the front.",
+      "range": {
+        "startLine": 1789,
+        "startChar": 44,
+        "endLine": 1789,
+        "endChar": 52
+      },
+      "revId": "1f990296129b0faea0e58e778de42d986de1e385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
