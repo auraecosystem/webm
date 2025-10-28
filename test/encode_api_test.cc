@@ -1825,7 +1825,7 @@ TEST(EncodeAPI, Buganizer442105459_2RowTiles) {
   int num_frames = 2;
   // Per-frame constants captured from the original run (indices consumed per
   // frame)
-  const unsigned long frame_pts_mul[] = { 33333UL, 33333UL };
+  const vpx_codec_pts_t frame_pts_mul[] = { 33333UL, 33333UL };
   const unsigned long frame_durations[] = { 33333UL, 33333UL };
   const vpx_enc_deadline_t frame_deadlines[] = { VPX_DL_REALTIME,
                                                  VPX_DL_REALTIME };
@@ -1838,10 +1838,10 @@ TEST(EncodeAPI, Buganizer442105459_2RowTiles) {
               VPX_CODEC_OK);
   }
   // Flush encoder.
-  ASSERT_EQ(vpx_codec_encode(&ctx, NULL, 0, 0, 0, VPX_DL_REALTIME), 0);
+  ASSERT_EQ(vpx_codec_encode(&ctx, nullptr, 0, 0, 0, VPX_DL_REALTIME), 0);
   // Get remaining data
-  vpx_codec_iter_t iter = NULL;
-  while (vpx_codec_get_cx_data(&ctx, &iter) != NULL) {
+  vpx_codec_iter_t iter = nullptr;
+  while (vpx_codec_get_cx_data(&ctx, &iter) != nullptr) {
     // Process remaining packets
   }
   vpx_img_free(img);
@@ -1889,7 +1889,7 @@ TEST(EncodeAPI, Buganizer442105459_4RowTiles) {
   int num_frames = 2;
   // Per-frame constants captured from the original run (indices consumed per
   // frame)
-  const unsigned long frame_pts_mul[] = { 33333UL, 33333UL };
+  const vpx_codec_pts_t frame_pts_mul[] = { 33333UL, 33333UL };
   const unsigned long frame_durations[] = { 33333UL, 33333UL };
   const vpx_enc_deadline_t frame_deadlines[] = { VPX_DL_REALTIME,
                                                  VPX_DL_REALTIME };
@@ -1902,10 +1902,10 @@ TEST(EncodeAPI, Buganizer442105459_4RowTiles) {
               VPX_CODEC_OK);
   }
   // Flush encoder.
-  ASSERT_EQ(vpx_codec_encode(&ctx, NULL, 0, 0, 0, VPX_DL_REALTIME), 0);
+  ASSERT_EQ(vpx_codec_encode(&ctx, nullptr, 0, 0, 0, VPX_DL_REALTIME), 0);
   // Get remaining data
-  vpx_codec_iter_t iter = NULL;
-  while (vpx_codec_get_cx_data(&ctx, &iter) != NULL) {
+  vpx_codec_iter_t iter = nullptr;
+  while (vpx_codec_get_cx_data(&ctx, &iter) != nullptr) {
     // Process remaining packets
   }
   vpx_img_free(img);
