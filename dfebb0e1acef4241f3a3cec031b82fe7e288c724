@@ -16,6 +16,24 @@
       "message": "Marco: The image is allocated here, but the pixels in the image are not initialized. A simple fix is to memset the Y, U, V planes with 128 (neutral gray).\n\nNote: This is a common issue of POC (proof of concept) programs. They often neglect to initialize the memory buffers because they focus on finding buffer overflows.",
       "revId": "dfebb0e1acef4241f3a3cec031b82fe7e288c724",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da6b4989_2e294f94",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-10-30T18:33:49Z",
+      "side": 1,
+      "message": "Thanks! Verified this fixes the msan failure.\n\nUploaded fix here: https://chromium-review.googlesource.com/c/webm/libvpx/+/7102055",
+      "parentUuid": "18674fa7_69f793d2",
+      "revId": "dfebb0e1acef4241f3a3cec031b82fe7e288c724",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
