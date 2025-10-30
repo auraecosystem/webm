@@ -22,6 +22,30 @@
       },
       "revId": "3526b80b80cd928e42d7aecb084dbaf5da12ad01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "995ae89d_ced04e96",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-10-30T18:51:10Z",
+      "side": 1,
+      "message": "no reason, thought its better to have some nonzero image values.",
+      "parentUuid": "fb8f8120_81ea5507",
+      "range": {
+        "startLine": 1826,
+        "startChar": 47,
+        "endLine": 1826,
+        "endChar": 69
+      },
+      "revId": "3526b80b80cd928e42d7aecb084dbaf5da12ad01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
