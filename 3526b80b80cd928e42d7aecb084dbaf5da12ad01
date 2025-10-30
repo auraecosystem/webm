@@ -46,6 +46,29 @@
       },
       "revId": "3526b80b80cd928e42d7aecb084dbaf5da12ad01",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d168c7f_2cc2f040",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-10-30T19:14:27Z",
+      "side": 1,
+      "message": "remove this TODO",
+      "range": {
+        "startLine": 1866,
+        "startChar": 0,
+        "endLine": 1866,
+        "endChar": 47
+      },
+      "revId": "3526b80b80cd928e42d7aecb084dbaf5da12ad01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
