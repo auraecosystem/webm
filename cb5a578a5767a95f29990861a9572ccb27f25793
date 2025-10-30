@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd86d39d_62d5d1ae",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-10-30T20:08:59Z",
+      "side": 1,
+      "message": "For these two tests, the pixel values don\u0027t really matter, so we can just set them all to a constant such as 0 (black) or 128 (neutral gray):\n\n```\n  memset(img-\u003eplanes[0], 0, img-\u003estride[0] * img-\u003ed_h);\n```",
+      "revId": "cb5a578a5767a95f29990861a9572ccb27f25793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
