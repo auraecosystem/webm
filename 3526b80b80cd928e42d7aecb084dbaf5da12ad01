@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb8f8120_81ea5507",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2025-10-30T18:50:08Z",
+      "side": 1,
+      "message": "is there any reason to do this instead of just using memset()?",
+      "range": {
+        "startLine": 1826,
+        "startChar": 47,
+        "endLine": 1826,
+        "endChar": 69
+      },
+      "revId": "3526b80b80cd928e42d7aecb084dbaf5da12ad01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
