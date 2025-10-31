@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cdbaec79_0e1eec8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4432323
+      },
+      "writtenOn": "2025-10-31T16:49:21Z",
+      "side": 1,
+      "message": "Ok",
+      "revId": "cb5a578a5767a95f29990861a9572ccb27f25793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cd86d39d_62d5d1ae",
         "filename": "test/encode_api_test.cc",
         "patchSetId": 2
