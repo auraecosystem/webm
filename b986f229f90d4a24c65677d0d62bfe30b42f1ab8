@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61f073e8_aa8360d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-04T19:56:34Z",
+      "side": 1,
+      "message": "Thanks, I had missed them",
+      "parentUuid": "047da729_5d00986b",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4288a74a_0c6d27ca",
@@ -53,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11df7032_8f4c052c",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-04T19:56:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4288a74a_0c6d27ca",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9496fd4_998f4660",
@@ -66,6 +102,24 @@
       "writtenOn": "2025-10-22T16:15:41Z",
       "side": 1,
       "message": "We can now remove the declaration of `err`.",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0b30f7e_8602c462",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-04T19:56:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d9496fd4_998f4660",
       "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -89,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32a94a92_3afa4e8b",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-04T19:56:34Z",
+      "side": 1,
+      "message": "I bet we will have some tool warning about unchecked return",
+      "parentUuid": "c008e2c7_7735deb1",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bae78708_23c2fbf4",
         "filename": "examples/vpx_dec_fuzzer.cc",
         "patchSetId": 4
@@ -100,6 +172,24 @@
       "writtenOn": "2025-10-22T16:15:41Z",
       "side": 1,
       "message": "Remove the declaration of `err`",
+      "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c3afd9_9fb8882f",
+        "filename": "examples/vpx_dec_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-04T19:56:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bae78708_23c2fbf4",
       "revId": "b986f229f90d4a24c65677d0d62bfe30b42f1ab8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "995c5d74_ed71cd94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-04T19:56:34Z",
+      "side": 1,
+      "message": "New Patchset, expecting failure about removing void cast about err",
+      "revId": "61bdca50995d550b135f8102c76e56c461703b78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
