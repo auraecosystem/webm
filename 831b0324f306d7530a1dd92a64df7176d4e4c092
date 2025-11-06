@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad5af4de_212d4124",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-06T19:07:35Z",
+      "side": 1,
+      "message": "2025",
+      "range": {
+        "startLine": 2,
+        "startChar": 18,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bf2c795_d8069ffe",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-06T19:07:35Z",
+      "side": 1,
+      "message": "ivf contains compressed data. For fuzzing the encoder we\u0027ll be using raw yuv samples. In other projects using this style of fuzzing files will a padding of zeroes to cover the configuration option were used to avoid mixing the fuzzed data with data used for configuration (something libfuzzer maintainers recommend against). This is also where `FuzzTest` helps out.",
+      "range": {
+        "startLine": 160,
+        "startChar": 14,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56fe90ac_f2bcb5ea",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-06T19:07:35Z",
+      "side": 1,
+      "message": "Use `vpx_enc_deadline_t` to match the type used in `vpx_codec_encode`. This could also be `deadline` as that\u0027s the term used in that function.",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 16
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff8485fa_6285ec6d",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-06T19:07:35Z",
+      "side": 1,
+      "message": "use `size` or `size_read` as this is the meaning of the return.",
+      "range": {
+        "startLine": 209,
+        "startChar": 8,
+        "endLine": 209,
+        "endChar": 9
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fd3bfda_d24d3848",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-06T19:07:35Z",
+      "side": 1,
+      "message": "make this `fail` as in the other changes.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 3
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
