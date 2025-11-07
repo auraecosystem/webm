@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a65e01a_aea05b8a",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-07T21:41:49Z",
+      "side": 1,
+      "message": "\u003e I do not understand your comment here\n\u003e \n\u003e I just want the first bytes of fuzzing input to be used for different options.\n\u003e I can do with less than IVF_FILE_HDR_SZ\n\u003e \n\u003e By the way, does 64*48 make sense ? Do you expect bugs to be found with different sizes ?\n\nWhat I meant was the input will most likely be raw samples or a y4m file, not an ivf file. For generating a corpus, the recommendation is to add a block of zeroes to the front of the file, use that for configuration settings, and then skip that data to pass to the encoder. In this case if we assume the data is yuv, we can use the leading data in this way and then skip forward.",
+      "parentUuid": "c8f81250_e65bd1d2",
+      "range": {
+        "startLine": 160,
+        "startChar": 14,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56fe90ac_f2bcb5ea",
         "filename": "examples/vpx_enc_fuzzer.cc",
         "patchSetId": 6
