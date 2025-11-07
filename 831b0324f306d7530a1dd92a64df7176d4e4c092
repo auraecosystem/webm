@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "732f9b64_947e845a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-07T12:11:35Z",
+      "side": 1,
+      "message": "I fixed the small comments, changed a bit more the code.\n\nThere is the big comment where I am not sure what you mean/want...",
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad5af4de_212d4124",
@@ -14,6 +31,30 @@
       "writtenOn": "2025-11-06T19:07:35Z",
       "side": 1,
       "message": "2025",
+      "range": {
+        "startLine": 2,
+        "startChar": 18,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9adc080b_af5b4ce6",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-07T12:11:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ad5af4de_212d4124",
       "range": {
         "startLine": 2,
         "startChar": 18,
@@ -49,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8f81250_e65bd1d2",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-07T12:11:35Z",
+      "side": 1,
+      "message": "I do not understand your comment here\n\nI just want the first bytes of fuzzing input to be used for different options.\nI can do with less than IVF_FILE_HDR_SZ\n\nBy the way, does 64*48 make sense ? Do you expect bugs to be found with different sizes ?",
+      "parentUuid": "5bf2c795_d8069ffe",
+      "range": {
+        "startLine": 160,
+        "startChar": 14,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56fe90ac_f2bcb5ea",
         "filename": "examples/vpx_enc_fuzzer.cc",
         "patchSetId": 6
@@ -60,6 +125,30 @@
       "writtenOn": "2025-11-06T19:07:35Z",
       "side": 1,
       "message": "Use `vpx_enc_deadline_t` to match the type used in `vpx_codec_encode`. This could also be `deadline` as that\u0027s the term used in that function.",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 16
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e26963b6_082579fa",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-07T12:11:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "56fe90ac_f2bcb5ea",
       "range": {
         "startLine": 172,
         "startChar": 2,
@@ -93,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb1eefc4_72ee521e",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-07T12:11:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ff8485fa_6285ec6d",
+      "range": {
+        "startLine": 209,
+        "startChar": 8,
+        "endLine": 209,
+        "endChar": 9
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fd3bfda_d24d3848",
@@ -106,6 +219,30 @@
       "writtenOn": "2025-11-06T19:07:35Z",
       "side": 1,
       "message": "make this `fail` as in the other changes.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 3
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae45461_f0880bea",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-07T12:11:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7fd3bfda_d24d3848",
       "range": {
         "startLine": 222,
         "startChar": 0,
