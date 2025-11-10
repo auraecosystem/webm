@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7909f58f_3209a35f",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-10T07:42:36Z",
+      "side": 1,
+      "message": "Sure, that is what was done here.\n\nBut IVF_FILE_HDR_SZ was indeed ill-named.\nRenaming it to FUZZ_HDR_SZ",
+      "parentUuid": "0a65e01a_aea05b8a",
+      "range": {
+        "startLine": 160,
+        "startChar": 14,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56fe90ac_f2bcb5ea",
         "filename": "examples/vpx_enc_fuzzer.cc",
         "patchSetId": 6
