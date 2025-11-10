@@ -160,6 +160,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d5bc554_bb4cf1b6",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-10T21:45:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7909f58f_3209a35f",
+      "range": {
+        "startLine": 160,
+        "startChar": 14,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "831b0324f306d7530a1dd92a64df7176d4e4c092",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56fe90ac_f2bcb5ea",
