@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a290031f_d7734c6a",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-11T18:47:59Z",
+      "side": 1,
+      "message": "make this `vpx_enc_deadline_t` too.",
+      "range": {
+        "startLine": 138,
+        "startChar": 24,
+        "endLine": 138,
+        "endChar": 37
+      },
+      "revId": "bde79196c9802e71aca627fedf297852c9ad2d7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
