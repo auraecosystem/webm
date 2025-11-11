@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3311c802_ec331a33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-11T09:20:24Z",
+      "side": 1,
+      "message": "Getting close ?",
+      "revId": "6788e0854e2653204297c884ce18c33a683e84c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1b52772_785af20c",
@@ -24,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf89452_9cec1c5b",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-11T09:20:24Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b1b52772_785af20c",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 22
+      },
+      "revId": "6788e0854e2653204297c884ce18c33a683e84c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89b9942e_95441b2a",
@@ -37,6 +78,24 @@
       "writtenOn": "2025-11-10T21:45:41Z",
       "side": 1,
       "message": "This will produce a warning:\n\n```\n../examples/vpx_enc_fuzzer.cc:119:21: warning: comparison of integers of different signs: \u0027int\u0027 and \u0027size_t\u0027 (aka \u0027unsigned long\u0027) [-Wsign-compare]\n  119 |       if (used + nb \u003e size) {\n```\n\nI think `nb` and `used` can both be `size_t`.",
+      "revId": "6788e0854e2653204297c884ce18c33a683e84c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "095b7a63_3bba12a5",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-11T09:20:24Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "89b9942e_95441b2a",
       "revId": "6788e0854e2653204297c884ce18c33a683e84c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
