@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49714f60_6061b3b7",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T22:39:32Z",
+      "side": 1,
+      "message": "I see this file is likely to have started as a copy of examples/vpx_dec_fuzzer.cc. When I wrote my previous comment I thought you wrote this file from scratch and was wondering why you wrote almost-C code in a C++ file. This is fine then. (You can still convert it to a C file if you have the spare time.)",
+      "parentUuid": "44bd1edc_e633829f",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fef2e1ee_186f1818",
@@ -282,6 +300,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7b702af_50ed9a22",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T22:39:32Z",
+      "side": 1,
+      "message": "What I meant is to change:\n\n```\n     if (nb \u003e 0) {\n        memcpy(buf, data, nb);\n      } else {\n        memset(buf, 0, bytespp * w);\n      }\n```\n\nto:\n\n```\n      memcpy(buf, data, nb);\n      memset(buf + nb, 0, bytespp * w - nb);\n```\n\nThe new code I proposed also works in the `nb \u003d\u003d 0` case.",
+      "parentUuid": "5c98c74a_d5bdc948",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d49ffe2_0888015f",
         "filename": "examples/vpx_enc_fuzzer.cc",
         "patchSetId": 11
@@ -311,6 +347,24 @@
       "side": 1,
       "message": "Maybe 32 is overkill\n\nBut we may want to add more config options (for more complex encoders as seen in the examples) in the future, while still maintaining the same format (so that generated corpus is still valid)\n\nWhat do you think ?",
       "parentUuid": "4d49ffe2_0888015f",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32f8b497_6dbf39b4",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T22:39:32Z",
+      "side": 1,
+      "message": "I wasn\u0027t complaining that 32 is too big a value for `FUZZ_HDR_SZ`. I was complaining that it is not obvious why we advance the `data` pointer by 32 bytes after consuming one byte. The reader of this code is likely to wonder why the other 31 bytes are skipped. Please convert the second paragraph in your answer to a comment.",
+      "parentUuid": "93b3dd72_2f67bd27",
       "revId": "d0008357023c95bf6401d8aaac708261e7189154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
