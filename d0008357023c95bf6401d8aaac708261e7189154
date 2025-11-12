@@ -16,6 +16,159 @@
       "message": "All good ?",
       "revId": "d0008357023c95bf6401d8aaac708261e7189154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3071214d_ee63ca83",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "Optional: This is a C++ file, but it is written as C code. Should we just convert this to a C file? Or do you prefer the stronger type checking of a C++ compiler?",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef2e1ee_186f1818",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "Nit: Searching for `std::` in this file, I don\u0027t find anything. So we should be able to remove `\u003calgorithm\u003e` and `\u003cmemory\u003e`.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3bf00b2_082ab11e",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "Nit: Mark these three functions as static.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c2063c_606f95a6",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "Return `size_t` instead of `int`.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84f0e631_c3cf267c",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "Nit: Declare `bytespp` as `size_t`. This ensures the expression `bytespp * w` (two occurrences) is of the `size_t` type.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cba1eab_b136ea49",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "Nit: Change this to:\n\n```\n      if (nb \u003e size - used) {\n```\n\nThis depends on the fact that the code maintains the invariant `used \u003c\u003d size`. Please double check.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f005a6b_6ffc691d",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "IMPORTANT: I believe this if-else statement is incorrect when the remaining data could fill the row partially. I think the if-else statement should be changed to:\n\n\n```\n      memcpy(buf, data, nb);\n      memset(buf + nb, 0, bytespp * w - nb);\n\n```",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d49ffe2_0888015f",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "At this point, we have only consumed one byte (`data[0]`). Why do we skip `FUZZ_HDR_SZ` (32) bytes? The reason is not obvious. Please add a comment.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10975ed3_e51a3822",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-12T19:39:15Z",
+      "side": 1,
+      "message": "Declare `size_read` as `size_t`.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
