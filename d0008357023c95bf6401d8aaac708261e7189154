@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c37cb8c1_d74146a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Thanks for the review\n\nI am more familiar with simpler C code indeed",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3071214d_ee63ca83",
@@ -31,6 +48,24 @@
       "writtenOn": "2025-11-12T19:39:15Z",
       "side": 1,
       "message": "Optional: This is a C++ file, but it is written as C code. Should we just convert this to a C file? Or do you prefer the stronger type checking of a C++ compiler?",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44bd1edc_e633829f",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Not sure...",
+      "parentUuid": "3071214d_ee63ca83",
       "revId": "d0008357023c95bf6401d8aaac708261e7189154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c895a3a_fdea6cc8",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fef2e1ee_186f1818",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3bf00b2_082ab11e",
@@ -65,6 +118,24 @@
       "writtenOn": "2025-11-12T19:39:15Z",
       "side": 1,
       "message": "Nit: Mark these three functions as static.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5b6c86_087db40c",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a3bf00b2_082ab11e",
       "revId": "d0008357023c95bf6401d8aaac708261e7189154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +157,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c5444dd_c0d785c1",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "35c2063c_606f95a6",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84f0e631_c3cf267c",
@@ -103,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3626265_328b3e71",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "84f0e631_c3cf267c",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cba1eab_b136ea49",
@@ -116,6 +223,24 @@
       "writtenOn": "2025-11-12T19:39:15Z",
       "side": 1,
       "message": "Nit: Change this to:\n\n```\n      if (nb \u003e size - used) {\n```\n\nThis depends on the fact that the code maintains the invariant `used \u003c\u003d size`. Please double check.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb7bb2a_c3406d53",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2cba1eab_b136ea49",
       "revId": "d0008357023c95bf6401d8aaac708261e7189154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +264,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c98c74a_d5bdc948",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Better indeed, thanks",
+      "parentUuid": "0f005a6b_6ffc691d",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d49ffe2_0888015f",
         "filename": "examples/vpx_enc_fuzzer.cc",
         "patchSetId": 11
@@ -156,6 +299,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93b3dd72_2f67bd27",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Maybe 32 is overkill\n\nBut we may want to add more config options (for more complex encoders as seen in the examples) in the future, while still maintaining the same format (so that generated corpus is still valid)\n\nWhat do you think ?",
+      "parentUuid": "4d49ffe2_0888015f",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10975ed3_e51a3822",
         "filename": "examples/vpx_enc_fuzzer.cc",
         "patchSetId": 11
@@ -167,6 +328,24 @@
       "writtenOn": "2025-11-12T19:39:15Z",
       "side": 1,
       "message": "Declare `size_read` as `size_t`.",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3b59a18_e9d06def",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-12T19:47:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "10975ed3_e51a3822",
       "revId": "d0008357023c95bf6401d8aaac708261e7189154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
