@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a81cf5cb_614210d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-13T08:26:23Z",
+      "side": 1,
+      "message": "Going on...",
+      "revId": "7d61cccdb576d4c94680a30b1a4c5c17fd9d1f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8995925_45b251dd",
@@ -14,6 +31,24 @@
       "writtenOn": "2025-11-12T22:39:32Z",
       "side": 1,
       "message": "`plane` should stay as `int`.",
+      "revId": "7d61cccdb576d4c94680a30b1a4c5c17fd9d1f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "252396d9_258c5e77",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-13T08:26:23Z",
+      "side": 1,
+      "message": "Why ? \n\nIs is used as `for (plane \u003d 0; plane \u003c 3; ++plane) {`",
+      "parentUuid": "d8995925_45b251dd",
       "revId": "7d61cccdb576d4c94680a30b1a4c5c17fd9d1f56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

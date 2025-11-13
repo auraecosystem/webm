@@ -316,6 +316,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c8b82d_3296a470",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-13T08:26:23Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e7b702af_50ed9a22",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d49ffe2_0888015f",
@@ -365,6 +383,24 @@
       "side": 1,
       "message": "I wasn\u0027t complaining that 32 is too big a value for `FUZZ_HDR_SZ`. I was complaining that it is not obvious why we advance the `data` pointer by 32 bytes after consuming one byte. The reader of this code is likely to wonder why the other 31 bytes are skipped. Please convert the second paragraph in your answer to a comment.",
       "parentUuid": "93b3dd72_2f67bd27",
+      "revId": "d0008357023c95bf6401d8aaac708261e7189154",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4af13bbe_b0a4fcb9",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-13T08:26:23Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "32f8b497_6dbf39b4",
       "revId": "d0008357023c95bf6401d8aaac708261e7189154",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
