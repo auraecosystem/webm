@@ -51,6 +51,24 @@
       "parentUuid": "d8995925_45b251dd",
       "revId": "7d61cccdb576d4c94680a30b1a4c5c17fd9d1f56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78e434af_d06fe38b",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-14T06:52:08Z",
+      "side": 1,
+      "message": "I will first explain why I suggested changing `bytespp` to `size_t`.\n\nConsider the statement:\n\n```\n      size_t nb \u003d bytespp * w;\n```\n\nOur goal is to make sure the multiplication on the right-hand side is performed using the `size_t` type. Since `w` is declared as `int`, if `bytespp` is also declared as `int`, we need to cast at least one of the operands to `size_t`:\n\n```\n      size_t nb \u003d (size_t)bytespp * w;\n```\n\nAlternatively, we can just declare `bytespp` as `size_t`.\n\nNote: It is actually safe to perform the multiplication in `bytespp * w`, so we can change `bytespp` back to `int` if you prefer. However, any multiplication of width or stride by height must be performed in `size_t` in order to avoid integer overflow for large width and height.\n\nComing back to your question: there is no such need for `plane`, so we can just declare it as `int`. (`int` is also the type we typically use for `plane` in libvpx and libaom.)",
+      "parentUuid": "252396d9_258c5e77",
+      "revId": "7d61cccdb576d4c94680a30b1a4c5c17fd9d1f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
