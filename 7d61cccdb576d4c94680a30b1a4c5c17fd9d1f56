@@ -69,6 +69,24 @@
       "parentUuid": "252396d9_258c5e77",
       "revId": "7d61cccdb576d4c94680a30b1a4c5c17fd9d1f56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1685d65b_3ebed79f",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-14T06:55:07Z",
+      "side": 1,
+      "message": "There is a typo in the Note in the previous comment. Here is the corrected version:\n\nNote: It is actually safe to perform the multiplication `bytespp * w` in `int`, so we can change `bytespp` back to `int` if you prefer. However, any multiplication of width or stride by height must be performed in `size_t` in order to avoid integer overflow for large width and height.",
+      "parentUuid": "78e434af_d06fe38b",
+      "revId": "7d61cccdb576d4c94680a30b1a4c5c17fd9d1f56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
