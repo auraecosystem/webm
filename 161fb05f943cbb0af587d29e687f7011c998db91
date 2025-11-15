@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aee2fb5d_ab8e4752",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-15T07:46:11Z",
+      "side": 1,
+      "message": "For high bit depths, we need to clamp the sample values so that they are in range; that is our API contract. For example, if the bit depth is 10, the sample values must be \u003c\u003d 1023.\n\nWe can add `assert(img-\u003ebit_depth \u003d\u003d 8)` and a TODO comment for now.",
+      "revId": "161fb05f943cbb0af587d29e687f7011c998db91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
