@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e73b0b_262b484b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-16T16:49:52Z",
+      "side": 1,
+      "message": "I put back plane as int",
+      "revId": "161fb05f943cbb0af587d29e687f7011c998db91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aee2fb5d_ab8e4752",
@@ -14,6 +31,24 @@
       "writtenOn": "2025-11-15T07:46:11Z",
       "side": 1,
       "message": "For high bit depths, we need to clamp the sample values so that they are in range; that is our API contract. For example, if the bit depth is 10, the sample values must be \u003c\u003d 1023.\n\nWe can add `assert(img-\u003ebit_depth \u003d\u003d 8)` and a TODO comment for now.",
+      "revId": "161fb05f943cbb0af587d29e687f7011c998db91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b58d61_0a508c5d",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-16T16:49:52Z",
+      "side": 1,
+      "message": "Ok, is this asset ensured by `vpx_img_alloc(\u0026raw, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h, 1)` ?",
+      "parentUuid": "aee2fb5d_ab8e4752",
       "revId": "161fb05f943cbb0af587d29e687f7011c998db91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
