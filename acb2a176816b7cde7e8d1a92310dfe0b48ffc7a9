@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04cdb3cf_7c422441",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-18T19:46:08Z",
+      "side": 1,
+      "message": "Nit: Change \"size_t plane\" to \"int plane\" (this line and line 90).",
+      "revId": "acb2a176816b7cde7e8d1a92310dfe0b48ffc7a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5877880_c7f131e0",
         "filename": "examples/vpx_enc_fuzzer.cc",
         "patchSetId": 16
