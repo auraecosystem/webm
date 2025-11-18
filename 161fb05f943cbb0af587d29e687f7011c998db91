@@ -51,6 +51,24 @@
       "parentUuid": "aee2fb5d_ab8e4752",
       "revId": "161fb05f943cbb0af587d29e687f7011c998db91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d02392_920fe9a2",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-11-18T19:44:42Z",
+      "side": 1,
+      "message": "No. `vpx_img_alloc()` allocates the memory buffers for the Y, U, V planes. The memory buffers are not initialized.\n\nHere we copy samples to the memory buffers. We are responsible for making sure the samples are in the range of the bit depth.",
+      "parentUuid": "70b58d61_0a508c5d",
+      "revId": "161fb05f943cbb0af587d29e687f7011c998db91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
