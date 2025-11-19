@@ -87,6 +87,24 @@
       "parentUuid": "fb4ead89_c233d260",
       "revId": "acb2a176816b7cde7e8d1a92310dfe0b48ffc7a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0258ae10_6389580e",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-19T19:49:52Z",
+      "side": 1,
+      "message": "Thanks",
+      "parentUuid": "92f4badb_47b1a08d",
+      "revId": "acb2a176816b7cde7e8d1a92310dfe0b48ffc7a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
