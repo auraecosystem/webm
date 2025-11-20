@@ -87,6 +87,24 @@
       "parentUuid": "88d02392_920fe9a2",
       "revId": "161fb05f943cbb0af587d29e687f7011c998db91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "052e34b1_f91592ed",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-20T18:40:01Z",
+      "side": 1,
+      "message": "\u003e I meant to ask : where is bit_depth set ? (to 8 or other)\n\nIt\u0027s set in [vpx_image.c](https://chromium.googlesource.com/webm/libvpx/+/refs/tags/v1.15.2/vpx/src/vpx_image.c#139) when allocating the image.",
+      "parentUuid": "ffec0eab_8743a908",
+      "revId": "161fb05f943cbb0af587d29e687f7011c998db91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
