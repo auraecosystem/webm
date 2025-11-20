@@ -70,6 +70,24 @@
       "parentUuid": "94321270_e0cd66b2",
       "revId": "1ec7b38c15d524ff1875f512e895e2d20865de8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3999c6eb_3469753c",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-20T19:37:20Z",
+      "side": 1,
+      "message": "\u003e It tests that pkt-\u003edata.frame.buf is a buffer of at least pkt-\u003edata.frame.sz bytes\n\u003e \n\u003e like _ \u003d pkt-\u003edata.frame.buf[0]; _ \u003d pkt-\u003edata.frame.buf[pkt-\u003edata.frame.sz-1];\n\nOh, yes that is part of it too. I guess that\u0027s fine to check this way. Another option would be to deference the last element like you suggested.",
+      "parentUuid": "69676a40_88d36e58",
+      "revId": "1ec7b38c15d524ff1875f512e895e2d20865de8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
