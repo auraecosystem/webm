@@ -52,6 +52,24 @@
       "parentUuid": "99961203_75eff071",
       "revId": "1ec7b38c15d524ff1875f512e895e2d20865de8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69676a40_88d36e58",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-20T19:30:52Z",
+      "side": 1,
+      "message": "It tests that pkt-\u003edata.frame.buf is a buffer of at least pkt-\u003edata.frame.sz bytes\n\nlike _ \u003d pkt-\u003edata.frame.buf[0]; _ \u003d pkt-\u003edata.frame.buf[pkt-\u003edata.frame.sz-1];",
+      "parentUuid": "94321270_e0cd66b2",
+      "revId": "1ec7b38c15d524ff1875f512e895e2d20865de8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
