@@ -16,6 +16,24 @@
       "message": "Was this left for debugging to allow the encoded bitstream to be inspected? It\u0027s not being packetized, so I don\u0027t know how much value there is to this.",
       "revId": "1ec7b38c15d524ff1875f512e895e2d20865de8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99961203_75eff071",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-11-20T19:00:05Z",
+      "side": 1,
+      "message": "It is used in encode_frame, basically making sure that pkt-\u003edata.frame.buf and pkt-\u003edata.frame.sz are consistent",
+      "parentUuid": "b64b0233_48c06f69",
+      "revId": "1ec7b38c15d524ff1875f512e895e2d20865de8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
