@@ -34,6 +34,24 @@
       "parentUuid": "b64b0233_48c06f69",
       "revId": "1ec7b38c15d524ff1875f512e895e2d20865de8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94321270_e0cd66b2",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-20T19:22:50Z",
+      "side": 1,
+      "message": "\u003e It is used in encode_frame, basically making sure that pkt-\u003edata.frame.buf and pkt-\u003edata.frame.sz are consistent\n\nIt seems like it\u0027s testing file IO and not anything to do with the encode, unless I\u0027m missing something:\n\n```\n      if (fwrite(pkt-\u003edata.frame.buf, 1, pkt-\u003edata.frame.sz, out) !\u003d\n          pkt-\u003edata.frame.sz)\n```\n\nIs it just that you want to make sure `pkt-\u003edata.frame.sz` has a non-zero value?",
+      "parentUuid": "99961203_75eff071",
+      "revId": "1ec7b38c15d524ff1875f512e895e2d20865de8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
