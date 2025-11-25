@@ -16,6 +16,23 @@
       "message": "I guess we need this line for https://github.com/google/oss-fuzz/pull/14332",
       "revId": "e2199efd533019e7a8b78fc502a2aa69da0755fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db87876_58d94ceb",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-25T21:03:34Z",
+      "side": 1,
+      "message": "Move this to the top of this group to keep the sort order.",
+      "revId": "e2199efd533019e7a8b78fc502a2aa69da0755fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
