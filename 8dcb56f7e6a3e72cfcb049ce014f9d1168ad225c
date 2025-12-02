@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "575ce1d3_78aa9a42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-12-02T17:21:09Z",
+      "side": 1,
+      "message": "Philippe: My apologies. I wrote the comment below on Nov 25 but somehow forgot to publish it and approve the CL.",
+      "revId": "8dcb56f7e6a3e72cfcb049ce014f9d1168ad225c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b537933_56914ebb",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-12-02T17:21:09Z",
+      "side": 1,
+      "message": "We use `assert()` here. That\u0027s why we need to include \u003cassert.h\u003e.",
+      "revId": "8dcb56f7e6a3e72cfcb049ce014f9d1168ad225c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
