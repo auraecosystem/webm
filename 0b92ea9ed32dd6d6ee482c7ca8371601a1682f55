@@ -16,6 +16,24 @@
       "message": "Nalloc may have broken oss-fuzz build with MSAN...",
       "revId": "0b92ea9ed32dd6d6ee482c7ca8371601a1682f55",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b4d7fd_92d32be2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-08T19:24:55Z",
+      "side": 1,
+      "message": "\u003e Nalloc may have broken oss-fuzz build with MSAN...\n\nThanks for looking into it.",
+      "parentUuid": "237c6aad_4eff2b2c",
+      "revId": "0b92ea9ed32dd6d6ee482c7ca8371601a1682f55",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
