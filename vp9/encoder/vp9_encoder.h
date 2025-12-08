@@ -1190,12 +1190,11 @@ static INLINE int get_level_index(VP9_LEVEL level) {
 
 // Return the log2 value of max column tiles corresponding to the level that
 // the picture size fits into.
-static INLINE int log_tile_cols_from_picsize_level(uint32_t width,
-                                                   uint32_t height) {
+static INLINE int log_tile_cols_from_picsize_level(uint32_t width, uint32_t height) {
   int i;
   const uint32_t pic_size = width * height;
   const uint32_t pic_breadth = VPXMAX(width, height);
-  for (i = LEVEL_1; i < LEVEL_MAX; ++i) {
+  for (i = 0; i < VP9_LEVELS; ++i) {
     if (vp9_level_defs[i].max_luma_picture_size >= pic_size &&
         vp9_level_defs[i].max_luma_picture_breadth >= pic_breadth) {
       return get_msb(vp9_level_defs[i].max_col_tiles);
