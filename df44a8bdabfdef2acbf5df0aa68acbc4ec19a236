@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37fe47bd_09b84bad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-12-09T08:46:24Z",
+      "side": 1,
+      "message": "Argh, now MSAN failed to build because \n\n/src/libvpx/examples/vpx_enc_fuzzer.cc:125:7: error: use of undeclared identifier \u0027memcpy\u0027\n  125 |       memcpy(buf, data, nb);\n      |       ^~~~~~",
+      "revId": "df44a8bdabfdef2acbf5df0aa68acbc4ec19a236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
