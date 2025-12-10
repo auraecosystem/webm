@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3efad3f5_d1fb55fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2025-12-10T20:53:01Z",
+      "side": 1,
+      "message": "Just been doing some additional experiments and it seems that reducing the number of 16-bit accumulators is beneficial, so we can further improve this - I\u0027ll follow up tomorrow Alex.",
+      "revId": "e4f8e40b5ef54a32ae7bc8b737481edb14706712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
