@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90036cd6_81195b4c",
+        "filename": "vpx_dsp/arm/highbd_sad_neon.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-10T23:53:15Z",
+      "side": 1,
+      "message": "This function doesn\u0027t look like it\u0027s used. Can it be removed?",
+      "revId": "f29ea993dd190a9017bf4fe4a5c88838d0a22c5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
