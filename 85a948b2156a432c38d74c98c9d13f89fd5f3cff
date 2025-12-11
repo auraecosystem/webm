@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a184b1_7f84f089",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2025-12-11T16:45:23Z",
+      "side": 1,
+      "message": "Removing my opposition after additional testing confirmed that this current implementation is the way to go.",
+      "revId": "85a948b2156a432c38d74c98c9d13f89fd5f3cff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d453ba8_465ef90e",
