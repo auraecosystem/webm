@@ -22,6 +22,30 @@
       },
       "revId": "85a948b2156a432c38d74c98c9d13f89fd5f3cff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "071754f8_0c78d1e2",
+        "filename": "vpx_dsp/arm/highbd_sad_neon.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2025-12-11T00:43:04Z",
+      "side": 1,
+      "message": "This is called when HBD_SAD_WXH_NEON is instantiated with width 16 (e.g. lines 192-194.)",
+      "parentUuid": "7d453ba8_465ef90e",
+      "range": {
+        "startLine": 62,
+        "startChar": 23,
+        "endLine": 62,
+        "endChar": 42
+      },
+      "revId": "85a948b2156a432c38d74c98c9d13f89fd5f3cff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
