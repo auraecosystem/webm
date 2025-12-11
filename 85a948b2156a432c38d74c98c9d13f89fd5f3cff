@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a1d496d_c597c395",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2025-12-11T16:14:17Z",
+      "side": 1,
+      "message": "Alex, I think we can delete some code and keep the same performance - let\u0027s chat about it.",
+      "revId": "85a948b2156a432c38d74c98c9d13f89fd5f3cff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d453ba8_465ef90e",
         "filename": "vpx_dsp/arm/highbd_sad_neon.c",
         "patchSetId": 2
