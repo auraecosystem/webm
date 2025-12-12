@@ -16,6 +16,24 @@
       "message": "This loop should initialize all 4 indices to 1 on line 217, no?",
       "revId": "164ea69bf190a7837f507b7a44275dfd39b7ee8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47317ea4_9535661d",
+        "filename": "vp8/common/mfqe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-12-12T23:55:58Z",
+      "side": 1,
+      "message": "yes but m[j] (for j \u003e i) will be checked in line 218?, so i set them to 0 to keep same behavior. don\u0027t know why vp8_zero() causes uninitialized values?",
+      "parentUuid": "5fc3238f_4556cf96",
+      "revId": "164ea69bf190a7837f507b7a44275dfd39b7ee8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
