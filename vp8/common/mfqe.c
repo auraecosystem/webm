@@ -212,7 +212,7 @@ static int qualify_inter_mb(const MODE_INFO *mode_info_context, int *map) {
       { 0, 1, 4, 5 }, { 2, 3, 6, 7 }, { 8, 9, 12, 13 }, { 10, 11, 14, 15 }
     };
     int i, j;
-    vp8_zero(*map);
+    map[0] = map[1] = map[2] = map[3] = 1;
     for (i = 0; i < 4; ++i) {
       map[i] = 1;
       for (j = 0; j < 4 && map[j]; ++j) {
