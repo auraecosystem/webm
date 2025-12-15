@@ -22,6 +22,30 @@
       },
       "revId": "39b9181a7fac7a8b06218128fe15bee3c1f1c207",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be33561a_88c04f00",
+        "filename": "vp9/common/vp9_postproc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2025-12-15T22:02:55Z",
+      "side": 1,
+      "message": "Yes I saw that too, I believe the intention may have been flat grey signal, but no sure. Can follow uo in comment in another change.",
+      "parentUuid": "7655b6bf_a4d8f7ba",
+      "range": {
+        "startLine": 342,
+        "startChar": 9,
+        "endLine": 342,
+        "endChar": 46
+      },
+      "revId": "39b9181a7fac7a8b06218128fe15bee3c1f1c207",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
