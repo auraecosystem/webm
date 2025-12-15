@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7655b6bf_a4d8f7ba",
+        "filename": "vp9/common/vp9_postproc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-15T20:16:41Z",
+      "side": 1,
+      "message": "Unrelated, no need to make a change here. I\u0027m not familiar with how this buffer is used, but the comment is confusing as the `memset` call uses `128` and not `0`.",
+      "range": {
+        "startLine": 342,
+        "startChar": 9,
+        "endLine": 342,
+        "endChar": 46
+      },
+      "revId": "39b9181a7fac7a8b06218128fe15bee3c1f1c207",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
