@@ -119,8 +119,8 @@ void vp9_highbd_mbpost_proc_across_ip_c(uint16_t *src, int pitch, int rows,
   uint16_t d[16];
 
   for (r = 0; r < rows; r++) {
-    int sumsq = 0;
-    int sum = 0;
+    uint64_t sumsq = 0;
+    int64_t sum = 0;
 
     for (i = -8; i <= 6; i++) {
       sumsq += s[i] * s[i];
@@ -136,8 +136,7 @@ void vp9_highbd_mbpost_proc_across_ip_c(uint16_t *src, int pitch, int rows,
       sumsq += x * y;
 
       d[c & 15] = s[c];
-
-      if (sumsq * 15 - sum * sum < flimit) {
+      if (VPXMIN(INT_MAX, (sumsq * 15 - sum * sum)) < flimit) {
         d[c & 15] = (8 + sum + s[c]) >> 4;
       }
 
@@ -157,8 +156,8 @@ void vp9_highbd_mbpost_proc_down_c(uint16_t *dst, int pitch, int rows, int cols,
 
   for (c = 0; c < cols; c++) {
     uint16_t *s = &dst[c];
-    int sumsq = 0;
-    int sum = 0;
+    uint64_t sumsq = 0;
+    int64_t sum = 0;
     uint16_t d[16];
     const int16_t *rv2 = rv3 + ((c * 17) & 127);
 
@@ -172,7 +171,7 @@ void vp9_highbd_mbpost_proc_down_c(uint16_t *dst, int pitch, int rows, int cols,
       sum += s[7 * pitch] - s[-8 * pitch];
       d[r & 15] = s[0];
 
-      if (sumsq * 15 - sum * sum < flimit) {
+      if (VPXMIN(INT_MAX, (sumsq * 15 - sum * sum)) < flimit) {
         d[r & 15] = (rv2[r & 127] + sum + s[0]) >> 4;
       }
 
