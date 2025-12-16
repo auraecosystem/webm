@@ -1,5 +1,40 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f003f19f_71f5cf9a",
+        "filename": "vp8/common/mfqe.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-12-16T18:00:21Z",
+      "side": 1,
+      "message": "Nit: the `ndx` array should be declared as const.",
+      "revId": "70a4f20f9931d7128dfa5ebe0bef5c3021a435c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f31646_de7dc6d3",
+        "filename": "vp8/common/mfqe.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-12-16T18:00:21Z",
+      "side": 1,
+      "message": "I don\u0027t understand this code, so I am just speculating.\n\nSince we initialize `map[0]`, `map[1]`, `map[2]`, `map[3]` to 0, the `j \u003c 4 \u0026\u0026 map[j]` check here is equivalent to `j \u003c\u003d i`. So the entries in the two-dimensional array `ndx` above the diagonal line are never used.",
+      "revId": "70a4f20f9931d7128dfa5ebe0bef5c3021a435c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
