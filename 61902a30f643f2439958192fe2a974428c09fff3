@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82065d88_8c5fe177",
+        "filename": "test/vp9_end_to_end_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-17T18:36:00Z",
+      "side": 1,
+      "message": "There\u0027s also `test/frame_size_tests.cc` with a `OneByOne` test. I was thinking that might be a better fit and whether `RandomVideoSource` would be enough to reproduce the issue.",
+      "revId": "61902a30f643f2439958192fe2a974428c09fff3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
