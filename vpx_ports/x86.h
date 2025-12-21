@@ -250,11 +250,11 @@ static INLINE int x86_simd_caps(void) {
 static INLINE unsigned int x86_readtsc(void) {
 #if defined(__GNUC__)
   unsigned int tsc;
-  __asm__ __volatile__("rdtsc\n\t" : "=a"(tsc) :);
+  __asm__ __volatile__("rdtsc\n\t" : "=a"(tsc) : : "edx");
   return tsc;
 #elif defined(__SUNPRO_C) || defined(__SUNPRO_CC)
   unsigned int tsc;
-  asm volatile("rdtsc\n\t" : "=a"(tsc) :);
+  asm volatile("rdtsc\n\t" : "=a"(tsc) : : "edx");
   return tsc;
 #else
 #if VPX_ARCH_X86_64
