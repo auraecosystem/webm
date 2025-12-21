@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40549a0e_5d5542f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2025-12-21T11:32:05Z",
+      "side": 1,
+      "message": "Hey I think the machine running https://build.webmproject.org/jenkins/job/libvpx__per-commit_sanitizer_run/7127/GTEST_SHARD_INDEX\u003d3,arch\u003dx86,bitdepth\u003dhigh,sanitizer\u003dinteger/ doesn\u0027t support all necessary AVX512 features (AVX-512F AVX-512DQ AVX-512CD AVX-512BW AVX-512VL) because it complained about illegal instructions.",
+      "revId": "725334011bcc8af711d006ab041aaa9d1758089c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
