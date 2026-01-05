@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13c0fa6b_8fc052f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T23:09:02Z",
+      "side": 1,
+      "message": "Can you be more specific? I\u0027m not sure what version introduced the function.",
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7345ad3a_8f8003f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T23:09:02Z",
+      "side": 1,
+      "message": "Thanks for the patch. This looks OK except for one issue when targeting Android, see the comments.\n\nNote libaom has similar code, we\u0027ll need to add this check to its CMake.",
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd565d7a_8db80e7e",
+        "filename": "build/make/configure.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1630,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T23:09:02Z",
+      "side": 1,
+      "message": "Add `soft_enable pthread_setname_np`, without it the behavior will change with `__BIONIC__` defined.",
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afb6247b_b3adddde",
+        "filename": "build/make/configure.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1639,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T23:09:02Z",
+      "side": 1,
+      "message": "You could optionally add `enabled pthread_h \u0026\u0026` to short circuit this.",
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08246ee1_7b3c9731",
+        "filename": "build/make/configure.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T23:09:02Z",
+      "side": 1,
+      "message": "You can change `0` to `NULL` or remove `#include \u003cstddef.h\u003e` as it\u0027s unused.",
+      "range": {
+        "startLine": 1646,
+        "startChar": 47,
+        "endLine": 1646,
+        "endChar": 48
+      },
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
