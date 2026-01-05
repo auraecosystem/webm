@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "67c404d9_be28d67e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-05T23:57:27Z",
+      "side": 1,
+      "message": "Darryl: Thanks for the patch.\n\nJames: According to https://gitlab.haskell.org/ghc/ghc/-/issues/9684, the `pthread_setname_np()` function was introduced in MacOS X 10.6 (Snow Leopard). If that information is accurate, we don\u0027t need to accept this patch.",
+      "parentUuid": "13c0fa6b_8fc052f6",
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7345ad3a_8f8003f2",
