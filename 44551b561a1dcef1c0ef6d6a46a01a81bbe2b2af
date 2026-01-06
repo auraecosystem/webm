@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af9a2355_69a1cee7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-06T18:01:29Z",
+      "side": 1,
+      "message": "See the comment in libs.mk, `r` is the `SO_VERSION_PATCH`",
+      "parentUuid": "3bd59431_47fcc2b7",
+      "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8f84cfe_3d73938c",
         "filename": "libs.mk",
         "patchSetId": 1
