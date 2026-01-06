@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8f84cfe_3d73938c",
+        "filename": "libs.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-06T16:55:55Z",
+      "side": 1,
+      "message": "Bumping `SO_VERSION_MAJOR` means there is an incompatible change in the public interface. Let me check the changes to the public headers on the xenonetta branch...",
+      "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
