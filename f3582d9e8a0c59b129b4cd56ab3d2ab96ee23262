@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d06db1_08b3f865",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-06T19:09:19Z",
+      "side": 1,
+      "message": "Optional: Mention that the ABI versions are bumped for the incompatible changes maded in the following two CLs:\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/5902473\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/5997450",
+      "revId": "f3582d9e8a0c59b129b4cd56ab3d2ab96ee23262",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afd39c30_15517313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-06T19:09:19Z",
+      "side": 1,
+      "message": "LGTM.",
+      "revId": "f3582d9e8a0c59b129b4cd56ab3d2ab96ee23262",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
