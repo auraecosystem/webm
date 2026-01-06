@@ -16,6 +16,24 @@
       "message": "Bumping `SO_VERSION_MAJOR` means there is an incompatible change in the public interface. Let me check the changes to the public headers on the xenonetta branch...",
       "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee7391f4_406a3c05",
+        "filename": "libs.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-06T17:23:59Z",
+      "side": 1,
+      "message": "The only thing that was concerning was this:\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/6876498/8/vpx/vpx_encoder.h#206\n\nWe talked about this last week offline.\n\nHowever the libtool document broadly says:\n\n\u003e If any interfaces have been added, removed, or changed since the last update,\n\u003e increment current, and set revision to 0",
+      "parentUuid": "f8f84cfe_3d73938c",
+      "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
