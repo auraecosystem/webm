@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64c38c35_8b1028c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-06T20:41:48Z",
+      "side": 1,
+      "message": "See https://chromium-review.googlesource.com/c/webm/libvpx/+/7291553 for the motivation.",
+      "revId": "059deea9420c8fd92f591f5d64f76ddb0b084c61",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
