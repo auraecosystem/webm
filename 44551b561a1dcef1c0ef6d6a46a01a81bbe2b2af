@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37e3911c_54476299",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-06T17:42:03Z",
+      "side": 1,
+      "message": "Change this to v1.15.2?\n\nAccording to https://chromium.googlesource.com/webm/libvpx/, v1.15.2 is the latest libvpx release tag.",
+      "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bd59431_47fcc2b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-06T17:42:03Z",
+      "side": 1,
+      "message": "It seems that `r` should be equal to 2 in order to match the v1.15.2 version number.",
+      "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8f84cfe_3d73938c",
         "filename": "libs.mk",
         "patchSetId": 1
@@ -31,6 +65,24 @@
       "writtenOn": "2026-01-06T17:23:59Z",
       "side": 1,
       "message": "The only thing that was concerning was this:\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/6876498/8/vpx/vpx_encoder.h#206\n\nWe talked about this last week offline.\n\nHowever the libtool document broadly says:\n\n\u003e If any interfaces have been added, removed, or changed since the last update,\n\u003e increment current, and set revision to 0",
+      "parentUuid": "f8f84cfe_3d73938c",
+      "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f65d89fb_e91ef2fd",
+        "filename": "libs.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-06T17:42:03Z",
+      "side": 1,
+      "message": "Jerome:\n\nIn the libtool documentation, a \"change\" means an incompatible change. Also, a \"change\" does not include \"add\" and \"remove\".\n\nIMPORTANT: Please repeat what I did to check my results because I found more changes to the public interface.\n\nI checked out the origin/xenonetta branch. Then I diff\u0027ed the public headers against the last release tag as follows:\n\n```\ngit diff v1.15.2 vpx/*.h\n```\n\nIn the output of the `git diff` command, I see the following changes to the public structs:\n\n```\ndiff --git a/vpx/vpx_ext_ratectrl.h b/vpx/vpx_ext_ratectrl.h\nindex 4820d3676..194809361 100644\n--- a/vpx/vpx_ext_ratectrl.h\n+++ b/vpx/vpx_ext_ratectrl.h\n@@ -132,14 +132,29 @@ typedef void *vpx_rc_model_t;\n  */\n #define VPX_DEFAULT_RDMULT -1\n \n+/*!\\brief Superblock quantization parameters\n+ * Store the superblock quantization parameters\n+ */\n+typedef struct sb_parameters {\n+  int q_index; /**\u003c Quantizer step index [0..255]*/\n+  int rdmult;  /**\u003c Superblock level Lagrangian multiplier*/\n+} sb_params;\n+\n /*!\\brief Encode frame decision made by the external rate control model\n  *\n  * The encoder will receive the decision from the external rate control model\n  * through vpx_rc_funcs_t::get_encodeframe_decision().\n  */\n typedef struct vpx_rc_encodeframe_decision {\n-  int q_index; /**\u003c Quantizer step index [0..255]*/\n-  int rdmult;  /**\u003c Frame level Lagrangian multiplier*/\n+  int q_index;    /**\u003c Required: Quantizer step index [0..255]*/\n+  int rdmult;     /**\u003c Required: Frame level Lagrangian multiplier*/\n+  int delta_q_uv; /**\u003c Required: Delta QP for UV */\n+  /*!\n+   * Optional: Superblock quantization parameters\n+   * It is zero initialized by default. It will be set for key and ARF frames\n+   * but not leaf frames.\n+   */\n+  sb_params *sb_params_list;\n } vpx_rc_encodeframe_decision_t;\n \n /*!\\brief Information for the frame to be encoded.\ndiff --git a/vpx/vpx_tpl.h b/vpx/vpx_tpl.h\nindex e14eefcdc..064c56641 100644\n--- a/vpx/vpx_tpl.h\n+++ b/vpx/vpx_tpl.h\n@@ -38,10 +38,11 @@ typedef struct VpxTplBlockStats {\n   int16_t col;            /**\u003c Pixel col of the top left corner */\n   int64_t intra_cost;     /**\u003c Intra cost */\n   int64_t inter_cost;     /**\u003c Inter cost */\n-  int16_t mv_r;           /**\u003c Motion vector row */\n-  int16_t mv_c;           /**\u003c Motion vector col */\n+  int16_t mv_r;           /**\u003c Motion vector row in pixel */\n+  int16_t mv_c;           /**\u003c Motion vector col in pixel */\n   int64_t srcrf_rate;     /**\u003c Rate from source ref frame */\n   int64_t srcrf_dist;     /**\u003c Distortion from source ref frame */\n+  int64_t pred_error;     /**\u003c Prediction error */\n   int64_t inter_pred_err; /**\u003c Inter prediction error */\n   int64_t intra_pred_err; /**\u003c Intra prediction error */\n   int ref_frame_index;    /**\u003c Ref frame index in the ref frame buffer */\n```\n\nThe change to vpx/vpx_tpl.h is an incompatible change because it added a new field (`pred_error`) in the middle of `struct VpxTplBlockStats`.\n\nThe change to vpx/vpx_ext_ratectrl.h added new fields (`delta_q_uv` and `sb_params_list`) at the end of `struct vpx_rc_encodeframe_decision`. Without further analysis, we need to assume this is an incompatible change.\n\nBoth vpx/vpx_tpl.h and vpx/vpx_ext_ratectrl.h have an ABI version macro. Because of the incompatible changes, their ABI version macros need to be bumped.\n\nNote: The relevant CLs are:\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/5902473\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/5997450\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/6165077\n\nI am confused about the last CL because there were no changes to vpx/vpx_ext_ratectrl.h in v1.15.1 and v1.15.2. Perhaps it fixed a bug in v1.15.0?",
       "parentUuid": "f8f84cfe_3d73938c",
       "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
