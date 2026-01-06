@@ -52,6 +52,24 @@
       "parentUuid": "1a987ecb_e9147d67",
       "revId": "725334011bcc8af711d006ab041aaa9d1758089c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67161719_dcb4e0fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-06T20:28:24Z",
+      "side": 1,
+      "message": "\u003e So what\u0027s your suggestion here? Similar test cases in the same file (test/vp9_intrapred_test.cc) are named like SSE2_TO_C_8 or NEON_TO_C_10\n\nOne option would be to merge them into one test, but libaom went in another direction:\n\nhttps://aomedia-review.googlesource.com/c/aom/+/28602\n\nI\u0027ll port this and its followups for consistency. Then this change can be rebased.",
+      "parentUuid": "a3120cf2_bbcbfb19",
+      "revId": "725334011bcc8af711d006ab041aaa9d1758089c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
