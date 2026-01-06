@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7260d25f_b1952c18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3512654
+      },
+      "writtenOn": "2026-01-06T03:10:05Z",
+      "side": 1,
+      "message": "It was introduced in 10.6 (Snow Leopard), but this is also one of the only things preventing libvpx from building on 10.5 and older versions. The build/make/configure.sh script still includes checks and flags for supporting darwin 8 (OS X 10.4) and 9 (OS X 10.5).",
+      "parentUuid": "67c404d9_be28d67e",
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7345ad3a_8f8003f2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -49,6 +67,24 @@
       "writtenOn": "2026-01-05T23:09:02Z",
       "side": 1,
       "message": "Thanks for the patch. This looks OK except for one issue when targeting Android, see the comments.\n\nNote libaom has similar code, we\u0027ll need to add this check to its CMake.",
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71a09827_127b4e4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3512654
+      },
+      "writtenOn": "2026-01-06T03:10:05Z",
+      "side": 1,
+      "message": "Patch for libaom: https://aomedia-review.googlesource.com/c/aom/+/205563",
+      "parentUuid": "7345ad3a_8f8003f2",
       "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -66,6 +102,24 @@
       "writtenOn": "2026-01-05T23:09:02Z",
       "side": 1,
       "message": "Add `soft_enable pthread_setname_np`, without it the behavior will change with `__BIONIC__` defined.",
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46c43dc5_23afcbf4",
+        "filename": "build/make/configure.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1630,
+      "author": {
+        "id": 3512654
+      },
+      "writtenOn": "2026-01-06T03:10:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd565d7a_8db80e7e",
       "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -100,6 +154,30 @@
       "writtenOn": "2026-01-05T23:09:02Z",
       "side": 1,
       "message": "You can change `0` to `NULL` or remove `#include \u003cstddef.h\u003e` as it\u0027s unused.",
+      "range": {
+        "startLine": 1646,
+        "startChar": 47,
+        "endLine": 1646,
+        "endChar": 48
+      },
+      "revId": "708641b7bfbc43fb594712dbfde996d40ac64891",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "741a9df0_70a7a8c0",
+        "filename": "build/make/configure.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 3512654
+      },
+      "writtenOn": "2026-01-06T03:10:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08246ee1_7b3c9731",
       "range": {
         "startLine": 1646,
         "startChar": 47,
