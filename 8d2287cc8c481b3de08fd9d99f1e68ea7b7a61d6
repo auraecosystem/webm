@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42601856_1bf716ea",
+        "filename": "vpx_ports/x86.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-01-06T02:43:11Z",
+      "side": 1,
+      "message": "ffmpeg writes to both eax and edx so explicit clobber list isn\u0027t needed. See https://github.com/FFmpeg/FFmpeg/blob/master/libavutil/x86/timer.h#L39",
+      "parentUuid": "af326313_9d3f7e44",
+      "range": {
+        "startLine": 243,
+        "startChar": 47,
+        "endLine": 244,
+        "endChar": 77
+      },
+      "revId": "8d2287cc8c481b3de08fd9d99f1e68ea7b7a61d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27828f8c_003b13d2",
@@ -41,6 +65,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "033d6988_a38e46e1",
+        "filename": "vpx_ports/x86.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-01-06T02:43:11Z",
+      "side": 1,
+      "message": "You don\u0027t need to clobber registers that appear in the output. See https://gcc.gnu.org/onlinedocs/gcc-14.1.0/gcc/Extended-Asm.html#Parameters-1",
+      "parentUuid": "27828f8c_003b13d2",
+      "revId": "8d2287cc8c481b3de08fd9d99f1e68ea7b7a61d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f37e1a3_5645c551",
@@ -54,6 +96,24 @@
       "writtenOn": "2026-01-05T23:22:38Z",
       "side": 1,
       "message": "Same clobbers here and in the next block?",
+      "revId": "8d2287cc8c481b3de08fd9d99f1e68ea7b7a61d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa659b38_1e10fb62",
+        "filename": "vpx_ports/x86.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-01-06T02:43:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1f37e1a3_5645c551",
       "revId": "8d2287cc8c481b3de08fd9d99f1e68ea7b7a61d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
