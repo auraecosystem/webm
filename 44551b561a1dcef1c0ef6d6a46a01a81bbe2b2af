@@ -86,6 +86,24 @@
       "parentUuid": "f8f84cfe_3d73938c",
       "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cedd22e_0935e272",
+        "filename": "libs.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-06T17:59:27Z",
+      "side": 1,
+      "message": "Thanks for checking. You\u0027re right, the changes in `vpx_ext_ratectrl.h` are definitely incompatible. It looks like I forgot to bump their ABI version.\n\n\u003e I am confused about the last CL because there were no changes to vpx/vpx_ext_ratectrl.h in v1.15.1 and v1.15.2. Perhaps it fixed a bug in v1.15.0?\n\nI think that bumped the ABI version AND fixed some incompatibility for v1.15.0 (but v1.15.0 is still incompatible).\n\nI\u0027ll have a CL to bump ABI version for the external rate control on main branch and cherry pick it to the release branch.",
+      "parentUuid": "f65d89fb_e91ef2fd",
+      "revId": "44551b561a1dcef1c0ef6d6a46a01a81bbe2b2af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
