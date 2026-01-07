@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d75bb9b1_5c338c1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-07T18:51:54Z",
+      "side": 1,
+      "message": "This passes the tests and test vectors for me on an AVX512 capable machine. Just one cosmetic comment and this should be good to land.",
+      "revId": "9cbed143afe55742f21cc92da4349ae3cddf4612",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb253382_92f3222d",
+        "filename": "vpx_dsp/x86/highbd_intrapred_intrin_avx2.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-07T18:51:54Z",
+      "side": 1,
+      "message": "make this:\n\n```\ndo {\n  ...\n} while (0)\n```\n\nThen `;` can be used on the invocation and it avoids any risk if the macro is reused in a if statement later.",
+      "revId": "9cbed143afe55742f21cc92da4349ae3cddf4612",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
