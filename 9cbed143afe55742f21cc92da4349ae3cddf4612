@@ -33,6 +33,24 @@
       "message": "make this:\n\n```\ndo {\n  ...\n} while (0)\n```\n\nThen `;` can be used on the invocation and it avoids any risk if the macro is reused in a if statement later.",
       "revId": "9cbed143afe55742f21cc92da4349ae3cddf4612",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e5d108_ac84d926",
+        "filename": "vpx_dsp/x86/highbd_intrapred_intrin_avx2.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-01-08T07:36:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fb253382_92f3222d",
+      "revId": "9cbed143afe55742f21cc92da4349ae3cddf4612",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
