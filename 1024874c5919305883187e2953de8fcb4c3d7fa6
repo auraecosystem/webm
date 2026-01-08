@@ -45,6 +45,30 @@
       },
       "revId": "1024874c5919305883187e2953de8fcb4c3d7fa6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d97a0c9_463455e9",
+        "filename": "CHANGELOG",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-08T20:50:45Z",
+      "side": 1,
+      "message": "Please ignore this comment. I meant to delete it.",
+      "parentUuid": "1e339786_2d31dc32",
+      "range": {
+        "startLine": 24,
+        "startChar": 38,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "1024874c5919305883187e2953de8fcb4c3d7fa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
