@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e64046d_f5082d45",
+        "filename": "CHANGELOG",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-08T20:50:14Z",
+      "side": 1,
+      "message": "I am surprised that macOS version jumped from 15 to 26!",
+      "range": {
+        "startLine": 24,
+        "startChar": 38,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "1024874c5919305883187e2953de8fcb4c3d7fa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e339786_2d31dc32",
+        "filename": "CHANGELOG",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-08T20:50:14Z",
+      "side": 1,
+      "message": "Is this macOS 15 or 25?",
+      "range": {
+        "startLine": 24,
+        "startChar": 38,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "1024874c5919305883187e2953de8fcb4c3d7fa6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
