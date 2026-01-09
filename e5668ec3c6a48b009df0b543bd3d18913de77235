@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe6d5b89_58c475b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-09T00:16:29Z",
+      "side": 1,
+      "message": "`VPX_DL_REALTIME` (capitalize the \u0027l\u0027 in DL)",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "e5668ec3c6a48b009df0b543bd3d18913de77235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a21d3fe_1ec67652",
+        "filename": "test/vp9_end_to_end_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-09T00:16:29Z",
+      "side": 1,
+      "message": "This can be inverted (`#if CONFIG_REALTIME_ONLY`) since there\u0027s an else branch. Positive checks are preferred for readability.",
+      "revId": "e5668ec3c6a48b009df0b543bd3d18913de77235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
