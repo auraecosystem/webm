@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a16ffc76_09b719d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-15T16:46:04Z",
+      "side": 1,
+      "message": "1. There\u0027s another allocation in vp9_postproc.c line 365. Please check if that needs to be changed too.\n2. I feel like `cpi-\u003ecommon.postproc_state.limits_size` should be updated at the time of allocation but now it\u0027s updated at the beginning of `vp9_post_proc_frame()`.",
+      "revId": "8c4f15bded172ad84ca822ed7c04f753d2f65185",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
