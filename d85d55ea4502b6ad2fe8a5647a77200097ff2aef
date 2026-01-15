@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4b606d5_43102225",
+        "filename": "vpx_dsp/vpx_dsp.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-15T21:43:12Z",
+      "side": 1,
+      "message": "During development I had a `maybe_filter_out_asm` helper to avoid these branches, but there are also some `.c` files associated with the assembly, so it was imperfect. This is the only `.mk` file that ended up with a bunch of new checks due to the nesting of the sources.",
+      "revId": "d85d55ea4502b6ad2fe8a5647a77200097ff2aef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

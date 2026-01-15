@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1318ec73_ab0aaf67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-15T21:43:12Z",
+      "side": 1,
+      "message": "I verified that the default configuration (with `--enable-vp9-highbitdepth`) is unchanged with this commit by comparing the `nm` output between this commit and its parent.",
+      "revId": "01bd9484d2d1ab006700563ee1e7127b0e9a17f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
