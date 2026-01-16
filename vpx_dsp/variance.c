@@ -250,7 +250,7 @@ static void highbd_variance64(const uint8_t *src8_ptr, int src_stride,
     for (j = 0; j < w; ++j) {
       const int diff = src_ptr[j] - ref_ptr[j];
       *sum += diff;
-      *sse += diff * diff;
+      *sse += (uint32_t)diff * diff;
     }
     src_ptr += src_stride;
     ref_ptr += ref_stride;
