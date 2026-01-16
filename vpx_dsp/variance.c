@@ -11,6 +11,7 @@
 #include "./vpx_config.h"
 #include "./vpx_dsp_rtcd.h"
 
+#include "vpx_ports/compiler_attributes.h"
 #include "vpx_ports/mem.h"
 #include "vpx/vpx_integer.h"
 
@@ -236,6 +237,15 @@ void vpx_comp_avg_pred_c(uint8_t *comp_pred, const uint8_t *pred, int width,
 }
 
 #if CONFIG_VP9_HIGHBITDEPTH
+// Note this function uses unsigned integer math in calculating the sum squared
+// error to avoid reports of signed integer overflow should a (fuzzing) test
+// use input values that are outside of the valid range for 12-bit content. The
+// additional annotation is necessary as an overflow will still be reported
+// with the integer/unsigned-integer-overflow (not undefined) sanitizer.
+static VPX_NO_UNSIGNED_OVERFLOW_CHECK uint32_t square_value(uint32_t value) {
+  return value * value;
+}
+
 static void highbd_variance64(const uint8_t *src8_ptr, int src_stride,
                               const uint8_t *ref8_ptr, int ref_stride, int w,
                               int h, uint64_t *sse, int64_t *sum) {
@@ -250,7 +260,7 @@ static void highbd_variance64(const uint8_t *src8_ptr, int src_stride,
     for (j = 0; j < w; ++j) {
       const int diff = src_ptr[j] - ref_ptr[j];
       *sum += diff;
-      *sse += diff * diff;
+      *sse += square_value((uint32_t)diff);
     }
     src_ptr += src_stride;
     ref_ptr += ref_stride;
