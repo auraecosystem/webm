@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "841da5c3_64f5427c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-01-17T04:30:38Z",
+      "side": 1,
+      "message": "We can probably squeeze a bit more performance if dst, above and left can be guaranteed to be aligned at 32 byte (AVX2) or 64 byte (AVX512) boundary, but I don\u0027t have enough context to make such a change.",
+      "revId": "1cbc6a51d9a193882849d6037b333f121d33d8ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
