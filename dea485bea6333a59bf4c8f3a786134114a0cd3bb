@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b4925c7_22a5386d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-17T03:55:14Z",
+      "side": 1,
+      "message": "No bug report for this one? Is it just a part of the aggregate `-fsanitize\u003darray-bounds` deployment bug?",
+      "revId": "dea485bea6333a59bf4c8f3a786134114a0cd3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f43e1a93_09e2ed48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-17T03:55:14Z",
+      "side": 1,
+      "message": "This was changed in https://chromium-review.googlesource.com/c/webm/libvpx/+/3903002, but there was no update in the token cache handling. This could probably use a closer look to make sure there isn\u0027t a subtle bug.",
+      "revId": "dea485bea6333a59bf4c8f3a786134114a0cd3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
