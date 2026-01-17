@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "decd4061_ed407e9d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1261063
+      },
+      "writtenOn": "2026-01-17T17:18:56Z",
+      "side": 1,
+      "message": "No bug. The index into the token cache is hot, so I was looking into proving it correct manually, and turns out it isn\u0027t.",
+      "parentUuid": "8b4925c7_22a5386d",
+      "revId": "dea485bea6333a59bf4c8f3a786134114a0cd3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f43e1a93_09e2ed48",
