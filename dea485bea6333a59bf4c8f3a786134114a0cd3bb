@@ -69,6 +69,24 @@
       "parentUuid": "f43e1a93_09e2ed48",
       "revId": "dea485bea6333a59bf4c8f3a786134114a0cd3bb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4262943b_0ac54f2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-20T19:42:58Z",
+      "side": 1,
+      "message": "\u003e clarify where the closer look should be taken? on the change you linked whether it broke other assumptions? or whether it is wrong to behind with?\n\u003e \n\u003e the change here i think is benign in that the extra element shouldn\u0027t hurt.\n\nThat\u0027s true. I was thinking we should have a closer look at the code in general, but that shouldn\u0027t block this change from landing.",
+      "parentUuid": "4fedf72f_d4cab9ee",
+      "revId": "dea485bea6333a59bf4c8f3a786134114a0cd3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
