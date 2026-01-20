@@ -51,6 +51,24 @@
       "message": "This was changed in https://chromium-review.googlesource.com/c/webm/libvpx/+/3903002, but there was no update in the token cache handling. This could probably use a closer look to make sure there isn\u0027t a subtle bug.",
       "revId": "dea485bea6333a59bf4c8f3a786134114a0cd3bb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fedf72f_d4cab9ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1261063
+      },
+      "writtenOn": "2026-01-20T19:08:24Z",
+      "side": 1,
+      "message": "clarify where the closer look should be taken? on the change you linked whether it broke other assumptions? or whether it is wrong to behind with?\n\nthe change here i think is benign in that the extra element shouldn\u0027t hurt.",
+      "parentUuid": "f43e1a93_09e2ed48",
+      "revId": "dea485bea6333a59bf4c8f3a786134114a0cd3bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
