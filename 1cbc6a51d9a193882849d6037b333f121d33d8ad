@@ -52,6 +52,24 @@
       "parentUuid": "e3149118_92d69702",
       "revId": "1cbc6a51d9a193882849d6037b333f121d33d8ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "900904d2_bb21df77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-21T23:54:23Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e We can probably squeeze a bit more performance if dst, above and left can be guaranteed to be aligned at 32 byte (AVX2) or 64 byte (AVX512) boundary, but I don\u0027t have enough context to make such a change.\n\u003e \u003e \n\u003e \u003e No, that won\u0027t be possible given the partitioning and use of other intra predictor sizes.\n\u003e \n\u003e Not for all sizes. I suspect that currently we allocate a full frame on a 16-byte boundary currently, which allows us to use aligned SSE access on 8x8 and larger sizes. If we can start the full frame from a 64 byte boundary, we can use aligned AVX access on 16x16 and larger, and aligned AVX512 access on 32x32.\n\nThat could be something to try in a follow up, but I\u0027m skeptical given a superblock might be a mix of 4x4, 8x8 followed by a 32x32 for instance.",
+      "parentUuid": "cb10631d_8ae558d1",
+      "revId": "1cbc6a51d9a193882849d6037b333f121d33d8ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
