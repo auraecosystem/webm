@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7125aafc_d1d2538a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-21T20:35:16Z",
+      "side": 1,
+      "message": "In the CHANGELOG, this date is 2026-01-06. Should we use the same date in the commit message?",
+      "revId": "8786a5adc3ad412f55e99cb1a4c6da7518ae26e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
