@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa54eb9_000670a3",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-22T23:25:22Z",
+      "side": 1,
+      "message": "I just read your previous comment more carefully. You wrote:\n\u003e I guess the new check will handle a case where pending_cx_data is advanced past the end of the buffer.\n\nIt is a bug if pending_cx_data is advanced past the end of the buffer. It is true that the new check will handle this case, but that wasn\u0027t my motivation. I mainly want to handle the case where pending_cx_data \u003e cx_data but is still within the bounds of cx_data.\n\nI also want to avoid forming a potentially invalid pointer `ctx-\u003epending_cx_data + ctx-\u003epending_cx_data_sz + index_sz`.",
+      "parentUuid": "d648e117_aea254fc",
+      "revId": "fff763d636211a51aae57661f51fa228bda64242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a0b6d606_6ded2343",
