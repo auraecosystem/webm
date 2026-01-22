@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d648e117_aea254fc",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-22T23:17:14Z",
+      "side": 1,
+      "message": "Yes, the original check requires `pending_cx_data \u003d\u003d cx_data` when it is not a null pointer. I did not try to prove or disprove that. I only proved what the new comment states.\n\nI will add the local variable you suggested.",
+      "parentUuid": "83e3b3eb_4e4ac575",
+      "revId": "fff763d636211a51aae57661f51fa228bda64242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a0b6d606_6ded2343",
