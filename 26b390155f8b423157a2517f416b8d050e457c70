@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad0f26c_06f2a956",
+        "filename": "vpx_dsp/variance.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-22T02:46:32Z",
+      "side": 1,
+      "message": "Ideally we should turn off unsigned integer overflow checks only on the multiplication, at least only on this statement.\n\nI verified that the addition here cannot possibly overflow when both `w` and `h` are equal to 65536 (VP9\u0027s maximum).",
+      "revId": "26b390155f8b423157a2517f416b8d050e457c70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
