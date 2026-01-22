@@ -1253,7 +1253,8 @@ static int write_superframe_index(vpx_codec_alg_priv_t *ctx) {
 
   // Write the index
   index_sz = 2 + (mag + 1) * ctx->pending_frame_count;
-  if (ctx->pending_cx_data_sz + index_sz < ctx->cx_data_sz) {
+  if (ctx->pending_cx_data + ctx->pending_cx_data_sz + index_sz <=
+      ctx->cx_data + ctx->cx_data_sz) {
     uint8_t *x = ctx->pending_cx_data + ctx->pending_cx_data_sz;
     int i, j;
 #ifdef TEST_SUPPLEMENTAL_SUPERFRAME_DATA
@@ -1285,6 +1286,8 @@ static int write_superframe_index(vpx_codec_alg_priv_t *ctx) {
 #ifdef TEST_SUPPLEMENTAL_SUPERFRAME_DATA
     index_sz += index_sz_test;
 #endif
+  } else {
+    index_sz = 0;
   }
   return index_sz;
 }
