@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2370c538_114f2cd0",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-22T02:26:51Z",
+      "side": 1,
+      "message": "The buffer full check is fixed as follows:\n1. By adding the buffer pointers `ctx-\u003epending_cx_data` and `ctx-\u003ecx_data` to the left- and right-hand sides respectively, we no longer assume `ctx-\u003epending_cx_data` is equal to `ctx-\u003ecx_data`.\n2. The change of `\u003c` to `\u003c\u003d` fixes the off-by-one error.",
+      "revId": "e0fb467a0b33e9bd8a8fb89efef893be7c7c0b4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff6a271e_2aa5ccb8",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-22T02:26:51Z",
+      "side": 1,
+      "message": "This is the fix for the oss-fuzz bug.",
+      "revId": "e0fb467a0b33e9bd8a8fb89efef893be7c7c0b4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
