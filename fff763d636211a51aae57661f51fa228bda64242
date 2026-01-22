@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e3b3eb_4e4ac575",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-22T23:09:04Z",
+      "side": 1,
+      "message": "\u003e I further tweaked this check so that the right-hand side is the difference between two valid pointers. The right-hand side is the difference between the end of the `ctx-\u003ecx_data` buffer and the end of the `ctx_pending_cx_data` buffer. That value is the size of the unused space in the `ctx-\u003ecx_data` buffer.\n\nHow about capturing this in a variable like `data_remaining` / `space_remaining` to make it a little more readable?\n\nWith your new comment that `pending_cx_data` points into `cx_data`, is the original check all that bad? I guess the new check will handle a case where `pending_cx_data` is advanced past the end of the buffer.",
+      "parentUuid": "af2f787a_a1613de4",
+      "revId": "fff763d636211a51aae57661f51fa228bda64242",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a0b6d606_6ded2343",
