@@ -16,6 +16,24 @@
       "message": "I don\u0027t see this on Intel hardware. I\u0027ll see if I can get numbers from an AMD machine. You\u0027re on a Zen 4 machine? What compiler?\n\n### Xeon (cloud instance, probably skylake):\n\n#### `clang 19.1.7`\n\n**SSSE3**\nMode Intra16[   D207_PRED]:    70 ms\nMode Intra16[    D63_PRED]:    70 ms\n\n**AVX2**\nMode Intra16[   D207_PRED]:    61 ms\nMode Intra16[    D63_PRED]:    70 ms\n\n#### `gcc 14.2.0`\n\n**SSSE3**\n\nMode Intra16[   D207_PRED]:    71 ms\nMode Intra16[    D63_PRED]:    78 ms\n\n**AVX2**\n\nMode Intra16[   D207_PRED]:    71 ms\nMode Intra16[    D63_PRED]:    74 ms\n\n### Intel Core i7-1185G7\n\n#### `clang 19.1.17`\n\n**SSSE3**\n\nMode Intra16[   D207_PRED]:    34 ms\nMode Intra16[    D63_PRED]:    44 ms\n\n**AVX2**\n\nMode Intra16[   D207_PRED]:    33 ms\nMode Intra16[    D63_PRED]:    44 ms\n\n#### `gcc 14.2.0`\n\n**SSSE3**\n\nMode Intra16[   D207_PRED]:    34 ms\nMode Intra16[    D63_PRED]:    48 ms\n\n**AVX2**\n\nMode Intra16[   D207_PRED]:    36 ms\nMode Intra16[    D63_PRED]:    47 ms\n\n(pretty similar numbers in powersave and performance modes, above are performance).",
       "revId": "dccbcd628319d39e418f77b9b84b077010e05dab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d43eb23d_e0e6317c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-23T23:57:18Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t see this on Intel hardware. I\u0027ll see if I can get numbers from an AMD machine. You\u0027re on a Zen 4 machine? What compiler?\n\u003e \n\u003e ### Xeon (cloud instance, probably skylake):\n\u003e \n\u003e #### `clang 19.1.7`\n\u003e \n\u003e **SSSE3**\n\u003e Mode Intra16[   D207_PRED]:    70 ms\n\u003e Mode Intra16[    D63_PRED]:    70 ms\n\u003e \n\u003e **AVX2**\n\u003e Mode Intra16[   D207_PRED]:    61 ms\n\u003e Mode Intra16[    D63_PRED]:    70 ms\n\u003e \n\u003e #### `gcc 14.2.0`\n\u003e \n\u003e **SSSE3**\n\u003e \n\u003e Mode Intra16[   D207_PRED]:    71 ms\n\u003e Mode Intra16[    D63_PRED]:    78 ms\n\u003e \n\u003e **AVX2**\n\u003e \n\u003e Mode Intra16[   D207_PRED]:    71 ms\n\u003e Mode Intra16[    D63_PRED]:    74 ms\n\u003e \n\u003e ### Intel Core i7-1185G7\n\u003e \n\u003e #### `clang 19.1.17`\n\u003e \n\u003e **SSSE3**\n\u003e \n\u003e Mode Intra16[   D207_PRED]:    34 ms\n\u003e Mode Intra16[    D63_PRED]:    44 ms\n\u003e \n\u003e **AVX2**\n\u003e \n\u003e Mode Intra16[   D207_PRED]:    33 ms\n\u003e Mode Intra16[    D63_PRED]:    44 ms\n\u003e \n\u003e #### `gcc 14.2.0`\n\u003e \n\u003e **SSSE3**\n\u003e \n\u003e Mode Intra16[   D207_PRED]:    34 ms\n\u003e Mode Intra16[    D63_PRED]:    48 ms\n\u003e \n\u003e **AVX2**\n\u003e \n\u003e Mode Intra16[   D207_PRED]:    36 ms\n\u003e Mode Intra16[    D63_PRED]:    47 ms\n\u003e \n\u003e (pretty similar numbers in powersave and performance modes, above are performance).\n\nOn an AMD Ryzen Threadripper PRO 7945WX things look a little more positive.\nThough at times the runs are neutral.\n\n#### `clang 19.1.7`\n\n**SSSE3**\n\nMode Intra16[   D207_PRED]:    36 ms\nMode Intra16[    D63_PRED]:    36 ms\n\n**AVX2**\n\nMode Intra16[   D207_PRED]:    19 ms\nMode Intra16[    D63_PRED]:    24 ms\n\n#### `gcc 14.2.0`\n\n**SSSE3**\n\nMode Intra16[   D207_PRED]:    36 ms\nMode Intra16[    D63_PRED]:    36 ms\n\n**AVX2**\n\nMode Intra16[   D207_PRED]:    23 ms\nMode Intra16[    D63_PRED]:    27 ms\n\nPlease include what type of processor you profiled with in the commit message.",
+      "parentUuid": "74b75fda_3e5e2a05",
+      "revId": "dccbcd628319d39e418f77b9b84b077010e05dab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
