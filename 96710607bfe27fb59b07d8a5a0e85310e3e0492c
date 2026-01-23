@@ -16,6 +16,24 @@
       "message": "It would be better if this function could take `int32_t value` as input and cast it to `uint32_t`.\n\nThen we can document that this function assumes `abs(value) \u003c\u003d UINT16_MAX`.\n\nWithout this assumption, this function would return an incorrect result for some inputs.",
       "revId": "96710607bfe27fb59b07d8a5a0e85310e3e0492c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60221097_ad52167f",
+        "filename": "vpx_dsp/variance.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-23T00:15:54Z",
+      "side": 1,
+      "message": "\u003e It would be better if this function could take `int32_t value` as input and cast it to `uint32_t`.\n\u003e \n\u003e Then we can document that this function assumes `abs(value) \u003c\u003d UINT16_MAX`.\n\u003e \n\u003e Without this assumption, this function would return an incorrect result for some inputs.\n\nGood point. I added this to the function comment and added an `assert` too.",
+      "parentUuid": "5411d9a2_f370d0cc",
+      "revId": "96710607bfe27fb59b07d8a5a0e85310e3e0492c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
