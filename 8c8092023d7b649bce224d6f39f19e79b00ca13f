@@ -33,6 +33,24 @@
       "message": "Will `int` always be sufficient at high rates or should `target_rate` be clamped instead? Elsewhere there are some clamps, though they deal with different terms. See `vp9_rc_clamp_pframe_target_size` and `vp9_rc_clamp_iframe_target_size`.",
       "revId": "8c8092023d7b649bce224d6f39f19e79b00ca13f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "546879e5_20d340cf",
+        "filename": "vp9/encoder/vp9_aq_complexity.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1001914
+      },
+      "writtenOn": "2026-01-23T18:33:41Z",
+      "side": 1,
+      "message": "I would think so, since xmis and ymis are always less than or equal to bw and bh.",
+      "parentUuid": "fbb4b900_e22ff723",
+      "revId": "8c8092023d7b649bce224d6f39f19e79b00ca13f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
