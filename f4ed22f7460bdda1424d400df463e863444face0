@@ -34,6 +34,24 @@
       "parentUuid": "7c3daba3_937e11ca",
       "revId": "f4ed22f7460bdda1424d400df463e863444face0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c13a6d10_1f2275d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-23T18:37:16Z",
+      "side": 1,
+      "message": "\u003e James: I looked into how `int` is cast to `uint64_t`.  Coverity\u0027s suggestion of casting `diff` to type `uint64_t` is correct. It will also trigger unsigned integer overflow (defined behavior) when we square it.\n\nFor negative values, yes. I think the type ranges we have are sufficient. We don\u0027t want to artificially go to 64-bits as that limits the amount of operations done in parallel with SIMD.",
+      "parentUuid": "108ac9fb_a531415a",
+      "revId": "f4ed22f7460bdda1424d400df463e863444face0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
