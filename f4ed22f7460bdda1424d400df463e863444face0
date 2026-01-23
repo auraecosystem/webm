@@ -16,6 +16,24 @@
       "message": "Last night\u0027s Coverity run reported that this fixed Coverity defect CID 1569091 Unintentional integer overflow. Coverity reported several defects of this kind in similar code (in both libvpx and libaom). In the past I have marked them False Positive and Ignore.\n\nIn the Coverity defects of this kind that I looked at, the cumulative variable and the smaller variable are of the same signedness (both signed or both unsigned). So Coverity\u0027s suggestion of casting the smaller variable to the type of the cumulative variable is correct (but unnecessary). In this case, Coverity\u0027s suggestion of casting `diff` to type `uint64_t` seems incorrect. James, do you agree?",
       "revId": "f4ed22f7460bdda1424d400df463e863444face0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "108ac9fb_a531415a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-01-23T17:44:24Z",
+      "side": 1,
+      "message": "James: I looked into how `int` is cast to `uint64_t`.  Coverity\u0027s suggestion of casting `diff` to type `uint64_t` is correct. It will also trigger unsigned integer overflow (defined behavior) when we square it.",
+      "parentUuid": "7c3daba3_937e11ca",
+      "revId": "f4ed22f7460bdda1424d400df463e863444face0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
