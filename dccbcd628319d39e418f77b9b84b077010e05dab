@@ -34,6 +34,24 @@
       "parentUuid": "74b75fda_3e5e2a05",
       "revId": "dccbcd628319d39e418f77b9b84b077010e05dab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15e01417_dca67466",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-01-24T02:57:00Z",
+      "side": 1,
+      "message": "I\u0027ve been using gcc 13.3 on a Ryzen 7 7840HS.\n\nI don\u0027t have access to any Intel CPUs right now but there could be several explanations:\n\n1. d63 and d207 make frequent use of palignr, an instruction that isn\u0027t expanded to full 256 bit width in AVX2 so I have to use two instructions (vperm2i128 and vpalignr). Intel may have a slower shuffle unit that negates any gain from the wider SIMD unit.\n\n2. As I said before, unaligned memory access can make these numbers inconsistent. Modern CPUs don\u0027t have penalties when you use unaligned instructions on aligned memory, but still cost more when the access is indeed unaligned. I\u0027m working on a diff to force a wide alignment for intrapred.",
+      "parentUuid": "d43eb23d_e0e6317c",
+      "revId": "dccbcd628319d39e418f77b9b84b077010e05dab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
