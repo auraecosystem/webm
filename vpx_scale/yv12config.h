@@ -91,7 +91,7 @@ int vpx_realloc_frame_buffer(YV12_BUFFER_CONFIG *ybf, int width, int height,
 #if CONFIG_VP9_HIGHBITDEPTH
                              int use_highbitdepth,
 #endif
-                             int border, int byte_alignment,
+                             int border_in_pixel, int byte_alignment,
                              vpx_codec_frame_buffer_t *fb,
                              vpx_get_frame_buffer_cb_fn_t cb, void *cb_priv);
 int vpx_free_frame_buffer(YV12_BUFFER_CONFIG *ybf);
