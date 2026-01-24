@@ -21,6 +21,16 @@
 #include "vp9/common/vp9_reconintra.h"
 #include "vp9/common/vp9_onyxc_int.h"
 
+#if VPX_ARCH_X86 || VPX_ARCH_X86_64
+// max block 32x32 pixels, 64 bytes alignment for AVX512
+#define MAX_ALIGNMENT_HBD 64
+// 32 bytes alignment for AVX2
+#define MAX_ALIGNMENT 32
+#else
+#define MAX_ALIGNMENT_HBD 16
+#define MAX_ALIGNMENT 16
+#endif
+
 const TX_TYPE intra_mode_to_tx_type_lookup[INTRA_MODES] = {
   DCT_DCT,    // DC
   ADST_DCT,   // V
@@ -117,9 +127,9 @@ static void build_intra_predictors_high(
   int i;
   uint16_t *dst = CONVERT_TO_SHORTPTR(dst8);
   uint16_t *ref = CONVERT_TO_SHORTPTR(ref8);
-  DECLARE_ALIGNED(16, uint16_t, left_col[32]);
-  DECLARE_ALIGNED(16, uint16_t, above_data[64 + 16]);
-  uint16_t *above_row = above_data + 16;
+  DECLARE_ALIGNED(MAX_ALIGNMENT_HBD, uint16_t, left_col[32]);
+  DECLARE_ALIGNED(MAX_ALIGNMENT_HBD, uint16_t, above_data[64 + 32]);
+  uint16_t *above_row = above_data + 32;
   const uint16_t *const_above_row = above_row;
   const int bs = 4 << tx_size;
   int frame_width, frame_height;
@@ -267,9 +277,9 @@ static void build_intra_predictors(const MACROBLOCKD *xd, const uint8_t *ref,
                                    int right_available, int x, int y,
                                    int plane) {
   int i;
-  DECLARE_ALIGNED(16, uint8_t, left_col[32]);
-  DECLARE_ALIGNED(16, uint8_t, above_data[64 + 16]);
-  uint8_t *above_row = above_data + 16;
+  DECLARE_ALIGNED(MAX_ALIGNMENT, uint8_t, left_col[32]);
+  DECLARE_ALIGNED(MAX_ALIGNMENT, uint8_t, above_data[64 + 32]);
+  uint8_t *above_row = above_data + 32;
   const uint8_t *const_above_row = above_row;
   const int bs = 4 << tx_size;
   int frame_width, frame_height;

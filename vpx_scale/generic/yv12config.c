@@ -209,7 +209,7 @@ int vpx_realloc_frame_buffer(YV12_BUFFER_CONFIG *ybf, int width, int height,
 #endif
 
     if (cb != NULL) {
-      const int align_addr_extra_size = 31;
+      const int align_addr_extra_size = 63;
       const uint64_t external_frame_size = frame_size + align_addr_extra_size;
 
       assert(fb != NULL);
@@ -221,7 +221,7 @@ int vpx_realloc_frame_buffer(YV12_BUFFER_CONFIG *ybf, int width, int height,
 
       if (fb->data == NULL || fb->size < external_frame_size) return -1;
 
-      ybf->buffer_alloc = (uint8_t *)yv12_align_addr(fb->data, 32);
+      ybf->buffer_alloc = (uint8_t *)yv12_align_addr(fb->data, 64);
 
 #if defined(__has_feature)
 #if __has_feature(memory_sanitizer)
@@ -237,7 +237,7 @@ int vpx_realloc_frame_buffer(YV12_BUFFER_CONFIG *ybf, int width, int height,
       ybf->buffer_alloc = NULL;
       ybf->buffer_alloc_sz = 0;
 
-      ybf->buffer_alloc = (uint8_t *)vpx_memalign(32, (size_t)frame_size);
+      ybf->buffer_alloc = (uint8_t *)vpx_memalign(64, (size_t)frame_size);
       if (!ybf->buffer_alloc) return -1;
 
       ybf->buffer_alloc_sz = (size_t)frame_size;
