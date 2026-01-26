@@ -69,6 +69,24 @@
       "parentUuid": "546879e5_20d340cf",
       "revId": "8c8092023d7b649bce224d6f39f19e79b00ca13f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "091c624b_2e22be64",
+        "filename": "vp9/encoder/vp9_aq_complexity.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1001914
+      },
+      "writtenOn": "2026-01-26T16:18:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80dff122_e0142c41",
+      "revId": "8c8092023d7b649bce224d6f39f19e79b00ca13f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
