@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3d032e5a_721fe527",
+        "filename": "configure",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-27T20:11:56Z",
+      "side": 1,
+      "message": "\u003e Could you explain how --disable-x86-asm affects `HAVE_X86_ASM`?\n\u003e \n\u003e Please answer here. (I was not asking you to add a comment to the source code.)\n\nIt will set `HAVE_X86_ASM` to `0`. The feature is enabled with `soft_enable` which won\u0027t set it if the flag is set on the command line.",
+      "parentUuid": "a97bd52e_9775770a",
+      "revId": "d85d55ea4502b6ad2fe8a5647a77200097ff2aef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c4b606d5_43102225",
         "filename": "vpx_dsp/vpx_dsp.mk",
         "patchSetId": 2
