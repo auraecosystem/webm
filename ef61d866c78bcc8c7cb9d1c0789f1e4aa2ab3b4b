@@ -16,6 +16,24 @@
       "message": "Is this sufficient? I think you want to also cover that `xmis * ymis` is \u003c `bw * bh` as well.",
       "revId": "ef61d866c78bcc8c7cb9d1c0789f1e4aa2ab3b4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dab16b11_ff65fb66",
+        "filename": "vp9/encoder/vp9_aq_complexity.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1001914
+      },
+      "writtenOn": "2026-01-27T03:27:10Z",
+      "side": 1,
+      "message": "bw and bh are constant and they are the max possible outcome from num_8x8_blocks_wide_lookup array.\n\nIf there is no out of bound mem access in the previous steps, this is sufficient to assume that xmis * ymis \u003c\u003d bw * bh",
+      "parentUuid": "d8ee3363_3361d372",
+      "revId": "ef61d866c78bcc8c7cb9d1c0789f1e4aa2ab3b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
