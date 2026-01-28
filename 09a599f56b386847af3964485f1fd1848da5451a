@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ff88e2_8f570628",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-28T19:09:53Z",
+      "side": 1,
+      "message": "The failure looks to be infrastructure related. I\u0027ll trigger this build again after restarting some instances.",
+      "revId": "09a599f56b386847af3964485f1fd1848da5451a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
