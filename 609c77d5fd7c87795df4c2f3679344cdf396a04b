@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87508f70_6c326c70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-29T03:23:02Z",
+      "side": 1,
+      "message": "Thanks for looking into this. I forgot that above and left were copied to already aligned arrays.",
+      "revId": "609c77d5fd7c87795df4c2f3679344cdf396a04b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
