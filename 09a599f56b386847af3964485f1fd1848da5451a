@@ -33,6 +33,24 @@
       "message": "The changes to the tests are fine, but since this is beneficial to x86 only, let\u0027s avoid increasing the stack size for other platforms like Arm. \n\nHow about a `MAX_ALIGNMENT` define?\n\n```\n#if VPX_ARCH_X86 || VPX_ARCH_X86_64\n#define MAX_ALIGNMENT_HBD 64\n#define MAX_ALIGNMENT 32\n#else\n#define MAX_ALIGNMENT_HBD 16\n#define MAX_ALIGNMENT 16\n#endif\n```",
       "revId": "09a599f56b386847af3964485f1fd1848da5451a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "423bf305_4ae46290",
+        "filename": "vp9/common/vp9_reconintra.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-01-29T03:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "644f352a_aea35c34",
+      "revId": "09a599f56b386847af3964485f1fd1848da5451a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
