@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5edfaa_4ab0b156",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-29T21:44:27Z",
+      "side": 1,
+      "message": "This can just be `vpx_codec_enc_init`.",
+      "revId": "2db59a1dc38bc88e6e425e7482917aa3a5762fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a55c21d1_956d9f43",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1691,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-29T21:44:27Z",
+      "side": 1,
+      "message": "This can be a `static constexpr`, also optionally a `std::array` with a range for loop.",
+      "revId": "2db59a1dc38bc88e6e425e7482917aa3a5762fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cf80f8d_5dcafc61",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-29T21:44:27Z",
+      "side": 1,
+      "message": "Is this cast needed? The previous entry doesn\u0027t use this.",
+      "range": {
+        "startLine": 1693,
+        "startChar": 3,
+        "endLine": 1693,
+        "endChar": 38
+      },
+      "revId": "2db59a1dc38bc88e6e425e7482917aa3a5762fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
