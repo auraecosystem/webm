@@ -33,6 +33,9 @@ typedef struct ScanOrder {
 extern const ScanOrder vp9_default_scan_orders[TX_SIZES];
 extern const ScanOrder vp9_scan_orders[TX_SIZES][TX_TYPES];
 
+// The return value of this is <= the maximum value of token_cache.
+// this returns ((N + 1) + N) >> 1 (aka (N+1) + N) / 2), which is at
+// most N.
 static INLINE int get_coef_context(const int16_t *neighbors,
                                    const uint8_t *token_cache, int c) {
   return (1 + token_cache[neighbors[MAX_NEIGHBORS * c + 0]] +
