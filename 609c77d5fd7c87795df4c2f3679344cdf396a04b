@@ -87,6 +87,24 @@
       "parentUuid": "67cad6aa_de74e30a",
       "revId": "609c77d5fd7c87795df4c2f3679344cdf396a04b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f3e04cc_3e5f3bd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-30T21:04:29Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e \u003e Let me double check this. I\u0027m seeing some test vector failures with this change.\n\u003e \u003e \u003e \n\u003e \u003e \u003e (private) test vectors. Let me run the unit tests on an AVX-512 capable machine to see if there are any failures.\n\u003e \u003e \n\u003e \u003e None of the unit tests seem to reproduce this, maybe we\u0027re missing some profile 2 coverage:\n\u003e \u003e \n\u003e \u003e ```\n\u003e \u003e /usr/lib/llvm-19/lib/clang/19/include/avx512fintrin.h:4600:3: runtime error: store to misaligned address 0x7fdf773570a0 for type \u0027__m512i\u0027 (vector of 8 \u0027long long\u0027 values), which requires 64 byte alignment\n\u003e \u003e 0x7fdf773570a0: note: pointer points here\n\u003e \u003e  00 00 00 00  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  00 00 00 00\n\u003e \u003e               ^ \n\u003e \u003e     #0 0x5627fadb6ac6 in d207_store_16x32_avx512 ../vpx_dsp/x86/highbd_intrapred_intrin_avx512.c:73:3\n\u003e \u003e     #1 0x5627fadb695e in vpx_highbd_d207_predictor_32x32_avx512 ../vpx_dsp/x86/highbd_intrapred_intrin_avx512.c:162:3\n\u003e \u003e     #2 0x5627fa9f482c in build_intra_predictors_high ../vp9/common/vp9_reconintra.c:267:5\n\u003e \u003e     #3 0x5627fa9f028a in vp9_predict_intra_block ../vp9/common/vp9_reconintra.c:429:5\n\u003e \u003e     #4 0x5627fa54c974 in predict_and_reconstruct_intra_block ../vp9/decoder/vp9_decodeframe.c:322:3\n\u003e \u003e     #5 0x5627fa54aeaa in decode_block ../vp9/decoder/vp9_decodeframe.c:964:11\n\u003e \u003e     #6 0x5627fa549485 in decode_partition ../vp9/decoder/vp9_decodeframe.c:1198:9\n\u003e \u003e     #7 0x5627fa518acd in decode_tiles ../vp9/decoder/vp9_decodeframe.c:2116:13\n\u003e \u003e     #8 0x5627fa508f99 in vp9_decode_frame ../vp9/decoder/vp9_decodeframe.c:3046:19\n\u003e \u003e     #9 0x5627fa55bdfa in vp9_receive_compressed_data ../vp9/decoder/vp9_decoder.c:472:3\n\u003e \u003e     #10 0x5627fa50511a in decode_one ../vp9/vp9_dx_iface.c:328:7\n\u003e \u003e     #11 0x5627fa4fef51 in decoder_decode ../vp9/vp9_dx_iface.c:391:13\n\u003e \u003e     #12 0x5627fa0561f9 in vpx_codec_decode ../vpx/src/vpx_decoder.c:117:11\n\u003e \u003e     #13 0x5627f9f237dd in main_loop ../vpxdec.c:854:13\n\u003e \u003e     #14 0x5627f9f21502 in main ../vpxdec.c:1144:49\n\u003e \u003e     #15 0x7fdf76e33ca7 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16\n\u003e \u003e ```\n\u003e \n\u003e \n\u003e Another way to reproduce this:\n\u003e \n\u003e ```\n\u003e $ ffmpeg -y -lavfi testsrc\u003drate\u003d30:size\u003d1920x1080:decimals\u003d3 -pix_fmt yuv420p12le -strict -1 -frames:v 200 /tmp/out.y4m\n\u003e $ source tools/set_analyzer_env.sh undefined\n\u003e # configure and build libvpx\n\u003e $ vpxenc /tmp/out.y4m --bit-depth\u003d12 --profile\u003d2 --ivf -o /tmp/out.ivf\n\u003e ```\n\u003e \n\u003e The failure will happen during encoding. If you encode the file with the main branch, the decode will also show the issue.\n\nNote the failure is still present when decoding with patchset 4.",
+      "parentUuid": "f203941b_60aed119",
+      "revId": "609c77d5fd7c87795df4c2f3679344cdf396a04b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
