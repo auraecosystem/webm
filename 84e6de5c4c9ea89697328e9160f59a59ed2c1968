@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ab37966_a4044f86",
+        "filename": "vpx_scale/generic/yv12config.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-30T20:48:37Z",
+      "side": 1,
+      "message": "This will add a fair amount of overhead when decoding 8-bit content in this configuration. Instead, should the border size be increased at the call site?",
+      "revId": "84e6de5c4c9ea89697328e9160f59a59ed2c1968",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
