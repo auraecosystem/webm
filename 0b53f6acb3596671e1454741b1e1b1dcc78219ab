@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe3553e_6d29413c",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-30T15:04:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea023b57_3ef8a7f3",
+      "revId": "0b53f6acb3596671e1454741b1e1b1dcc78219ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebf015a3_8c4893b7",
@@ -31,6 +49,30 @@
       "writtenOn": "2026-01-30T03:28:01Z",
       "side": 1,
       "message": "Technically this should be `(cfg.g_w + 1) / 2` and the same for `cfg.g_h` given the subsampling. Especially because both dimensions are odd here.",
+      "range": {
+        "startLine": 1685,
+        "startChar": 64,
+        "endLine": 1685,
+        "endChar": 75
+      },
+      "revId": "0b53f6acb3596671e1454741b1e1b1dcc78219ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "730a8b52_e6af55c9",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-30T15:04:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebf015a3_8c4893b7",
       "range": {
         "startLine": 1685,
         "startChar": 64,
