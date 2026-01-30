@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95634df8_e8a26965",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1688,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-30T20:44:09Z",
+      "side": 1,
+      "message": "A more general way to write this would be to add the rounding factor before the division. This code won\u0027t work for even numbers. You want: `(cfg.g_h + 1) / 2`",
+      "range": {
+        "startLine": 1688,
+        "startChar": 12,
+        "endLine": 1688,
+        "endChar": 27
+      },
+      "revId": "53b5de7d75742b0b5dff237c7ea3d96577050e4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
