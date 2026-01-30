@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d839c80b_d74086e7",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-30T00:55:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b5edfaa_4ab0b156",
+      "revId": "2db59a1dc38bc88e6e425e7482917aa3a5762fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a55c21d1_956d9f43",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfd754e8_90680d71",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1691,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-30T00:55:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a55c21d1_956d9f43",
+      "revId": "2db59a1dc38bc88e6e425e7482917aa3a5762fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cf80f8d_5dcafc61",
@@ -48,6 +84,30 @@
       "writtenOn": "2026-01-29T21:44:27Z",
       "side": 1,
       "message": "Is this cast needed? The previous entry doesn\u0027t use this.",
+      "range": {
+        "startLine": 1693,
+        "startChar": 3,
+        "endLine": 1693,
+        "endChar": 38
+      },
+      "revId": "2db59a1dc38bc88e6e425e7482917aa3a5762fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "444f2d9c_520a47c2",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1693,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-01-30T00:55:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cf80f8d_5dcafc61",
       "range": {
         "startLine": 1693,
         "startChar": 3,
