@@ -22,6 +22,30 @@
       },
       "revId": "53b5de7d75742b0b5dff237c7ea3d96577050e4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3496bdab_c5dd068a",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1688,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-02-03T21:01:21Z",
+      "side": 1,
+      "message": "addressed in https://chromium-review.googlesource.com/c/webm/libvpx/+/7540388",
+      "parentUuid": "95634df8_e8a26965",
+      "range": {
+        "startLine": 1688,
+        "startChar": 12,
+        "endLine": 1688,
+        "endChar": 27
+      },
+      "revId": "53b5de7d75742b0b5dff237c7ea3d96577050e4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
