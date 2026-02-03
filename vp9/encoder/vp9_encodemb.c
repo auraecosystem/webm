@@ -162,12 +162,16 @@ int vp9_optimize_b(MACROBLOCK *mb, int plane, int block, TX_SIZE tx_size,
   // For each token, pick one of two choices greedily:
   // (i) First candidate: Keep current quantized value, OR
   // (ii) Second candidate: Reduce quantized value by 1.
+  if (ctx < 0 || ctx > MAX_ENERGY_CLASS) {
+    abort();
+  }
   for (i = 0; i < eob; i++) {
     const int rc = scan[i];
     ASSUME_VALID_SCAN_VALUE(rc);
     const int x = qcoeff[rc];
     const int band_cur = band_translate[i];
     const int ctx_cur = (i == 0) ? ctx : get_coef_context(nb, token_cache, i);
+    ASSUME_VALID_ENERGY_CLASS(ctx_cur);
     const int token_tree_sel_cur = (x_prev == 0);
     token_costs_cur = token_costs + band_cur;
     if (x == 0) {  // No need to search
