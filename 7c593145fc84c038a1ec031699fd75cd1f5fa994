@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80da30a3_397a103a",
+        "filename": "vp9/common/vp9_reconintra.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-03T21:40:28Z",
+      "side": 1,
+      "message": "Should the offsets use the macros? Otherwise the stack size is increasing unnecessarily on some platforms.",
+      "range": {
+        "startLine": 271,
+        "startChar": 63,
+        "endLine": 271,
+        "endChar": 65
+      },
+      "revId": "7c593145fc84c038a1ec031699fd75cd1f5fa994",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b8a7b8_0f24d0fe",
+        "filename": "vpx_scale/generic/yv12config.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-03T21:40:28Z",
+      "side": 1,
+      "message": "Do these need to double? 64-byte alignment should be all that\u0027s needed for avx-512 and any overreads should be limited to 64 bytes.\n\nAgain, I don\u0027t like boosting the values for platforms like Arm that won\u0027t benefit from it.",
+      "revId": "7c593145fc84c038a1ec031699fd75cd1f5fa994",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "216fd2fe_6a6e5211",
+        "filename": "vpx_scale/yv12config.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-03T21:40:28Z",
+      "side": 1,
+      "message": "I\u0027d like to limit this to avx-512 supporting platforms for now if it\u0027s needed.",
+      "revId": "7c593145fc84c038a1ec031699fd75cd1f5fa994",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
