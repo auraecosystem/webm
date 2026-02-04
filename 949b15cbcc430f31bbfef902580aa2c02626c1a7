@@ -16,6 +16,24 @@
       "message": "I suggest adding `-Wall -Wextra -Wimplicit-fallthrough` after `-std\u003dgnu++17`",
       "revId": "949b15cbcc430f31bbfef902580aa2c02626c1a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03526ef6_9f1c53d5",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-04T20:12:01Z",
+      "side": 1,
+      "message": "Done. Also in `vpx_dec_fuzzer` just in case. This will need another +2 since I added a file.",
+      "parentUuid": "72a90339_7ab757cf",
+      "revId": "949b15cbcc430f31bbfef902580aa2c02626c1a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
