@@ -83,6 +83,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "316a23b0_23c47779",
+        "filename": "vpx_scale/generic/yv12config.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-04T19:18:35Z",
+      "side": 1,
+      "message": "\u003e \u003e Do these need to double? 64-byte alignment should be all that\u0027s needed for avx-512 and any overreads should be limited to 64 bytes.\n\u003e \n\u003e See the original comments above. chroma rows under 420 or 422 will be half the size of the y row. To keep chroma rows 64 byte aligned y row has to be 128 byte aligned.\n\u003e \n\nYou\u0027re right, I wasn\u0027t considering the chrome planes. Thank you for adding the comment and making the other updates.\n\n\u003e \u003e \n\u003e \u003e Again, I don\u0027t like boosting the values for platforms like Arm that won\u0027t benefit from it.\n\u003e Sure I can do that.",
+      "parentUuid": "c7149568_48ac139b",
+      "revId": "7c593145fc84c038a1ec031699fd75cd1f5fa994",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "216fd2fe_6a6e5211",
