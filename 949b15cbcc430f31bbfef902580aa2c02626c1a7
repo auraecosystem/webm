@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72a90339_7ab757cf",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-04T19:25:27Z",
+      "side": 1,
+      "message": "I suggest adding `-Wall -Wextra -Wimplicit-fallthrough` after `-std\u003dgnu++17`",
+      "revId": "949b15cbcc430f31bbfef902580aa2c02626c1a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
