@@ -32,6 +32,26 @@ static INLINE __m512i avg3_epu16_avx512(const __m512i *x, const __m512i *y,
   return _mm512_avg_epu16(b, *y);
 }
 
+void vpx_highbd_dc_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
+                                          const uint16_t *above,
+                                          const uint16_t *left, int bd) {
+  (void)bd;
+  __m512i sum =
+      _mm512_add_epi16(*(const __m512i *)above, *(const __m512i *)left);
+
+  sum = _mm512_cvtepu16_epi32(_mm256_add_epi16(
+      _mm512_castsi512_si256(sum), _mm512_extracti64x4_epi64(sum, 1)));
+
+  uint32_t total = _mm512_reduce_add_epi32(sum);
+  uint16_t avg = (uint16_t)((total + 32) >> 6);
+  __m512i v = _mm512_set1_epi16((uint16_t)avg);
+
+  for (int i = 0; i < 32; ++i) {
+    _mm512_store_si512((__m512i *)dst, v);
+    dst += stride;
+  }
+}
+
 void vpx_highbd_d63_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
                                            const uint16_t *above,
                                            const uint16_t *left, int bd) {

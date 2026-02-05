@@ -14,6 +14,30 @@
 #include "./vpx_dsp_rtcd.h"
 #include "vpx/vpx_integer.h"
 
+void vpx_dc_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,
+                                 const uint8_t *above, const uint8_t *left) {
+  __m256i zero = _mm256_setzero_si256();
+
+  __m256i A = _mm256_load_si256((const __m256i *)above);
+  __m256i L = _mm256_load_si256((const __m256i *)left);
+
+  __m256i sumA = _mm256_sad_epu8(A, zero);
+  __m256i sumL = _mm256_sad_epu8(L, zero);
+  __m256i sum = _mm256_add_epi16(sumA, sumL);
+
+  __m128i sum128 = _mm_add_epi16(_mm256_castsi256_si128(sum),
+                                 _mm256_extracti128_si256(sum, 1));
+  sum128 = _mm_add_epi16(sum128, _mm_srli_si128(sum128, 8));
+
+  uint8_t avg = (uint8_t)((_mm_cvtsi128_si32(sum128) + 32) >> 6);
+  __m256i v = _mm256_set1_epi8((char)avg);
+
+  for (int i = 0; i < 32; ++i) {
+    _mm256_store_si256((__m256i *)dst, v);
+    dst += stride;
+  }
+}
+
 void vpx_tm_predictor_8x8_avx2(uint8_t *dst, ptrdiff_t stride,
                                const uint8_t *above, const uint8_t *left) {
   __m128i top_left = _mm_set1_epi16(above[-1]);
