@@ -213,7 +213,7 @@ add_proto qw/void vpx_tm_predictor_32x32/, "uint8_t *dst, ptrdiff_t stride, cons
 specialize qw/vpx_tm_predictor_32x32 neon msa vsx avx2/, "$sse2_asm";
 
 add_proto qw/void vpx_dc_predictor_32x32/, "uint8_t *dst, ptrdiff_t stride, const uint8_t *above, const uint8_t *left";
-specialize qw/vpx_dc_predictor_32x32 msa neon vsx/, "$sse2_asm";
+specialize qw/vpx_dc_predictor_32x32 msa neon vsx avx2/, "$sse2_asm";
 
 add_proto qw/void vpx_dc_top_predictor_32x32/, "uint8_t *dst, ptrdiff_t stride, const uint8_t *above, const uint8_t *left";
 specialize qw/vpx_dc_top_predictor_32x32 msa neon vsx/, "$sse2_asm";
@@ -332,7 +332,7 @@ if (vpx_config("CONFIG_VP9_HIGHBITDEPTH") eq "yes") {
   specialize qw/vpx_highbd_tm_predictor_16x16 neon avx2/, "$sse2_asm";
 
   add_proto qw/void vpx_highbd_dc_predictor_16x16/, "uint16_t *dst, ptrdiff_t stride, const uint16_t *above, const uint16_t *left, int bd";
-  specialize qw/vpx_highbd_dc_predictor_16x16 neon/, "$sse2_asm";
+  specialize qw/vpx_highbd_dc_predictor_16x16 neon avx2/, "$sse2_asm";
 
   add_proto qw/void vpx_highbd_dc_top_predictor_16x16/, "uint16_t *dst, ptrdiff_t stride, const uint16_t *above, const uint16_t *left, int bd";
   specialize qw/vpx_highbd_dc_top_predictor_16x16 neon sse2/;
@@ -371,7 +371,7 @@ if (vpx_config("CONFIG_VP9_HIGHBITDEPTH") eq "yes") {
   specialize qw/vpx_highbd_tm_predictor_32x32 neon avx2 avx512/, "$sse2_asm";
 
   add_proto qw/void vpx_highbd_dc_predictor_32x32/, "uint16_t *dst, ptrdiff_t stride, const uint16_t *above, const uint16_t *left, int bd";
-  specialize qw/vpx_highbd_dc_predictor_32x32 neon/, "$sse2_asm";
+  specialize qw/vpx_highbd_dc_predictor_32x32 neon avx2 avx512/, "$sse2_asm";
 
   add_proto qw/void vpx_highbd_dc_top_predictor_32x32/, "uint16_t *dst, ptrdiff_t stride, const uint16_t *above, const uint16_t *left, int bd";
   specialize qw/vpx_highbd_dc_top_predictor_32x32 neon sse2/;

@@ -41,6 +41,60 @@ static INLINE __m256i avg3_epu16_avx2(const __m256i *x, const __m256i *y,
     res = _mm256_alignr_epi8(hi, _mid, (i));             \
   } while (0)
 
+void vpx_highbd_dc_predictor_16x16_avx2(uint16_t *dst, ptrdiff_t stride,
+                                        const uint16_t *above,
+                                        const uint16_t *left, int bd) {
+  (void)bd;
+  __m256i sum =
+      _mm256_add_epi16(*(const __m256i *)above, *(const __m256i *)left);
+
+  __m128i sum128 = _mm_add_epi16(_mm256_castsi256_si128(sum),
+                                 _mm256_extracti128_si256(sum, 1));
+  sum128 = _mm_cvtepu16_epi32(
+      _mm_add_epi16(sum128, _mm_unpackhi_epi64(sum128, sum128)));
+  sum128 = _mm_add_epi32(sum128, _mm_unpackhi_epi64(sum128, sum128));
+  sum128 =
+      _mm_add_epi32(sum128, _mm_shuffle_epi32(sum128, _MM_SHUFFLE(1, 1, 1, 1)));
+  sum128 = _mm_add_epi32(sum128, _mm_cvtsi32_si128(16));
+  sum128 = _mm_srli_epi32(sum128, 5);
+
+  __m256i v = _mm256_broadcastw_epi16(sum128);
+
+  for (int i = 0; i < 16; ++i) {
+    _mm256_store_si256((__m256i *)dst, v);
+    dst += stride;
+  }
+}
+
+void vpx_highbd_dc_predictor_32x32_avx2(uint16_t *dst, ptrdiff_t stride,
+                                        const uint16_t *above,
+                                        const uint16_t *left, int bd) {
+  (void)bd;
+  __m256i sum0 =
+      _mm256_add_epi16(*(const __m256i *)above, *(const __m256i *)left);
+  __m256i sum1 = _mm256_add_epi16(*(const __m256i *)(above + 16),
+                                  *(const __m256i *)(left + 16));
+  __m256i sum = _mm256_add_epi16(sum0, sum1);
+
+  __m128i sum128 = _mm_add_epi16(_mm256_castsi256_si128(sum),
+                                 _mm256_extracti128_si256(sum, 1));
+  sum128 = _mm_cvtepu16_epi32(
+      _mm_add_epi16(sum128, _mm_unpackhi_epi64(sum128, sum128)));
+  sum128 = _mm_add_epi32(sum128, _mm_unpackhi_epi64(sum128, sum128));
+  sum128 =
+      _mm_add_epi32(sum128, _mm_shuffle_epi32(sum128, _MM_SHUFFLE(1, 1, 1, 1)));
+  sum128 = _mm_add_epi32(sum128, _mm_cvtsi32_si128(32));
+  sum128 = _mm_srli_epi32(sum128, 6);
+
+  __m256i v = _mm256_broadcastw_epi16(sum128);
+
+  for (int i = 0; i < 32; ++i) {
+    _mm256_store_si256((__m256i *)dst, v);
+    _mm256_store_si256((__m256i *)(dst + 16), v);
+    dst += stride;
+  }
+}
+
 void vpx_highbd_d63_predictor_16x16_avx2(uint16_t *dst, ptrdiff_t stride,
                                          const uint16_t *above,
                                          const uint16_t *left, int bd) {
