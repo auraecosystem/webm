@@ -259,9 +259,9 @@ INTRA_PRED_TEST(AVX2, TestIntraPred8, nullptr, nullptr, nullptr, nullptr,
 INTRA_PRED_TEST(AVX2, TestIntraPred16, nullptr, nullptr, nullptr, nullptr,
                 nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
                 nullptr, vpx_tm_predictor_16x16_avx2)
-INTRA_PRED_TEST(AVX2, TestIntraPred32, nullptr, nullptr, nullptr, nullptr,
+INTRA_PRED_TEST(AVX2, TestIntraPred32, vpx_dc_predictor_32x32_avx2, nullptr,
                 nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
-                nullptr, vpx_tm_predictor_32x32_avx2)
+                nullptr, nullptr, nullptr, vpx_tm_predictor_32x32_avx2)
 #endif  // HAVE_AVX2
 
 #if HAVE_DSPR2
@@ -618,12 +618,14 @@ HIGHBD_INTRA_PRED_TEST(AVX2, TestHighbdIntraPred8, nullptr, nullptr, nullptr,
                        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
                        nullptr, nullptr, nullptr,
                        vpx_highbd_tm_predictor_8x8_avx2)
-HIGHBD_INTRA_PRED_TEST(AVX2, TestHighbdIntraPred16, nullptr, nullptr, nullptr,
+HIGHBD_INTRA_PRED_TEST(AVX2, TestHighbdIntraPred16,
+                       vpx_highbd_dc_predictor_16x16_avx2, nullptr, nullptr,
                        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
                        nullptr, vpx_highbd_d207_predictor_16x16_avx2,
                        vpx_highbd_d63_predictor_16x16_avx2,
                        vpx_highbd_tm_predictor_16x16_avx2)
-HIGHBD_INTRA_PRED_TEST(AVX2, TestHighbdIntraPred32, nullptr, nullptr, nullptr,
+HIGHBD_INTRA_PRED_TEST(AVX2, TestHighbdIntraPred32,
+                       vpx_highbd_dc_predictor_32x32_avx2, nullptr, nullptr,
                        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
                        nullptr, vpx_highbd_d207_predictor_32x32_avx2,
                        vpx_highbd_d63_predictor_32x32_avx2,
@@ -631,7 +633,8 @@ HIGHBD_INTRA_PRED_TEST(AVX2, TestHighbdIntraPred32, nullptr, nullptr, nullptr,
 #endif  // HAVE_AVX2
 
 #if HAVE_AVX512
-HIGHBD_INTRA_PRED_TEST(AVX512, TestHighbdIntraPred32, nullptr, nullptr, nullptr,
+HIGHBD_INTRA_PRED_TEST(AVX512, TestHighbdIntraPred32,
+                       vpx_highbd_dc_predictor_32x32_avx512, nullptr, nullptr,
                        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
                        nullptr, vpx_highbd_d207_predictor_32x32_avx512,
                        vpx_highbd_d63_predictor_32x32_avx512,

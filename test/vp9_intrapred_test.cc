@@ -250,7 +250,9 @@ INSTANTIATE_TEST_SUITE_P(
 #if HAVE_AVX2
 INSTANTIATE_TEST_SUITE_P(
     AVX2, VP9IntraPredTest,
-    ::testing::Values(IntraPredParam(&vpx_tm_predictor_8x8_avx2,
+    ::testing::Values(IntraPredParam(&vpx_dc_predictor_32x32_avx2,
+                                     &vpx_dc_predictor_32x32_c, 32, 8),
+                      IntraPredParam(&vpx_tm_predictor_8x8_avx2,
                                      &vpx_tm_predictor_8x8_c, 8, 8),
                       IntraPredParam(&vpx_tm_predictor_16x16_avx2,
                                      &vpx_tm_predictor_16x16_c, 16, 8),
@@ -557,6 +559,8 @@ INSTANTIATE_TEST_SUITE_P(
                              &vpx_highbd_d63_predictor_32x32_c, 32, 8),
         HighbdIntraPredParam(&vpx_highbd_d207_predictor_32x32_avx512,
                              &vpx_highbd_d207_predictor_32x32_c, 32, 8),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_32x32_avx512,
+                             &vpx_highbd_dc_predictor_32x32_c, 32, 8),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_32x32_avx512,
                              &vpx_highbd_tm_predictor_32x32_c, 32, 8)));
 INSTANTIATE_TEST_SUITE_P(
@@ -566,6 +570,8 @@ INSTANTIATE_TEST_SUITE_P(
                              &vpx_highbd_d63_predictor_32x32_c, 32, 10),
         HighbdIntraPredParam(&vpx_highbd_d207_predictor_32x32_avx512,
                              &vpx_highbd_d207_predictor_32x32_c, 32, 10),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_32x32_avx512,
+                             &vpx_highbd_dc_predictor_32x32_c, 32, 10),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_32x32_avx512,
                              &vpx_highbd_tm_predictor_32x32_c, 32, 10)));
 INSTANTIATE_TEST_SUITE_P(
@@ -575,6 +581,8 @@ INSTANTIATE_TEST_SUITE_P(
                              &vpx_highbd_d63_predictor_32x32_c, 32, 12),
         HighbdIntraPredParam(&vpx_highbd_d207_predictor_32x32_avx512,
                              &vpx_highbd_d207_predictor_32x32_c, 32, 12),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_32x32_avx512,
+                             &vpx_highbd_dc_predictor_32x32_c, 32, 12),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_32x32_avx512,
                              &vpx_highbd_tm_predictor_32x32_c, 32, 12)));
 #endif  // HAVE_AVX512
@@ -591,6 +599,10 @@ INSTANTIATE_TEST_SUITE_P(
                              &vpx_highbd_d207_predictor_16x16_c, 16, 8),
         HighbdIntraPredParam(&vpx_highbd_d207_predictor_32x32_avx2,
                              &vpx_highbd_d207_predictor_32x32_c, 32, 8),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_16x16_avx2,
+                             &vpx_highbd_dc_predictor_16x16_c, 16, 8),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_32x32_avx2,
+                             &vpx_highbd_dc_predictor_32x32_c, 32, 8),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_8x8_avx2,
                              &vpx_highbd_tm_predictor_8x8_c, 8, 8),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_16x16_avx2,
@@ -608,6 +620,10 @@ INSTANTIATE_TEST_SUITE_P(
                              &vpx_highbd_d207_predictor_16x16_c, 16, 10),
         HighbdIntraPredParam(&vpx_highbd_d207_predictor_32x32_avx2,
                              &vpx_highbd_d207_predictor_32x32_c, 32, 10),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_16x16_avx2,
+                             &vpx_highbd_dc_predictor_16x16_c, 16, 10),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_32x32_avx2,
+                             &vpx_highbd_dc_predictor_32x32_c, 32, 10),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_8x8_avx2,
                              &vpx_highbd_tm_predictor_8x8_c, 8, 10),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_16x16_avx2,
@@ -625,6 +641,10 @@ INSTANTIATE_TEST_SUITE_P(
                              &vpx_highbd_d207_predictor_16x16_c, 16, 12),
         HighbdIntraPredParam(&vpx_highbd_d207_predictor_32x32_avx2,
                              &vpx_highbd_d207_predictor_32x32_c, 32, 12),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_16x16_avx2,
+                             &vpx_highbd_dc_predictor_16x16_c, 16, 12),
+        HighbdIntraPredParam(&vpx_highbd_dc_predictor_32x32_avx2,
+                             &vpx_highbd_dc_predictor_32x32_c, 32, 12),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_8x8_avx2,
                              &vpx_highbd_tm_predictor_8x8_c, 8, 12),
         HighbdIntraPredParam(&vpx_highbd_tm_predictor_16x16_avx2,
