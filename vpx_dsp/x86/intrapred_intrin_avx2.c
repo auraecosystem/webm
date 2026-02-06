@@ -39,6 +39,36 @@ void vpx_dc_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,
   }
 }
 
+void vpx_v_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,
+                                const uint8_t *above, const uint8_t *left) {
+  (void)left;
+  __m256i A = _mm256_load_si256((const __m256i *)above);
+  for (int i = 0; i < 32; ++i) {
+    _mm256_store_si256((__m256i *)dst, A);
+    dst += stride;
+  }
+}
+
+void vpx_h_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,
+                                const uint8_t *above, const uint8_t *left) {
+  (void)above;
+  __m256i L256 = _mm256_load_si256((const __m256i *)left);
+
+  __m128i L = _mm256_castsi256_si128(L256);
+  for (int i = 0; i < 16; ++i) {
+    _mm256_store_si256((__m256i *)dst, _mm256_broadcastb_epi8(L));
+    dst += stride;
+    L = _mm_srli_si128(L, 1);
+  }
+
+  L = _mm256_extracti128_si256(L256, 1);
+  for (int i = 0; i < 16; ++i) {
+    _mm256_store_si256((__m256i *)dst, _mm256_broadcastb_epi8(L));
+    dst += stride;
+    L = _mm_srli_si128(L, 1);
+  }
+}
+
 void vpx_tm_predictor_8x8_avx2(uint8_t *dst, ptrdiff_t stride,
                                const uint8_t *above, const uint8_t *left) {
   __m128i top_left = _mm_set1_epi16(above[-1]);
