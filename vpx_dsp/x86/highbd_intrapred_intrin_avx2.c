@@ -371,6 +371,98 @@ void vpx_highbd_tm_predictor_8x8_avx2(uint16_t *dst, ptrdiff_t stride,
   }
 }
 
+void vpx_highbd_v_predictor_16x16_avx2(uint16_t *dst, ptrdiff_t stride,
+                                       const uint16_t *above,
+                                       const uint16_t *left, int bd) {
+  (void)left;
+  (void)bd;
+  __m256i A = _mm256_load_si256((const __m256i *)above);
+  for (int i = 0; i < 16; ++i) {
+    _mm256_store_si256((__m256i *)dst, A);
+    dst += stride;
+  }
+}
+
+void vpx_highbd_v_predictor_32x32_avx2(uint16_t *dst, ptrdiff_t stride,
+                                       const uint16_t *above,
+                                       const uint16_t *left, int bd) {
+  (void)left;
+  (void)bd;
+  __m256i A0 = _mm256_load_si256((const __m256i *)above);
+  __m256i A1 = _mm256_load_si256((const __m256i *)(above + 16));
+  for (int i = 0; i < 32; ++i) {
+    _mm256_store_si256((__m256i *)dst, A0);
+    _mm256_store_si256((__m256i *)(dst + 16), A1);
+    dst += stride;
+  }
+}
+
+void vpx_highbd_h_predictor_16x16_avx2(uint16_t *dst, ptrdiff_t stride,
+                                       const uint16_t *above,
+                                       const uint16_t *left, int bd) {
+  (void)above;
+  (void)bd;
+  __m256i L256 = _mm256_load_si256((const __m256i *)left);
+
+  __m128i L = _mm256_castsi256_si128(L256);
+  for (int i = 0; i < 8; ++i) {
+    _mm256_store_si256((__m256i *)dst, _mm256_broadcastw_epi16(L));
+    dst += stride;
+    L = _mm_srli_si128(L, 2);
+  }
+  L = _mm256_extracti128_si256(L256, 1);
+  for (int i = 0; i < 8; ++i) {
+    _mm256_store_si256((__m256i *)dst, _mm256_broadcastw_epi16(L));
+    dst += stride;
+    L = _mm_srli_si128(L, 2);
+  }
+}
+
+void vpx_highbd_h_predictor_32x32_avx2(uint16_t *dst, ptrdiff_t stride,
+                                       const uint16_t *above,
+                                       const uint16_t *left, int bd) {
+  (void)above;
+  (void)bd;
+  __m256i L0 = _mm256_load_si256((const __m256i *)left);
+  __m256i L1 = _mm256_load_si256((const __m256i *)(left + 16));
+
+  __m128i L = _mm256_castsi256_si128(L0);
+  for (int i = 0; i < 8; ++i) {
+    __m256i row = _mm256_broadcastw_epi16(L);
+    _mm256_store_si256((__m256i *)dst, row);
+    _mm256_store_si256((__m256i *)(dst + 16), row);
+    dst += stride;
+    L = _mm_srli_si128(L, 2);
+  }
+
+  L = _mm256_extracti128_si256(L0, 1);
+  for (int i = 0; i < 8; ++i) {
+    __m256i row = _mm256_broadcastw_epi16(L);
+    _mm256_store_si256((__m256i *)dst, row);
+    _mm256_store_si256((__m256i *)(dst + 16), row);
+    dst += stride;
+    L = _mm_srli_si128(L, 2);
+  }
+
+  L = _mm256_castsi256_si128(L1);
+  for (int i = 0; i < 8; ++i) {
+    __m256i row = _mm256_broadcastw_epi16(L);
+    _mm256_store_si256((__m256i *)dst, row);
+    _mm256_store_si256((__m256i *)(dst + 16), row);
+    dst += stride;
+    L = _mm_srli_si128(L, 2);
+  }
+
+  L = _mm256_extracti128_si256(L1, 1);
+  for (int i = 0; i < 8; ++i) {
+    __m256i row = _mm256_broadcastw_epi16(L);
+    _mm256_store_si256((__m256i *)dst, row);
+    _mm256_store_si256((__m256i *)(dst + 16), row);
+    dst += stride;
+    L = _mm_srli_si128(L, 2);
+  }
+}
+
 void vpx_highbd_tm_predictor_16x16_avx2(uint16_t *dst, ptrdiff_t stride,
                                         const uint16_t *above,
                                         const uint16_t *left, int bd) {

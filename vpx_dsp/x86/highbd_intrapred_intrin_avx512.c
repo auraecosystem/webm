@@ -183,6 +183,57 @@ void vpx_highbd_d207_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
   d207_store_16x32_avx512(&dst, stride, &out_efgh, &AR);
 }
 
+void vpx_highbd_v_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
+                                         const uint16_t *above,
+                                         const uint16_t *left, int bd) {
+  (void)left;
+  (void)bd;
+  __m512i A = _mm512_load_si512((const __m512i *)above);
+  for (int i = 0; i < 32; ++i) {
+    _mm512_store_si512((__m512i *)dst, A);
+    dst += stride;
+  }
+}
+
+static VPX_FORCE_INLINE void h_store_8x32_avx512(uint16_t **dst,
+                                                 const ptrdiff_t stride,
+                                                 const __m128i l) {
+  __m512i row[8];
+  row[0] = _mm512_broadcastw_epi16(l);
+  row[1] = _mm512_broadcastw_epi16(_mm_srli_si128(l, 2));
+  row[2] = _mm512_broadcastw_epi16(_mm_srli_si128(l, 4));
+  row[3] = _mm512_broadcastw_epi16(_mm_srli_si128(l, 6));
+  row[4] = _mm512_broadcastw_epi16(_mm_srli_si128(l, 8));
+  row[5] = _mm512_broadcastw_epi16(_mm_srli_si128(l, 10));
+  row[6] = _mm512_broadcastw_epi16(_mm_srli_si128(l, 12));
+  row[7] = _mm512_broadcastw_epi16(_mm_srli_si128(l, 14));
+
+  for (int i = 0; i < 8; ++i) {
+    _mm512_store_si512((__m512i *)*dst, row[i]);
+    *dst += stride;
+  }
+}
+
+void vpx_highbd_h_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
+                                         const uint16_t *above,
+                                         const uint16_t *left, int bd) {
+  (void)above;
+  (void)bd;
+  __m512i L512 = _mm512_load_si512((const __m512i *)left);
+
+  __m128i L = _mm512_castsi512_si128(L512);
+  h_store_8x32_avx512(&dst, stride, L);
+
+  L = _mm512_extracti32x4_epi32(L512, 1);
+  h_store_8x32_avx512(&dst, stride, L);
+
+  L = _mm512_extracti32x4_epi32(L512, 2);
+  h_store_8x32_avx512(&dst, stride, L);
+
+  L = _mm512_extracti32x4_epi32(L512, 3);
+  h_store_8x32_avx512(&dst, stride, L);
+}
+
 void vpx_highbd_tm_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
                                           const uint16_t *above,
                                           const uint16_t *left, int bd) {
