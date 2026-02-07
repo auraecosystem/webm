@@ -262,7 +262,8 @@ INTRA_PRED_TEST(AVX2, TestIntraPred16, nullptr, nullptr, nullptr, nullptr,
 INTRA_PRED_TEST(AVX2, TestIntraPred32, vpx_dc_predictor_32x32_avx2, nullptr,
                 nullptr, nullptr, vpx_v_predictor_32x32_avx2,
                 vpx_h_predictor_32x32_avx2, nullptr, nullptr, nullptr, nullptr,
-                nullptr, nullptr, vpx_tm_predictor_32x32_avx2)
+                vpx_d207_predictor_32x32_avx2, vpx_d63_predictor_32x32_avx2,
+                vpx_tm_predictor_32x32_avx2)
 #endif  // HAVE_AVX2
 
 #if HAVE_DSPR2

@@ -186,13 +186,13 @@ add_proto qw/void vpx_dc_128_predictor_16x16/, "uint8_t *dst, ptrdiff_t stride, 
 specialize qw/vpx_dc_128_predictor_16x16 neon msa vsx/, "$sse2_asm";
 
 add_proto qw/void vpx_d207_predictor_32x32/, "uint8_t *dst, ptrdiff_t stride, const uint8_t *above, const uint8_t *left";
-specialize qw/vpx_d207_predictor_32x32 neon/, "$ssse3_asm";
+specialize qw/vpx_d207_predictor_32x32 neon avx2/, "$ssse3_asm";
 
 add_proto qw/void vpx_d45_predictor_32x32/, "uint8_t *dst, ptrdiff_t stride, const uint8_t *above, const uint8_t *left";
 specialize qw/vpx_d45_predictor_32x32 neon vsx/, "$ssse3_asm";
 
 add_proto qw/void vpx_d63_predictor_32x32/, "uint8_t *dst, ptrdiff_t stride, const uint8_t *above, const uint8_t *left";
-specialize qw/vpx_d63_predictor_32x32 neon vsx/, "$ssse3_asm";
+specialize qw/vpx_d63_predictor_32x32 neon vsx avx2/, "$ssse3_asm";
 
 add_proto qw/void vpx_h_predictor_32x32/, "uint8_t *dst, ptrdiff_t stride, const uint8_t *above, const uint8_t *left";
 specialize qw/vpx_h_predictor_32x32 neon msa vsx avx2/, "$sse2_asm";
