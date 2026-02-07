@@ -14,6 +14,15 @@
 #include "./vpx_dsp_rtcd.h"
 #include "vpx/vpx_integer.h"
 
+static INLINE __m256i avg3_epu8_avx2(const __m256i *x, const __m256i *y,
+                                     const __m256i *z) {
+  const __m256i one = _mm256_set1_epi8(1);
+  const __m256i a = _mm256_avg_epu8(*x, *z);
+  const __m256i b =
+      _mm256_subs_epu8(a, _mm256_and_si256(_mm256_xor_si256(*x, *z), one));
+  return _mm256_avg_epu8(b, *y);
+}
+
 void vpx_dc_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,
                                  const uint8_t *above, const uint8_t *left) {
   __m256i zero = _mm256_setzero_si256();
@@ -37,6 +46,118 @@ void vpx_dc_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,
     _mm256_store_si256((__m256i *)dst, v);
     dst += stride;
   }
+}
+
+void vpx_d63_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,
+                                  const uint8_t *above, const uint8_t *left) {
+  (void)left;
+  const __m256i A = _mm256_load_si256((const __m256i *)above);
+  const __m256i AR = _mm256_set1_epi8(above[31]);
+
+  __m256i ar_a = _mm256_permute2x128_si256(AR, A, 3);
+  __m256i B = _mm256_alignr_epi8(ar_a, A, 1);
+  __m256i C = _mm256_alignr_epi8(ar_a, A, 2);
+
+  __m256i avg2 = _mm256_avg_epu8(A, B);
+  __m256i avg3 = avg3_epu8_avx2(&A, &B, &C);
+
+  __m256i ar_avg2 = _mm256_permute2x128_si256(AR, avg2, 3);
+  __m256i ar_avg3 = _mm256_permute2x128_si256(AR, avg3, 3);
+
+  __m256i row0 = avg2;
+  __m256i row1 = avg3;
+  _mm256_store_si256((__m256i *)dst, row0);
+  dst += stride;
+  _mm256_store_si256((__m256i *)dst, row1);
+  dst += stride;
+
+#define D63_STORE_2x32(i)                          \
+  do {                                             \
+    row0 = _mm256_alignr_epi8(ar_avg2, avg2, (i)); \
+    row1 = _mm256_alignr_epi8(ar_avg3, avg3, (i)); \
+    _mm256_store_si256((__m256i *)dst, row0);      \
+    dst += stride;                                 \
+    _mm256_store_si256((__m256i *)dst, row1);      \
+    dst += stride;                                 \
+  } while (0)
+
+  D63_STORE_2x32(1);
+  D63_STORE_2x32(2);
+  D63_STORE_2x32(3);
+  D63_STORE_2x32(4);
+  D63_STORE_2x32(5);
+  D63_STORE_2x32(6);
+  D63_STORE_2x32(7);
+  D63_STORE_2x32(8);
+  D63_STORE_2x32(9);
+  D63_STORE_2x32(10);
+  D63_STORE_2x32(11);
+  D63_STORE_2x32(12);
+  D63_STORE_2x32(13);
+  D63_STORE_2x32(14);
+  D63_STORE_2x32(15);
+#undef D63_STORE_2x32
+}
+
+static INLINE void d207_store_16x32_avx2(uint8_t **dst, const ptrdiff_t stride,
+                                         const __m256i *low,
+                                         const __m256i *high) {
+  _mm256_store_si256((__m256i *)*dst, *low);
+  *dst += stride;
+
+  __m256i shift;
+  __m256i mid = _mm256_permute2x128_si256(*high, *low, 3);
+
+#define D207_STORE_32(h, l, i)                  \
+  do {                                          \
+    shift = _mm256_alignr_epi8((h), (l), (i));  \
+    _mm256_store_si256((__m256i *)*dst, shift); \
+    *dst += stride;                             \
+  } while (0)
+
+  D207_STORE_32(mid, *low, 2);
+  D207_STORE_32(mid, *low, 4);
+  D207_STORE_32(mid, *low, 6);
+  D207_STORE_32(mid, *low, 8);
+  D207_STORE_32(mid, *low, 10);
+  D207_STORE_32(mid, *low, 12);
+  D207_STORE_32(mid, *low, 14);
+
+  _mm256_store_si256((__m256i *)*dst, mid);
+  *dst += stride;
+
+  D207_STORE_32(*high, mid, 2);
+  D207_STORE_32(*high, mid, 4);
+  D207_STORE_32(*high, mid, 6);
+  D207_STORE_32(*high, mid, 8);
+  D207_STORE_32(*high, mid, 10);
+  D207_STORE_32(*high, mid, 12);
+  D207_STORE_32(*high, mid, 14);
+#undef D207_STORE_32
+}
+
+void vpx_d207_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,
+                                   const uint8_t *above, const uint8_t *left) {
+  (void)above;
+  const __m256i L = _mm256_load_si256((const __m256i *)left);
+  const __m256i LR = _mm256_set1_epi8(left[31]);
+
+  __m256i lr_l = _mm256_permute2x128_si256(LR, L, 3);
+
+  __m256i B = _mm256_alignr_epi8(lr_l, L, 1);
+  __m256i C = _mm256_alignr_epi8(lr_l, L, 2);
+
+  __m256i avg2 = _mm256_avg_epu8(L, B);
+  __m256i avg3 = avg3_epu8_avx2(&L, &B, &C);
+
+  __m256i out_ac = _mm256_unpacklo_epi8(avg2, avg3);
+  __m256i out_bd = _mm256_unpackhi_epi8(avg2, avg3);
+
+  __m256i out_ab = _mm256_permute2x128_si256(out_ac, out_bd, 0x20);
+  __m256i out_cd = _mm256_permute2x128_si256(out_ac, out_bd, 0x31);
+
+  d207_store_16x32_avx2(&dst, stride, &out_ab, &out_cd);
+  d207_store_16x32_avx2(&dst, stride, &out_cd, &LR);
 }
 
 void vpx_v_predictor_32x32_avx2(uint8_t *dst, ptrdiff_t stride,

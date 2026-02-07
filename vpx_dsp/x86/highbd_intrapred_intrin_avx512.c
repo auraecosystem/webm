@@ -93,65 +93,29 @@ static INLINE void d207_store_16x32_avx512(uint16_t **dst,
   _mm512_store_si512((__m512i *)*dst, *abcd);
   *dst += stride;
 
-  __m512i shift = _mm512_alignr_epi32(*efgh, *abcd, 1);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
+#define D207_STORE_ROW(shift)                               \
+  do {                                                      \
+    __m512i row = _mm512_alignr_epi32(*efgh, *abcd, shift); \
+    _mm512_store_si512((__m512i *)*dst, row);               \
+    *dst += stride;                                         \
+  } while (0)
 
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 2);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 3);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 4);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 5);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 6);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 7);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 8);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 9);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 10);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 11);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 12);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 13);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 14);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
-
-  shift = _mm512_alignr_epi32(*efgh, *abcd, 15);
-  _mm512_store_si512((__m512i *)*dst, shift);
-  *dst += stride;
+  D207_STORE_ROW(1);
+  D207_STORE_ROW(2);
+  D207_STORE_ROW(3);
+  D207_STORE_ROW(4);
+  D207_STORE_ROW(5);
+  D207_STORE_ROW(6);
+  D207_STORE_ROW(7);
+  D207_STORE_ROW(8);
+  D207_STORE_ROW(9);
+  D207_STORE_ROW(10);
+  D207_STORE_ROW(11);
+  D207_STORE_ROW(12);
+  D207_STORE_ROW(13);
+  D207_STORE_ROW(14);
+  D207_STORE_ROW(15);
+#undef D207_STORE_ROW
 }
 
 void vpx_highbd_d207_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
