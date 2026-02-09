@@ -32,20 +32,57 @@ static INLINE __m512i avg3_epu16_avx512(const __m512i *x, const __m512i *y,
   return _mm512_avg_epu16(b, *y);
 }
 
+#define DC_STORE_SUM_32(offset, shift)                                    \
+  do {                                                                    \
+    __m256i sum256 = _mm256_add_epi16(_mm512_castsi512_si256(sum),        \
+                                      _mm512_extracti64x4_epi64(sum, 1)); \
+    __m128i sum128 = _mm_add_epi16(_mm256_castsi256_si128(sum256),        \
+                                   _mm256_extracti128_si256(sum256, 1));  \
+    sum128 = _mm_cvtepu16_epi32(_mm_hadd_epi16(sum128, sum128));          \
+    sum128 = _mm_hadd_epi32(sum128, sum128);                              \
+    sum128 = _mm_hadd_epi32(sum128, sum128);                              \
+    sum128 = _mm_add_epi32(sum128, _mm_cvtsi32_si128(offset));            \
+    sum128 = _mm_srli_epi32(sum128, shift);                               \
+    __m512i v = _mm512_broadcastw_epi16(sum128);                          \
+    for (int i = 0; i < 32; ++i) {                                        \
+      _mm512_store_si512((__m512i *)dst, v);                              \
+      dst += stride;                                                      \
+    }                                                                     \
+  } while (0)
+
 void vpx_highbd_dc_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
                                           const uint16_t *above,
                                           const uint16_t *left, int bd) {
   (void)bd;
   __m512i sum =
       _mm512_add_epi16(*(const __m512i *)above, *(const __m512i *)left);
+  DC_STORE_SUM_32(32, 6);
+}
 
-  sum = _mm512_cvtepu16_epi32(_mm256_add_epi16(
-      _mm512_castsi512_si256(sum), _mm512_extracti64x4_epi64(sum, 1)));
+void vpx_highbd_dc_left_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
+                                               const uint16_t *above,
+                                               const uint16_t *left, int bd) {
+  (void)above;
+  (void)bd;
+  __m512i sum = _mm512_load_si512((const __m512i *)left);
+  DC_STORE_SUM_32(16, 5);
+}
 
-  uint32_t total = _mm512_reduce_add_epi32(sum);
-  uint16_t avg = (uint16_t)((total + 32) >> 6);
-  __m512i v = _mm512_set1_epi16((uint16_t)avg);
+void vpx_highbd_dc_top_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
+                                              const uint16_t *above,
+                                              const uint16_t *left, int bd) {
+  (void)left;
+  (void)bd;
+  __m512i sum = _mm512_load_si512((const __m512i *)above);
+  DC_STORE_SUM_32(16, 5);
+}
 
+void vpx_highbd_dc_128_predictor_32x32_avx512(uint16_t *dst, ptrdiff_t stride,
+                                              const uint16_t *above,
+                                              const uint16_t *left, int bd) {
+  (void)above;
+  (void)left;
+  const __m512i v = _mm512_set1_epi16(1 << (bd - 1));
   for (int i = 0; i < 32; ++i) {
     _mm512_store_si512((__m512i *)dst, v);
     dst += stride;
