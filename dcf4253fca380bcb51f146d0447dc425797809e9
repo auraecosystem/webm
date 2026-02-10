@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0781ae59_0faa646b",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-10T22:05:39Z",
+      "side": 1,
+      "message": "This was just an arbitrary choice.",
+      "revId": "dcf4253fca380bcb51f146d0447dc425797809e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a52642a_d84627d2",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-10T22:05:39Z",
+      "side": 1,
+      "message": "Note the resolutions used are here. 1x1 in particular can result in quite a few frames.",
+      "revId": "dcf4253fca380bcb51f146d0447dc425797809e9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
