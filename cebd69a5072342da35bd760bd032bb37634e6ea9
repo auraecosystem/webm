@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f521f71e_bc2a4dd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-10T20:39:00Z",
+      "side": 1,
+      "message": "We\u0027ll need to resolve the alignment issue before landing these. Otherwise, the loads will need to be updated for now.",
+      "revId": "cebd69a5072342da35bd760bd032bb37634e6ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
