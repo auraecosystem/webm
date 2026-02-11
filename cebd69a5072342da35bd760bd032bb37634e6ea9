@@ -16,6 +16,24 @@
       "message": "We\u0027ll need to resolve the alignment issue before landing these. Otherwise, the loads will need to be updated for now.",
       "revId": "cebd69a5072342da35bd760bd032bb37634e6ea9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06d7311_b49d5f9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-02-11T02:05:01Z",
+      "side": 1,
+      "message": "Alignment is critical because the performance gain would be greatly diminished with unaligned accesses, esp. for simpler modes like dc, h and v.\n\nSadly, my laptop isn\u0027t powerful enough to build and debug chromium",
+      "parentUuid": "f521f71e_bc2a4dd1",
+      "revId": "cebd69a5072342da35bd760bd032bb37634e6ea9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
