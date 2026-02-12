@@ -883,7 +883,7 @@ int vp8_decode_frame(VP8D_COMP *pbi) {
   const unsigned char *data = pbi->fragments.ptrs[0];
   const unsigned int data_sz = pbi->fragments.sizes[0];
   const unsigned char *data_end = data + data_sz;
-  ptrdiff_t first_partition_length_in_bytes;
+  int first_partition_length_in_bytes;
 
   int i, j, k, l;
   const int *const mb_feature_data_bits = vp8_mb_feature_data_bits;
@@ -923,16 +923,16 @@ int vp8_decode_frame(VP8D_COMP *pbi) {
     pc->show_frame = (clear[0] >> 4) & 1;
     first_partition_length_in_bytes =
         (clear[0] | (clear[1] << 8) | (clear[2] << 16)) >> 5;
+    data += 3;
+    clear += 3;
 
-    if (!pbi->ec_active && (data + first_partition_length_in_bytes > data_end ||
-                            data + first_partition_length_in_bytes < data ||
+    const int min_data_length =
+        first_partition_length_in_bytes + (pc->frame_type == KEY_FRAME ? 7 : 0);
+    if (!pbi->ec_active && (data_end - data < min_data_length ||
                             first_partition_length_in_bytes == 0)) {
       vpx_internal_error(&pc->error, VPX_CODEC_CORRUPT_FRAME,
                          "Truncated packet or corrupt partition 0 length");
     }
-
-    data += 3;
-    clear += 3;
 
     vp8_setup_version(pc);
 
