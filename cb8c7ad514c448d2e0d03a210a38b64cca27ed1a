@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a20c5c0b_fa6507c2",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T03:32:53Z",
+      "side": 1,
+      "message": "Alternatively, `7 * (pc-\u003eframe_type \u003d\u003d KEY_FRAME)` could be used, but this might be a bit more readable.",
+      "revId": "cb8c7ad514c448d2e0d03a210a38b64cca27ed1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "464f7d00_207b79de",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T03:32:53Z",
+      "side": 1,
+      "message": "The check is here for available data for the keyframe.",
+      "revId": "cb8c7ad514c448d2e0d03a210a38b64cca27ed1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9a75020_fa9bac96",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T03:32:53Z",
+      "side": 1,
+      "message": "And the pointer advanced here.",
+      "revId": "cb8c7ad514c448d2e0d03a210a38b64cca27ed1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
