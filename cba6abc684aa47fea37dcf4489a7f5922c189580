@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b86743d_53e259e9",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "At this point, both `data` and `data_end` are still equal to their initial values. So `data_end - data` is still equal to `data_sz`.\n\nInside the `else` block, `data_end - data \u003e\u003d 3`. So `data_sz \u003e\u003d 3`.",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ce234d_d6a2c521",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "Since `sizeof(clear_buffer)` is 10 and `data_sz \u003e\u003d 3`, it follows that `n \u003e\u003d 3`.",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c090923_be26a5ed",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "Please conform that `pbi-\u003edecrypt_cb()` writes `n` bytes into `clear_buffer`.\n\nThis will allow subsequent code to read three bytes from `clear` whether `clear` points to `data` or `clear_buffer`.",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d860516_c377c50a",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "IMPORTANT: After you moved the `data +\u003d 3;` statement, the meaning of the `data_end - data \u003c min_data_length` check is different. So this CL no longer simply removes an unnecessary check as the commit message subject states.",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "239afadf_18f2061f",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "IMPORTANT: This condition does not match the structure of the code exactly.\n\nI find it very hard to come up with the correct condition here. Since the code below carefully validates the array index, it may be simpler to only check for a zero `first_partition_length_in_bytes \u003d\u003d 0` here, and then validate `first_partition_length_in_bytes` after the code below, at line 972:\n\n```\n    if (first_partition_length_in_bytes \u003d\u003d 0) {\n       vpx_internal_error(\u0026pc-\u003eerror, VPX_CODEC_CORRUPT_FRAME,\n                         \"Corrupt partition 0 length\");\n    }\n```",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0457e73_ddf93ba5",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "Nit: This condition is stricter than necessary (off by one). We only need to check\n\n```\n     if (data + 3 \u003c\u003d data_end) {\n```\n\nto ensure that index 2 is within array bounds.\n\nBut it may be better to use `data_end - data` consistently in array bounds checks to avoid adding an invalid index to `data`:\n\n```\n     if (data_end - data \u003e\u003d 3) {\n```",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdeca98d_5bb9de98",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "Nit: Change this check to use `data_end - data`:\n\n```\n      if (data_end - data \u003e\u003d 7) {\n```",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cb544e8_ce9f5668",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "IMPORTANT: `data` is also advanced here. We also need to consider this case when validating `first_partition_length_in_bytes`. Should we also set `first_partition_length_in_bytes` to 0 here? See my comment at line 1080:\n\n```\n  setup_token_decoder(pbi, data + first_partition_length_in_bytes);\n```",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7268dac_72011876",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "It seems simpler to validate `first_partition_length_in_bytes` here:\n\n```\n    if (data_end - data \u003c first_partition_length_in_bytes) {\n      vpx_internal_error(\u0026pc-\u003eerror, VPX_CODEC_CORRUPT_FRAME,\n                         \"Truncated packet or corrupt partition 0 length\");\n    }\n```",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f19275b_d92e10c4",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-13T19:24:40Z",
+      "side": 1,
+      "message": "Note: `first_partition_length_in_bytes` is only used here.",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
