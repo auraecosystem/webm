@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b612c4f5_d068e367",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T03:31:06Z",
+      "side": 1,
+      "message": "The value is calculated here.",
+      "revId": "70c4b40fb31084069b9ade786bec18195dc86f65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

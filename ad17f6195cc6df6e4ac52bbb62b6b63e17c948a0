@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6588db58_9f680de1",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T03:31:06Z",
+      "side": 0,
+      "message": "This was added in https://chromium.googlesource.com/webm/libvpx/+/9fb80f7170ec48e23c3c7b477149eeb37081c699",
+      "revId": "ad17f6195cc6df6e4ac52bbb62b6b63e17c948a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
