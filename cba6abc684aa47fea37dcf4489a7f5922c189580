@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5958ce98_c2cc92ae",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T20:52:38Z",
+      "side": 1,
+      "message": "\u003e Please conform that `pbi-\u003edecrypt_cb()` writes `n` bytes into `clear_buffer`.\n\u003e \n\u003e This will allow subsequent code to read three bytes from `clear` whether `clear` points to `data` or `clear_buffer`.\n\nThat is the [expectation](https://chromium.googlesource.com/webm/libvpx/+/ad17f6195cc6df6e4ac52bbb62b6b63e17c948a0/vpx/vp8dx.h#164), though without an error return we can\u0027t guarantee it.\n\n```\n/** Decrypt n bytes of data from input -\u003e output, using the decrypt_state\n *  passed in VPXD_SET_DECRYPTOR.\n */\n typedef void (*vpx_decrypt_cb)(void *decrypt_state, const unsigned char *input,\n                               unsigned char *output, int count);\n```",
+      "parentUuid": "1c090923_be26a5ed",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d860516_c377c50a",
@@ -65,6 +83,24 @@
       "writtenOn": "2026-02-13T19:24:40Z",
       "side": 1,
       "message": "IMPORTANT: After you moved the `data +\u003d 3;` statement, the meaning of the `data_end - data \u003c min_data_length` check is different. So this CL no longer simply removes an unnecessary check as the commit message subject states.",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc901be4_ed539c58",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T20:52:38Z",
+      "side": 1,
+      "message": "\u003e IMPORTANT: After you moved the `data +\u003d 3;` statement, the meaning of the `data_end - data \u003c min_data_length` check is different. So this CL no longer simply removes an unnecessary check as the commit message subject states.\n\nGood point. I merged the next change into this one inadvertently when rebasing, but after discussion we decided to rework this block and separate these conditions. I\u0027ll describe the operations in the commit message.",
+      "parentUuid": "7d860516_c377c50a",
       "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b499887d_8b62ab5c",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T20:52:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "239afadf_18f2061f",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0457e73_ddf93ba5",
@@ -99,6 +153,24 @@
       "writtenOn": "2026-02-13T19:24:40Z",
       "side": 1,
       "message": "Nit: This condition is stricter than necessary (off by one). We only need to check\n\n```\n     if (data + 3 \u003c\u003d data_end) {\n```\n\nto ensure that index 2 is within array bounds.\n\nBut it may be better to use `data_end - data` consistently in array bounds checks to avoid adding an invalid index to `data`:\n\n```\n     if (data_end - data \u003e\u003d 3) {\n```",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12407c90_30e25b8b",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T20:52:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0457e73_ddf93ba5",
       "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c4f13e9_32aec62f",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T20:52:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdeca98d_5bb9de98",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cb544e8_ce9f5668",
@@ -137,6 +227,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1d5cdef_81bb40d2",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T20:52:38Z",
+      "side": 1,
+      "message": "\u003e IMPORTANT: `data` is also advanced here. We also need to consider this case when validating `first_partition_length_in_bytes`. Should we also set `first_partition_length_in_bytes` to 0 here? See my comment at line 1080:\n\u003e \n\u003e ```\n\u003e   setup_token_decoder(pbi, data + first_partition_length_in_bytes);\n\u003e ```\n\nError concealment isn\u0027t widely used. We\u0027ll want to defer any changes to that path until there\u0027s fuzzing coverage.",
+      "parentUuid": "7cb544e8_ce9f5668",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7268dac_72011876",
@@ -150,6 +258,24 @@
       "writtenOn": "2026-02-13T19:24:40Z",
       "side": 1,
       "message": "It seems simpler to validate `first_partition_length_in_bytes` here:\n\n```\n    if (data_end - data \u003c first_partition_length_in_bytes) {\n      vpx_internal_error(\u0026pc-\u003eerror, VPX_CODEC_CORRUPT_FRAME,\n                         \"Truncated packet or corrupt partition 0 length\");\n    }\n```",
+      "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e872a0_1a855b8b",
+        "filename": "vp8/decoder/decodeframe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-13T20:52:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7268dac_72011876",
       "revId": "cba6abc684aa47fea37dcf4489a7f5922c189580",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
