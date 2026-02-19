@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc22a71a_04776106",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-19T19:22:05Z",
+      "side": 1,
+      "message": "This location is awkward due to the `goto` at line 222. Otherwise it would go before the for loop. I could embed the limit there if you\u0027d prefer.\n\nOne local run went from ~29s to ~21s (203 frames down to 150). We can continue to drop this if needed (the other test case only had 170).",
+      "revId": "2733d892f46c8ecc35af19df0a46da97431990ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
