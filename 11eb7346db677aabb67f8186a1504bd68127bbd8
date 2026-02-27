@@ -52,6 +52,24 @@
       "parentUuid": "96c81c7c_45f3bff3",
       "revId": "11eb7346db677aabb67f8186a1504bd68127bbd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7002859d_41b4b139",
+        "filename": "vpx_scale/yv12config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-27T19:33:29Z",
+      "side": 0,
+      "message": "\u003e \u003e Did the crash happen with AVX2 or AVX512, in highbd or 8-bit mode? And does chromium call VP9_SET_BYTE_ALIGNMENT at any place?\n\u003e \n\u003e There wasn\u0027t a crash in AVX2 or AVX512 (I suspected those first). Instead there was a decode mismatch, which I wasn\u0027t able to reproduce with `vpxdec`:\n\u003e \n\u003e ```\n\u003e third_party/blink/tools/run_web_tests.py --debug \\\n\u003e   --no-show-results --nocheck-sys-deps \\\n\u003e   --no-retry-failures media/video-colorspace-yuv422.html\n\u003e ...\n\u003e [1/1] media/video-colorspace-yuv422.html failed unexpectedly (image diff) 1.1559s\n\u003e ```\n\u003e \n\u003e Chrome uses external frame buffers, but all of the calculations should be hidden from it. Changing `VP9_DEC_BORDER_IN_PIXELS` back to `32` and removing the alignment check in yv12config.c fixes the test.\n\nI haven\u0027t forgotten about investigating the root cause in Chrome. Some other issues have come up with higher priorities in the last few weeks.",
+      "parentUuid": "48356be5_a76516a4",
+      "revId": "11eb7346db677aabb67f8186a1504bd68127bbd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
