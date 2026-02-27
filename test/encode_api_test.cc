@@ -2040,6 +2040,38 @@ TEST(EncodeAPI, Buganizer442105459_4RowTiles) {
   vpx_codec_destroy(&ctx);
 }
 
+TEST(EncodeAPI, BuganizerTestScalingIssue) {
+  VP9Encoder encoder(7, 0, VPX_BITS_8, VPX_IMG_FMT_I420);
+  encoder.Configure(/*threads=*/1, /*width=*/256, /*height=*/512, VPX_CBR,
+                    VPX_DL_REALTIME);
+  encoder.Configure(/*threads=*/1, /*width=*/256, /*height=*/512, VPX_CBR,
+                    VPX_DL_REALTIME);
+  encoder.Encode(/*key_frame=*/true);
+  encoder.Encode(/*key_frame=*/false);
+
+  encoder.Configure(/*threads=*/1, /*width=*/256, /*height=*/256, VPX_CBR,
+                    VPX_DL_REALTIME);
+  encoder.Encode(/*key_frame=*/false);
+  encoder.Encode(/*key_frame=*/true);
+  encoder.Encode(/*key_frame=*/true);
+  encoder.Encode(/*key_frame=*/false);
+
+  encoder.Configure(/*threads=*/1, /*width=*/256, /*height=*/64, VPX_CBR,
+                    VPX_DL_REALTIME);
+  encoder.Encode(/*key_frame=*/false);
+  encoder.Encode(/*key_frame=*/false);
+  encoder.Encode(/*key_frame=*/false);
+
+  encoder.Configure(/*threads=*/1, /*width=*/128, /*height=*/512, VPX_CBR,
+                    VPX_DL_REALTIME);
+  encoder.Encode(/*key_frame=*/false);
+  encoder.Encode(/*key_frame=*/false);
+
+  encoder.Configure(/*threads=*/1, /*width=*/512, /*height=*/128, VPX_CBR,
+                    VPX_DL_REALTIME);
+  encoder.Encode(/*key_frame=*/false);
+}
+
 #if CONFIG_VP9_HIGHBITDEPTH
 TEST(EncodeAPI, Buganizer329674887RowMT0BitDepth12) {
   VP9Encoder encoder(8, 0, VPX_BITS_12, VPX_IMG_FMT_I444);
