@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9b1ad39_8bdec00e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-28T01:12:58Z",
+      "side": 1,
+      "message": "add `Bug: 487259772`",
+      "revId": "4df0f1ab5322b60a0b8ba80aa5b9e9885b4c492f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7093558a_df8f291d",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-28T01:12:58Z",
+      "side": 1,
+      "message": "This might affect the existing tests. It might be better to add a separate path for this one.",
+      "revId": "4df0f1ab5322b60a0b8ba80aa5b9e9885b4c492f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d32892e7_7fa66d57",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-02-28T01:12:58Z",
+      "side": 1,
+      "message": "make this `Buganizer487259772...` to match some of the other tests.",
+      "range": {
+        "startLine": 2055,
+        "startChar": 16,
+        "endLine": 2055,
+        "endChar": 41
+      },
+      "revId": "4df0f1ab5322b60a0b8ba80aa5b9e9885b4c492f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
