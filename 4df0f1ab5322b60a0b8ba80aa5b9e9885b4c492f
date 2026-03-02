@@ -80,6 +80,30 @@
       },
       "revId": "4df0f1ab5322b60a0b8ba80aa5b9e9885b4c492f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ddb1ac_60d243f5",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-02T22:54:52Z",
+      "side": 1,
+      "message": "\u003e the test currently does not fail, and  it never hits the \"if (new_fb \u003d\u003d INVALID_IDX) return \" in vp9_scale_references(). So not sure, will take another look.\n\nI have a test case for this path:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/libvpx/source/libvpx/vp9/encoder/vp9_pickmode.c;l\u003d2291;drc\u003dba9dad15b83f791773452bc4889102cbdda50605\n\nextracted from a modified fuzzer. In that case, I only set the planes to single (random) values for each, not each individual pixel.\n\nAlso, WebCodecs defaults to `VPX_VBR`, I\u0027m not sure that it makes a difference here.",
+      "parentUuid": "1a5f6c52_93aa6ff3",
+      "range": {
+        "startLine": 2055,
+        "startChar": 16,
+        "endLine": 2055,
+        "endChar": 41
+      },
+      "revId": "4df0f1ab5322b60a0b8ba80aa5b9e9885b4c492f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
