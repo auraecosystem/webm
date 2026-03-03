@@ -104,6 +104,30 @@
       },
       "revId": "4df0f1ab5322b60a0b8ba80aa5b9e9885b4c492f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a090e463_bdef08cd",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2055,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-03-03T02:57:18Z",
+      "side": 1,
+      "message": "ok, good you found a test case, will +2 your changes.",
+      "parentUuid": "f9ddb1ac_60d243f5",
+      "range": {
+        "startLine": 2055,
+        "startChar": 16,
+        "endLine": 2055,
+        "endChar": 41
+      },
+      "revId": "4df0f1ab5322b60a0b8ba80aa5b9e9885b4c492f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
