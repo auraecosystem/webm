@@ -12,6 +12,7 @@
  */
 #include <assert.h>
 #include <errno.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -68,10 +69,12 @@ static int y4m_parse_tags(y4m_input *_y4m, char *_tags) {
     switch (p[0]) {
       case 'W': {
         if (sscanf(p + 1, "%d", &_y4m->pic_w) != 1) return -1;
+        if (_y4m->pic_w <= 0) return -1;
         break;
       }
       case 'H': {
         if (sscanf(p + 1, "%d", &_y4m->pic_h) != 1) return -1;
+        if (_y4m->pic_h <= 0) return -1;
         break;
       }
       case 'F': {
@@ -876,8 +879,8 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     y4m_ctx->src_c_dec_h = y4m_ctx->dst_c_dec_h = y4m_ctx->src_c_dec_v =
         y4m_ctx->dst_c_dec_v = 2;
     y4m_ctx->dst_buf_read_sz =
-        y4m_ctx->pic_w * y4m_ctx->pic_h +
-        2 * ((y4m_ctx->pic_w + 1) / 2) * ((y4m_ctx->pic_h + 1) / 2);
+        (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h +
+        2 * ((y4m_ctx->pic_w + 1) / 2) * ((size_t)(y4m_ctx->pic_h + 1) / 2);
     /* Natively supported: no conversion required. */
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
     y4m_ctx->convert = y4m_convert_null;
@@ -886,9 +889,9 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     y4m_ctx->dst_c_dec_h = 2;
     y4m_ctx->src_c_dec_v = 2;
     y4m_ctx->dst_c_dec_v = 2;
-    y4m_ctx->dst_buf_read_sz =
-        2 * (y4m_ctx->pic_w * y4m_ctx->pic_h +
-             2 * ((y4m_ctx->pic_w + 1) / 2) * ((y4m_ctx->pic_h + 1) / 2));
+    y4m_ctx->dst_buf_read_sz = 2 * ((size_t)y4m_ctx->pic_w * y4m_ctx->pic_h +
+                                    2 * ((y4m_ctx->pic_w + 1) / 2) *
+                                        ((size_t)(y4m_ctx->pic_h + 1) / 2));
     /* Natively supported: no conversion required. */
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
     y4m_ctx->convert = y4m_convert_null;
@@ -904,9 +907,9 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     y4m_ctx->dst_c_dec_h = 2;
     y4m_ctx->src_c_dec_v = 2;
     y4m_ctx->dst_c_dec_v = 2;
-    y4m_ctx->dst_buf_read_sz =
-        2 * (y4m_ctx->pic_w * y4m_ctx->pic_h +
-             2 * ((y4m_ctx->pic_w + 1) / 2) * ((y4m_ctx->pic_h + 1) / 2));
+    y4m_ctx->dst_buf_read_sz = 2 * ((size_t)y4m_ctx->pic_w * y4m_ctx->pic_h +
+                                    2 * ((y4m_ctx->pic_w + 1) / 2) *
+                                        ((size_t)(y4m_ctx->pic_h + 1) / 2));
     /* Natively supported: no conversion required. */
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
     y4m_ctx->convert = y4m_convert_null;
@@ -920,23 +923,23 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
   } else if (strcmp(y4m_ctx->chroma_type, "420paldv") == 0) {
     y4m_ctx->src_c_dec_h = y4m_ctx->dst_c_dec_h = y4m_ctx->src_c_dec_v =
         y4m_ctx->dst_c_dec_v = 2;
-    y4m_ctx->dst_buf_read_sz = y4m_ctx->pic_w * y4m_ctx->pic_h;
+    y4m_ctx->dst_buf_read_sz = (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
     /*Chroma filter required: read into the aux buf first.
       We need to make two filter passes, so we need some extra space in the
        aux buffer.*/
     y4m_ctx->aux_buf_sz =
-        3 * ((y4m_ctx->pic_w + 1) / 2) * ((y4m_ctx->pic_h + 1) / 2);
+        3 * ((y4m_ctx->pic_w + 1) / 2) * ((size_t)(y4m_ctx->pic_h + 1) / 2);
     y4m_ctx->aux_buf_read_sz =
-        2 * ((y4m_ctx->pic_w + 1) / 2) * ((y4m_ctx->pic_h + 1) / 2);
+        2 * ((y4m_ctx->pic_w + 1) / 2) * ((size_t)(y4m_ctx->pic_h + 1) / 2);
     y4m_ctx->convert = y4m_convert_42xpaldv_42xjpeg;
   } else if (strcmp(y4m_ctx->chroma_type, "422jpeg") == 0) {
     y4m_ctx->src_c_dec_h = y4m_ctx->dst_c_dec_h = 2;
     y4m_ctx->src_c_dec_v = 1;
     y4m_ctx->dst_c_dec_v = 2;
-    y4m_ctx->dst_buf_read_sz = y4m_ctx->pic_w * y4m_ctx->pic_h;
+    y4m_ctx->dst_buf_read_sz = (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
     /*Chroma filter required: read into the aux buf first.*/
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz =
-        2 * ((y4m_ctx->pic_w + 1) / 2) * y4m_ctx->pic_h;
+        2 * ((y4m_ctx->pic_w + 1) / 2) * (size_t)y4m_ctx->pic_h;
     y4m_ctx->convert = y4m_convert_422jpeg_420jpeg;
   } else if (strcmp(y4m_ctx->chroma_type, "422") == 0) {
     y4m_ctx->src_c_dec_h = 2;
@@ -944,14 +947,14 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     if (only_420) {
       y4m_ctx->dst_c_dec_h = 2;
       y4m_ctx->dst_c_dec_v = 2;
-      y4m_ctx->dst_buf_read_sz = y4m_ctx->pic_w * y4m_ctx->pic_h;
+      y4m_ctx->dst_buf_read_sz = (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
       /*Chroma filter required: read into the aux buf first.
         We need to make two filter passes, so we need some extra space in the
          aux buffer.*/
       y4m_ctx->aux_buf_read_sz =
-          2 * ((y4m_ctx->pic_w + 1) / 2) * y4m_ctx->pic_h;
+          2 * ((y4m_ctx->pic_w + 1) / 2) * (size_t)y4m_ctx->pic_h;
       y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz +
-                            ((y4m_ctx->pic_w + 1) / 2) * y4m_ctx->pic_h;
+                            ((y4m_ctx->pic_w + 1) / 2) * (size_t)y4m_ctx->pic_h;
       y4m_ctx->convert = y4m_convert_422_420jpeg;
     } else {
       y4m_ctx->vpx_fmt = VPX_IMG_FMT_I422;
@@ -959,8 +962,8 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
       y4m_ctx->dst_c_dec_h = y4m_ctx->src_c_dec_h;
       y4m_ctx->dst_c_dec_v = y4m_ctx->src_c_dec_v;
       y4m_ctx->dst_buf_read_sz =
-          y4m_ctx->pic_w * y4m_ctx->pic_h +
-          2 * ((y4m_ctx->pic_w + 1) / 2) * y4m_ctx->pic_h;
+          (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h +
+          2 * ((y4m_ctx->pic_w + 1) / 2) * (size_t)y4m_ctx->pic_h;
       /*Natively supported: no conversion required.*/
       y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
       y4m_ctx->convert = y4m_convert_null;
@@ -974,8 +977,8 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     y4m_ctx->dst_c_dec_h = y4m_ctx->src_c_dec_h;
     y4m_ctx->dst_c_dec_v = y4m_ctx->src_c_dec_v;
     y4m_ctx->dst_buf_read_sz =
-        2 * (y4m_ctx->pic_w * y4m_ctx->pic_h +
-             2 * ((y4m_ctx->pic_w + 1) / 2) * y4m_ctx->pic_h);
+        2 * ((size_t)y4m_ctx->pic_w * y4m_ctx->pic_h +
+             2 * ((y4m_ctx->pic_w + 1) / 2) * (size_t)y4m_ctx->pic_h);
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
     y4m_ctx->convert = y4m_convert_null;
     if (only_420) {
@@ -991,8 +994,8 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     y4m_ctx->dst_c_dec_h = y4m_ctx->src_c_dec_h;
     y4m_ctx->dst_c_dec_v = y4m_ctx->src_c_dec_v;
     y4m_ctx->dst_buf_read_sz =
-        2 * (y4m_ctx->pic_w * y4m_ctx->pic_h +
-             2 * ((y4m_ctx->pic_w + 1) / 2) * y4m_ctx->pic_h);
+        2 * ((size_t)y4m_ctx->pic_w * y4m_ctx->pic_h +
+             2 * ((y4m_ctx->pic_w + 1) / 2) * (size_t)y4m_ctx->pic_h);
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
     y4m_ctx->convert = y4m_convert_null;
     if (only_420) {
@@ -1004,13 +1007,14 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     y4m_ctx->dst_c_dec_h = 2;
     y4m_ctx->src_c_dec_v = 1;
     y4m_ctx->dst_c_dec_v = 2;
-    y4m_ctx->dst_buf_read_sz = y4m_ctx->pic_w * y4m_ctx->pic_h;
+    y4m_ctx->dst_buf_read_sz = (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
     /*Chroma filter required: read into the aux buf first.
       We need to make two filter passes, so we need some extra space in the
        aux buffer.*/
-    y4m_ctx->aux_buf_read_sz = 2 * ((y4m_ctx->pic_w + 3) / 4) * y4m_ctx->pic_h;
-    y4m_ctx->aux_buf_sz =
-        y4m_ctx->aux_buf_read_sz + ((y4m_ctx->pic_w + 1) / 2) * y4m_ctx->pic_h;
+    y4m_ctx->aux_buf_read_sz =
+        2 * ((y4m_ctx->pic_w + 3) / 4) * (size_t)y4m_ctx->pic_h;
+    y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz +
+                          ((y4m_ctx->pic_w + 1) / 2) * (size_t)y4m_ctx->pic_h;
     y4m_ctx->convert = y4m_convert_411_420jpeg;
     fprintf(stderr, "Unsupported conversion from yuv 411\n");
     return -1;
@@ -1020,20 +1024,20 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     if (only_420) {
       y4m_ctx->dst_c_dec_h = 2;
       y4m_ctx->dst_c_dec_v = 2;
-      y4m_ctx->dst_buf_read_sz = y4m_ctx->pic_w * y4m_ctx->pic_h;
+      y4m_ctx->dst_buf_read_sz = (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
       /*Chroma filter required: read into the aux buf first.
         We need to make two filter passes, so we need some extra space in the
          aux buffer.*/
-      y4m_ctx->aux_buf_read_sz = 2 * y4m_ctx->pic_w * y4m_ctx->pic_h;
+      y4m_ctx->aux_buf_read_sz = 2 * (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
       y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz +
-                            ((y4m_ctx->pic_w + 1) / 2) * y4m_ctx->pic_h;
+                            ((y4m_ctx->pic_w + 1) / 2) * (size_t)y4m_ctx->pic_h;
       y4m_ctx->convert = y4m_convert_444_420jpeg;
     } else {
       y4m_ctx->vpx_fmt = VPX_IMG_FMT_I444;
       y4m_ctx->bps = 24;
       y4m_ctx->dst_c_dec_h = y4m_ctx->src_c_dec_h;
       y4m_ctx->dst_c_dec_v = y4m_ctx->src_c_dec_v;
-      y4m_ctx->dst_buf_read_sz = 3 * y4m_ctx->pic_w * y4m_ctx->pic_h;
+      y4m_ctx->dst_buf_read_sz = 3 * (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
       /*Natively supported: no conversion required.*/
       y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
       y4m_ctx->convert = y4m_convert_null;
@@ -1046,7 +1050,7 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     y4m_ctx->bit_depth = 10;
     y4m_ctx->dst_c_dec_h = y4m_ctx->src_c_dec_h;
     y4m_ctx->dst_c_dec_v = y4m_ctx->src_c_dec_v;
-    y4m_ctx->dst_buf_read_sz = 2 * 3 * y4m_ctx->pic_w * y4m_ctx->pic_h;
+    y4m_ctx->dst_buf_read_sz = 2 * 3 * (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
     y4m_ctx->convert = y4m_convert_null;
     if (only_420) {
@@ -1061,7 +1065,7 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
     y4m_ctx->bit_depth = 12;
     y4m_ctx->dst_c_dec_h = y4m_ctx->src_c_dec_h;
     y4m_ctx->dst_c_dec_v = y4m_ctx->src_c_dec_v;
-    y4m_ctx->dst_buf_read_sz = 2 * 3 * y4m_ctx->pic_w * y4m_ctx->pic_h;
+    y4m_ctx->dst_buf_read_sz = 2 * 3 * (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
     y4m_ctx->convert = y4m_convert_null;
     if (only_420) {
@@ -1071,7 +1075,7 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
   } else if (strcmp(y4m_ctx->chroma_type, "mono") == 0) {
     y4m_ctx->src_c_dec_h = y4m_ctx->src_c_dec_v = 0;
     y4m_ctx->dst_c_dec_h = y4m_ctx->dst_c_dec_v = 2;
-    y4m_ctx->dst_buf_read_sz = y4m_ctx->pic_w * y4m_ctx->pic_h;
+    y4m_ctx->dst_buf_read_sz = (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h;
     /*No extra space required, but we need to clear the chroma planes.*/
     y4m_ctx->aux_buf_sz = y4m_ctx->aux_buf_read_sz = 0;
     y4m_ctx->convert = y4m_convert_mono_420jpeg;
@@ -1082,9 +1086,10 @@ int y4m_input_open(y4m_input *y4m_ctx, FILE *file, char *skip_buffer,
   /*The size of the final frame buffers is always computed from the
      destination chroma decimation type.*/
   y4m_ctx->dst_buf_sz =
-      y4m_ctx->pic_w * y4m_ctx->pic_h +
+      (size_t)y4m_ctx->pic_w * y4m_ctx->pic_h +
       2 * ((y4m_ctx->pic_w + y4m_ctx->dst_c_dec_h - 1) / y4m_ctx->dst_c_dec_h) *
-          ((y4m_ctx->pic_h + y4m_ctx->dst_c_dec_v - 1) / y4m_ctx->dst_c_dec_v);
+          ((size_t)(y4m_ctx->pic_h + y4m_ctx->dst_c_dec_v - 1) /
+           y4m_ctx->dst_c_dec_v);
   if (y4m_ctx->bit_depth == 8)
     y4m_ctx->dst_buf = (unsigned char *)malloc(y4m_ctx->dst_buf_sz);
   else
@@ -1108,10 +1113,10 @@ void y4m_input_close(y4m_input *_y4m) {
 
 int y4m_input_fetch_frame(y4m_input *_y4m, FILE *_fin, vpx_image_t *_img) {
   char frame[6];
-  int pic_sz;
-  int c_w;
-  int c_h;
-  int c_sz;
+  size_t pic_sz;
+  size_t c_w;
+  size_t c_h;
+  size_t c_sz;
   int bytes_per_sample = _y4m->bit_depth > 8 ? 2 : 1;
   /*Read and skip the frame header.*/
   if (!file_read(frame, 6, _fin)) return 0;
@@ -1155,7 +1160,7 @@ int y4m_input_fetch_frame(y4m_input *_y4m, FILE *_fin, vpx_image_t *_img) {
   _img->bps = _y4m->bps;
 
   /*Set up the buffer pointers.*/
-  pic_sz = _y4m->pic_w * _y4m->pic_h * bytes_per_sample;
+  pic_sz = (size_t)_y4m->pic_w * _y4m->pic_h * bytes_per_sample;
   c_w = (_y4m->pic_w + _y4m->dst_c_dec_h - 1) / _y4m->dst_c_dec_h;
   c_w *= bytes_per_sample;
   c_h = (_y4m->pic_h + _y4m->dst_c_dec_v - 1) / _y4m->dst_c_dec_v;
