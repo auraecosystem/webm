@@ -16,6 +16,24 @@
       "message": "Thanks for the patch. An alternative would be to update the buffer calculations to support larger dimensions. This is a safer first step, however.",
       "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "588b9984_909f89d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4674168
+      },
+      "writtenOn": "2026-03-10T17:55:57Z",
+      "side": 1,
+      "message": "Thank you for reviewing the patch and for the suggestion regarding updating the buffer calculations to support larger dimensions. I appreciate the guidance and agree that it could be a safer first step.\n\nI also wanted to kindly ask whether this issue would be considered eligible for a CVE assignment, since it involves a potential memory/buffer handling problem. Please let me know if additional details or a more formal security report would be helpful.",
+      "parentUuid": "64634b20_bd5e08c5",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
