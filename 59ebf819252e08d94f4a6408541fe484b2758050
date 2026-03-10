@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c62debb9_4ab2ca5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-10T19:00:20Z",
+      "side": 1,
+      "message": "libaom has `InvalidSvcParams`:\n\nhttps://aomedia.googlesource.com/aom/+/refs/tags/v3.13.1/test/encode_api_test.cc#101\n\nWould something like that here catch the issue?",
+      "revId": "59ebf819252e08d94f4a6408541fe484b2758050",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "502592fc_d4df4c48",
         "filename": "vp9/vp9_cx_iface.c",
         "patchSetId": 1
