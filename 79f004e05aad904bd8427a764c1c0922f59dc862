@@ -34,6 +34,24 @@
       "parentUuid": "64634b20_bd5e08c5",
       "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1b22800_f12c445f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-10T19:34:37Z",
+      "side": 1,
+      "message": "\u003e Thank you for reviewing the patch and for the suggestion regarding updating the buffer calculations to support larger dimensions. I appreciate the guidance and agree that it could be a safer first step.\n\u003e \n\u003e I also wanted to kindly ask whether this issue would be considered eligible for a CVE assignment, since it involves a potential memory/buffer handling problem. Please let me know if additional details or a more formal security report would be helpful.\n\nThis code isn\u0027t used in any production systems. In general this project doesn\u0027t file CVEs, but relies on Chrome to file one if the code causes any issues there; similarly for Android.",
+      "parentUuid": "588b9984_909f89d0",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
