@@ -51,17 +51,22 @@ int vp8_yv12_de_alloc_frame_buffer(YV12_BUFFER_CONFIG *ybf) {
 int vp8_yv12_realloc_frame_buffer(YV12_BUFFER_CONFIG *ybf, int width,
                                   int height, int border) {
   if (ybf) {
-    int aligned_width = (width + 15) & ~15;
-    int aligned_height = (height + 15) & ~15;
-    int y_stride = ((aligned_width + 2 * border) + 31) & ~31;
-    int yplane_size = (aligned_height + 2 * border) * y_stride;
-    int uv_width = aligned_width >> 1;
-    int uv_height = aligned_height >> 1;
+    const int aligned_width = (width + 15) & ~15;
+    const int aligned_height = (height + 15) & ~15;
+    const int y_stride = ((aligned_width + 2 * border) + 31) & ~31;
+    const uint64_t yplane_size =
+        (aligned_height + 2 * border) * (uint64_t)y_stride;
+    const int uv_width = aligned_width >> 1;
+    const int uv_height = aligned_height >> 1;
     /** There is currently a bunch of code which assumes
      *  uv_stride == y_stride/2, so enforce this here. */
-    int uv_stride = y_stride >> 1;
-    int uvplane_size = (uv_height + border) * uv_stride;
-    const size_t frame_size = yplane_size + 2 * uvplane_size;
+    const int uv_stride = y_stride >> 1;
+    const uint64_t uvplane_size = (uv_height + border) * (uint64_t)uv_stride;
+    const uint64_t frame_size = yplane_size + 2 * uvplane_size;
+
+#if UINT64_MAX > SIZE_MAX
+    if (frame_size > SIZE_MAX) return -1;
+#endif
 
     if (!ybf->buffer_alloc) {
       ybf->buffer_alloc = (uint8_t *)vpx_memalign(32, frame_size);
@@ -110,9 +115,11 @@ int vp8_yv12_realloc_frame_buffer(YV12_BUFFER_CONFIG *ybf, int width,
 
     ybf->y_buffer = ybf->buffer_alloc + (border * y_stride) + border;
     ybf->u_buffer =
-        ybf->buffer_alloc + yplane_size + (border / 2 * uv_stride) + border / 2;
-    ybf->v_buffer = ybf->buffer_alloc + yplane_size + uvplane_size +
-                    (border / 2 * uv_stride) + border / 2;
+        ybf->buffer_alloc + (size_t)yplane_size + (border / 2 * uv_stride) +
+        border / 2;
+    ybf->v_buffer = ybf->buffer_alloc + (size_t)yplane_size +
+                    (size_t)uvplane_size + (border / 2 * uv_stride) +
+                    border / 2;
     ybf->alpha_buffer = NULL;
 
     ybf->corrupted = 0; /* assume not currupted by errors */

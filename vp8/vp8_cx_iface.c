@@ -89,7 +89,7 @@ struct vpx_codec_alg_priv {
   VP8_CONFIG oxcf;
   struct VP8_COMP *cpi;
   unsigned char *cx_data;
-  unsigned int cx_data_sz;
+  size_t cx_data_sz;
   vpx_image_t preview_img;
   unsigned int next_frame_flag;
   vp8_postproc_cfg_t preview_ppcfg;
@@ -713,7 +713,7 @@ static vpx_codec_err_t vp8e_init(vpx_codec_ctx_t *ctx,
     priv->vp8_cfg = default_extracfg;
     priv->vp8_cfg.pkt_list = &priv->pkt_list.head;
 
-    priv->cx_data_sz = priv->cfg.g_w * priv->cfg.g_h * 3 / 2 * 2;
+    priv->cx_data_sz = (size_t)priv->cfg.g_w * priv->cfg.g_h * 3 / 2 * 2;
 
     if (priv->cx_data_sz < 32768) priv->cx_data_sz = 32768;
 

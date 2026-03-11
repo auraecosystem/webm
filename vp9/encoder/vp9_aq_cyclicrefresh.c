@@ -543,7 +543,7 @@ void vp9_cyclic_refresh_update_parameters(VP9_COMP *const cpi) {
     cr->rate_boost_fac = 10;
   }
   // Adjust some parameters for low resolutions.
-  if (cm->width * cm->height <= 352 * 288) {
+  if ((int64_t)cm->width * cm->height <= 352 * 288) {
     if (rc->avg_frame_bandwidth < 3000) {
       cr->motion_thresh = 64;
       cr->rate_boost_fac = 13;

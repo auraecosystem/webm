@@ -18,12 +18,31 @@
 
 #include <stdlib.h>
 #include <stddef.h>
+#include <stdint.h>
 
 #include "vpx/vpx_integer.h"
 
 #if defined(__cplusplus)
 extern "C" {
 #endif
+
+// Overflow-checked multiplication for size calculations.
+// Returns 1 on success (result stored in *res), 0 on overflow.
+static INLINE int vpx_size_checked_mul(uint64_t a, uint64_t b,
+                                       uint64_t *res) {
+  if (a != 0 && b > UINT64_MAX / a) return 0;
+  *res = a * b;
+  return 1;
+}
+
+// Overflow-checked three-way multiplication (a * b * c).
+// Returns 1 on success, 0 on overflow.
+static INLINE int vpx_size_checked_mul3(uint64_t a, uint64_t b, uint64_t c,
+                                        uint64_t *res) {
+  uint64_t ab;
+  if (!vpx_size_checked_mul(a, b, &ab)) return 0;
+  return vpx_size_checked_mul(ab, c, res);
+}
 
 void *vpx_memalign(size_t align, size_t size);
 void *vpx_malloc(size_t size);

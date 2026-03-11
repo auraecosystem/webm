@@ -138,7 +138,7 @@ static int is_spatial_denoise_enabled(VP9_COMP *cpi) {
 static int compute_context_model_thresh(const VP9_COMP *const cpi) {
   const VP9_COMMON *const cm = &cpi->common;
   const VP9EncoderConfig *const oxcf = &cpi->oxcf;
-  const int frame_size = (cm->width * cm->height) >> 10;
+  const int frame_size = (int)(((int64_t)cm->width * cm->height) >> 10);
   const int bitrate = (int)(oxcf->target_bandwidth >> 10);
   const int qindex_factor = cm->base_qindex + (MAXQ >> 1);
 
@@ -1393,9 +1393,9 @@ static void alloc_compressor_data(VP9_COMP *cpi) {
   vpx_free(cpi->tile_tok[0][0]);
 
   {
-    unsigned int tokens = get_token_alloc(cm->mb_rows, cm->mb_cols);
+    const int64_t tokens = get_token_alloc(cm->mb_rows, cm->mb_cols);
     CHECK_MEM_ERROR(&cm->error, cpi->tile_tok[0][0],
-                    vpx_calloc(tokens, sizeof(*cpi->tile_tok[0][0])));
+                    vpx_calloc((size_t)tokens, sizeof(*cpi->tile_tok[0][0])));
   }
 
   sb_rows = mi_cols_aligned_to_sb(cm->mi_rows) >> MI_BLOCK_SIZE_LOG2;
@@ -5877,7 +5877,7 @@ static void update_level_info(VP9_COMP *cpi, size_t size, int arf_src_index) {
   Vp9LevelStats *const level_stats = &level_info->level_stats;
   int i, idx;
   uint64_t luma_samples, dur_end;
-  const uint32_t luma_pic_size = cm->width * cm->height;
+  const uint64_t luma_pic_size = (uint64_t)cm->width * cm->height;
   const uint32_t luma_pic_breadth = VPXMAX(cm->width, cm->height);
   LevelConstraint *const level_constraint = &cpi->level_constraint;
   const int8_t level_index = level_constraint->level_index;
@@ -5918,7 +5918,7 @@ static void update_level_info(VP9_COMP *cpi, size_t size, int arf_src_index) {
   }
   level_stats->frame_window_buffer.buf[idx].ts = cpi->last_time_stamp_seen;
   level_stats->frame_window_buffer.buf[idx].size = (uint32_t)size;
-  level_stats->frame_window_buffer.buf[idx].luma_samples = luma_pic_size;
+  level_stats->frame_window_buffer.buf[idx].luma_samples = (uint32_t)luma_pic_size;
 
   if (cm->frame_type == KEY_FRAME) {
     level_stats->ref_refresh_map = 0;
@@ -5979,7 +5979,7 @@ static void update_level_info(VP9_COMP *cpi, size_t size, int arf_src_index) {
 
   // update max_luma_picture_size
   if (luma_pic_size > level_spec->max_luma_picture_size) {
-    level_spec->max_luma_picture_size = luma_pic_size;
+    level_spec->max_luma_picture_size = (uint32_t)luma_pic_size;
   }
 
   // update max_luma_picture_breadth

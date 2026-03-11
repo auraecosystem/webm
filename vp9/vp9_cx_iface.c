@@ -1366,7 +1366,7 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
     if (res == VPX_CODEC_OK) {
       // There's no codec control for multiple alt-refs so check the encoder
       // instance for its status to determine the compressed data size.
-      data_sz = ctx->cfg.g_w * ctx->cfg.g_h * get_image_bps(img) / 8 *
+      data_sz = (size_t)ctx->cfg.g_w * ctx->cfg.g_h * get_image_bps(img) / 8 *
                 (cpi->multi_layer_arf ? 8 : 2);
       if (data_sz < kMinCompressedSize) data_sz = kMinCompressedSize;
       if (ctx->cx_data == NULL || ctx->cx_data_sz < data_sz) {
