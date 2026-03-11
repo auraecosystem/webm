@@ -70,6 +70,24 @@
       "parentUuid": "48356be5_a76516a4",
       "revId": "11eb7346db677aabb67f8186a1504bd68127bbd8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec46a22c_ebe4aea6",
+        "filename": "vpx_scale/yv12config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 3877082
+      },
+      "writtenOn": "2026-03-11T04:56:20Z",
+      "side": 0,
+      "message": "Could it be a rounding error because of the changed coded_size (https://source.chromium.org/chromium/chromium/src/+/main:media/filters/vpx_video_decoder.cc;l\u003d552;bpv\u003d1;bpt\u003d1)? Chromium uses vpx_image-\u003ew which is set to y_stride by libvpx, and the ratio between visible_size and coded_size would change due to increased border size esp. for small videos.",
+      "parentUuid": "7002859d_41b4b139",
+      "revId": "11eb7346db677aabb67f8186a1504bd68127bbd8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
