@@ -1495,7 +1495,7 @@ static double calc_correction_factor(double err_per_mb, double err_divisor,
 
 static double wq_err_divisor(VP9_COMP *cpi) {
   const VP9_COMMON *const cm = &cpi->common;
-  unsigned int screen_area = (cm->width * cm->height);
+  const int64_t screen_area = (int64_t)cm->width * cm->height;
 
   // Use a different error per mb factor for calculating boost for
   //  different formats.
@@ -3608,9 +3608,9 @@ void vp9_rc_get_second_pass_params(VP9_COMP *cpi) {
 
   // Configure image size specific vizier parameters
   if (cm->current_video_frame == 0) {
-    unsigned int screen_area = (cm->width * cm->height);
+    const int64_t screen_area = (int64_t)cm->width * cm->height;
 
-    vp9_init_vizier_params(twopass, screen_area);
+    vp9_init_vizier_params(twopass, (int)screen_area);
   }
 
   // If this is an arf frame then we don't want to read the stats file or

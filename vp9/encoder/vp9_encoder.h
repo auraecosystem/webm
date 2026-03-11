@@ -1064,7 +1064,7 @@ static INLINE YV12_BUFFER_CONFIG *get_ref_frame_buffer(
                                 : NULL;
 }
 
-static INLINE int get_token_alloc(int mb_rows, int mb_cols) {
+static INLINE int64_t get_token_alloc(int mb_rows, int mb_cols) {
   // TODO(JBB): double check we can't exceed this token count if we have a
   // 32x32 transform crossing a boundary at a multiple of 16.
   // mb_rows, cols are in units of 16 pixels. We assume 3 planes all at full
@@ -1076,7 +1076,7 @@ static INLINE int get_token_alloc(int mb_rows, int mb_cols) {
       ALIGN_POWER_OF_TWO(mb_rows, MI_BLOCK_SIZE_LOG2 - 1);
   const int aligned_mb_cols =
       ALIGN_POWER_OF_TWO(mb_cols, MI_BLOCK_SIZE_LOG2 - 1);
-  return aligned_mb_rows * aligned_mb_cols * (16 * 16 * 3 + 4);
+  return (int64_t)aligned_mb_rows * aligned_mb_cols * (16 * 16 * 3 + 4);
 }
 
 // Get the allocated token size for a tile. It does the same calculation as in
@@ -1085,7 +1085,7 @@ static INLINE int allocated_tokens(TileInfo tile) {
   int tile_mb_rows = (tile.mi_row_end - tile.mi_row_start + 1) >> 1;
   int tile_mb_cols = (tile.mi_col_end - tile.mi_col_start + 1) >> 1;
 
-  return get_token_alloc(tile_mb_rows, tile_mb_cols);
+  return (int)get_token_alloc(tile_mb_rows, tile_mb_cols);
 }
 
 static INLINE void get_start_tok(VP9_COMP *cpi, int tile_row, int tile_col,

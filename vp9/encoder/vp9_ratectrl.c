@@ -1047,7 +1047,7 @@ static int rc_pick_q_and_bounds_one_pass_cbr(const VP9_COMP *cpi,
           rc, rc->avg_frame_qindex[KEY_FRAME], cm->bit_depth);
 
       // Allow somewhat lower kf minq with small image formats.
-      if ((cm->width * cm->height) <= (352 * 288)) {
+      if (((int64_t)cm->width * cm->height) <= (352 * 288)) {
         q_adj_factor -= 0.25;
       }
 
@@ -1190,7 +1190,7 @@ static int rc_pick_q_and_bounds_one_pass_vbr(const VP9_COMP *cpi,
           rc, rc->avg_frame_qindex[KEY_FRAME], cm->bit_depth);
 
       // Allow somewhat lower kf minq with small image formats.
-      if ((cm->width * cm->height) <= (352 * 288)) {
+      if (((int64_t)cm->width * cm->height) <= (352 * 288)) {
         q_adj_factor -= 0.25;
       }
 
@@ -1407,7 +1407,7 @@ static void pick_kf_q_bound_two_pass(const VP9_COMP *cpi, int *bottom_index,
         VPXMIN(active_worst_quality, VPXMAX(1, active_best_quality));
 
     // Allow somewhat lower kf minq with small image formats.
-    if ((cm->width * cm->height) <= (352 * 288)) {
+    if (((int64_t)cm->width * cm->height) <= (352 * 288)) {
       q_adj_factor -= 0.25;
     }
 
@@ -1739,8 +1739,8 @@ void vp9_rc_set_frame_target(VP9_COMP *cpi, int target) {
   }
 
   // Target rate per SB64 (including partial SB64s.
-  const int64_t sb64_target_rate =
-      ((int64_t)rc->this_frame_target * 64 * 64) / (cm->width * cm->height);
+  const int64_t sb64_target_rate = ((int64_t)rc->this_frame_target * 64 * 64) /
+                                   ((int64_t)cm->width * cm->height);
   rc->sb64_target_rate = (int)VPXMIN(sb64_target_rate, INT_MAX);
 }
 
@@ -2762,7 +2762,8 @@ int vp9_resize_one_pass_cbr(VP9_COMP *cpi) {
   }
 
   // No resizing down if frame size is below some limit.
-  if ((cm->width * cm->height) < min_width * min_height) down_size_on = 0;
+  if (((int64_t)cm->width * cm->height) < min_width * min_height)
+    down_size_on = 0;
 
 #if CONFIG_VP9_TEMPORAL_DENOISING
   // If denoiser is on, apply a smaller qp threshold.
@@ -2774,7 +2775,8 @@ int vp9_resize_one_pass_cbr(VP9_COMP *cpi) {
 
   // Force downsize based on per-frame-bandwidth, for extreme case,
   // for HD input.
-  if (cpi->resize_state == ORIG && cm->width * cm->height >= 1280 * 720) {
+  if (cpi->resize_state == ORIG &&
+      (int64_t)cm->width * cm->height >= 1280 * 720) {
     if (rc->avg_frame_bandwidth < 300000 / 30) {
       resize_action = DOWN_ONEHALF;
       cpi->resize_state = ONE_HALF;
@@ -2785,7 +2787,7 @@ int vp9_resize_one_pass_cbr(VP9_COMP *cpi) {
       force_downsize_rate = 1;
     }
   } else if (cpi->resize_state == THREE_QUARTER &&
-             cm->width * cm->height >= 960 * 540) {
+             (int64_t)cm->width * cm->height >= 960 * 540) {
     if (rc->avg_frame_bandwidth < 300000 / 30) {
       resize_action = DOWN_ONEHALF;
       cpi->resize_state = ONE_HALF;

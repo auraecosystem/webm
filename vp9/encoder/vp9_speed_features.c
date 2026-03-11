@@ -46,7 +46,7 @@ static int frame_is_boosted(const VP9_COMP *cpi) {
 // limited by transform block size but the screen area take up by a given block
 // size will be larger for a small image format stretched to full screen.
 static BLOCK_SIZE set_partition_min_limit(VP9_COMMON *const cm) {
-  unsigned int screen_area = (cm->width * cm->height);
+  const int64_t screen_area = (int64_t)cm->width * cm->height;
 
   // Select block size based on image format size.
   if (screen_area < 1280 * 720) {
@@ -644,7 +644,7 @@ static void set_rt_speed_feature_framesize_independent(
     if (cpi->use_svc && svc->spatial_layer_id > 0) sf->nonrd_keyframe = 1;
     if (cm->frame_type != KEY_FRAME && cpi->resize_state == ORIG &&
         cpi->oxcf.rc_mode == VPX_CBR && !cpi->rc.disable_overshoot_maxq_cbr) {
-      if (cm->width * cm->height <= 352 * 288 && !cpi->use_svc &&
+      if ((int64_t)cm->width * cm->height <= 352 * 288 && !cpi->use_svc &&
           cpi->oxcf.content != VP9E_CONTENT_SCREEN)
         sf->overshoot_detection_cbr_rt = RE_ENCODE_MAXQ;
       else
@@ -655,7 +655,8 @@ static void set_rt_speed_feature_framesize_independent(
       sf->use_altref_onepass = 1;
       sf->use_compound_nonrd_pickmode = 1;
     }
-    if (cm->width * cm->height > 1280 * 720) sf->cb_pred_filter_search = 2;
+    if ((int64_t)cm->width * cm->height > 1280 * 720)
+      sf->cb_pred_filter_search = 2;
     if (!cpi->external_resize) sf->use_source_sad = 1;
   }
 
@@ -672,7 +673,7 @@ static void set_rt_speed_feature_framesize_independent(
     if (sf->use_source_sad) {
       sf->adapt_partition_source_sad = 1;
       sf->adapt_partition_thresh =
-          (cm->width * cm->height <= 640 * 360) ? 40000 : 60000;
+          ((int64_t)cm->width * cm->height <= 640 * 360) ? 40000 : 60000;
       if (cpi->content_state_sb_fd == NULL &&
           (!cpi->use_svc ||
            svc->spatial_layer_id == svc->number_spatial_layers - 1)) {
@@ -745,7 +746,8 @@ static void set_rt_speed_feature_framesize_independent(
     if (cpi->use_svc && svc->use_gf_temporal_ref_current_layer &&
         svc->temporal_layer_id > 0)
       cpi->ref_frame_flags &= (~VP9_GOLD_FLAG);
-    if (cm->width * cm->height > 640 * 480) sf->cb_pred_filter_search = 2;
+    if ((int64_t)cm->width * cm->height > 640 * 480)
+      sf->cb_pred_filter_search = 2;
   }
 
   if (speed >= 8) {
@@ -759,7 +761,8 @@ static void set_rt_speed_feature_framesize_independent(
     if (cpi->row_mt && cpi->oxcf.max_threads > 1)
       sf->adaptive_rd_thresh_row_mt = 1;
     // Enable ML based partition for low res.
-    if (!frame_is_intra_only(cm) && cm->width * cm->height <= 352 * 288) {
+    if (!frame_is_intra_only(cm) &&
+        (int64_t)cm->width * cm->height <= 352 * 288) {
       sf->nonrd_use_ml_partition = 1;
     }
 #if CONFIG_VP9_HIGHBITDEPTH
@@ -782,14 +785,15 @@ static void set_rt_speed_feature_framesize_independent(
       }
       // Since the short_circuit_low_temp_var is used, reduce the
       // adaptive_rd_thresh level.
-      if (cm->width * cm->height > 352 * 288)
+      if ((int64_t)cm->width * cm->height > 352 * 288)
         sf->adaptive_rd_thresh = 1;
       else
         sf->adaptive_rd_thresh = 2;
     }
     sf->limit_newmv_early_exit = 0;
     sf->use_simple_block_yrd = 1;
-    if (cm->width * cm->height > 352 * 288) sf->cb_pred_filter_search = 2;
+    if ((int64_t)cm->width * cm->height > 352 * 288)
+      sf->cb_pred_filter_search = 2;
   }
 
   if (speed >= 9) {
@@ -810,13 +814,15 @@ static void set_rt_speed_feature_framesize_independent(
     // Allow for disabling GOLDEN reference, for CBR mode.
     if (cpi->oxcf.rc_mode == VPX_CBR) sf->disable_golden_ref = 1;
     if (cpi->rc.avg_frame_low_motion < 70) sf->default_interp_filter = BILINEAR;
-    if (cm->width * cm->height >= 640 * 360) sf->variance_part_thresh_mult = 2;
+    if ((int64_t)cm->width * cm->height >= 640 * 360)
+      sf->variance_part_thresh_mult = 2;
   }
 
   // Disable split to 8x8 for low-resolution at very high Q.
   // For variance partition (speed >= 6). Ignore the first few frames
   // as avg_frame_qindex starts at max_q (worst_quality).
-  if (cm->frame_type != KEY_FRAME && cm->width * cm->height <= 320 * 240 &&
+  if (cm->frame_type != KEY_FRAME &&
+      (int64_t)cm->width * cm->height <= 320 * 240 &&
       sf->partition_search_type == VAR_BASED_PARTITION &&
       cpi->rc.avg_frame_qindex[INTER_FRAME] > 208 &&
       cpi->common.current_video_frame > 8)

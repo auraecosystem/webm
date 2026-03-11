@@ -1170,7 +1170,7 @@ void vp8_alloc_compressor_data(VP8_COMP *cpi) {
 #if CONFIG_REALTIME_ONLY & CONFIG_ONTHEFLY_BITPACKING
     unsigned int tokens = 8 * 24 * 16; /* one MB for each thread */
 #else
-    unsigned int tokens = cm->mb_rows * cm->mb_cols * 24 * 16;
+    size_t tokens = (size_t)cm->mb_rows * cm->mb_cols * 24 * 16;
 #endif
     CHECK_MEM_ERROR(&cpi->common.error, cpi->tok,
                     vpx_calloc(tokens, sizeof(*cpi->tok)));
