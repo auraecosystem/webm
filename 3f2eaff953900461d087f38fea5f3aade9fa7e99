@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b47aa0be_bc5ef48a",
+        "filename": "y4minput.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-11T21:30:32Z",
+      "side": 1,
+      "message": "IMPORTANT: This assumes `size_t` is 64 bits. But `size_t` is 32 bits in 32-bit operating systems. If `size_t` is 32 bits, `(size_t)y4m_ctx-\u003epic_w * y4m_ctx-\u003epic_h` can still overflow, so we need code to detect overflow.",
+      "revId": "3f2eaff953900461d087f38fea5f3aade9fa7e99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
