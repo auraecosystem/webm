@@ -69,6 +69,57 @@
       "parentUuid": "588b9984_909f89d0",
       "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "decb6c1a_31bbda1a",
+        "filename": "y4minput.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-11T02:01:00Z",
+      "side": 1,
+      "message": "`INT_MAX / 6` is a safe maximum. I used `INT_MAX / 8` in libavif (and libgav1, I remember), where the factor 8 is RGBA at high bit depth.",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86fc97d9_e6da4438",
+        "filename": "y4minput.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-11T02:01:00Z",
+      "side": 1,
+      "message": "James: It is confusing that `dst_buf_sz` is in pixels but `dst_buf_read_sz` is in bytes.",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5c3bbac_6659f86b",
+        "filename": "y4minput.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-11T02:01:00Z",
+      "side": 1,
+      "message": "James: Is the alpha plane used? There is no space for alpha in `_y4m-\u003edst_buf`!",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
