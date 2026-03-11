@@ -191,6 +191,24 @@
       "parentUuid": "a5c3bbac_6659f86b",
       "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac9ea97_67fc38a4",
+        "filename": "y4minput.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-11T19:30:35Z",
+      "side": 1,
+      "message": "Thanks for the confirmation. I can write a separate CL to set `_img-\u003eplanes[VPX_PLANE_ALPHA]` to NULL and set `_img-\u003estride[VPX_PLANE_ALPHA]` to 0.",
+      "parentUuid": "3eb6166e_3f2996ce",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
