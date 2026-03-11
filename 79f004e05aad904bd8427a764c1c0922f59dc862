@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2a45b7b2_e8792b1d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4674168
+      },
+      "writtenOn": "2026-03-11T21:28:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "58476f28_77765a93",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "64634b20_bd5e08c5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "\u003e \u003e Hello,\n\u003e \u003e \n\u003e \u003e Thank you for the feedback.\n\u003e \u003e \n\u003e \u003e I have pushed an updated patchset for this change:\n\u003e \u003e https://chromium-review.googlesource.com/c/webm/libvpx/+/7641599\n\u003e \u003e \n\u003e \u003e Please let me know if further changes are needed.\n\u003e \u003e \n\u003e \u003e Best regards,\n\u003e \u003e Andrew Lacambra\n\u003e \n\u003e Please push any new patches to this change. That way the review context can be preserved. You can abandon your new change in the gerrit UI and then locally use `git commit --amend` and change the `Change-Id` field to match this change: `Change-Id: I0d36273b07eecee1bcda24b93e05db2e60647c7f`.\n\u003e \n\nI see the second change moves to promoting calculations to `size_t`. I\u0027m OK with landing this change and then potentially that one as a follow up. In practice I don\u0027t think larger resolutions are a common use case.\n\n\u003e Don\u0027t forget to mark existing comments as \u0027Done\u0027 or otherwise reply (and hit the reply button to post the drafts). The new change still doesn\u0027t have the `Bug:` references I noted.",
       "parentUuid": "c10f56af_81f484c4",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25e11518_365aeade",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4674168
+      },
+      "writtenOn": "2026-03-11T21:28:27Z",
+      "side": 1,
+      "message": "Hello\n\nJust to confirm, should I push the changes related to size_t promotion to this CL as well, or keep that as a separate follow-up CL?\n\nBest regards,\nAndrew Lacambra",
+      "parentUuid": "164bc15e_87f43d8d",
       "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
