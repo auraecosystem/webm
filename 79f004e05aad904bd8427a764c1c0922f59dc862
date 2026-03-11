@@ -173,6 +173,24 @@
       "message": "James: Is the alpha plane used? There is no space for alpha in `_y4m-\u003edst_buf`!",
       "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eb6166e_3f2996ce",
+        "filename": "y4minput.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-11T17:35:59Z",
+      "side": 1,
+      "message": "\u003e James: Is the alpha plane used? There is no space for alpha in `_y4m-\u003edst_buf`!\n\nI don\u0027t see any reads or writes to `planes[VPX_PLANE_ALPHA` or `planes[3]`. I think this is legacy code. It\u0027s likely the same in libaom.",
+      "parentUuid": "a5c3bbac_6659f86b",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
