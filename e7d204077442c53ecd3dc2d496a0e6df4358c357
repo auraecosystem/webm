@@ -16,6 +16,23 @@
       "message": "I forgot that this plane was removed in libaom.",
       "revId": "e7d204077442c53ecd3dc2d496a0e6df4358c357",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5bcb6b9_c32fc637",
+        "filename": "y4minput.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1091,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-11T19:55:36Z",
+      "side": 1,
+      "message": "`y4m_ctx-\u003edst_buf` is allocated here, and the buffer size `y4m_ctx-\u003edst_buf_sz` is calculated at line 1084. It is obvious that the buffer size include the Y, U, V planes but not the alpha plane.",
+      "revId": "e7d204077442c53ecd3dc2d496a0e6df4358c357",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
