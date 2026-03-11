@@ -33,6 +33,23 @@
       "message": "`y4m_ctx-\u003edst_buf` is allocated here, and the buffer size `y4m_ctx-\u003edst_buf_sz` is calculated at line 1084. It is obvious that the buffer size include the Y, U, V planes but not the alpha plane.",
       "revId": "e7d204077442c53ecd3dc2d496a0e6df4358c357",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07f908d9_3cfcfa3e",
+        "filename": "y4minput.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-11T19:58:22Z",
+      "side": 1,
+      "message": "For extra assurance, I comparfed the calculations here (lines 1158-1162) with the calculations at line 1084-1087. They match.",
+      "revId": "e7d204077442c53ecd3dc2d496a0e6df4358c357",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
