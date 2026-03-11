@@ -88,6 +88,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c10f56af_81f484c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-11T17:33:26Z",
+      "side": 1,
+      "message": "\u003e Hello,\n\u003e \n\u003e Thank you for the feedback.\n\u003e \n\u003e I have pushed an updated patchset for this change:\n\u003e https://chromium-review.googlesource.com/c/webm/libvpx/+/7641599\n\u003e \n\u003e Please let me know if further changes are needed.\n\u003e \n\u003e Best regards,\n\u003e Andrew Lacambra\n\nPlease push any new patches to this change. That way the review context can be preserved. You can abandon your new change in the gerrit UI and then locally use `git commit --amend` and change the `Change-Id` field to match this change: `Change-Id: I0d36273b07eecee1bcda24b93e05db2e60647c7f`.\n\nDon\u0027t forget to mark existing comments as \u0027Done\u0027 or otherwise reply (and hit the reply button to post the drafts). The new change still doesn\u0027t have the `Bug:` references I noted.",
+      "parentUuid": "72625407_715b4f3a",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f64c5d2f_98b13afd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-11T17:33:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1b22800_f12c445f",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "decb6c1a_31bbda1a",
