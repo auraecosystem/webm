@@ -71,6 +71,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "72625407_715b4f3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4674168
+      },
+      "writtenOn": "2026-03-11T02:14:11Z",
+      "side": 1,
+      "message": "Hello,\n\nThank you for the feedback.\n\nI have pushed an updated patchset for this change:\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/7641599\n\nPlease let me know if further changes are needed.\n\nBest regards,\nAndrew Lacambra",
+      "revId": "79f004e05aad904bd8427a764c1c0922f59dc862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "decb6c1a_31bbda1a",
