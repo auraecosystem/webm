@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1411afd9_9bf0f4ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-11T19:59:28Z",
+      "side": 1,
+      "message": "Thanks. I confirm this code is gone in libaom\u0027s common/y4minput.c.",
+      "parentUuid": "d3743ea1_16e1d41a",
+      "revId": "e7d204077442c53ecd3dc2d496a0e6df4358c357",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b5bcb6b9_c32fc637",
         "filename": "y4minput.c",
         "patchSetId": 1
