@@ -33,6 +33,24 @@
       "message": "Andrew, James: I think patchset 3 is a \"local optimum\". I suggest we go back to patchset 3 and check that in first.",
       "revId": "a2dd4086828e031ef537fe3c32c69eedf0386104",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f1690c_ca6a1a21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4674168
+      },
+      "writtenOn": "2026-03-12T00:47:05Z",
+      "side": 1,
+      "message": "Done. I\u0027ve pushed patchset 5, which reverts to the patchset 3 minimal fix. The size_t arithmetic widening will follow as a separate CL.",
+      "parentUuid": "12fb576f_177aca9d",
+      "revId": "a2dd4086828e031ef537fe3c32c69eedf0386104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
