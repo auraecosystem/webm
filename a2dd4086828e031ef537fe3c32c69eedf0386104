@@ -16,6 +16,23 @@
       "message": "Hi @wtc@google.com ,\n\nThank you for the review and for raising the 32-bit size_t concern. I\u0027ve addressed both points in patchset 4:\n\nAbandoned CL 7641599 and folded the size_t arithmetic widening into this CL, as suggested by @jzern@google.com .\nUpdated the overflow guard from (int64_t)pic_w * pic_h \u003e INT_MAX / 6 to (uint64_t)pic_w * pic_h \u003e SIZE_MAX / 6, which correctly handles both 32-bit and 64-bit size_t.",
       "revId": "a2dd4086828e031ef537fe3c32c69eedf0386104",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12fb576f_177aca9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-12T00:12:33Z",
+      "side": 1,
+      "message": "Andrew, James: I think patchset 3 is a \"local optimum\". I suggest we go back to patchset 3 and check that in first.",
+      "revId": "a2dd4086828e031ef537fe3c32c69eedf0386104",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
