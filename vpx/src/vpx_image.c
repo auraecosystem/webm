@@ -29,7 +29,7 @@ static vpx_image_t *img_alloc_helper(vpx_image_t *img, vpx_img_fmt_t fmt,
 
   if (img != NULL) memset(img, 0, sizeof(vpx_image_t));
 
-  if (fmt == VPX_IMG_FMT_NONE) goto fail;
+  if (fmt <= VPX_IMG_FMT_NONE || fmt > VPX_IMG_FMT_I44016) goto fail;
 
   /* Impose maximum values on input parameters so that this function can
    * perform arithmetic operations without worrying about overflows.
