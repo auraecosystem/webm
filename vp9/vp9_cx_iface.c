@@ -1446,6 +1446,7 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
 #endif
 
     if (img != NULL) {
+
       YV12_BUFFER_CONFIG sd;
 
       if (!ctx->pts_offset_initialized) {
