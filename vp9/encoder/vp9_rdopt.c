@@ -391,7 +391,7 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
       // dc token
       int v = qcoeff[0];
       int16_t prev_t;
-      cost = vp9_get_token_cost(v, &prev_t, cat6_high_cost);
+      cost = vp9_get_token_cost(v, &prev_t, cat6_high_cost, xd->bd);
       cost += (*token_costs)[0][pt][prev_t];
 
       token_cache[0] = vp9_pt_energy_class[prev_t];
@@ -403,7 +403,7 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
         int16_t t;
 
         v = qcoeff[rc];
-        cost += vp9_get_token_cost(v, &t, cat6_high_cost);
+        cost += vp9_get_token_cost(v, &t, cat6_high_cost, xd->bd);
         cost += (*token_costs)[!prev_t][!prev_t][t];
         prev_t = t;
         if (!--band_left) {
@@ -423,7 +423,7 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
       int v = qcoeff[0];
       int16_t tok;
       unsigned int(*tok_cost_ptr)[COEFF_CONTEXTS][ENTROPY_TOKENS];
-      cost = vp9_get_token_cost(v, &tok, cat6_high_cost);
+      cost = vp9_get_token_cost(v, &tok, cat6_high_cost, xd->bd);
       cost += (*token_costs)[0][pt][tok];
 
       token_cache[0] = vp9_pt_energy_class[tok];
@@ -436,7 +436,7 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
         const int rc = scan[c];
 
         v = qcoeff[rc];
-        cost += vp9_get_token_cost(v, &tok, cat6_high_cost);
+        cost += vp9_get_token_cost(v, &tok, cat6_high_cost, xd->bd);
         pt = get_coef_context(nb, token_cache, c);
         cost += (*tok_cost_ptr)[pt][tok];
         token_cache[rc] = vp9_pt_energy_class[tok];
@@ -3621,7 +3621,7 @@ void vp9_rd_pick_inter_mode_sb(VP9_COMP *cpi, TileDataEnc *tile_data,
   }
 
   mode_skip_mask[INTRA_FRAME] |=
-      (uint16_t)~(sf->intra_y_mode_mask[max_txsize_lookup[bsize]]);
+      (uint16_t) ~(sf->intra_y_mode_mask[max_txsize_lookup[bsize]]);
 
   for (i = 0; i <= LAST_NEW_MV_INDEX; ++i) mode_threshold[i] = 0;
 
