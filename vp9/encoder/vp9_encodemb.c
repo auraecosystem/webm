@@ -244,9 +244,17 @@ int vp9_optimize_b(MACROBLOCK *mb, int plane, int block, TX_SIZE tx_size,
         distortion1 = distortion_for_zero;
       }
       {
+#if CONFIG_VP9_HIGHBITDEPTH
+        const int bit_depth = xd->bd;
+#else
+        const int bit_depth = 8;
+#endif
+
         // Calculate RDCost for current coeff for the two candidates.
-        const int64_t base_bits0 = vp9_get_token_cost(x, &t0, cat6_high_cost);
-        const int64_t base_bits1 = vp9_get_token_cost(x1, &t1, cat6_high_cost);
+        const int64_t base_bits0 =
+            vp9_get_token_cost(x, &t0, cat6_high_cost, bit_depth);
+        const int64_t base_bits1 =
+            vp9_get_token_cost(x1, &t1, cat6_high_cost, bit_depth);
         rate0 =
             base_bits0 + (*token_costs_cur)[token_tree_sel_cur][ctx_cur][t0];
         rate1 =
