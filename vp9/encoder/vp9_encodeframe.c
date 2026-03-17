@@ -446,7 +446,7 @@ static void fill_variance(uint32_t s2, int32_t s, int c, Var *v) {
 static void get_variance(Var *v) {
   v->variance =
       (int)(256 * (v->sum_square_error -
-                   (uint32_t)(((int64_t)v->sum_error * v->sum_error) >>
+                   (uint64_t)(((int64_t)v->sum_error * v->sum_error) >>
                               v->log2_count)) >>
             v->log2_count);
 }

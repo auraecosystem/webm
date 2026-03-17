@@ -1292,6 +1292,12 @@ static int64_t sum_squares_visible(const MACROBLOCKD *xd,
       (b4x4s_to_right_edge >= tx_4x4_w && b4x4s_to_bottom_edge >= tx_4x4_h)) {
     assert(tx_4x4_w == tx_4x4_h);
     sse = (int64_t)vpx_sum_squares_2d_i16(diff, diff_stride, tx_4x4_w << 2);
+    // Bug: 488585490
+    // The test Buganizer488585490CostTableOverflow causes the computation
+    // for the sse in the above fucntion to wrap around and go negative.
+    // Add this clamp to handle this, shift down by 8 to account for sse
+    // being scaled up in caller of this function.
+    if (sse < 0) sse = INT64_MAX >> 8;
     *visible_width = tx_4x4_w << 2;
     *visible_height = tx_4x4_h << 2;
   } else {
