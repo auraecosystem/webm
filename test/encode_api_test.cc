@@ -2422,7 +2422,7 @@ TEST(EncodeAPI, Buganizer487259772ScaledRefs) {
   encoder.Encode(/*key_frame=*/false, &rng);
 }
 
-TEST(EncodeAPI, DISABLED_Buganizer488585490CostTableOverflow) {
+TEST(EncodeAPI, Buganizer488585490CostTableOverflow) {
   // Initialize libvpx encoder.
   vpx_codec_iface_t *const iface = vpx_codec_vp9_cx();
   vpx_codec_ctx_t enc;
