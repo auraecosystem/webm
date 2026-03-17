@@ -111,13 +111,17 @@ static INLINE int16_t vp9_get_token(int v) {
 }
 
 static INLINE int vp9_get_token_cost(int v, int16_t *token,
-                                     const uint16_t *cat6_high_table) {
+                                     const uint16_t *cat6_high_table,
+                                     int bit_depth) {
   if (v >= CAT6_MIN_VAL || v <= -CAT6_MIN_VAL) {
     EXTRABIT extrabits;
+    int index;
+    const int max_index = (1 << (bit_depth - 2)) - 1;
     *token = CATEGORY6_TOKEN;
     extrabits = abs(v) - CAT6_MIN_VAL;
-    return vp9_cat6_low_cost[extrabits & 0xff] +
-           cat6_high_table[extrabits >> 8];
+    index = extrabits >> 8;
+    if (index > max_index) index = max_index;
+    return vp9_cat6_low_cost[extrabits & 0xff] + cat6_high_table[index];
   }
   *token = vp9_dct_cat_lt_10_value_tokens[v].token;
   return vp9_dct_cat_lt_10_value_cost[v];
