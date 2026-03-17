@@ -371,8 +371,10 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
   int cost;
 #if CONFIG_VP9_HIGHBITDEPTH
   const uint16_t *cat6_high_cost = vp9_get_high_cost_table(xd->bd);
+  const int bit_depth = xd->bd;
 #else
   const uint16_t *cat6_high_cost = vp9_get_high_cost_table(8);
+  const int bit_depth = 8;
 #endif
 
   // Check for consistency of tx_size with mode info
@@ -387,11 +389,10 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
     if (use_fast_coef_costing) {
       int band_left = *band_count++;
       int c;
-
       // dc token
       int v = qcoeff[0];
       int16_t prev_t;
-      cost = vp9_get_token_cost(v, &prev_t, cat6_high_cost);
+      cost = vp9_get_token_cost(v, &prev_t, cat6_high_cost, bit_depth);
       cost += (*token_costs)[0][pt][prev_t];
 
       token_cache[0] = vp9_pt_energy_class[prev_t];
@@ -403,7 +404,7 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
         int16_t t;
 
         v = qcoeff[rc];
-        cost += vp9_get_token_cost(v, &t, cat6_high_cost);
+        cost += vp9_get_token_cost(v, &t, cat6_high_cost, bit_depth);
         cost += (*token_costs)[!prev_t][!prev_t][t];
         prev_t = t;
         if (!--band_left) {
@@ -423,7 +424,7 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
       int v = qcoeff[0];
       int16_t tok;
       unsigned int(*tok_cost_ptr)[COEFF_CONTEXTS][ENTROPY_TOKENS];
-      cost = vp9_get_token_cost(v, &tok, cat6_high_cost);
+      cost = vp9_get_token_cost(v, &tok, cat6_high_cost, bit_depth);
       cost += (*token_costs)[0][pt][tok];
 
       token_cache[0] = vp9_pt_energy_class[tok];
@@ -436,7 +437,7 @@ static int cost_coeffs(MACROBLOCK *x, int plane, int block, TX_SIZE tx_size,
         const int rc = scan[c];
 
         v = qcoeff[rc];
-        cost += vp9_get_token_cost(v, &tok, cat6_high_cost);
+        cost += vp9_get_token_cost(v, &tok, cat6_high_cost, bit_depth);
         pt = get_coef_context(nb, token_cache, c);
         cost += (*tok_cost_ptr)[pt][tok];
         token_cache[rc] = vp9_pt_energy_class[tok];
@@ -759,10 +760,11 @@ static void block_rd_txfm(int plane, int block, int blk_row, int blk_col,
                                   &visible_height);
       }
 #if CONFIG_VP9_HIGHBITDEPTH
-      if ((xd->cur_buf->flags & YV12_FLAG_HIGHBITDEPTH) && (xd->bd > 8))
+      if ((xd->cur_buf->flags & YV12_FLAG_HIGHBITDEPTH) && (xd->bd > 8) &&
+          sse != INT64_MAX)
         sse = ROUND64_POWER_OF_TWO(sse, (xd->bd - 8) * 2);
 #endif  // CONFIG_VP9_HIGHBITDEPTH
-      sse = sse * 16;
+      if (sse != INT64_MAX) sse = sse * 16;
       tmp = pixel_sse(args->cpi, xd, pd, src, src_stride, dst, dst_stride,
                       blk_row, blk_col, plane_bsize, tx_bsize);
       dist = (int64_t)tmp * 16;
@@ -827,7 +829,7 @@ static void block_rd_txfm(int plane, int block, int blk_row, int blk_col,
   args->t_above[blk_col] = (x->plane[plane].eobs[block] > 0) ? 1 : 0;
   args->t_left[blk_row] = (x->plane[plane].eobs[block] > 0) ? 1 : 0;
   rd1 = RDCOST(x->rdmult, x->rddiv, rate, dist);
-  rd2 = RDCOST(x->rdmult, x->rddiv, 0, sse);
+  rd2 = (sse == INT64_MAX) ? INT64_MAX : RDCOST(x->rdmult, x->rddiv, 0, sse);
 
   // TODO(jingning): temporarily enabled only for luma component
   rd = VPXMIN(rd1, rd2);
@@ -840,7 +842,7 @@ static void block_rd_txfm(int plane, int block, int blk_row, int blk_col,
 
   args->this_rate += rate;
   args->this_dist += dist;
-  args->this_sse += sse;
+  if (args->this_sse < INT64_MAX - sse) args->this_sse += sse;
   args->this_rd += rd;
 
   if (args->this_rd > args->best_rd) {

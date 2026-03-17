@@ -1446,6 +1446,17 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
 #endif
 
     if (img != NULL) {
+
+      // HACK - check
+      if (img->fmt & VPX_IMG_FMT_HIGHBITDEPTH) {
+        const unsigned short *src = (const unsigned short *)img->planes[0];
+        for (int i = 0; i < (int)img->d_h * (img->stride[0] / 2); ++i) {
+          if (src[i] > 1024) {
+             printf("********* outside range 10 bit: %d \n", src[i]);
+          }
+        }
+      }
+
       YV12_BUFFER_CONFIG sd;
 
       if (!ctx->pts_offset_initialized) {
