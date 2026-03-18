@@ -16,6 +16,24 @@
       "message": "If VP8 or VP9 supports monochrome, then we should also perform this check when we know `img-\u003efmt` has U/V planes.",
       "revId": "beef1957da16649d1a99e0fa36a4f2f516b73e0f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "127471dd_8bb563ec",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-18T20:31:26Z",
+      "side": 1,
+      "message": "\u003e If VP8 or VP9 supports monochrome, then we should also perform this check when we know `img-\u003efmt` has U/V planes.\n\nNeither one supports monochrome. I\u0027ll make sure to check this when porting to libaom.",
+      "parentUuid": "74c05067_5d5c75a7",
+      "revId": "beef1957da16649d1a99e0fa36a4f2f516b73e0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
