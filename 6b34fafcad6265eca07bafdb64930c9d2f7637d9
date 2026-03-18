@@ -16,6 +16,24 @@
       "message": "This is better than the original check, but this doesn\u0027t detect all the invalid `fmt` values.",
       "revId": "6b34fafcad6265eca07bafdb64930c9d2f7637d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d760aec_6713ab52",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-18T20:35:55Z",
+      "side": 1,
+      "message": "\u003e This is better than the original check, but this doesn\u0027t detect all the invalid `fmt` values.\n\nYou\u0027re right. I made this a little too quickly and forgot that these are bitfields. Instead we can have a `switch` that handles all known values.",
+      "parentUuid": "6ce63134_7d07958e",
+      "revId": "6b34fafcad6265eca07bafdb64930c9d2f7637d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
