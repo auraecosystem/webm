@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18e0137f_7af76293",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 2450,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-19T22:24:05Z",
+      "side": 1,
+      "message": "IMPORTANT: Could you check the pixel values in repro-b488585490.yuv?\n\nSince this test says the bit depth is 10 (line 2438), those pixel values must be \u003c 1024. If any pixel value in repro-b488585490.yuv is \u003e\u003d 1024, it is not a valid 10-bit pixel value and we don\u0027t need to defend against invalid input that violates our API contract.",
+      "revId": "57f4aa9377529b6e39577030567a530947238d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27b1a561_6e6414f2",
+        "filename": "vp9/encoder/vp9_encodeframe.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-19T22:24:05Z",
+      "side": 1,
+      "message": "Is this change correct?\n\n`v-\u003esum_square_error` is `uint32_t`. This is why the original code uses a `uint32_t` cast.\n\nIf we need to change the cast to `uint64_t`, that implies this term is bigger than `v-\u003esum_square_error`. So we are subtracting a bigger number from a smaller number!\n\n---\n\nOptional: This expression is very hard to parse. I suggest using a few variables for the subexpressions.",
+      "revId": "57f4aa9377529b6e39577030567a530947238d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e477402b_f8fc41eb",
+        "filename": "vp9/encoder/vp9_encodemb.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-19T22:24:05Z",
+      "side": 1,
+      "message": "Nit: Move the new `bit_depth` variable here and use it immediately:\n\n```\n#if CONFIG_VP9_HIGHBITDEPTH\n  const int bit_depth \u003d xd-\u003ebd;\n#else\n  const int bit_depth \u003d 8;\n#endif\n  const uint16_t *cat6_high_cost \u003d vp9_get_high_cost_table(bit_depth);\n```",
+      "revId": "57f4aa9377529b6e39577030567a530947238d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d0d6c8_fa9d1fdd",
+        "filename": "vp9/encoder/vp9_encoder.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-19T22:24:05Z",
+      "side": 1,
+      "message": "IMPORTANT: It is a bug if the unsigned integer additions inside `vpx_sum_squares_2d_i16()` overflow and wrap around, even though unsigned integer overflow is considered defined behavior in C.\n\nI wonder if the input to the test Buganizer488585490CostTableOverflow violates the API contract.",
+      "revId": "57f4aa9377529b6e39577030567a530947238d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a222637b_5b66a98f",
+        "filename": "vp9/encoder/vp9_rdopt.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-19T22:24:05Z",
+      "side": 1,
+      "message": "Nit: I suggest the following form:\n\n```\n#if CONFIG_VP9_HIGHBITDEPTH\n  const int bit_depth \u003d xd-\u003ebd;\n#else\n  const int bit_depth \u003d 8;\n#endif\n  const uint16_t *cat6_high_cost \u003d vp9_get_high_cost_table(bit_depth);\n```",
+      "revId": "57f4aa9377529b6e39577030567a530947238d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
