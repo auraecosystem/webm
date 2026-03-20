@@ -16,6 +16,24 @@
       "message": "added this check on source input, please check",
       "revId": "99554b3ac1b312da0099f4f34a040a21eb486f05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac34bcf8_1be5e0c6",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-20T22:13:38Z",
+      "side": 1,
+      "message": "\u003e added this check on source input, please check\n\nYes, this gets reported for many values. We do need the clamp on the table since the input can be provided from WebCodecs. That or we can introduce a per-pixel check on the frame:\n\n```\n********* outside range 10 bit: 6681 \n********* outside range 10 bit: 42857 \n********* outside range 10 bit: 39258 \n********* outside range 10 bit: 42964 \n********* outside range 10 bit: 21768 \n********* outside range 10 bit: 22383 \n********* outside range 10 bit: 32397 \n********* outside range 10 bit: 65194 \n********* outside range 10 bit: 25703 \n********* outside range 10 bit: 59916 \n********* outside range 10 bit: 21515 \n********* outside range 10 bit: 53328 \n********* outside range 10 bit: 26524 \n********* outside range 10 bit: 54450 \n********* outside range 10 bit: 23895 \n...\n```",
+      "parentUuid": "983b0975_8a9eedb1",
+      "revId": "99554b3ac1b312da0099f4f34a040a21eb486f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
