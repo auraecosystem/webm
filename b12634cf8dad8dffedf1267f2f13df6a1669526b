@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b542ae8a_b2e869fa",
+        "filename": "vp9/encoder/vp9_tokenize.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-23T19:07:56Z",
+      "side": 1,
+      "message": "You can merge this line with line 122 since we moved libvpx to C99.",
+      "revId": "b12634cf8dad8dffedf1267f2f13df6a1669526b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1e149fc_49683a40",
+        "filename": "vp9/encoder/vp9_tokenize.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-23T19:07:56Z",
+      "side": 1,
+      "message": "If this is considered an invalid condition, where we don\u0027t expect optimal output, you could avoid the branch and use the max index as a mask instead:\n\n```\nconst int index \u003d (extrabits \u003e\u003e 8) \u0026 max_index;\n```",
+      "revId": "b12634cf8dad8dffedf1267f2f13df6a1669526b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
