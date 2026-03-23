@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa74cd02_5ecbc4cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-23T20:02:14Z",
+      "side": 1,
+      "message": "Talking with Wan-Teh, we discussed another option: add a configuration option (enabled by default) that either checks and fails for out of range samples or sanitizes them. That way clients that can guarantee the samples are in the valid range don\u0027t have to pay the cost.",
+      "revId": "b12634cf8dad8dffedf1267f2f13df6a1669526b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b542ae8a_b2e869fa",
         "filename": "vp9/encoder/vp9_tokenize.h",
         "patchSetId": 21
