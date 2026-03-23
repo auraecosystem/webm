@@ -72,6 +72,7 @@ typedef struct vp9_extracfg {
   unsigned int row_mt;
   unsigned int motion_vector_unit_test;
   int delta_q_uv;
+  unsigned int validate_input_hbd;
 } vp9_extracfg;
 
 static struct vp9_extracfg default_extra_cfg = {
@@ -112,6 +113,7 @@ static struct vp9_extracfg default_extra_cfg = {
   0,                     // row_mt
   0,                     // motion_vector_unit_test
   0,                     // delta_q_uv
+  1,                     // validate_input_hbd
 };
 
 struct vpx_codec_alg_priv {
@@ -984,6 +986,12 @@ static vpx_codec_err_t ctrl_set_keyframe_filtering(vpx_codec_alg_priv_t *ctx,
   return update_extra_cfg(ctx, &extra_cfg);
 }
 
+static vpx_codec_err_t ctrl_set_validate_input_hbd(vpx_codec_alg_priv_t *ctx,
+                                                   va_list args) {
+  struct vp9_extracfg extra_cfg = ctx->extra_cfg;
+  extra_cfg.validate_input_hbd = CAST(VP9E_SET_VALIDATE_INPUT_HBD, args);
+  return update_extra_cfg(ctx, &extra_cfg);
+}
 static vpx_codec_err_t ctrl_set_arnr_max_frames(vpx_codec_alg_priv_t *ctx,
                                                 va_list args) {
   struct vp9_extracfg extra_cfg = ctx->extra_cfg;
@@ -1369,6 +1377,7 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
     if (res != VPX_CODEC_OK) {
       return res;
     }
+
     // There's no codec control for multiple alt-refs so check the encoder
     // instance for its status to determine the compressed data size.
     data_sz = ctx->cfg.g_w * ctx->cfg.g_h * get_image_bps(img) / 8 *
@@ -1451,6 +1460,39 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
 
     if (img != NULL) {
       YV12_BUFFER_CONFIG sd;
+
+#if CONFIG_VP9_HIGHBITDEPTH
+      if (ctx->extra_cfg.validate_input_hbd &&
+          (img->fmt & VPX_IMG_FMT_HIGHBITDEPTH) &&
+          ctx->oxcf.input_bit_depth > 8) {
+        const int h = (int)img->d_h;
+        const int w = (int)img->d_w;
+        const int bit_depth = (int)ctx->oxcf.input_bit_depth;
+        const int max_val = 1 << bit_depth;
+        int plane;
+        for (plane = 0; plane < 3; ++plane) {
+          const unsigned short *src =
+              (const unsigned short *)img->planes[plane];
+          const int stride = img->stride[plane] / 2;
+          const int ph =
+              (plane == 0)
+                  ? h
+                  : (int)((h + img->y_chroma_shift) >> img->y_chroma_shift);
+          const int pw =
+              (plane == 0)
+                  ? w
+                  : (int)((w + img->x_chroma_shift) >> img->x_chroma_shift);
+          int i, j;
+          for (i = 0; i < ph; ++i) {
+            for (j = 0; j < pw; ++j) {
+              if (src[i * stride + j] >= max_val) {
+                return VPX_CODEC_INVALID_PARAM;
+              }
+            }
+          }
+        }
+      }
+#endif
 
       if (!ctx->pts_offset_initialized) {
         ctx->pts_offset = pts;
@@ -2158,6 +2200,7 @@ static vpx_codec_ctrl_fn_map_t encoder_ctrl_maps[] = {
   { VP9E_SET_TILE_ROWS, ctrl_set_tile_rows },
   { VP9E_SET_TPL, ctrl_set_tpl_model },
   { VP9E_SET_KEY_FRAME_FILTERING, ctrl_set_keyframe_filtering },
+  { VP9E_SET_VALIDATE_INPUT_HBD, ctrl_set_validate_input_hbd },
   { VP8E_SET_ARNR_MAXFRAMES, ctrl_set_arnr_max_frames },
   { VP8E_SET_ARNR_STRENGTH, ctrl_set_arnr_strength },
   { VP8E_SET_ARNR_TYPE, ctrl_set_arnr_type },

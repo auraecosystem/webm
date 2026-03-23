@@ -2533,7 +2533,8 @@ TEST(EncodeAPI, Buganizer487259772ScaledRefs) {
   encoder.Encode(/*key_frame=*/false, &rng);
 }
 
-TEST(EncodeAPI, DISABLED_Buganizer488585490CostTableOverflow) {
+#if CONFIG_VP9_HIGHBITDEPTH
+TEST(EncodeAPI, Buganizer488585490CostTableOverflow) {
   // Initialize libvpx encoder.
   vpx_codec_iface_t *const iface = vpx_codec_vp9_cx();
   vpx_codec_ctx_t enc;
@@ -2562,10 +2563,12 @@ TEST(EncodeAPI, DISABLED_Buganizer488585490CostTableOverflow) {
   video.Begin();
   ASSERT_EQ(vpx_codec_encode(&enc, video.img(), video.pts(), /*duration=*/66666,
                              /*flags=*/0, VPX_DL_REALTIME),
-            VPX_CODEC_OK);
+            VPX_CODEC_INVALID_PARAM);
 
   ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
 }
+#endif
+
 #endif  // CONFIG_VP9_ENCODER
 
 }  // namespace
