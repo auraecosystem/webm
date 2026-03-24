@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e91dbd0f_4e46877e",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-24T00:55:50Z",
+      "side": 1,
+      "message": "I also suggest removing `kWidth - 1`, because even if we allow U, V strides to differ, `kWidth - 1` is still an invalid stride for `VPX_IMG_FMT_I444`.\n\nNote: The strides used in this test have multiple problems. Rather than fixing one problem at a time, it may be better to spend more time and fix them all.",
+      "revId": "3fce57ecc905d95a4619f33d09851d68c5a88663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
