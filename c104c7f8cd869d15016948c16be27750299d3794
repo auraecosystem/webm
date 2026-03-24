@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "690e7387_bb05ab33",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-24T00:02:04Z",
+      "side": 1,
+      "message": "This can be scoped to the for loop.",
+      "revId": "c104c7f8cd869d15016948c16be27750299d3794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd114a33_08a76345",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1485,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-24T00:02:04Z",
+      "side": 1,
+      "message": "These can be scoped to the for loops.",
+      "revId": "c104c7f8cd869d15016948c16be27750299d3794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c5e7f1_22d8a8a9",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-24T00:02:04Z",
+      "side": 1,
+      "message": "Let\u0027s increment `src` by `stride` in the outer loop to avoid any potential overflows in this calculation.",
+      "revId": "c104c7f8cd869d15016948c16be27750299d3794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "174df483_bb4067e4",
+        "filename": "vpx/vp8cx.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-24T00:02:04Z",
+      "side": 1,
+      "message": "Maybe say \u0027high bitdepth\u0027 here to make it clear what HBD is.",
+      "range": {
+        "startLine": 782,
+        "startChar": 44,
+        "endLine": 782,
+        "endChar": 47
+      },
+      "revId": "c104c7f8cd869d15016948c16be27750299d3794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b075cb5c_9763da2c",
+        "filename": "vpx/vp8cx.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-24T00:02:04Z",
+      "side": 1,
+      "message": "VP9",
+      "range": {
+        "startLine": 782,
+        "startChar": 5,
+        "endLine": 782,
+        "endChar": 8
+      },
+      "revId": "c104c7f8cd869d15016948c16be27750299d3794",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
