@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cf90e3c_02a8db51",
+        "filename": "vpx_util/vpx_pthread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-27T22:46:19Z",
+      "side": 1,
+      "message": "This needs to be changed to use SRWLock now.",
+      "revId": "732ea45cd3dc8686b4c78dfb85b38900c9f5d4eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
