@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55f8cedf_71abd603",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-28T07:01:07Z",
+      "side": 1,
+      "message": "After this point, `res` is equal to `VPX_CODEC_OK` until we assign a new value to `res`.",
+      "revId": "d9fb710affa8e6a913ab7f18a6982face96c08ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
