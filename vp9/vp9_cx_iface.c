@@ -1427,7 +1427,7 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
   }
   cpi->common.error.setjmp = 1;
 
-  if (res == VPX_CODEC_OK) vp9_apply_encoding_flags(cpi, flags);
+  vp9_apply_encoding_flags(cpi, flags);
 
   // Handle fixed keyframe intervals
   if (ctx->cfg.kf_mode == VPX_KF_AUTO &&
@@ -1438,7 +1438,6 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
     }
   }
 
-  if (res == VPX_CODEC_OK) {
     unsigned int lib_flags = 0;
     size_t size, cx_data_sz;
     unsigned char *cx_data;
@@ -1698,7 +1697,6 @@ static vpx_codec_err_t encoder_encode(vpx_codec_alg_priv_t *ctx,
         }
       }
     }
-  }
 
   cpi->common.error.setjmp = 0;
   return res;
