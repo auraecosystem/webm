@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8597e7a_4ca043d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-28T07:14:11Z",
+      "side": 1,
+      "message": "LGTM.",
+      "revId": "090dd8b8cb3a11dec5250bef62aba9b99eb46636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2741fefb_cef13612",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-28T07:14:11Z",
+      "side": 1,
+      "message": "Nit: Should we validate hbd input inside the `validate_img()` function\u0027?",
+      "revId": "090dd8b8cb3a11dec5250bef62aba9b99eb46636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd9e2c56_db5c7b7e",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-28T07:14:11Z",
+      "side": 1,
+      "message": "It seems that the `ctx-\u003eoxcf.input_bit_depth \u003e 8` check should be omitted because we should also validate the input if we store 8-bit samples in `unsigned short`.",
+      "revId": "090dd8b8cb3a11dec5250bef62aba9b99eb46636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
