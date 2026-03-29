@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e070dfa4_6d8ea28b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-29T18:16:22Z",
+      "side": 1,
+      "message": "James: Could you take a look at the build failure in mips64r6el-msa-linux-gnu? It is apparently caused by the following assembler warning message:\n\n```\n03:25:39     [CXX] third_party/googletest/src/src/gtest-all.cc.o\n03:25:56 /tmp/ccJooTP1.s: Assembler messages:\n03:25:56 /tmp/ccJooTP1.s:107669: Warning: macro instruction expanded into multiple instructions\n```\n\nBut gtest-all.cc should not contain any MIPS assembly code. So this is very likely a compiler bug.",
+      "revId": "21c6eb4b115039acc1828ef175a4f4cb1f2d1951",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
