@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c10724fc_cc340ea5",
+        "filename": ".gitattributes",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-29T18:12:15Z",
+      "side": 1,
+      "message": "I will be addig a patch file (third_party/googletest/googletest.patch) in https://chromium-review.googlesource.com/7710054.",
+      "revId": "208bb32910c84cbfe5938e6e19859f601fe0d789",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
