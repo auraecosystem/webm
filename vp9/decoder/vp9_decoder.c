@@ -60,8 +60,9 @@ void vp9_dec_alloc_row_mt_mem(RowMTWorkerData *row_mt_worker_data,
                               VP9_COMMON *cm, int num_sbs, int max_threads,
                               int num_jobs) {
   int plane;
-  const size_t dqcoeff_size = (num_sbs << DQCOEFFS_PER_SB_LOG2) *
-                              sizeof(*row_mt_worker_data->dqcoeff[0]);
+  const size_t dqcoeff_size =
+      (size_t)((uint64_t)num_sbs << DQCOEFFS_PER_SB_LOG2) *
+      sizeof(*row_mt_worker_data->dqcoeff[0]);
   row_mt_worker_data->num_jobs = num_jobs;
 #if CONFIG_MULTITHREAD
   {
@@ -91,11 +92,11 @@ void vp9_dec_alloc_row_mt_mem(RowMTWorkerData *row_mt_worker_data,
                     vpx_memalign(32, dqcoeff_size));
     memset(row_mt_worker_data->dqcoeff[plane], 0, dqcoeff_size);
     CHECK_MEM_ERROR(&cm->error, row_mt_worker_data->eob[plane],
-                    vpx_calloc(num_sbs << EOBS_PER_SB_LOG2,
+                    vpx_calloc((size_t)((uint64_t)num_sbs << EOBS_PER_SB_LOG2),
                                sizeof(*row_mt_worker_data->eob[plane])));
   }
   CHECK_MEM_ERROR(&cm->error, row_mt_worker_data->partition,
-                  vpx_calloc(num_sbs * PARTITIONS_PER_SB,
+                  vpx_calloc((size_t)((uint64_t)num_sbs * PARTITIONS_PER_SB),
                              sizeof(*row_mt_worker_data->partition)));
   CHECK_MEM_ERROR(&cm->error, row_mt_worker_data->recon_map,
                   vpx_calloc(num_sbs, sizeof(*row_mt_worker_data->recon_map)));

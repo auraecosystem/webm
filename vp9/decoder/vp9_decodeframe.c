@@ -1882,12 +1882,13 @@ static void parse_tile_row(TileWorkerData *tile_data, VP9Decoder *pbi,
     const int sb_num = (r * (aligned_cols >> MI_BLOCK_SIZE_LOG2) + c);
     for (plane = 0; plane < MAX_MB_PLANE; ++plane) {
       tile_data->xd.plane[plane].eob =
-          row_mt_worker_data->eob[plane] + (sb_num << EOBS_PER_SB_LOG2);
+          row_mt_worker_data->eob[plane] + ((size_t)sb_num << EOBS_PER_SB_LOG2);
       tile_data->xd.plane[plane].dqcoeff =
-          row_mt_worker_data->dqcoeff[plane] + (sb_num << DQCOEFFS_PER_SB_LOG2);
+          row_mt_worker_data->dqcoeff[plane] +
+          ((size_t)sb_num << DQCOEFFS_PER_SB_LOG2);
     }
     tile_data->xd.partition =
-        row_mt_worker_data->partition + sb_num * PARTITIONS_PER_SB;
+        row_mt_worker_data->partition + (size_t)sb_num * PARTITIONS_PER_SB;
     process_partition(tile_data, pbi, mi_row, mi_col, BLOCK_64X64, 4, PARSE,
                       parse_block);
   }
