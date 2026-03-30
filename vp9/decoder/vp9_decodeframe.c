@@ -1884,7 +1884,8 @@ static void parse_tile_row(TileWorkerData *tile_data, VP9Decoder *pbi,
       tile_data->xd.plane[plane].eob =
           row_mt_worker_data->eob[plane] + (sb_num << EOBS_PER_SB_LOG2);
       tile_data->xd.plane[plane].dqcoeff =
-          row_mt_worker_data->dqcoeff[plane] + (sb_num << DQCOEFFS_PER_SB_LOG2);
+          row_mt_worker_data->dqcoeff[plane] +
+          ((size_t)sb_num << DQCOEFFS_PER_SB_LOG2);
     }
     tile_data->xd.partition =
         row_mt_worker_data->partition + sb_num * PARTITIONS_PER_SB;
