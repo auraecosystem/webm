@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c5b52b1_d991b493",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-31T19:56:35Z",
+      "side": 1,
+      "message": "LGTM. Thanks for the fix.",
+      "revId": "59d0c766707371bd8c35a189c556ce530cc2fc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "26913332_7489993e",
         "filename": "build/make/gen_msvs_vcxproj.sh",
         "patchSetId": 1
@@ -14,6 +31,24 @@
       "writtenOn": "2026-03-31T19:50:32Z",
       "side": 1,
       "message": "There is a `LanguageStandard_C` tag too.",
+      "revId": "59d0c766707371bd8c35a189c556ce530cc2fc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e719384_ede37223",
+        "filename": "build/make/gen_msvs_vcxproj.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-31T19:56:35Z",
+      "side": 1,
+      "message": "What should I set `LanguageStandard_C` to if I want to enable C11?",
+      "parentUuid": "26913332_7489993e",
       "revId": "59d0c766707371bd8c35a189c556ce530cc2fc8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
