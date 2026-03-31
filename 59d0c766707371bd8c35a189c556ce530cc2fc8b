@@ -51,6 +51,24 @@
       "parentUuid": "26913332_7489993e",
       "revId": "59d0c766707371bd8c35a189c556ce530cc2fc8b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa7644bc_a2b32aae",
+        "filename": "build/make/gen_msvs_vcxproj.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-31T23:16:44Z",
+      "side": 1,
+      "message": "\u003e What should I set `LanguageStandard_C` to if I want to enable C11?\n\nThe full tag looks like this:\n\n```\n      \u003cLanguageStandard_C\u003estdc11\u003c/LanguageStandard_C\u003e\n```",
+      "parentUuid": "9e719384_ede37223",
+      "revId": "59d0c766707371bd8c35a189c556ce530cc2fc8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
