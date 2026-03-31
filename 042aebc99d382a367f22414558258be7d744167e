@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c14bb92c_f8243e89",
+        "filename": "vp9/decoder/vp9_decoder.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-03-31T23:39:18Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "fcc857bd_c901e2b1",
+      "revId": "042aebc99d382a367f22414558258be7d744167e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f73f6a63_2ce2ba54",
@@ -49,6 +67,24 @@
       "writtenOn": "2026-03-31T23:22:08Z",
       "side": 1,
       "message": "Optional: Move this variable declaration into the for loop at line 89.",
+      "revId": "042aebc99d382a367f22414558258be7d744167e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1971cded_2e3a5f08",
+        "filename": "vp9/decoder/vp9_decoder.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-03-31T23:39:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f73f6a63_2ce2ba54",
       "revId": "042aebc99d382a367f22414558258be7d744167e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
