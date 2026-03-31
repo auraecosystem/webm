@@ -20,6 +20,41 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fcc857bd_c901e2b1",
+        "filename": "vp9/decoder/vp9_decoder.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-31T23:22:08Z",
+      "side": 1,
+      "message": "I found the answer to my question. `num_sbs` in VP9 can be 2^20.\n\nMarco: I suggest adding the following check before line 63 to support 32-bit OS where `size_t` is 32 bits:\n\n```\n  if ((size_t)num_sbs \u003e SIZE_MAX / (sizeof(*row_mt_worker_data-\u003edqcoeff[0]) \u003c\u003c DQCOEFFS_PER_SB_LOG2)) {\n    vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_ERROR,\n                       \"num_sbs too big\");\n  }\n  const size_t dqcoeff_size \u003d ((size_t)num_sbs \u003c\u003c DQCOEFFS_PER_SB_LOG2) *\n                              sizeof(*row_mt_worker_data-\u003edqcoeff[0]);\n```",
+      "parentUuid": "c10be042_2ff94898",
+      "revId": "042aebc99d382a367f22414558258be7d744167e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f73f6a63_2ce2ba54",
+        "filename": "vp9/decoder/vp9_decoder.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-31T23:22:08Z",
+      "side": 1,
+      "message": "Optional: Move this variable declaration into the for loop at line 89.",
+      "revId": "042aebc99d382a367f22414558258be7d744167e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5793b736_790e7de3",
         "filename": "vp9/decoder/vp9_decoder.c",
         "patchSetId": 11
@@ -31,6 +66,24 @@
       "writtenOn": "2026-03-31T22:42:15Z",
       "side": 1,
       "message": "The values of the three constants used in this function:\n\n```\n#define EOBS_PER_SB_LOG2 8\n#define DQCOEFFS_PER_SB_LOG2 12\n#define PARTITIONS_PER_SB 85\n```",
+      "revId": "042aebc99d382a367f22414558258be7d744167e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f92da74_8586fb21",
+        "filename": "vp9/decoder/vp9_decoder.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-31T23:22:08Z",
+      "side": 1,
+      "message": "Among these three constants, `DQCOEFFS_PER_SB_LOG2` is the most problematic. Therefore, if we can left-shift by `DQCOEFFS_PER_SB_LOG2` without overflow, the other two operations won\u0027t overflow. So it suffices to just check the first operation for overflow as I suggested above.",
+      "parentUuid": "5793b736_790e7de3",
       "revId": "042aebc99d382a367f22414558258be7d744167e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
