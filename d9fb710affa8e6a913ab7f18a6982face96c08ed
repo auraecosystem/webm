@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a0d5c65d_f4c162e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-31T18:56:46Z",
+      "side": 1,
+      "message": "Last night\u0027s Coverity scan did not eliminate any Coverity defects. This means very likely Coverity did not detect these two conditions that evaluated to a constant (true).",
+      "parentUuid": "42f0a549_9d37a6bf",
+      "revId": "d9fb710affa8e6a913ab7f18a6982face96c08ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "55f8cedf_71abd603",
         "filename": "vp9/vp9_cx_iface.c",
         "patchSetId": 2
