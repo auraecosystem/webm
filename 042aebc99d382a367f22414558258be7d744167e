@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c10be042_2ff94898",
+        "filename": "vp9/decoder/vp9_decoder.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-31T22:42:15Z",
+      "side": 1,
+      "message": "Jerome, Marco: What is the maximum value of `num_sbs` in VP9?\n\nIn 32-bits, `size_t` is an unsigned 32-bit integer. So simply casting `num_sbs` to `size_t` won\u0027t help in 32-bit build. To support 32-bit builds, we need to check for overflow in these three operatiohns.",
+      "revId": "042aebc99d382a367f22414558258be7d744167e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5793b736_790e7de3",
+        "filename": "vp9/decoder/vp9_decoder.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-03-31T22:42:15Z",
+      "side": 1,
+      "message": "The values of the three constants used in this function:\n\n```\n#define EOBS_PER_SB_LOG2 8\n#define DQCOEFFS_PER_SB_LOG2 12\n#define PARTITIONS_PER_SB 85\n```",
+      "revId": "042aebc99d382a367f22414558258be7d744167e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
