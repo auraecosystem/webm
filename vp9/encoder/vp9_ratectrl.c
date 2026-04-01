@@ -3270,7 +3270,8 @@ int vp9_encodedframe_overshoot(VP9_COMP *cpi, int frame_size, int *q) {
     double rate_correction_factor =
         cpi->rc.rate_correction_factors[INTER_NORMAL];
     const int target_size = cpi->rc.avg_frame_bandwidth;
-    const uint64_t sad_thr = 64 * 64 * 32;
+    uint64_t sad_thr = 64 * 64 * 32;
+    if (cm->width * cm->height > 1280 * 720) sad_thr = sad_thr << 1;
     int force_maxqp = 1;
     double new_correction_factor;
     int target_bits_per_mb;
