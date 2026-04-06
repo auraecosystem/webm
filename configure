@@ -680,8 +680,8 @@ process_toolchain() {
         if enabled mips || [ -z "${INLINE}" ]; then
           enabled extra_warnings || check_add_cflags -Wno-unused-function
         fi
-        # Enforce C11 for C files. Allow GNU extensions.
-        check_cflags -std=gnu11 && add_cflags_only -std=gnu11
+        # Enforce C11 for C files.
+        check_cflags -std=c11 && add_cflags_only -std=c11
         # Enforce C11 compatibility.
         check_cflags -Wc23-extensions && add_cflags_only -Wc23-extensions
         # Avoid this warning for third_party C++ sources. Some reorganization
