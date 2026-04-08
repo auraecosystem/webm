@@ -16,6 +16,24 @@
       "message": "It would be good to document what our cleanup policy is. For example, I verified that you set all pointer fields to NULL. We should document that.\n\nI am also wondering if we should just zero the entire `oci` struct.",
       "revId": "3339d480590ee4e31df69796eb7d2a7c3fa1ff7e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e8ac35_f28f7e35",
+        "filename": "vp8/common/alloccommon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-08T21:22:28Z",
+      "side": 1,
+      "message": "I found that we can\u0027t zero the entire `oci` struct. We need to leave at least `Width`, `Height`, `horiz_scale`, `vert_scale` unchanged.",
+      "parentUuid": "d367c280_149b5473",
+      "revId": "3339d480590ee4e31df69796eb7d2a7c3fa1ff7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
