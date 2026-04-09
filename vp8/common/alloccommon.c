@@ -26,6 +26,11 @@ void vp8_de_alloc_frame_buffers(VP8_COMMON *oci) {
     oci->fb_idx_ref_cnt[i] = 0;
   }
 
+  oci->new_fb_idx = -1;
+  oci->lst_fb_idx = -1;
+  oci->gld_fb_idx = -1;
+  oci->alt_fb_idx = -1;
+
   vp8_yv12_de_alloc_frame_buffer(&oci->temp_scale_frame);
 #if CONFIG_POSTPROC
   vp8_yv12_de_alloc_frame_buffer(&oci->post_proc_buffer);
