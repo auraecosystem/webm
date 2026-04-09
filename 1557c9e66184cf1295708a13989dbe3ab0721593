@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1c820d2c_8a5e2fbd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-09T00:58:49Z",
+      "side": 1,
+      "message": "James, Jan-Ivar: I went over every member of the `VP8_COMMON` struct and checked how they were handled in vp8/common/alloccommon.c. The result is this CL.",
+      "revId": "1557c9e66184cf1295708a13989dbe3ab0721593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "94a3c2c9_d622d89a",
         "filename": "vp8/common/alloccommon.c",
         "patchSetId": 1
