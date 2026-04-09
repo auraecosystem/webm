@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a2c8b5a_a3775f0a",
+        "filename": "vp8/common/alloccommon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-09T00:53:36Z",
+      "side": 0,
+      "message": "I moved this to `vp8_de_alloc_frame_buffers()` because it seems reasonable to set the ref count to 0 after de-allocating the frame buffers.",
+      "revId": "0226b9516c98f26d7b68970bbccda3abdacbc7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db0371b2_865f192f",
+        "filename": "vp8/common/alloccommon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-09T00:53:36Z",
+      "side": 0,
+      "message": "This is redundant because the `vp8_yv12_alloc_frame_buffer()` call first zeros the entire `oci-\u003eyv12_fb[i]` struct.",
+      "revId": "0226b9516c98f26d7b68970bbccda3abdacbc7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2670e0b8_0bf723c5",
+        "filename": "vp8/common/alloccommon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-09T00:53:36Z",
+      "side": 0,
+      "message": "This is redundant because `vp8_de_alloc_frame_buffers()` does this now.",
+      "revId": "0226b9516c98f26d7b68970bbccda3abdacbc7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

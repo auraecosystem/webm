@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94a3c2c9_d622d89a",
+        "filename": "vp8/common/alloccommon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-09T00:53:36Z",
+      "side": 1,
+      "message": "This is moved from `vp8_alloc_frame_buffers()`.\n\nHowever, I don\u0027t know how to deal with `oci-\u003enew_fb_idx`, `oci-\u003elst_fb_idx`, `oci-\u003egld_fb_idx`, and `oci-\u003ealt_fb_idx`. Setting them to 0 isn\u0027t quite right because 0 is a valid index. Ideally I want to set them to -1 (an invalid index), but I am worried that our code isn\u0027t prepared to handle a -1 index.",
+      "revId": "1557c9e66184cf1295708a13989dbe3ab0721593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58e5298b_c8dc325b",
+        "filename": "vp8/common/alloccommon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-09T00:53:36Z",
+      "side": 1,
+      "message": "If we don\u0027t do this, I think this can lead to a double free.",
+      "revId": "1557c9e66184cf1295708a13989dbe3ab0721593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
