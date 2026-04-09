@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52ad714_6a2e91e7",
+        "filename": "vp8/common/alloccommon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-09T02:02:29Z",
+      "side": 0,
+      "message": "This is also zeroed in vp8_de_alloc_frame_buffers. Though only when it\u0027s non-zero. The common struct is zero initialized in `vp8_create_compressor` though, so I think this can be removed too.",
+      "revId": "0226b9516c98f26d7b68970bbccda3abdacbc7bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2670e0b8_0bf723c5",
