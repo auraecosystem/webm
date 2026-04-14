@@ -16,6 +16,23 @@
       "message": "Thanks for the patch. Do you have a proof of concept that shows the issue? Most importantly, were the input values in range for the bitdepth? Meaning 8-bit [0, 255], 10-bit [0, 1023] and 12-bit [0, 4095]?",
       "revId": "9593e172736c75531804457c84ec8cae9276efe9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0db1a339_c6e029cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-14T20:30:02Z",
+      "side": 1,
+      "message": "From the discussion in https://issues.chromium.org/502107756 this sounds like it\u0027s related to https://issuetracker.google.com/488585490, which was fixed by https://chromium.googlesource.com/webm/libvpx/+/090dd8b8c.",
+      "revId": "9593e172736c75531804457c84ec8cae9276efe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
