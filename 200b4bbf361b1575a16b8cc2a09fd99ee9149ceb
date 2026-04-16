@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d905c357_9d303c82",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2181,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-16T20:05:27Z",
+      "side": 1,
+      "message": "elsewhere we just check `cpi-\u003einitial_width \u0026\u0026 cpi-\u003einitial_height` or `!\u003d 0` since they\u0027re 0 initialized.",
+      "range": {
+        "startLine": 2181,
+        "startChar": 46,
+        "endLine": 2181,
+        "endChar": 68
+      },
+      "revId": "200b4bbf361b1575a16b8cc2a09fd99ee9149ceb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1addba38_7ed672c1",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-16T20:05:27Z",
+      "side": 1,
+      "message": "What happens in the non-SVC case. Couldn\u0027t the user change the resolution then too? Meaning the allocation should always be initial_width/height? Or are the buffers used only with spatial layers?",
+      "revId": "200b4bbf361b1575a16b8cc2a09fd99ee9149ceb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "551bc122_2cd3c3d3",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-16T20:05:27Z",
+      "side": 1,
+      "message": "So here we\u0027ll cap to the max configured layer size, since [`vp9_set_literal_size`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/libvpx/source/libvpx/vp9/encoder/vp9_encoder.c;l\u003d6778;drc\u003d9a2d3d1f46afbdfa9b9820a9fd3aacb084e65e2f) avoids increasing the width or height beyond the initially configured values.",
+      "revId": "200b4bbf361b1575a16b8cc2a09fd99ee9149ceb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
