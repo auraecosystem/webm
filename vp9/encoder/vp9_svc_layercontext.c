@@ -379,6 +379,7 @@ void vp9_restore_layer_context(VP9_COMP *const cpi) {
   if (cpi->oxcf.aq_mode == CYCLIC_REFRESH_AQ &&
       cpi->svc.number_spatial_layers > 1 && cpi->svc.temporal_layer_id == 0) {
     CYCLIC_REFRESH *const cr = cpi->cyclic_refresh;
+    if (lc->consec_zero_mv == NULL) return;
     swap_ptr(&cr->map, &lc->map);
     swap_ptr(&cr->last_coded_q_map, &lc->last_coded_q_map);
     swap_ptr(&cpi->consec_zero_mv, &lc->consec_zero_mv);
