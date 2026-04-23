@@ -4176,7 +4176,8 @@ static int encode_without_recode_loop(VP9_COMP *cpi, size_t *size,
   // scale references for this case.
   if (frame_is_intra_only(cm) == 0 &&
       ((svc->single_layer_svc && cpi->oxcf.resize_mode == RESIZE_DYNAMIC) ||
-       !(is_one_pass_svc(cpi) && svc->force_zero_mode_spatial_ref))) {
+       !(is_one_pass_svc(cpi) && svc->force_zero_mode_spatial_ref &&
+         cpi->sf.use_nonrd_pick_mode))) {
     vp9_scale_references(cpi);
   }
 
