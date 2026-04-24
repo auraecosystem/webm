@@ -2651,6 +2651,75 @@ TEST(EncodeAPI, SvcTestInvalidInputs) {
   ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
 }
 
+// 4 spatial layers, 1 temporal, speed 1 and 0 for spatial_layer = 0, 1,
+// with large scale factors.
+TEST(EncodeAPI, SvcIssue505665613) {
+  vpx_codec_ctx_t codec;
+  vpx_codec_enc_cfg_t cfg;
+  vpx_codec_iface_t *iface = vpx_codec_vp9_cx();
+  ASSERT_EQ(vpx_codec_enc_config_default(iface, &cfg, 0), VPX_CODEC_OK);
+  cfg.g_w = 935;
+  cfg.g_h = 464;
+  cfg.g_profile = 0;
+  cfg.g_lag_in_frames = 0;
+  cfg.ss_number_layers = 4;
+  cfg.ts_number_layers = 1;
+  for (int i = 0; i < 4; ++i) {
+    cfg.layer_target_bitrate[i] = cfg.rc_target_bitrate / 4;
+  }
+  ASSERT_EQ(vpx_codec_enc_init(&codec, iface, &cfg, 0), VPX_CODEC_OK);
+  ASSERT_EQ(vpx_codec_control(&codec, VP9E_SET_SVC, 1), VPX_CODEC_OK);
+
+  vpx_svc_extra_cfg_t svc = {};
+  svc.max_quantizers[0] = 49;
+  svc.min_quantizers[0] = 5;
+  svc.scaling_factor_num[0] = 2;
+  svc.scaling_factor_den[0] = 12;
+  svc.speed_per_layer[0] = 1;
+  svc.loopfilter_ctrl[0] = 1;
+
+  svc.max_quantizers[1] = 46;
+  svc.min_quantizers[1] = 28;
+  svc.scaling_factor_num[1] = 9;
+  svc.scaling_factor_den[1] = 9;
+  svc.speed_per_layer[1] = 0;
+  svc.loopfilter_ctrl[1] = 0;
+
+  svc.max_quantizers[2] = 32;
+  svc.min_quantizers[2] = 0;
+  svc.scaling_factor_num[2] = 1;
+  svc.scaling_factor_den[2] = 14;
+  svc.speed_per_layer[2] = 4;
+  svc.loopfilter_ctrl[2] = 0;
+
+  svc.max_quantizers[3] = 38;
+  svc.min_quantizers[3] = 25;
+  svc.scaling_factor_num[3] = 7;
+  svc.scaling_factor_den[3] = 16;
+  svc.speed_per_layer[3] = 3;
+  svc.loopfilter_ctrl[3] = 0;
+
+  svc.temporal_layering_mode = VP9E_TEMPORAL_LAYERING_MODE_0212;
+  ASSERT_EQ(vpx_codec_control(&codec, VP9E_SET_SVC_PARAMETERS, &svc),
+            VPX_CODEC_OK);
+
+  vpx_image_t *img = vpx_img_alloc(nullptr, VPX_IMG_FMT_I420, 935, 464, 1);
+  ASSERT_NE(img, nullptr);
+  // Encode.
+  ASSERT_EQ(vpx_codec_encode(&codec, img, 0, 1, 0, VPX_DL_REALTIME),
+            VPX_CODEC_OK);
+  const vpx_codec_cx_pkt_t *pkt;
+  vpx_codec_iter_t iter = nullptr;
+  while ((pkt = vpx_codec_get_cx_data(&codec, &iter)) != nullptr) {
+    (void)pkt;
+  }
+  // Flush
+  ASSERT_EQ(vpx_codec_encode(&codec, nullptr, 1, 1, 0, VPX_DL_REALTIME),
+            VPX_CODEC_OK);
+  vpx_img_free(img);
+  vpx_codec_destroy(&codec);
+}
+
 #endif  // CONFIG_VP9_ENCODER
 
 }  // namespace
