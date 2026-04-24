@@ -16,6 +16,24 @@
       "message": "Are `width_org` and `height_org` constrained to the format, so 65536x65336?  What are the restrictions on `num` and `den`?",
       "revId": "25d0b8617000d0f4b570c4a990d3d398e30421df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93c8a0e0_1d957409",
+        "filename": "vp9/encoder/vp9_svc_layercontext.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-04-24T22:02:36Z",
+      "side": 1,
+      "message": "There are no restrictions on num and den (except \u003e 1 and den \u003e num), i\u0027ll add additional constraint on num/den in another change, based on the allowed max size of 65536x65336.",
+      "parentUuid": "06c380e8_a8d6a16a",
+      "revId": "25d0b8617000d0f4b570c4a990d3d398e30421df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
