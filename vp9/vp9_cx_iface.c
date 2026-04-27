@@ -433,6 +433,17 @@ static vpx_codec_err_t validate_img(vpx_codec_alg_priv_t *ctx,
     ERROR("Image U/V strides must match");
 
 #if CONFIG_VP9_HIGHBITDEPTH
+  if (ctx->oxcf.use_highbitdepth && !(img->fmt & VPX_IMG_FMT_HIGHBITDEPTH)) {
+    ERROR(
+        "Encoder initialized with VPX_CODEC_USE_HIGHBITDEPTH requires a "
+        "high-bit-depth image format (e.g. VPX_IMG_FMT_I42016)");
+  }
+  if (!ctx->oxcf.use_highbitdepth && (img->fmt & VPX_IMG_FMT_HIGHBITDEPTH)) {
+    ERROR(
+        "Non-high-bit-depth encoder cannot accept a high-bit-depth image "
+        "format");
+  }
+
   if (ctx->extra_cfg.validate_input_hbd &&
       (img->fmt & VPX_IMG_FMT_HIGHBITDEPTH)) {
     const unsigned int h = img->d_h;
