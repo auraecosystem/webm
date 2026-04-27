@@ -2702,6 +2702,21 @@ TEST(EncodeAPI, SvcTestInvalidInputs) {
   ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
 }
 
+TEST(EncodeAPI, LargeDimensionsOOM) {
+  vpx_codec_iface_t *const iface = vpx_codec_vp9_cx();
+  vpx_codec_enc_cfg_t cfg;
+  ASSERT_EQ(vpx_codec_enc_config_default(iface, &cfg, 0), VPX_CODEC_OK);
+  cfg.g_w = 26575;
+  cfg.g_h = 30747;
+
+  vpx_codec_ctx_t codec;
+  // We expect initialization to fail due to large dimensions, returning
+  // INVALID_PARAM
+  ASSERT_EQ(
+      vpx_codec_enc_init_ver(&codec, iface, &cfg, 0, VPX_ENCODER_ABI_VERSION),
+      VPX_CODEC_INVALID_PARAM);
+}
+
 #endif  // CONFIG_VP9_ENCODER
 
 }  // namespace
