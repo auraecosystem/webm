@@ -1393,7 +1393,7 @@ static void alloc_compressor_data(VP9_COMP *cpi) {
   vpx_free(cpi->tile_tok[0][0]);
 
   {
-    unsigned int tokens = get_token_alloc(cm->mb_rows, cm->mb_cols);
+    size_t tokens = get_token_alloc(cm->mb_rows, cm->mb_cols);
     CHECK_MEM_ERROR(&cm->error, cpi->tile_tok[0][0],
                     vpx_calloc(tokens, sizeof(*cpi->tile_tok[0][0])));
   }
