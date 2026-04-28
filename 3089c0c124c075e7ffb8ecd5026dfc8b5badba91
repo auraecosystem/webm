@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a921f09_4b83cdc0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T18:26:01Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Spellchecker: \"substracted\" is a possible misspelling of \"subtracted\".\n\nTo bypass Spellchecker...\n\n\"substracted\" is a possible misspelling of \"subtracted\".\n\nTo bypass Spellchecker, add a footer with DISABLE_SPELLCHECKER",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "3089c0c124c075e7ffb8ecd5026dfc8b5badba91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
