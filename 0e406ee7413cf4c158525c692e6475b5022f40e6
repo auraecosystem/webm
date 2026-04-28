@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1a3a67e_722e037f",
+        "filename": "vp8/encoder/onyx_if.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T17:59:06Z",
+      "side": 1,
+      "message": "With the extra check, this may work as an `assert`.",
+      "revId": "0e406ee7413cf4c158525c692e6475b5022f40e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f5804e3_70ec70db",
+        "filename": "vp8/vp8_cx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T17:59:06Z",
+      "side": 1,
+      "message": "The control takes an `unsigned int`, so this should be sufficient.",
+      "revId": "0e406ee7413cf4c158525c692e6475b5022f40e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
