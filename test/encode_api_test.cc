@@ -2870,6 +2870,77 @@ TEST(EncodeAPI, Vp9TargetLevelTinyResolution) {
   EXPECT_EQ(vpx_codec_destroy(&codec), VPX_CODEC_OK);
 }
 
+// Bug: 501612368. Configuration changes with different resolution
+// to trigger issues in the re-allocation logic.
+void VerifyVp9EncoderMidstreamReconfig(int width1, int height1, bool encode1,
+                                       int width2, int height2, bool encode2,
+                                       int width3, int height3, bool encode3) {
+  vpx_codec_iface_t *const iface = &vpx_codec_vp9_cx_algo;
+  vpx_codec_enc_cfg_t cfg;
+  vpx_codec_ctx_t enc;
+  vpx_image_t *image;
+
+  ASSERT_EQ(vpx_codec_enc_config_default(iface, &cfg, 0), VPX_CODEC_OK);
+  cfg.g_w = width1;
+  cfg.g_h = height1;
+  cfg.g_timebase.num = 1;
+  cfg.g_timebase.den = 30;
+  cfg.rc_target_bitrate = 1000;
+  cfg.g_lag_in_frames = 0;
+
+  ASSERT_EQ(vpx_codec_enc_init(&enc, iface, &cfg, 0), VPX_CODEC_OK);
+  ASSERT_EQ(vpx_codec_control_(&enc, VP8E_SET_CPUUSED, 5), VPX_CODEC_OK);
+
+  if (encode1) {
+    image = CreateImage(VPX_BITS_8, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h);
+
+    ASSERT_EQ(vpx_codec_encode(&enc, image, 0, 1, 0, VPX_DL_REALTIME),
+              VPX_CODEC_OK);
+  }
+
+  cfg.g_w = width2;
+  cfg.g_h = height2;
+  ASSERT_EQ(vpx_codec_enc_config_set(&enc, &cfg), VPX_CODEC_OK);
+
+  if (encode2) {
+    vpx_img_free(image);
+    image = CreateImage(VPX_BITS_8, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h);
+
+    ASSERT_EQ(vpx_codec_encode(&enc, image, 0, 1, 0, VPX_DL_REALTIME),
+              VPX_CODEC_OK);
+  }
+
+  cfg.g_w = width3;
+  cfg.g_h = height3;
+  ASSERT_EQ(vpx_codec_enc_config_set(&enc, &cfg), VPX_CODEC_OK);
+
+  if (encode3) {
+    vpx_img_free(image);
+    image = CreateImage(VPX_BITS_8, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h);
+
+    ASSERT_EQ(vpx_codec_encode(&enc, image, 1, 1, 0, VPX_DL_REALTIME),
+              VPX_CODEC_OK);
+  }
+
+  vpx_img_free(image);
+  ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
+}
+
+TEST(EncodeAPI, Vp9EncoderMidstreamReconfig1) {
+  VerifyVp9EncoderMidstreamReconfig(64, 128, 1, 128, 64, 1, 128, 64, 1);
+}
+
+TEST(EncodeAPI, Vp9EncoderMidstreamReconfig2) {
+  VerifyVp9EncoderMidstreamReconfig(192, 192, 1, 256, 128, 1, 256, 128, 1);
+}
+
+TEST(EncodeAPI, Vp9EncoderMidstreamReconfig3) {
+  VerifyVp9EncoderMidstreamReconfig(128, 128, 1, 96, 160, 1, 96, 160, 1);
+}
+
+TEST(EncodeAPI, Vp9EncoderMidstreamReconfig4) {
+  VerifyVp9EncoderMidstreamReconfig(128, 128, 1, 256, 256, 0, 512, 512, 1);
+}
 #endif  // CONFIG_VP9_ENCODER
 
 #if CONFIG_VP9_ENCODER
