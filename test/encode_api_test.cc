@@ -2651,6 +2651,111 @@ TEST(EncodeAPI, SvcTestInvalidInputs) {
   ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
 }
 
+// A test that reproduces mid-stream reconfiguration heap-buffer-overflow.
+// See: vp9_encoder_midstream_reconfig_fuzzer-501696590.cc
+TEST(EncodeAPI, Vp9EncoderMidstreamReconfig) {
+  vpx_codec_iface_t *const iface = &vpx_codec_vp9_cx_algo;
+  vpx_codec_enc_cfg_t cfg;
+  vpx_codec_ctx_t enc;
+  vpx_image_t *image;
+
+  ASSERT_EQ(vpx_codec_enc_config_default(iface, &cfg, 0), VPX_CODEC_OK);
+  cfg.g_w = 64;
+  cfg.g_h = 128;
+  cfg.g_timebase.num = 1;
+  cfg.g_timebase.den = 30;
+  cfg.rc_target_bitrate = 1000;
+  cfg.g_lag_in_frames = 0;
+
+  ASSERT_EQ(vpx_codec_enc_init(&enc, iface, &cfg, 0), VPX_CODEC_OK);
+
+  image = vpx_img_alloc(nullptr, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h, 1);
+  ASSERT_NE(image, nullptr);
+  memset(image->planes[0], 128, image->d_w * image->d_h);
+  memset(image->planes[1], 128,
+         ((image->d_w + 1) / 2) * ((image->d_h + 1) / 2));
+  memset(image->planes[2], 128,
+         ((image->d_w + 1) / 2) * ((image->d_h + 1) / 2));
+
+  // Encode 1 frame at 64x128
+  ASSERT_EQ(vpx_codec_encode(&enc, image, 0, 1, 0, VPX_DL_REALTIME),
+            VPX_CODEC_OK);
+
+  // Reconfigure to 128x64 (width doubled, total area same)
+  cfg.g_w = 128;
+  cfg.g_h = 64;
+  ASSERT_EQ(vpx_codec_enc_config_set(&enc, &cfg), VPX_CODEC_OK);
+
+  vpx_img_free(image);
+  image = vpx_img_alloc(nullptr, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h, 1);
+  ASSERT_NE(image, nullptr);
+  memset(image->planes[0], 128, image->d_w * image->d_h);
+  memset(image->planes[1], 128,
+         ((image->d_w + 1) / 2) * ((image->d_h + 1) / 2));
+  memset(image->planes[2], 128,
+         ((image->d_w + 1) / 2) * ((image->d_h + 1) / 2));
+
+  // Encode 1 frame at 128x64 - this used to trigger heap-buffer-overflow
+  ASSERT_EQ(vpx_codec_encode(&enc, image, 1, 1, 0, VPX_DL_REALTIME),
+            VPX_CODEC_OK);
+
+  vpx_img_free(image);
+  ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
+}
+
+// A test that reproduces mid-stream reconfiguration heap-buffer-overflow.
+// This specifically targets the tplist overflow (sb_rows growth).
+TEST(EncodeAPI, Vp9EncoderMidstreamReconfig2) {
+  vpx_codec_iface_t *const iface = &vpx_codec_vp9_cx_algo;
+  vpx_codec_enc_cfg_t cfg;
+  vpx_codec_ctx_t enc;
+  vpx_image_t *image;
+
+  ASSERT_EQ(vpx_codec_enc_config_default(iface, &cfg, 0), VPX_CODEC_OK);
+  cfg.g_w = 256;
+  cfg.g_h = 128;
+  cfg.g_timebase.num = 1;
+  cfg.g_timebase.den = 30;
+  cfg.rc_target_bitrate = 1000;
+  cfg.g_lag_in_frames = 0;
+
+  ASSERT_EQ(vpx_codec_enc_init(&enc, iface, &cfg, 0), VPX_CODEC_OK);
+
+  image = vpx_img_alloc(nullptr, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h, 1);
+  ASSERT_NE(image, nullptr);
+  memset(image->planes[0], 128, image->d_w * image->d_h);
+  memset(image->planes[1], 128,
+         ((image->d_w + 1) / 2) * ((image->d_h + 1) / 2));
+  memset(image->planes[2], 128,
+         ((image->d_w + 1) / 2) * ((image->d_h + 1) / 2));
+
+  // Encode 1 frame at 256x128
+  ASSERT_EQ(vpx_codec_encode(&enc, image, 0, 1, 0, VPX_DL_REALTIME),
+            VPX_CODEC_OK);
+
+  // Reconfigure to 128x256 (height doubled, total area same)
+  cfg.g_w = 128;
+  cfg.g_h = 256;
+  ASSERT_EQ(vpx_codec_enc_config_set(&enc, &cfg), VPX_CODEC_OK);
+
+  vpx_img_free(image);
+  image = vpx_img_alloc(nullptr, VPX_IMG_FMT_I420, cfg.g_w, cfg.g_h, 1);
+  ASSERT_NE(image, nullptr);
+  memset(image->planes[0], 128, image->d_w * image->d_h);
+  memset(image->planes[1], 128,
+         ((image->d_w + 1) / 2) * ((image->d_h + 1) / 2));
+  memset(image->planes[2], 128,
+         ((image->d_w + 1) / 2) * ((image->d_h + 1) / 2));
+
+  // Encode 1 frame at 128x256 - this used to trigger heap-buffer-overflow in
+  // tplist
+  ASSERT_EQ(vpx_codec_encode(&enc, image, 1, 1, 0, VPX_DL_REALTIME),
+            VPX_CODEC_OK);
+
+  vpx_img_free(image);
+  ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
+}
+
 #endif  // CONFIG_VP9_ENCODER
 
 }  // namespace
