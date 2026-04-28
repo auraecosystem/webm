@@ -336,9 +336,10 @@ static vpx_codec_err_t validate_config(vpx_codec_alg_priv_t *ctx,
                 n_packets - cfg->ss_number_layers + i;
         layer_id = (int)stats->spatial_layer_id;
 
-        if (layer_id >= cfg->ss_number_layers ||
-            (unsigned int)(stats->count + 0.5) !=
-                n_packets_per_layer[layer_id] - 1)
+        const double count_rounded = stats->count + 0.5;
+        if (layer_id >= cfg->ss_number_layers || count_rounded < 0 ||
+            count_rounded > (double)UINT_MAX ||
+            (unsigned int)count_rounded != n_packets_per_layer[layer_id] - 1)
           ERROR("rc_twopass_stats_in missing EOS stats packet");
       }
     } else {
@@ -348,7 +349,9 @@ static vpx_codec_err_t validate_config(vpx_codec_alg_priv_t *ctx,
       stats =
           (const FIRSTPASS_STATS *)cfg->rc_twopass_stats_in.buf + n_packets - 1;
 
-      if ((int)(stats->count + 0.5) != n_packets - 1)
+      const double count_rounded = stats->count + 0.5;
+      if (count_rounded < 0 || count_rounded > (double)INT_MAX ||
+          (int)count_rounded != n_packets - 1)
         ERROR("rc_twopass_stats_in missing EOS stats packet");
     }
   }
