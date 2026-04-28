@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2bad61_2980c6fe",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T23:46:35Z",
+      "side": 1,
+      "message": "I think expect count to be positive and non-zero. If that\u0027s true you might want to add a `isfinite()` check to avoid other non-sensical values.",
+      "revId": "80280cd7785f3b81d01a1a3a6a3449fe7217302e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
