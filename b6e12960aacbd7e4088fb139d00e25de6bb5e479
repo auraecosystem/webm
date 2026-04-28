@@ -70,6 +70,24 @@
       "parentUuid": "498cec87_03438cca",
       "revId": "b6e12960aacbd7e4088fb139d00e25de6bb5e479",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11aa3820_2e798542",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T19:40:06Z",
+      "side": 1,
+      "message": "\u003e It has the same issue - `use_highbitdepth` gets changed but the function pointers are not updated.\n\u003e \n\u003e In libvpx, setting function pointers to lowbd ones is in `vp9_create_compressor` and then overwritten if highbd is set. There\u0027s no other way around at the moment...\n\nSo as a reflection of the current library limitations this might be OK. It would be good to document the check with this fact in case someone wanted to add support for it.",
+      "parentUuid": "86cf4207_6ddbf2c6",
+      "revId": "b6e12960aacbd7e4088fb139d00e25de6bb5e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
