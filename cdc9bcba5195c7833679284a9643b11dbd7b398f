@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e97cbedd_2012e790",
+        "filename": "vp8/vp8_dx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T22:14:53Z",
+      "side": 1,
+      "message": "The assert change makes sense. What was the stacktrace for this failure?",
+      "revId": "cdc9bcba5195c7833679284a9643b11dbd7b398f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
