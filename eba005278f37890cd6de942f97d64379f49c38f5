@@ -16,6 +16,40 @@
       "message": "I think this one can be made independent of its parent so we can land it separately.",
       "revId": "eba005278f37890cd6de942f97d64379f49c38f5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11f3ae1c_6d089b6a",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T18:04:28Z",
+      "side": 1,
+      "message": "`get_token_alloc` now returns an `int64_t`.",
+      "revId": "eba005278f37890cd6de942f97d64379f49c38f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e89051e_b86a6600",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T18:04:28Z",
+      "side": 1,
+      "message": "If we want to limit the resolution we may want to do what Wan-Teh did for libaom and select something that worked reasonably well without overflows. His change was just a stop gap though, so we should improve things if possible. In this case a large resolution is valid and an OOM expected if there isn\u0027t enough memory. I closed a few bugs like this recently.",
+      "revId": "eba005278f37890cd6de942f97d64379f49c38f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
