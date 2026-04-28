@@ -2154,20 +2154,17 @@ void vp9_change_config(struct VP9_COMP *cpi, const VP9EncoderConfig *oxcf) {
   int new_mi_size = 0;
   vp9_set_mb_mi(cm, cm->width, cm->height);
   new_mi_size = cm->mi_stride * calc_mi_size(cm->mi_rows);
-  if (cm->mi_alloc_size < new_mi_size) {
+
+  if (cpi->oxcf.width > cpi->initial_width ||
+      cpi->oxcf.height > cpi->initial_height) {
     vp9_free_context_buffers(cm);
     vp9_free_pc_tree(&cpi->td);
     vpx_free(cpi->mbmi_ext_base);
     alloc_compressor_data(cpi);
     realloc_segmentation_maps(cpi);
-    cpi->initial_width = cpi->initial_height = 0;
+    cpi->initial_width = cpi->oxcf.width;
+    cpi->initial_height = cpi->oxcf.height;
     cpi->external_resize = 0;
-  } else if (cm->mi_alloc_size == new_mi_size &&
-             (cpi->oxcf.width > last_w || cpi->oxcf.height > last_h)) {
-    if (vp9_alloc_loop_filter(cm)) {
-      vpx_internal_error(&cm->error, VPX_CODEC_MEM_ERROR,
-                         "Failed to allocate loop filter data");
-    }
   }
 
   if (cm->current_video_frame == 0 || last_w != cpi->oxcf.width ||
