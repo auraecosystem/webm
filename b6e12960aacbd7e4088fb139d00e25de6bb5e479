@@ -16,6 +16,24 @@
       "message": "Technically the library should be able to handle this and produce a valid bitstream, by throwing a keyframe. Is the issue that there\u0027s an internal flag mismatch?",
       "revId": "b6e12960aacbd7e4088fb139d00e25de6bb5e479",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5d9ae1_cac61986",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-28T18:44:22Z",
+      "side": 1,
+      "message": "Yeah, the internal flag `use_highbitdepth` is reset to 0 down the road but the function pointers aren\u0027t updated to be low bitdepth ones...",
+      "parentUuid": "9c231008_fb35bcb2",
+      "revId": "b6e12960aacbd7e4088fb139d00e25de6bb5e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
