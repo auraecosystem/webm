@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e93b6370_3baa64a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T23:35:34Z",
+      "side": 1,
+      "message": "Marco, please take a look.",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d04e23_9efafaf4",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2695,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T23:35:34Z",
+      "side": 1,
+      "message": "This size might cause issues in the nightly builds, especially in 32-bit. We might see tests get killed as a result.",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
