@@ -34,6 +34,24 @@
       "parentUuid": "9c231008_fb35bcb2",
       "revId": "b6e12960aacbd7e4088fb139d00e25de6bb5e479",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498cec87_03438cca",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-28T19:01:41Z",
+      "side": 1,
+      "message": "\u003e Yeah, the internal flag `use_highbitdepth` is reset to 0 down the road but the function pointers aren\u0027t updated to be low bitdepth ones...\n\nWhat\u0027s the behavior in libaom?",
+      "parentUuid": "9b5d9ae1_cac61986",
+      "revId": "b6e12960aacbd7e4088fb139d00e25de6bb5e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
