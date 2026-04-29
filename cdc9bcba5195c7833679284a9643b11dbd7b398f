@@ -16,6 +16,24 @@
       "message": "The assert change makes sense. What was the stacktrace for this failure?",
       "revId": "cdc9bcba5195c7833679284a9643b11dbd7b398f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa010b6_ff6bb0e7",
+        "filename": "vp8/vp8_dx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T17:17:01Z",
+      "side": 1,
+      "message": "The stacktrace is:\n\n```\n    #11 0x5e84afe9c9ed in vp8_peek_si_internal /root/src/libvpx/vp8/vp8_dx_iface.c:134:3\n    #12 0x5e84afe993ea in vp8_decode /root/src/libvpx/vp8/vp8_dx_iface.c:298:9\n    #13 0x5e84afe97e53 in vpx_codec_decode /root/src/libvpx/vpx/src/vpx_decoder.c:117:11\n    #14 0x5e84afe975b7 in LLVMFuzzerTestOneInput /root/FuzzAgent/output/libvpx/crash_reports/crash_008/poc.cpp:18:3\n```\n\nSo the condition here catches a case that was missed before (which proceeds with decoding and then triggers that assert).",
+      "parentUuid": "e97cbedd_2012e790",
+      "revId": "cdc9bcba5195c7833679284a9643b11dbd7b398f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
