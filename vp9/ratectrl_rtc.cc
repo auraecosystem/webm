@@ -98,6 +98,7 @@ bool VP9RateControlRTC::InitRateControl(const VP9RateControlRtcConfig &rc_cfg) {
   vp9_rc_init(oxcf, 0, rc);
   rc->constrain_gf_key_freq_onepass_vbr = 0;
   cpi_->sf.use_nonrd_pick_mode = 1;
+  rc_is_valid_ = true;
   return true;
 }
 
@@ -110,6 +111,15 @@ bool VP9RateControlRTC::UpdateRateControl(
       rc_cfg.ts_number_layers < 1 ||
       rc_cfg.ts_number_layers > VPX_TS_MAX_LAYERS ||
       rc_cfg.ss_number_layers * rc_cfg.ts_number_layers > VPX_MAX_LAYERS) {
+    rc_is_valid_ = false;
+    return false;
+  }
+  if (initial_width_ == 0 && initial_height_ == 0) {
+    initial_width_ = rc_cfg.width;
+    initial_height_ = rc_cfg.height;
+  }
+  if (rc_cfg.width > initial_width_ || rc_cfg.height > initial_height_) {
+    rc_is_valid_ = false;
     return false;
   }
 
@@ -160,6 +170,10 @@ bool VP9RateControlRTC::UpdateRateControl(
     oxcf->ts_rate_decimator[tl] = rc_cfg.ts_rate_decimator[tl];
   }
   for (int sl = 0; sl < cpi_->svc.number_spatial_layers; ++sl) {
+    if (rc_cfg.scaling_factor_den[sl] < rc_cfg.scaling_factor_num[sl]) {
+      rc_is_valid_ = false;
+      return false;
+    }
     for (int tl = 0; tl < cpi_->svc.number_temporal_layers; ++tl) {
       const int layer =
           LAYER_IDS_TO_IDX(sl, tl, cpi_->svc.number_temporal_layers);
@@ -167,6 +181,12 @@ bool VP9RateControlRTC::UpdateRateControl(
       RATE_CONTROL *const lrc = &lc->rc;
       oxcf->layer_target_bitrate[layer] =
           1000 * rc_cfg.layer_target_bitrate[layer];
+      if (rc_cfg.max_quantizers[layer] > 63 ||
+          rc_cfg.min_quantizers[layer] < 0 ||
+          rc_cfg.min_quantizers[layer] > rc_cfg.max_quantizers[layer]) {
+        rc_is_valid_ = false;
+        return false;
+      }
       lrc->worst_quality =
           vp9_quantizer_to_qindex(rc_cfg.max_quantizers[layer]);
       lrc->best_quality = vp9_quantizer_to_qindex(rc_cfg.min_quantizers[layer]);
@@ -191,6 +211,7 @@ bool VP9RateControlRTC::UpdateRateControl(
   vp9_check_reset_rc_flag(cpi_);
 
   cpi_->common.error.setjmp = 0;
+  rc_is_valid_ = true;
   return true;
 }
 
@@ -199,6 +220,14 @@ bool VP9RateControlRTC::UpdateRateControl(
 // the QP is computed and kOk is returned.
 FrameDropDecision VP9RateControlRTC::ComputeQP(
     const VP9FrameParamsQpRTC &frame_params) {
+  if (!rc_is_valid_) return FrameDropDecision::kDrop;
+  if (frame_params.spatial_layer_id < 0 ||
+      frame_params.spatial_layer_id >= cpi_->svc.number_spatial_layers ||
+      frame_params.temporal_layer_id < 0 ||
+      frame_params.temporal_layer_id >= cpi_->svc.number_temporal_layers ||
+      initial_width_ == 0 || initial_height_ == 0) {
+    return FrameDropDecision::kDrop;
+  }
   VP9_COMMON *const cm = &cpi_->common;
   int width, height;
   cpi_->svc.spatial_layer_id = frame_params.spatial_layer_id;
@@ -297,9 +326,13 @@ FrameDropDecision VP9RateControlRTC::ComputeQP(
   return FrameDropDecision::kOk;
 }
 
-int VP9RateControlRTC::GetQP() const { return cpi_->common.base_qindex; }
+int VP9RateControlRTC::GetQP() const {
+  if (!rc_is_valid_) return 0;
+  return cpi_->common.base_qindex;
+}
 
 int VP9RateControlRTC::GetLoopfilterLevel() const {
+  if (!rc_is_valid_) return 0;
   struct loopfilter *const lf = &cpi_->common.lf;
   vp9_pick_filter_level(nullptr, cpi_, LPF_PICK_FROM_Q);
   return lf->filter_level;
@@ -307,6 +340,7 @@ int VP9RateControlRTC::GetLoopfilterLevel() const {
 
 bool VP9RateControlRTC::GetSegmentationData(
     VP9SegmentationData *segmentation_data) const {
+  if (!rc_is_valid_) return false;
   if (!cpi_->cyclic_refresh || !cpi_->cyclic_refresh->apply_cyclic_refresh) {
     return false;
   }
@@ -321,6 +355,7 @@ bool VP9RateControlRTC::GetSegmentationData(
 
 void VP9RateControlRTC::PostEncodeUpdate(
     uint64_t encoded_frame_size, const VP9FrameParamsQpRTC &frame_params) {
+  if (!rc_is_valid_) return;
   cpi_->common.frame_type = static_cast<FRAME_TYPE>(frame_params.frame_type);
   cpi_->svc.spatial_layer_id = frame_params.spatial_layer_id;
   cpi_->svc.temporal_layer_id = frame_params.temporal_layer_id;
