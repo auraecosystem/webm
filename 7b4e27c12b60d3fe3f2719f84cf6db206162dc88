@@ -33,6 +33,23 @@
       "message": "This size might cause issues in the nightly builds, especially in 32-bit. We might see tests get killed as a result.",
       "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f71f08ea_081bb8de",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-29T00:50:48Z",
+      "side": 1,
+      "message": "IMPORTANT: `vpx_calloc()` has the following prototype:\n\n```\nvoid *vpx_calloc(size_t num, size_t size);\n```\n\nSo the `int64_t` variable `tokens` is implicitly converted to `size_t` when it is passed as the first argument to `vpx_calloc()`. If `size_t` is 32 bits, this conversion may result in truncation. So we need to first check that it can be converted to `size_t` safely:\n\n```\n     int64_t tokens \u003d get_token_alloc(cm-\u003emb_rows, cm-\u003emb_cols);\n+    if (tokens \u003e SIZE_MAX) {\n+      vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_MEM_ERROR,\n+                         \"Size of cpi-\u003etile_tok[0][0] can\u0027t be represented in size_t\");\n+    }\n     CHECK_MEM_ERROR(\u0026cm-\u003eerror, cpi-\u003etile_tok[0][0],\n                     vpx_calloc(tokens, sizeof(*cpi-\u003etile_tok[0][0])));\n```",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
