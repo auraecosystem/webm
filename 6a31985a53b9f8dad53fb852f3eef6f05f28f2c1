@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b773ae7_553c22a5",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2688,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-29T19:18:30Z",
+      "side": 1,
+      "message": "There\u0027s a `NAN` macro in `\u003ccmath\u003e` or `std::nan`.",
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c9b15a_7f1c2c6d",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2700,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-29T19:18:30Z",
+      "side": 1,
+      "message": "I think these three can be broken out to a function that takes a double argument.",
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc392625_8c216cb9",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-29T19:18:30Z",
+      "side": 1,
+      "message": "Sort this list.",
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70d52dac_91cf7fdc",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-29T19:18:30Z",
+      "side": 1,
+      "message": "Did you get a warning? This should work with a double. Also note the second check can be `\u003c 0.0` since 0 is checked by `isfinite()`.",
+      "range": {
+        "startLine": 342,
+        "startChar": 22,
+        "endLine": 342,
+        "endChar": 41
+      },
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
