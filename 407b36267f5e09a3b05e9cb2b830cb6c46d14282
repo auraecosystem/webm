@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c0110cc_6ea7c111",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T17:07:25Z",
+      "side": 1,
+      "message": "I took another look at libaom. It prevents this mismatch in another way in `aom_codec_encode()`:\n\n```\n  else if (img \u0026\u0026 ((img-\u003efmt \u0026 AOM_IMG_FMT_HIGHBITDEPTH) !\u003d 0) !\u003d\n                      ((ctx-\u003einit_flags \u0026 AOM_CODEC_USE_HIGHBITDEPTH) !\u003d 0)) {\n    res \u003d AOM_CODEC_INVALID_PARAM;\n```\n\nAnd libaom already has test coverage `HighBDEncoderLowBDImage` and `LowBDEncoderHighBDImage`",
+      "parentUuid": "09238a50_cd317f32",
+      "revId": "407b36267f5e09a3b05e9cb2b830cb6c46d14282",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21f4e219_e353207e",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-04-28T23:29:04Z",
       "side": 1,
       "message": "This could be extracted to a function, with a `bool use_highbitdepth` parameter.",
+      "revId": "407b36267f5e09a3b05e9cb2b830cb6c46d14282",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21214534_b1ac5548",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T17:07:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21f4e219_e353207e",
       "revId": "407b36267f5e09a3b05e9cb2b830cb6c46d14282",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
