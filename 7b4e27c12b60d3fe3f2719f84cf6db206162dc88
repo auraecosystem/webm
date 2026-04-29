@@ -84,6 +84,24 @@
       "message": "Optional: Ideally this function should return `size_t` or `ptrdiff_t`, and it should be able to report an error (integer overflow), either by the return value or by calling `vpx_internal_error()` (which requires passing `cpi` or `cm` to this function).",
       "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca96f578_71e5a99d",
+        "filename": "vp9/encoder/vp9_encoder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-29T03:41:42Z",
+      "side": 1,
+      "message": "This suggestion is an alternative to my suggestion at vp9_encoder.c:1398. We only need one of them.\n\nIf we want to implement this suggestion:\n* We should be able to use the return value 0 to indicate error.\n* We should be able to split this function into a version that may fail (used at vp9_encoder.c:1398 only, when we allocate the memory) and a version that doesn\u0027t fail (used for other calls, after we have allocated the memory successfully).",
+      "parentUuid": "55a099f8_ced11b87",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
