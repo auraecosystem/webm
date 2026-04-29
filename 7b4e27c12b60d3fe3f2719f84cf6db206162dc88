@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed9faba0_3ac43cbf",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2695,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T16:47:49Z",
+      "side": 1,
+      "message": "Hmm, what is a good size to use here? if it\u0027s small then it is useless...",
+      "parentUuid": "67d04e23_9efafaf4",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fbfd945a_7469f444",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b268f2e4_12aa50cd",
+        "filename": "vp9/encoder/vp9_encodeframe.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 5444,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T16:47:49Z",
+      "side": 1,
+      "message": "Right, it will fit in `ptrdiff_t` even on 32 bits.",
+      "parentUuid": "fbfd945a_7469f444",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f71f08ea_081bb8de",
@@ -65,6 +101,24 @@
       "writtenOn": "2026-04-29T00:50:48Z",
       "side": 1,
       "message": "IMPORTANT: `vpx_calloc()` has the following prototype:\n\n```\nvoid *vpx_calloc(size_t num, size_t size);\n```\n\nSo the `int64_t` variable `tokens` is implicitly converted to `size_t` when it is passed as the first argument to `vpx_calloc()`. If `size_t` is 32 bits, this conversion may result in truncation. So we need to first check that it can be converted to `size_t` safely:\n\n```\n     int64_t tokens \u003d get_token_alloc(cm-\u003emb_rows, cm-\u003emb_cols);\n+    if (tokens \u003e SIZE_MAX) {\n+      vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_MEM_ERROR,\n+                         \"Size of cpi-\u003etile_tok[0][0] can\u0027t be represented in size_t\");\n+    }\n     CHECK_MEM_ERROR(\u0026cm-\u003eerror, cpi-\u003etile_tok[0][0],\n                     vpx_calloc(tokens, sizeof(*cpi-\u003etile_tok[0][0])));\n```",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "152a46c5_b274c343",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T16:47:49Z",
+      "side": 1,
+      "message": "I took this approach. Thanks!",
+      "parentUuid": "f71f08ea_081bb8de",
       "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
