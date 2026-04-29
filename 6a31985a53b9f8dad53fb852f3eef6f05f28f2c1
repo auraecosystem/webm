@@ -175,6 +175,30 @@
       },
       "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30976688_218fd7dc",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T21:42:26Z",
+      "side": 1,
+      "message": "Oh it was failing on x86_64-win64-gcc:\n\nhttps://build.webmproject.org/jenkins/job/libvpx__per-commit_compile/44256/arch\u003dx86_64-win64-gcc,config\u003derror-concealment/console\n\n```\n11:35:02 In file included from ../libvpx/vp9/vp9_cx_iface.c:17:\n11:35:02 ../libvpx/vp9/vp9_cx_iface.c: In function ‘validate_config’:\n11:35:02 ../libvpx/vp9/vp9_cx_iface.c:341:65: warning: conversion from ‘double’ to ‘float’ may change value [-Wfloat-conversion]\n11:35:02   341 |         if (layer_id \u003e\u003d cfg-\u003ess_number_layers || !isfinite(stats-\u003ecount) ||\n11:35:02       |                                                            ~~~~~^~~~~~~\n11:35:02 ../libvpx/vp9/vp9_cx_iface.c:355:26: warning: conversion from ‘double’ to ‘float’ may change value [-Wfloat-conversion]\n11:35:02   355 |       if (!isfinite(stats-\u003ecount) || stats-\u003ecount \u003c\u003d 0.0 || count_rounded \u003c 0 ||\n11:35:02       |                     ~~~~~^~~~~~~\n```",
+      "parentUuid": "865d04db_8dfa47a9",
+      "range": {
+        "startLine": 342,
+        "startChar": 22,
+        "endLine": 342,
+        "endChar": 41
+      },
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
