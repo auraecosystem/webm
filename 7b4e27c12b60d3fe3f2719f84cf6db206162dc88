@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbfd945a_7469f444",
+        "filename": "vp9/encoder/vp9_encodeframe.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 5444,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-29T01:03:00Z",
+      "side": 1,
+      "message": "The expression `pre_tok + tile_tok` performs pointer arithmetic. So the `int64_t` variable `tile_tok` is implicitly converted to `ptrdiff_t`. If `ptrdiff_t` is 32 bits, this conversion can result in truncation.\n\nHowever, I believe at this point we have already allocated `cpi-\u003etile_tok[0][0]` successfully. (Please double check.) Therefore we can safely assume that the return value of `allocated_tokens(*tile_info)` must fit in `ptrdiff_t`. (Please double check.)",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f71f08ea_081bb8de",
@@ -48,6 +65,23 @@
       "writtenOn": "2026-04-29T00:50:48Z",
       "side": 1,
       "message": "IMPORTANT: `vpx_calloc()` has the following prototype:\n\n```\nvoid *vpx_calloc(size_t num, size_t size);\n```\n\nSo the `int64_t` variable `tokens` is implicitly converted to `size_t` when it is passed as the first argument to `vpx_calloc()`. If `size_t` is 32 bits, this conversion may result in truncation. So we need to first check that it can be converted to `size_t` safely:\n\n```\n     int64_t tokens \u003d get_token_alloc(cm-\u003emb_rows, cm-\u003emb_cols);\n+    if (tokens \u003e SIZE_MAX) {\n+      vpx_internal_error(\u0026cm-\u003eerror, VPX_CODEC_MEM_ERROR,\n+                         \"Size of cpi-\u003etile_tok[0][0] can\u0027t be represented in size_t\");\n+    }\n     CHECK_MEM_ERROR(\u0026cm-\u003eerror, cpi-\u003etile_tok[0][0],\n                     vpx_calloc(tokens, sizeof(*cpi-\u003etile_tok[0][0])));\n```",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a099f8_ced11b87",
+        "filename": "vp9/encoder/vp9_encoder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-29T01:03:00Z",
+      "side": 1,
+      "message": "Optional: Ideally this function should return `size_t` or `ptrdiff_t`, and it should be able to report an error (integer overflow), either by the return value or by calling `vpx_internal_error()` (which requires passing `cpi` or `cm` to this function).",
       "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
