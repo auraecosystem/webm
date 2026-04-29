@@ -151,6 +151,30 @@
       },
       "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "865d04db_8dfa47a9",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-29T20:14:37Z",
+      "side": 1,
+      "message": "\u003e Yes on Windows it takes float.\n\u003e \n\u003e https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/finite-finitef?view\u003dmsvc-170\n\nThis does not give a warning under Visual Studio 2017/2019/2022. The implemenation in 2022 looks like:\n\n```\n    #define _CLASSIFY(_Val, _FFunc, _DFunc, _LDFunc)          (_CLASS_ARG(_Val) \u003d\u003d \u0027f\u0027 ? _FFunc((float)(_Val)) : _CLASS_ARG(_Val) \u003d\u003d \u0027d\u0027 ? _DFunc((double)(_Val)) : _LDFunc((long double)(_Val)))\n    #define _CLASSIFY2(_Val1, _Val2, _FFunc, _DFunc, _LDFunc) (_CLASS_ARG((_Val1) + (_Val2)) \u003d\u003d \u0027f\u0027 ? _FFunc((float)(_Val1), (float)(_Val2)) : _CLASS_ARG((_Val1) + (_Val2)) \u003d\u003d \u0027d\u0027 ? _DFunc((double)(_Val1), (double)(_Val2)) : _LDFunc((long double)(_Val1), (long double)(_Val2)))\n\n#if defined(__clang__)\n    #define fpclassify(_Val)      __builtin_fpclassify(FP_NAN, FP_INFINITE, FP_NORMAL, FP_SUBNORMAL, FP_ZERO, _Val)\n#else\n    #define fpclassify(_Val)      (_CLASSIFY(_Val, _fdclass, _dclass, _ldclass))\n#endif\n    #define _FPCOMPARE(_Val1, _Val2) (_CLASSIFY2(_Val1, _Val2, _fdpcomp, _dpcomp, _ldpcomp))\n\n    #define isfinite(_Val)      (fpclassify(_Val) \u003c\u003d 0)\n```",
+      "parentUuid": "164fc266_16678403",
+      "range": {
+        "startLine": 342,
+        "startChar": 22,
+        "endLine": 342,
+        "endChar": 41
+      },
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
