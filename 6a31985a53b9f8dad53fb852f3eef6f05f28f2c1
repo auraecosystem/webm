@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67c49713_bb88e0d4",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2688,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T19:31:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b773ae7_553c22a5",
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96c9b15a_7f1c2c6d",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-04-29T19:18:30Z",
       "side": 1,
       "message": "I think these three can be broken out to a function that takes a double argument.",
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e3b0ce3_db893bc2",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2700,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T19:31:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96c9b15a_7f1c2c6d",
       "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1829ac58_021c84aa",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T19:31:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc392625_8c216cb9",
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70d52dac_91cf7fdc",
@@ -65,6 +119,30 @@
       "writtenOn": "2026-04-29T19:18:30Z",
       "side": 1,
       "message": "Did you get a warning? This should work with a double. Also note the second check can be `\u003c 0.0` since 0 is checked by `isfinite()`.",
+      "range": {
+        "startLine": 342,
+        "startChar": 22,
+        "endLine": 342,
+        "endChar": 41
+      },
+      "revId": "6a31985a53b9f8dad53fb852f3eef6f05f28f2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "164fc266_16678403",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T19:31:21Z",
+      "side": 1,
+      "message": "Yes on Windows it takes float.\n\nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/finite-finitef?view\u003dmsvc-170",
+      "parentUuid": "70d52dac_91cf7fdc",
       "range": {
         "startLine": 342,
         "startChar": 22,
