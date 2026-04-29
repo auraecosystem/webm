@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c610ac2a_fde03359",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2695,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-29T19:38:30Z",
+      "side": 1,
+      "message": "Updated to a smaller dimension that still triggers the overflow. I\u0027ll keep an eye on the nightly build.",
+      "parentUuid": "2112af78_0f8312ba",
+      "revId": "7b4e27c12b60d3fe3f2719f84cf6db206162dc88",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fbfd945a_7469f444",
         "filename": "vp9/encoder/vp9_encodeframe.c",
         "patchSetId": 4
