@@ -34,6 +34,24 @@
       "parentUuid": "489f7150_214f6149",
       "revId": "38c2a85bf5dbb3b7a3866dfbdb5916c96b85e7be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a735dc56_29fcb564",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-29T20:33:31Z",
+      "side": 1,
+      "message": "Thanks. It is best to avoid unneeded check for a negative value because it may make an analyzer think `get_token_alloc()` may return a negative value and complain that the other callers do not check a negative return value.\n\nIf helpful, we can add an assertion here:\n\n```\n     int64_t tokens \u003d get_token_alloc(cm-\u003emb_rows, cm-\u003emb_cols);\n+    assert(tokens \u003e\u003d 0);\n     if ((uint64_t)tokens \u003e SIZE_MAX) {\n```",
+      "parentUuid": "af834db3_276b824d",
+      "revId": "38c2a85bf5dbb3b7a3866dfbdb5916c96b85e7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
