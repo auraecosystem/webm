@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "489f7150_214f6149",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-29T18:13:21Z",
+      "side": 1,
+      "message": "The check for a negative value and the `uint64_t` cast are quite conservative. `get_token_alloc()` doesn\u0027t return a negative value even though the return type is a signed type.\n\nDid you get a compiler warning if you simply wrote `if (tokens \u003e SIZE_MAX)`?",
+      "revId": "38c2a85bf5dbb3b7a3866dfbdb5916c96b85e7be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
