@@ -88,6 +88,24 @@
       "parentUuid": "9069b848_1131e468",
       "revId": "cdc9bcba5195c7833679284a9643b11dbd7b398f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b682d33c_bf526e27",
+        "filename": "vp8/vp8_dx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-29T19:27:14Z",
+      "side": 1,
+      "message": "Acknowledged. Without this check the unit test will fail with `VPX_CODEC_UNSUP_BITSTREAM`.",
+      "parentUuid": "61dc040b_5b613bfc",
+      "revId": "cdc9bcba5195c7833679284a9643b11dbd7b398f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
