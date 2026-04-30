@@ -16,6 +16,24 @@
       "message": "You use `INT_MAX` here and `UINT_MAX` at line 343. Casts go to `int` and `unsigned int` respectively, too. It seems like these could be normalized, no?",
       "revId": "d58cc49407ea3cb59948c99196f6443ca9584c95",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c22a063_b9f720a3",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-30T14:02:23Z",
+      "side": 1,
+      "message": "Thanks for catching this!",
+      "parentUuid": "f81ed887_3fef817a",
+      "revId": "d58cc49407ea3cb59948c99196f6443ca9584c95",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
