@@ -16,6 +16,24 @@
       "message": "```\nvp9\\encoder\\vp9_encoder.c(1402,5): warning C4244: \u0027function\u0027: conversion from \u0027int64_t\u0027 to \u0027size_t\u0027, possible loss of data\n```",
       "revId": "eb7e4aede6f6c0df5e8b9bbc2df768a083f17cf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d60a4a2b_4178f526",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1403,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-30T21:07:35Z",
+      "side": 1,
+      "message": "Fixed in https://chromium-review.git.corp.google.com/c/webm/libvpx/+/7807074",
+      "parentUuid": "502f82fa_607d9f80",
+      "revId": "eb7e4aede6f6c0df5e8b9bbc2df768a083f17cf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
