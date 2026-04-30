@@ -16,6 +16,24 @@
       "message": "This one is a little redundant.",
       "revId": "79fac0eb82fc456938ecf874b87fe69c7e351173",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e18d9dea_d1223484",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2778,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-04-30T20:53:39Z",
+      "side": 1,
+      "message": "Removed in the last patchset. Thanks.",
+      "parentUuid": "d64ec275_d73f39ae",
+      "revId": "79fac0eb82fc456938ecf874b87fe69c7e351173",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
