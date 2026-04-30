@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdad6ce8_b64bb377",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 2159,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-30T19:36:11Z",
+      "side": 1,
+      "message": "I believe we can delete this call. Please double check.\n\nThis was needed in the original code for the following check:\n\n```\n  new_mi_size \u003d cm-\u003emi_stride * calc_mi_size(cm-\u003emi_rows);\n  if (cm-\u003emi_alloc_size \u003c new_mi_size) {\n```\n\nSince that check is deleted, this call should also be deleted.\n\nNote that the `alloc_compressor_data(cpi)` call at line 2167 will call this again",
+      "revId": "dbe6b49ecfa272d4af8358342b4343d4845c9042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47043844_2d5ac68f",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 2163,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-30T19:36:11Z",
+      "side": 1,
+      "message": "There are several widths and heights. It is quite confusing.\n\nMy analysis of the `alloc_compressor_data(cpi)` call at line 2167 shows that it uses `cm-\u003ewidth` and `cm-\u003eheight`. Therefore I think we should use `cm-\u003ewidth` and `cm-\u003eheight`, instead of `cpi-\u003eoxcf.width` and `cpi-\u003eoxcf.height`, here (lines 2162-2163) and at lines 2169-2170.",
+      "revId": "dbe6b49ecfa272d4af8358342b4343d4845c9042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f3deae_5f1e1c81",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 2170,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-04-30T19:36:11Z",
+      "side": 1,
+      "message": "Can you explain the changes to `cpi-\u003einitial_width` and `cpi-\u003einitial_height`?\n\nThe original code resets `cpi-\u003einitial_width` and `cpi-\u003einitial_height` to 0.",
+      "revId": "dbe6b49ecfa272d4af8358342b4343d4845c9042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
