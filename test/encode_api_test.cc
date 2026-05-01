@@ -2901,6 +2901,99 @@ TEST(EncodeAPI, Vp9UnsafeCastEosCount) { VerifyVp9UnsafeCastEosCount(1e300); }
 TEST(EncodeAPI, Vp9UnsafeCastEosCountNaN) { VerifyVp9UnsafeCastEosCount(NAN); }
 
 TEST(EncodeAPI, Vp9UnsafeCastEosCountZero) { VerifyVp9UnsafeCastEosCount(0.0); }
+
+TEST(EncodeAPI, Vp9SvcLayeringModeNotSet) {
+  const int kSpatialLayers = 4;
+  const int kTemporalLayers = 3;
+  const unsigned int kWidth = 64;
+  const unsigned int kHeight = 32;
+  const int kFrames = 8;
+
+  vpx_codec_iface_t *const iface = vpx_codec_vp9_cx();
+  vpx_codec_enc_cfg_t cfg;
+  ASSERT_EQ(vpx_codec_enc_config_default(iface, &cfg, 0), VPX_CODEC_OK);
+  cfg.g_w = kWidth;
+  cfg.g_h = kHeight;
+  cfg.g_timebase.num = 1;
+  cfg.g_timebase.den = 30;
+  cfg.g_error_resilient = 1;
+  cfg.rc_end_usage = VPX_CBR;
+
+  cfg.ss_number_layers = kSpatialLayers;
+  cfg.ts_number_layers = kTemporalLayers;
+
+  const unsigned int step_ss = 1116;
+  const unsigned int step_ts = 1516;
+  for (int i = 0; i < kSpatialLayers; ++i) {
+    unsigned int br = step_ss * (unsigned int)(i + 1);
+    if (br > 2000u) br = 2000u;
+    cfg.ss_target_bitrate[i] = br;
+    cfg.ss_enable_auto_alt_ref[i] = 0;
+  }
+  for (int i = 0; i < kTemporalLayers; ++i) {
+    unsigned int br = step_ts * (unsigned int)(i + 1);
+    if (br > 2000u) br = 2000u;
+    cfg.ts_target_bitrate[i] = br;
+  }
+  cfg.ts_rate_decimator[0] = 4;
+  cfg.ts_rate_decimator[1] = 2;
+  cfg.ts_rate_decimator[2] = 1;
+  cfg.ts_periodicity = 12;
+  for (unsigned int i = 0; i < cfg.ts_periodicity; ++i) {
+    cfg.ts_layer_id[i] = i % (unsigned int)kTemporalLayers;
+  }
+  cfg.rc_target_bitrate =
+      cfg.ss_target_bitrate[kSpatialLayers - 1] + 50u * kTemporalLayers;
+
+  vpx_codec_ctx_t codec;
+  ASSERT_EQ(vpx_codec_enc_init(&codec, iface, &cfg, 0), VPX_CODEC_OK);
+  ASSERT_EQ(vpx_codec_control(&codec, VP9E_SET_SVC, 1), VPX_CODEC_OK);
+
+  vpx_image_t *const image =
+      CreateImage(VPX_BITS_8, VPX_IMG_FMT_I420, kWidth, kHeight);
+  ASSERT_NE(image, nullptr);
+
+  for (int f = 0; f < kFrames; ++f) {
+    vpx_svc_layer_id_t layer_id = {};
+    layer_id.spatial_layer_id = (0xff + f) % kSpatialLayers;
+    layer_id.temporal_layer_id = (int)((0xff >> 2) % (unsigned)kTemporalLayers);
+    for (int s = 0; s < VPX_SS_MAX_LAYERS; ++s) {
+      layer_id.temporal_layer_id_per_spatial[s] =
+          (int)((0xff >> 4) % (unsigned)kTemporalLayers);
+    }
+    ASSERT_EQ(vpx_codec_control(&codec, VP9E_SET_SVC_LAYER_ID, &layer_id),
+              VPX_CODEC_OK);
+
+    if ((0xff >> (f % 8)) & 1) {
+      vpx_svc_ref_frame_config_t ref_cfg = {};
+      for (int s = 0; s < kSpatialLayers; ++s) {
+        ref_cfg.lst_fb_idx[s] = s;
+        ref_cfg.gld_fb_idx[s] = (s + 1) % 8;
+        ref_cfg.alt_fb_idx[s] = (s + 2) % 8;
+        ref_cfg.reference_last[s] = 1;
+      }
+      ASSERT_EQ(vpx_codec_control(&codec, VP9E_SET_SVC_REF_FRAME_CONFIG,
+                                  &ref_cfg),
+                VPX_CODEC_OK);
+    }
+
+    int flags = (f == 0) ? VPX_EFLAG_FORCE_KF : 0;
+    ASSERT_EQ(vpx_codec_encode(&codec, image, f, 1, flags, VPX_DL_REALTIME),
+              VPX_CODEC_OK);
+    vpx_codec_iter_t iter = nullptr;
+    while (vpx_codec_get_cx_data(&codec, &iter) != nullptr) {
+    }
+  }
+
+  ASSERT_EQ(vpx_codec_encode(&codec, nullptr, kFrames, 1, 0, VPX_DL_REALTIME),
+            VPX_CODEC_OK);
+  vpx_codec_iter_t iter = nullptr;
+  while (vpx_codec_get_cx_data(&codec, &iter) != nullptr) {
+  }
+
+  vpx_img_free(image);
+  ASSERT_EQ(vpx_codec_destroy(&codec), VPX_CODEC_OK);
+}
 #endif  // CONFIG_VP9_ENCODER
 
 }  // namespace
