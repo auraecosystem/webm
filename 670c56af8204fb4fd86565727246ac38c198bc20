@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "053c86ee_626816d2",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2945,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-04T20:00:14Z",
+      "side": 1,
+      "message": "`kTemporalLayers` can be made unsigned, so can `kSpatialLayers` since the config options are unsigned. In either case, I don\u0027t think this cast is strictly necessary.",
+      "range": {
+        "startLine": 2945,
+        "startChar": 29,
+        "endLine": 2945,
+        "endChar": 58
+      },
+      "revId": "670c56af8204fb4fd86565727246ac38c198bc20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd397455_9128e8cf",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2956,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-04T20:00:14Z",
+      "side": 1,
+      "message": "The initialization at line 2955 already zeroed this, but it\u0027s OK make it explicit.",
+      "revId": "670c56af8204fb4fd86565727246ac38c198bc20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13921c8c_05d32b18",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2965,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-04T20:00:14Z",
+      "side": 1,
+      "message": "This could be const.",
+      "revId": "670c56af8204fb4fd86565727246ac38c198bc20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
