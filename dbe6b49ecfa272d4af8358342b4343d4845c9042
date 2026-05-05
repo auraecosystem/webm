@@ -139,6 +139,24 @@
       "parentUuid": "58f3deae_5f1e1c81",
       "revId": "dbe6b49ecfa272d4af8358342b4343d4845c9042",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae71bb1_48f5b5f5",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 2170,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-05-05T21:23:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "35cefb2f_e582feaf",
+      "revId": "dbe6b49ecfa272d4af8358342b4343d4845c9042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
