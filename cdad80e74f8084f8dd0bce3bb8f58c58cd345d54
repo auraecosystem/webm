@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4b97fdf0_26a224da",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 2934,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-05-05T17:24:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5bd761a_3196ac75",
+      "range": {
+        "startLine": 2933,
+        "startChar": 47,
+        "endLine": 2934,
+        "endChar": 1
+      },
+      "revId": "cdad80e74f8084f8dd0bce3bb8f58c58cd345d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "83370ed5_3f327650",
         "filename": "vp9/encoder/vp9_encoder.c",
         "patchSetId": 20
@@ -54,6 +78,24 @@
       "writtenOn": "2026-05-05T03:49:24Z",
       "side": 1,
       "message": "If this is called before an encode, then the allocations are deferred to the first frame, correct? `initial_width` and `initial_height` are set somewhere in the encode path.",
+      "revId": "cdad80e74f8084f8dd0bce3bb8f58c58cd345d54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc4dc9b4_349d38f6",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 2161,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-05-05T17:24:44Z",
+      "side": 1,
+      "message": "right, the initiial_width/height are set in the encode path, in update_initial_width(). If this is called before any encode, then we don\u0027t want to re-alloc again since its done in the init_config() before this call (hence the initial_width/height check).",
+      "parentUuid": "83370ed5_3f327650",
       "revId": "cdad80e74f8084f8dd0bce3bb8f58c58cd345d54",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
