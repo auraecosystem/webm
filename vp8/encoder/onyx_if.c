@@ -12,23 +12,24 @@
 #include "./vpx_scale_rtcd.h"
 #include "./vpx_dsp_rtcd.h"
 #include "./vp8_rtcd.h"
-#include "bitstream.h"
+#include "vp8/encoder/bitstream.h"
 #include "vp8/common/onyxc_int.h"
 #include "vp8/common/blockd.h"
-#include "onyx_int.h"
+#include "vp8/encoder/onyx_int.h"
 #include "vp8/common/systemdependent.h"
 #include "vp8/common/vp8_skin_detection.h"
 #include "vp8/encoder/quantize.h"
+#include "vp8/encoder/block.h"
 #include "vp8/common/alloccommon.h"
-#include "mcomp.h"
-#include "firstpass.h"
+#include "vp8/encoder/mcomp.h"
+#include "vp8/encoder/firstpass.h"
 #include "vpx_dsp/psnr.h"
 #include "vpx_dsp/vpx_dsp_common.h"
 #include "vpx_scale/vpx_scale.h"
 #include "vp8/common/extend.h"
-#include "ratectrl.h"
+#include "vp8/encoder/ratectrl.h"
 #include "vp8/common/quant_common.h"
-#include "segmentation.h"
+#include "vp8/encoder/segmentation.h"
 #if CONFIG_POSTPROC
 #include "vp8/common/postproc.h"
 #endif
@@ -44,9 +45,9 @@
 #include "vpx_ports/arm.h"
 #endif
 #if CONFIG_MULTI_RES_ENCODING
-#include "mr_dissim.h"
+#include "vp8/encoder/mr_dissim.h"
 #endif
-#include "encodeframe.h"
+#include "vp8/encoder/encodeframe.h"
 #if CONFIG_MULTITHREAD
 #include "ethreading.h"
 #endif
