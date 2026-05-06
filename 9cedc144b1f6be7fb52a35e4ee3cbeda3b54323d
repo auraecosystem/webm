@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8530737a_560328ae",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2717,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-05-06T20:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "339ac7a5_4164d563",
+      "revId": "9cedc144b1f6be7fb52a35e4ee3cbeda3b54323d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14accd77_9b3e4594",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-05-06T18:22:34Z",
       "side": 1,
       "message": "I did some cleanup like this a while ago:\n\nhttps://chromium-review.googlesource.com/c/webm/libvpx/+/4717937\n\nMaybe we need another pass.",
+      "revId": "9cedc144b1f6be7fb52a35e4ee3cbeda3b54323d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e34906c_615a5126",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-05-06T20:10:42Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "14accd77_9b3e4594",
       "revId": "9cedc144b1f6be7fb52a35e4ee3cbeda3b54323d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
