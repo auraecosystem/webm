@@ -6828,7 +6828,10 @@ int vp9_set_size_literal(VP9_COMP *cpi, unsigned int width,
 
 void vp9_set_svc(VP9_COMP *cpi, int use_svc) {
   cpi->use_svc = use_svc;
-  return;
+  if (use_svc == 0) {
+    cpi->svc.number_spatial_layers = 1;
+    cpi->svc.number_temporal_layers = 1;
+  }
 }
 
 int vp9_get_quantizer(const VP9_COMP *cpi) { return cpi->common.base_qindex; }
