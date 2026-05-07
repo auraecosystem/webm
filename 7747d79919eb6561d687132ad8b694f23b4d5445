@@ -16,6 +16,24 @@
       "message": "This affects libaom too. I\u0027ll send a fix. I still need to look at libavm.",
       "revId": "7747d79919eb6561d687132ad8b694f23b4d5445",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26058b80_8f679fe8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-07T02:24:30Z",
+      "side": 1,
+      "message": "\u003e This affects libaom too. I\u0027ll send a fix.\n\n-\u003e https://aomedia-review.googlesource.com/c/aom/+/211621\n\n\u003e I still need to look at libavm.\n\nThis function was deleted in https://gitlab.com/AOMediaCodec/avm/-/commit/756717c3ff22f47a348ab04cb2cf6bc24e96572c",
+      "parentUuid": "86c8e2b1_631a4090",
+      "revId": "7747d79919eb6561d687132ad8b694f23b4d5445",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
