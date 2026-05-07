@@ -2792,18 +2792,25 @@ TEST(EncodeAPI, SvcTestInvalidInputs) {
   svc_cfg.max_quantizers[1] = 65;
   ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_SVC_PARAMETERS, &svc_cfg),
             VPX_CODEC_INVALID_PARAM);
+  ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_SVC, 1), VPX_CODEC_OK);
+
   svc_cfg.min_quantizers[1] = 2;
   svc_cfg.max_quantizers[1] = -1;
   ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_SVC_PARAMETERS, &svc_cfg),
             VPX_CODEC_INVALID_PARAM);
+  ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_SVC, 1), VPX_CODEC_OK);
+
   svc_cfg.min_quantizers[1] = 64;
   svc_cfg.max_quantizers[1] = 56;
   ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_SVC_PARAMETERS, &svc_cfg),
             VPX_CODEC_INVALID_PARAM);
+  ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_SVC, 1), VPX_CODEC_OK);
+
   svc_cfg.min_quantizers[1] = -1;
   svc_cfg.max_quantizers[1] = 56;
   ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_SVC_PARAMETERS, &svc_cfg),
             VPX_CODEC_INVALID_PARAM);
+  ASSERT_EQ(vpx_codec_control(&enc, VP9E_SET_SVC, 1), VPX_CODEC_OK);
 
   // Check for invalid duration input.
   vpx_svc_ref_frame_config_t ref_frame_config = {};

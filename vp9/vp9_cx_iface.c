@@ -1897,6 +1897,10 @@ static vpx_codec_err_t ctrl_set_svc(vpx_codec_alg_priv_t *ctx, va_list args) {
     return VPX_CODEC_INVALID_PARAM;
   }
   vp9_set_svc(ctx->cpi, data);
+  if (data == 1) {
+    ctx->cpi->svc.number_spatial_layers = cfg->ss_number_layers;
+    ctx->cpi->svc.number_temporal_layers = cfg->ts_number_layers;
+  }
   vp9_set_row_mt(ctx->cpi);
   return VPX_CODEC_OK;
 }
@@ -1907,11 +1911,21 @@ static vpx_codec_err_t ctrl_set_svc_layer_id(vpx_codec_alg_priv_t *ctx,
   VP9_COMP *const cpi = (VP9_COMP *)ctx->cpi;
   SVC *const svc = &cpi->svc;
   int sl;
+
   // Checks on valid spatial_layer_id input.
   if (data->spatial_layer_id < 0 ||
       data->spatial_layer_id >= (int)ctx->cfg.ss_number_layers) {
+    vp9_set_svc(ctx->cpi, 0);
     return VPX_CODEC_INVALID_PARAM;
   }
+
+  // Checks on valid temporal_layer_id input.
+  if (data->temporal_layer_id < 0 ||
+      data->temporal_layer_id >= (int)ctx->cfg.ts_number_layers) {
+    vp9_set_svc(ctx->cpi, 0);
+    return VPX_CODEC_INVALID_PARAM;
+  }
+
   svc->spatial_layer_to_encode = data->spatial_layer_id;
   svc->first_spatial_layer_to_encode = data->spatial_layer_id;
   // TODO(jianj): Deprecated to be removed.
@@ -1920,11 +1934,6 @@ static vpx_codec_err_t ctrl_set_svc_layer_id(vpx_codec_alg_priv_t *ctx,
   for (sl = 0; sl < cpi->svc.number_spatial_layers; ++sl) {
     svc->temporal_layer_id_per_spatial[sl] =
         data->temporal_layer_id_per_spatial[sl];
-  }
-  // Checks on valid temporal_layer_id input.
-  if (svc->temporal_layer_id < 0 ||
-      svc->temporal_layer_id >= (int)ctx->cfg.ts_number_layers) {
-    return VPX_CODEC_INVALID_PARAM;
   }
 
   return VPX_CODEC_OK;
@@ -1947,28 +1956,33 @@ static vpx_codec_err_t ctrl_set_svc_parameters(vpx_codec_alg_priv_t *ctx,
   VP9_COMP *const cpi = ctx->cpi;
   vpx_svc_extra_cfg_t *const params = va_arg(args, vpx_svc_extra_cfg_t *);
   int sl, tl;
-
-  // Number of temporal layers and number of spatial layers have to be set
-  // properly before calling this control function.
+  for (sl = 0; sl < cpi->svc.number_spatial_layers; ++sl) {
+    for (tl = 0; tl < cpi->svc.number_temporal_layers; ++tl) {
+      const int layer =
+          LAYER_IDS_TO_IDX(sl, tl, cpi->svc.number_temporal_layers);
+      if (params->max_quantizers[layer] < 0 ||
+          params->max_quantizers[layer] > 63 ||
+          params->min_quantizers[layer] < 0 ||
+          params->min_quantizers[layer] > params->max_quantizers[layer]) {
+        vp9_set_svc(ctx->cpi, 0);
+        return VPX_CODEC_INVALID_PARAM;
+      }
+    }
+    // Checks on valid scale factors.
+    if (params->scaling_factor_num[sl] < 1 ||
+        params->scaling_factor_den[sl] < 1 ||
+        (params->scaling_factor_num[sl] > params->scaling_factor_den[sl])) {
+      vp9_set_svc(ctx->cpi, 0);
+      return VPX_CODEC_INVALID_PARAM;
+    }
+  }
   for (sl = 0; sl < cpi->svc.number_spatial_layers; ++sl) {
     for (tl = 0; tl < cpi->svc.number_temporal_layers; ++tl) {
       const int layer =
           LAYER_IDS_TO_IDX(sl, tl, cpi->svc.number_temporal_layers);
       LAYER_CONTEXT *lc = &cpi->svc.layer_context[layer];
-      if (params->max_quantizers[layer] < 0 ||
-          params->max_quantizers[layer] > 63 ||
-          params->min_quantizers[layer] < 0 ||
-          params->min_quantizers[layer] > params->max_quantizers[layer]) {
-        return VPX_CODEC_INVALID_PARAM;
-      }
       lc->max_q = params->max_quantizers[layer];
       lc->min_q = params->min_quantizers[layer];
-      // Checks on valid scale factors.
-      if (params->scaling_factor_num[sl] < 1 ||
-          params->scaling_factor_den[sl] < 1 ||
-          (params->scaling_factor_num[sl] > params->scaling_factor_den[sl])) {
-        return VPX_CODEC_INVALID_PARAM;
-      }
       lc->scaling_factor_num = params->scaling_factor_num[sl];
       lc->scaling_factor_den = params->scaling_factor_den[sl];
       lc->speed = params->speed_per_layer[sl];
