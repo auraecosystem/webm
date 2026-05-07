@@ -1910,6 +1910,7 @@ static vpx_codec_err_t ctrl_set_svc_layer_id(vpx_codec_alg_priv_t *ctx,
   // Checks on valid spatial_layer_id input.
   if (data->spatial_layer_id < 0 ||
       data->spatial_layer_id >= (int)ctx->cfg.ss_number_layers) {
+    vp9_set_svc(ctx->cpi, 0);
     return VPX_CODEC_INVALID_PARAM;
   }
   svc->spatial_layer_to_encode = data->spatial_layer_id;
@@ -1924,6 +1925,7 @@ static vpx_codec_err_t ctrl_set_svc_layer_id(vpx_codec_alg_priv_t *ctx,
   // Checks on valid temporal_layer_id input.
   if (svc->temporal_layer_id < 0 ||
       svc->temporal_layer_id >= (int)ctx->cfg.ts_number_layers) {
+    vp9_set_svc(ctx->cpi, 0);
     return VPX_CODEC_INVALID_PARAM;
   }
 
@@ -1959,6 +1961,7 @@ static vpx_codec_err_t ctrl_set_svc_parameters(vpx_codec_alg_priv_t *ctx,
           params->max_quantizers[layer] > 63 ||
           params->min_quantizers[layer] < 0 ||
           params->min_quantizers[layer] > params->max_quantizers[layer]) {
+        vp9_set_svc(ctx->cpi, 0);
         return VPX_CODEC_INVALID_PARAM;
       }
       lc->max_q = params->max_quantizers[layer];
@@ -1967,6 +1970,7 @@ static vpx_codec_err_t ctrl_set_svc_parameters(vpx_codec_alg_priv_t *ctx,
       if (params->scaling_factor_num[sl] < 1 ||
           params->scaling_factor_den[sl] < 1 ||
           (params->scaling_factor_num[sl] > params->scaling_factor_den[sl])) {
+        vp9_set_svc(ctx->cpi, 0);
         return VPX_CODEC_INVALID_PARAM;
       }
       lc->scaling_factor_num = params->scaling_factor_num[sl];
