@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "69968c11_9c534702",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4820707
+      },
+      "writtenOn": "2026-05-08T19:34:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f363d80_39099fc5",
+      "revId": "4289af0a1fe3c92bffdc6f0410246832e9d96ed2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "32200b40_c3da4fb1",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -119,6 +137,24 @@
       "writtenOn": "2026-05-08T15:17:34Z",
       "side": 1,
       "message": "I verified that in libvpx `g_input_bit_depth` is only used to calculate PSNR of the encoded output relative to the actual input source, and does not affect the encoded output. Please double check if you have time.\n\nI think this is a nice and simple property and is worth preserving.",
+      "revId": "4289af0a1fe3c92bffdc6f0410246832e9d96ed2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c63fb80_844ebb0d",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 4820707
+      },
+      "writtenOn": "2026-05-08T19:34:17Z",
+      "side": 1,
+      "message": "Yes, unlike libaom, this field is used only during psnr computations and the psnr values are not involved during encoder\u0027s decision process.",
+      "parentUuid": "194d6c21_50356b85",
       "revId": "4289af0a1fe3c92bffdc6f0410246832e9d96ed2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
