@@ -16,6 +16,24 @@
       "message": "Any bug for this one?",
       "revId": "3905593736b42b49db6718a72b0d892b0a8ae2a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4225b40_d4b1e289",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-05-08T03:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4278a01_4d1aab69",
+      "revId": "3905593736b42b49db6718a72b0d892b0a8ae2a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
