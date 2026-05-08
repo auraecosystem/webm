@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f363d80_39099fc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-08T15:17:34Z",
+      "side": 1,
+      "message": "libaom \u003d\u003e libvpx",
+      "revId": "4289af0a1fe3c92bffdc6f0410246832e9d96ed2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32200b40_c3da4fb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-08T15:17:34Z",
+      "side": 1,
+      "message": "LGTM. Thanks a lot!",
+      "revId": "4289af0a1fe3c92bffdc6f0410246832e9d96ed2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d293134_cc55652a",
+        "filename": "vp9/encoder/vp9_encoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-08T15:17:34Z",
+      "side": 1,
+      "message": "Optional: I suggest changing \"input video\" to \"input source\". I think the word \"source\" suggest the source material before any preprocessing (such as upshifting to the codec bit-depth) is performed.\n\nIf you agree, James and I can make this change in a follow-up CL (and make the same change to libaom).",
+      "revId": "4289af0a1fe3c92bffdc6f0410246832e9d96ed2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "194d6c21_50356b85",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-08T15:17:34Z",
+      "side": 1,
+      "message": "I verified that in libvpx `g_input_bit_depth` is only used to calculate PSNR of the encoded output relative to the actual input source, and does not affect the encoded output. Please double check if you have time.\n\nI think this is a nice and simple property and is worth preserving.",
+      "revId": "4289af0a1fe3c92bffdc6f0410246832e9d96ed2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
