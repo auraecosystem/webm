@@ -94,6 +94,30 @@
       },
       "revId": "f1014b681484ab5e950a5deabc2894df4c0e1450",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a7147b_c329b8ac",
+        "filename": "vpx/vpx_encoder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-09T03:00:11Z",
+      "side": 1,
+      "message": "Thank you for clarifying what I meant Wan-Teh.",
+      "parentUuid": "4de3ce54_6135451c",
+      "range": {
+        "startLine": 342,
+        "startChar": 29,
+        "endLine": 342,
+        "endChar": 35
+      },
+      "revId": "f1014b681484ab5e950a5deabc2894df4c0e1450",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
