@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cc9721e_c37a8288",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-13T20:59:38Z",
+      "side": 1,
+      "message": "`g_input_bit_depth` is `unsigned int`, `g_bit_depth` is `vpx_bit_depth_t` (an enum).",
+      "revId": "e7dc83269bb0277130794231bc0c0d7f5163f474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
