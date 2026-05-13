@@ -16,6 +16,24 @@
       "message": "`g_input_bit_depth` is `unsigned int`, `g_bit_depth` is `vpx_bit_depth_t` (an enum).",
       "revId": "e7dc83269bb0277130794231bc0c0d7f5163f474",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b91a8845_aa589a15",
+        "filename": "vp9/vp9_cx_iface.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-13T21:08:34Z",
+      "side": 1,
+      "message": "Yes. Microsoft documents that enum types are backed by the `int` type.\n\nFor example, see https://learn.microsoft.com/en-us/cpp/c-language/enum-type?view\u003dmsvc-170:\n\n\u003e ANSI 3.5.2.2 The integer type chosen to represent the values of an enumeration type\n\u003e\n\u003e A variable declared as enum is an int.",
+      "parentUuid": "0cc9721e_c37a8288",
+      "revId": "e7dc83269bb0277130794231bc0c0d7f5163f474",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
