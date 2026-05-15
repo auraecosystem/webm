@@ -168,10 +168,13 @@ int vp8_post_proc_frame(VP8_COMMON *oci, YV12_BUFFER_CONFIG *dest,
     return 0;
   }
   if (flags & VP8D_ADDNOISE) {
-    if (!oci->postproc_state.generated_noise) {
+    if (!oci->postproc_state.generated_noise ||
+        oci->postproc_state.generated_noise_size < oci->Width + 256) {
+      vpx_free(oci->postproc_state.generated_noise);
       oci->postproc_state.generated_noise = vpx_calloc(
           oci->Width + 256, sizeof(*oci->postproc_state.generated_noise));
       if (!oci->postproc_state.generated_noise) return 1;
+      oci->postproc_state.generated_noise_size = oci->Width + 256;
     }
   }
 
