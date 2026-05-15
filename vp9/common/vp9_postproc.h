@@ -32,6 +32,7 @@ struct postproc_state {
   uint8_t *limits;
   int limits_size;
   int8_t *generated_noise;
+  int generated_noise_size;
 };
 
 struct VP9Common;
