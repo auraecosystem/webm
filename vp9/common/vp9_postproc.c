@@ -370,10 +370,13 @@ int vp9_post_proc_frame(struct VP9Common *cm, YV12_BUFFER_CONFIG *dest,
   }
 
   if (flags & VP9D_ADDNOISE) {
-    if (!cm->postproc_state.generated_noise) {
+    if (!cm->postproc_state.generated_noise ||
+        cm->postproc_state.generated_noise_size < unscaled_width + 256) {
+      vpx_free(cm->postproc_state.generated_noise);
       cm->postproc_state.generated_noise = vpx_calloc(
-          cm->width + 256, sizeof(*cm->postproc_state.generated_noise));
+          unscaled_width + 256, sizeof(*cm->postproc_state.generated_noise));
       if (!cm->postproc_state.generated_noise) return 1;
+      cm->postproc_state.generated_noise_size = unscaled_width + 256;
     }
   }
 
@@ -416,8 +419,8 @@ int vp9_post_proc_frame(struct VP9Common *cm, YV12_BUFFER_CONFIG *dest,
       double sigma;
       vpx_clear_system_state();
       sigma = noise_level + .5 + .6 * q / 63.0;
-      ppstate->clamp =
-          vpx_setup_noise(sigma, ppstate->generated_noise, cm->width + 256);
+      ppstate->clamp = vpx_setup_noise(sigma, ppstate->generated_noise,
+                                       unscaled_width + 256);
       ppstate->last_q = q;
       ppstate->last_noise = noise_level;
     }
