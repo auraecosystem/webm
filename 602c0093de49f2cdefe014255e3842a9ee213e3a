@@ -16,6 +16,24 @@
       "message": "Prefer `ASSERT_NE(rc_api_, nullptr)`.",
       "revId": "602c0093de49f2cdefe014255e3842a9ee213e3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71462442_824e172c",
+        "filename": "test/vp9_ratectrl_rtc_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-05-18T21:18:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02802562_5ce579db",
+      "revId": "602c0093de49f2cdefe014255e3842a9ee213e3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
