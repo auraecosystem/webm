@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5feebb3_bcb51958",
+        "filename": "vp8/common/postproc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-18T19:52:02Z",
+      "side": 1,
+      "message": "This size and the ones in vp9 could be collected into a variable since they\u0027re reused a few times.",
+      "range": {
+        "startLine": 172,
+        "startChar": 51,
+        "endLine": 172,
+        "endChar": 67
+      },
+      "revId": "e89f174ba36c788f5ec2086a08988bb1970daf8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
