@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea08c6a6_176cf6f5",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-19T23:13:01Z",
+      "side": 1,
+      "message": "Add the issue number here.",
+      "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ee9fb6_c51ce9e3",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-19T23:13:01Z",
+      "side": 1,
+      "message": "With new code it\u0027s good to swap the parameter order:\n\n```\n  ASSERT_EQ(vpx_codec_enc_init_multi(enc.data(), \u0026vpx_codec_vp8_cx_algo, cfg,\n                                     kNumEnc, 0, dsf),\n            VPX_CODEC_OK);\n```",
+      "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c0a3629_ca51757e",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-19T23:13:01Z",
+      "side": 1,
+      "message": "here too.",
+      "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e108bed4_3310ca19",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-19T23:13:01Z",
+      "side": 1,
+      "message": "This should be wrapped in an `EXPECT_EQ` (ok), right?",
+      "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
