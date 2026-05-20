@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bffb795c_0341841f",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-05-20T01:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea08c6a6_176cf6f5",
+      "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1ee9fb6_c51ce9e3",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-05-19T23:13:01Z",
       "side": 1,
       "message": "With new code it\u0027s good to swap the parameter order:\n\n```\n  ASSERT_EQ(vpx_codec_enc_init_multi(enc.data(), \u0026vpx_codec_vp8_cx_algo, cfg,\n                                     kNumEnc, 0, dsf),\n            VPX_CODEC_OK);\n```",
+      "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e9982a_6a404fca",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-05-20T01:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1ee9fb6_c51ce9e3",
       "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "842544af_682422a8",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-05-20T01:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0a3629_ca51757e",
+      "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e108bed4_3310ca19",
@@ -65,6 +119,24 @@
       "writtenOn": "2026-05-19T23:13:01Z",
       "side": 1,
       "message": "This should be wrapped in an `EXPECT_EQ` (ok), right?",
+      "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5733a1_017ce3bc",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-05-20T01:28:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e108bed4_3310ca19",
       "revId": "bb6b503fef674b926ddbf4f3e1363bef3bc19c3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
