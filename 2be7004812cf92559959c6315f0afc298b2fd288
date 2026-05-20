@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea104531_97c28a4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-20T22:05:53Z",
+      "side": 1,
+      "message": "Should be fine after the formatting issue is addressed.",
+      "revId": "2be7004812cf92559959c6315f0afc298b2fd288",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c94fb51e_99974a46",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-20T22:05:53Z",
+      "side": 1,
+      "message": "This could be `OssFuzz479149056` to match some of the other tests, but it\u0027s fine either way.",
+      "range": {
+        "startLine": 3289,
+        "startChar": 16,
+        "endLine": 3289,
+        "endChar": 41
+      },
+      "revId": "2be7004812cf92559959c6315f0afc298b2fd288",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
