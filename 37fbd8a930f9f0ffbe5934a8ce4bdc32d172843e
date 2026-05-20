@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ed1889_73f9ca9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-20T22:07:53Z",
+      "side": 1,
+      "message": "unittest (or unit test)",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "37fbd8a930f9f0ffbe5934a8ce4bdc32d172843e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
