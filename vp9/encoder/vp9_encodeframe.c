@@ -1995,6 +1995,7 @@ static void rd_pick_sb_modes(VP9_COMP *cpi, TileDataEnc *tile_data,
   set_offsets(cpi, tile_info, x, mi_row, mi_col, bsize);
   mi = xd->mi[0];
   mi->sb_type = bsize;
+  ctx->mic.sb_type = bsize;
 
   for (i = 0; i < MAX_MB_PLANE; ++i) {
     p[i].coeff = ctx->coeff_pbuf[i][0];
@@ -4131,10 +4132,19 @@ static int rd_pick_partition(VP9_COMP *cpi, ThreadData *td,
                      ctx, INT_MAX, INT64_MAX);
     ctx->rdcost = this_rdc.rdcost;
     vp9_rd_cost_update(partition_mul, x->rddiv, &this_rdc);
-    if (this_rdc.rdcost < best_rdc.rdcost) {
+    if (this_rdc.rdcost < best_rdc.rdcost || !should_encode_sb) {
       best_rdc = this_rdc;
       should_encode_sb = 1;
       pc_tree->partitioning = PARTITION_NONE;
+      if (this_rdc.rate == INT_MAX) {
+        int plane;
+        for (i = 0; i < MAX_MB_PLANE; ++i) {
+          for (plane = 0; plane < 3; ++plane) {
+            memset(ctx->eobs[i][plane], 0,
+                   ctx->num_4x4_blk * sizeof(*ctx->eobs[i][plane]));
+          }
+        }
+      }
     }
   }
 
@@ -4150,13 +4160,17 @@ static int rd_pick_partition(VP9_COMP *cpi, ThreadData *td,
 #if CONFIG_COLLECT_COMPONENT_TIMING
     end_timing(cpi, encode_sb_time);
 #endif
+
+    if (bsize == BLOCK_64X64) {
+      assert(tp_orig < *tp);
+    }
+  } else {
+    if (bsize == BLOCK_64X64) {
+      assert(tp_orig == *tp);
+    }
   }
 
-  if (bsize == BLOCK_64X64) {
-    assert(tp_orig < *tp);
-    assert(best_rdc.rate < INT_MAX);
-    assert(best_rdc.dist < INT64_MAX);
-  } else {
+  if (bsize != BLOCK_64X64) {
     assert(tp_orig == *tp);
   }
 
