@@ -193,14 +193,9 @@ VP8_INSTANTIATE_TEST_SUITE(PostProcTestInvalidFiles,
 #endif  // CONFIG_VP8_DECODER && CONFIG_POSTPROC
 
 #if CONFIG_VP9_DECODER && CONFIG_VP9_POSTPROC
-constexpr std::array<const char *, 12> kVP9FailingTestVectors = {
-  "vp90-2-14-resize-10frames-fp-tiles-1-2-4-8.webm",
-  "vp90-2-14-resize-10frames-fp-tiles-1-2.webm",
+constexpr std::array<const char *, 7> kVP9FailingTestVectors = {
   "vp90-2-14-resize-10frames-fp-tiles-1-4.webm",
   "vp90-2-14-resize-10frames-fp-tiles-1-8.webm",
-  "vp90-2-14-resize-10frames-fp-tiles-2-4.webm",
-  "vp90-2-14-resize-10frames-fp-tiles-2-8.webm",
-  "vp90-2-14-resize-10frames-fp-tiles-4-8.webm",
   "vp90-2-14-resize-10frames-fp-tiles-8-4-2-1.webm",
   "vp90-2-21-resize_inter_1920x1080_5_3-4.webm",
   "vp90-2-21-resize_inter_1920x1080_7_3-4.webm",
