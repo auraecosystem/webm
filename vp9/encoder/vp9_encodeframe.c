@@ -2877,7 +2877,8 @@ static void rd_auto_partition_range(VP9_COMP *cpi, const TileInfo *const tile,
     // NOTE: each call to get_sb_partition_size_range() uses the previous
     // passed in values for min and max as a starting point.
     // Find the min and max partition used in previous frame at this location
-    if (cm->frame_type != KEY_FRAME) {
+    if (cm->frame_type != KEY_FRAME &&
+        (cm->width == cm->last_width && cm->height == cm->last_height)) {
       MODE_INFO **prev_mi =
           &cm->prev_mi_grid_visible[mi_row * xd->mi_stride + mi_col];
       get_sb_partition_size_range(xd, prev_mi, &min_size, &max_size, bs_hist);
