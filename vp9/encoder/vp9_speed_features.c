@@ -914,6 +914,11 @@ void vp9_set_speed_features_framesize_dependent(VP9_COMP *cpi, int speed) {
   if (!sf->adaptive_rd_thresh_row_mt && cpi->row_mt_bit_exact &&
       oxcf->max_threads > 1)
     sf->adaptive_rd_thresh = 0;
+
+  if (cpi->common.width != cpi->common.last_width ||
+      cpi->common.height != cpi->common.last_height) {
+    sf->auto_min_max_partition_size = NOT_IN_USE;
+  }
 }
 
 void vp9_set_speed_features_framesize_independent(VP9_COMP *cpi, int speed) {
