@@ -34,6 +34,24 @@
       "parentUuid": "d4da19cf_46b39326",
       "revId": "e2f8f2700e592404afb98217062df927dcaebe81",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "596cba89_e41dafd2",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 5259,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-27T18:28:49Z",
+      "side": 1,
+      "message": "\u003e Oops, I have a copy-and-paste error in the second option. It should read:\n\u003e \n\u003e ```\n\u003e       qsort(\u0026coeff[1], coeff_count - 1, sizeof(*coeff), qsort_comp);\n\u003e ```\n\nGood catch.",
+      "parentUuid": "71b81b44_d31624d3",
+      "revId": "e2f8f2700e592404afb98217062df927dcaebe81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
