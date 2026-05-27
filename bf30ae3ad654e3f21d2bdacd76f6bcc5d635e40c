@@ -104,6 +104,30 @@
       },
       "revId": "bf30ae3ad654e3f21d2bdacd76f6bcc5d635e40c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fdd6307_feaff8dd",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 4915,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-27T22:21:39Z",
+      "side": 1,
+      "message": "\u003e I figured out why. Because of the bug in `qsort_comp()`, `qsort_comp()` overreads two bytes when `tran_low_t` is defined as `int16_t`. When `qsort_comp()` accesses the last element in `coeff`, it will read two bytes beyond the end of the `coeff` array, which are likely to be uninitialized.\n\nYou\u0027re right, valgrind will show the issue prior to this change:\n\n```\n[ RUN      ] EncodeAPI.PerceptualAQKMeansHeapOverflow\n\u003d\u003d1910530\u003d\u003d Conditional jump or move depends on uninitialised value(s)\n\u003d\u003d1910530\u003d\u003d    at 0x56075F5: msort_with_tmp.part.0 (qsort.c:276)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp (qsort.c:202)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp.part.0 (qsort.c:211)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp (qsort.c:202)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp.part.0 (qsort.c:211)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp (qsort.c:202)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp.part.0 (qsort.c:211)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp (qsort.c:202)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp.part.0 (qsort.c:211)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp (qsort.c:202)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp.part.0 (qsort.c:211)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp (qsort.c:202)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp.part.0 (qsort.c:211)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp (qsort.c:202)\n\u003d\u003d1910530\u003d\u003d    by 0x56075A0: msort_with_tmp.part.0 (qsort.c:211)\n\u003d\u003d1910530\u003d\u003d    by 0x56079C9: msort_with_tmp (qsort.c:202)\n\u003d\u003d1910530\u003d\u003d    by 0x56079C9: qsort_r_mergesort (qsort.c:368)\n\u003d\u003d1910530\u003d\u003d    by 0x56079C9: qsort_r_mergesort (qsort.c:343)\n\u003d\u003d1910530\u003d\u003d    by 0x5607AB9: qsort_r (qsort.c:409)\n\u003d\u003d1910530\u003d\u003d    by 0x458BBEB: set_mb_wiener_variance (in test_libvpx)\n```",
+      "parentUuid": "e4864ee8_1fe142de",
+      "range": {
+        "startLine": 4915,
+        "startChar": 30,
+        "endLine": 4915,
+        "endChar": 34
+      },
+      "revId": "bf30ae3ad654e3f21d2bdacd76f6bcc5d635e40c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
