@@ -1,6 +1,41 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a16b02fc_85bc8488",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 4839,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-27T22:13:08Z",
+      "side": 1,
+      "message": "We should cast the inputs to `tran_low_t`, not `int` (see the definition of the `coeff` array at line 4862). James fixed this bug in https://chromium-review.googlesource.com/c/webm/libvpx/+/7871701.\n\nBecause of this bug, when `tran_low_t` is defined as `int16_t`, this function overreads two bytes.",
+      "revId": "bf30ae3ad654e3f21d2bdacd76f6bcc5d635e40c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c49c2d7d_58fcb893",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 4862,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-27T22:13:08Z",
+      "side": 1,
+      "message": "Note that `coeff` is defined as an array of `tran_low_t`.",
+      "revId": "bf30ae3ad654e3f21d2bdacd76f6bcc5d635e40c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f07f40eb_d3f8c6fb",
         "filename": "vp9/encoder/vp9_encoder.c",
@@ -20,10 +55,10 @@
         "endChar": 34
       },
       "revId": "bf30ae3ad654e3f21d2bdacd76f6bcc5d635e40c",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0510824c_7cfbe37e",
         "filename": "vp9/encoder/vp9_encoder.c",
@@ -44,8 +79,31 @@
         "endChar": 34
       },
       "revId": "bf30ae3ad654e3f21d2bdacd76f6bcc5d635e40c",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4864ee8_1fe142de",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 4915,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-27T22:13:08Z",
+      "side": 1,
+      "message": "I figured out why. Because of the bug in `qsort_comp()`, `qsort_comp()` overreads two bytes when `tran_low_t` is defined as `int16_t`. When `qsort_comp()` accesses the last element in `coeff`, it will read two bytes beyond the end of the `coeff` array, which are likely to be uninitialized.",
+      "parentUuid": "0510824c_7cfbe37e",
+      "range": {
+        "startLine": 4915,
+        "startChar": 30,
+        "endLine": 4915,
+        "endChar": 34
+      },
+      "revId": "bf30ae3ad654e3f21d2bdacd76f6bcc5d635e40c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
