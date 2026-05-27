@@ -34,6 +34,24 @@
       "parentUuid": "f69faba4_38f0cc53",
       "revId": "9d5e86539bf10dfab9665287ab5bfc53c83b2d41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bf8523_c70bdfc1",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 5259,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-05-27T22:29:38Z",
+      "side": 1,
+      "message": "\u003e Done\n\n-\u003e https://chromium-review.googlesource.com/c/webm/libvpx/+/7880624",
+      "parentUuid": "ffc17295_3b77f3a1",
+      "revId": "9d5e86539bf10dfab9665287ab5bfc53c83b2d41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
