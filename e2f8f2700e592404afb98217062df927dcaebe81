@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4da19cf_46b39326",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 5259,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-05-27T18:24:01Z",
+      "side": 1,
+      "message": "The second argument, `coeff_count - 1`, also seems off by one. I think this line should be changed to either:\n\n```\n      qsort(coeff, coeff_count, sizeof(*coeff), qsort_comp);\n```\n\nor:\n\n```\n      qsort(\u0026coeff[1], coeff_count, sizeof(*coeff), qsort_comp);\n```\n\ndepending on whether we want to exclude `coeff[0]` from the sorting. `coeff[0]` is equal to 0 and all the other array elements are \u003e\u003d 0, so `coeff[0]` is already at the right location in the sorted order.",
+      "revId": "e2f8f2700e592404afb98217062df927dcaebe81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
