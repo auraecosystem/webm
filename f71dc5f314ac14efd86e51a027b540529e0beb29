@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "719fa4cb_9b45cd5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-06-04T20:02:25Z",
+      "side": 1,
+      "message": "The VP8 version of `image2yuvconfig()` also calculated `y_width`, `y_height`, `uv_width`, `uv_height` incorrectly based on `img-\u003ed_w` and `img-\u003ed_h`.",
+      "revId": "f71dc5f314ac14efd86e51a027b540529e0beb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "598c74c5_092c346a",
@@ -20,6 +37,23 @@
         "endLine": 93,
         "endChar": 40
       },
+      "revId": "f71dc5f314ac14efd86e51a027b540529e0beb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "604ad19e_b30726c3",
+        "filename": "vp9/vp9_iface_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-06-04T20:02:25Z",
+      "side": 1,
+      "message": "Move this comment before the declaration of the new local variable `x_chroma_shift`. We may need ot change \"subsampling_x\" to \"x_chroma_shift\" in the comment.\n\nThen, change line 132 to\n```\n  yv12-\u003esubsampling_x \u003d x_chroma_shift;\n```\nand delete line 137.",
       "revId": "f71dc5f314ac14efd86e51a027b540529e0beb29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
