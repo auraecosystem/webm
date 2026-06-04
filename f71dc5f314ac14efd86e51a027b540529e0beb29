@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1b58e953_88e1be48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-04T20:15:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "719fa4cb_9b45cd5b",
+      "revId": "f71dc5f314ac14efd86e51a027b540529e0beb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "598c74c5_092c346a",
         "filename": "vp9/vp9_iface_common.c",
         "patchSetId": 2
@@ -31,6 +49,30 @@
       "writtenOn": "2026-06-04T16:55:45Z",
       "side": 1,
       "message": "This is an unfortunate difference from libaom that I\u0027ve mentioned a few times. I\u0027ll file a bug to normalize the two libraries.",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 40
+      },
+      "revId": "f71dc5f314ac14efd86e51a027b540529e0beb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ac10e1_ea4b0da5",
+        "filename": "vp9/vp9_iface_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-04T20:15:57Z",
+      "side": 1,
+      "message": "\u003e This is an unfortunate difference from libaom that I\u0027ve mentioned a few times. I\u0027ll file a bug to normalize the two libraries.\n\nhttps://issues.webmproject.org/520004628",
+      "parentUuid": "598c74c5_092c346a",
       "range": {
         "startLine": 93,
         "startChar": 6,
@@ -54,6 +96,24 @@
       "writtenOn": "2026-06-04T20:02:25Z",
       "side": 1,
       "message": "Move this comment before the declaration of the new local variable `x_chroma_shift`. We may need ot change \"subsampling_x\" to \"x_chroma_shift\" in the comment.\n\nThen, change line 132 to\n```\n  yv12-\u003esubsampling_x \u003d x_chroma_shift;\n```\nand delete line 137.",
+      "revId": "f71dc5f314ac14efd86e51a027b540529e0beb29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "835ff132_fc274b0f",
+        "filename": "vp9/vp9_iface_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-04T20:15:57Z",
+      "side": 1,
+      "message": "Done. Good catch, this extra logic was made redundant with the new local variable.",
+      "parentUuid": "604ad19e_b30726c3",
       "revId": "f71dc5f314ac14efd86e51a027b540529e0beb29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
