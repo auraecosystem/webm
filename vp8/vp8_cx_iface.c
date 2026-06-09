@@ -533,9 +533,19 @@ static vpx_codec_err_t update_extracfg(vpx_codec_alg_priv_t *ctx,
                                        const struct vp8_extracfg *extra_cfg) {
   const vpx_codec_err_t res = validate_config(ctx, &ctx->cfg, extra_cfg, 0);
   if (res == VPX_CODEC_OK) {
+    if (setjmp(ctx->cpi->common.error.jmp)) {
+      const vpx_codec_err_t codec_err =
+          update_error_state(ctx, &ctx->cpi->common.error);
+      ctx->cpi->common.error.setjmp = 0;
+      vpx_clear_system_state();
+      assert(codec_err != VPX_CODEC_OK);
+      return codec_err;
+    }
+    ctx->cpi->common.error.setjmp = 1;
     ctx->vp8_cfg = *extra_cfg;
     set_vp8e_config(&ctx->oxcf, ctx->cfg, ctx->vp8_cfg, NULL);
     vp8_change_config(ctx->cpi, &ctx->oxcf);
+    ctx->cpi->common.error.setjmp = 0;
   }
   return res;
 }
