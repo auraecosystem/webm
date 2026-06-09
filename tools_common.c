@@ -93,7 +93,7 @@ int read_yuv_frame(struct VpxInputContext *input_ctx, vpx_image_t *yuv_frame) {
     // Assuming that for nv12 we read all chroma data at once
     if (yuv_frame->fmt == VPX_IMG_FMT_NV12 && plane > 1) break;
     // Fixing NV12 chroma width if it is odd
-    if (yuv_frame->fmt == VPX_IMG_FMT_NV12 && plane == 1) w = (w + 1) & ~1;
+    if (yuv_frame->fmt == VPX_IMG_FMT_NV12 && plane == 1) w = w * 2;
     /* Determine the correct plane based on the image format. The for-loop
      * always counts in Y,U,V order, but this may not match the order of
      * the data on disk.
@@ -235,7 +235,7 @@ void vpx_img_write(const vpx_image_t *img, FILE *file) {
     // Assuming that for nv12 we write all chroma data at once
     if (img->fmt == VPX_IMG_FMT_NV12 && plane > 1) break;
     // Fixing NV12 chroma width if it is odd
-    if (img->fmt == VPX_IMG_FMT_NV12 && plane == 1) w = (w + 1) & ~1;
+    if (img->fmt == VPX_IMG_FMT_NV12 && plane == 1) w = w * 2;
 
     for (y = 0; y < h; ++y) {
       fwrite(buf, bytespp, w, file);
@@ -258,7 +258,7 @@ int vpx_img_read(vpx_image_t *img, FILE *file) {
     // Assuming that for nv12 we read all chroma data at once
     if (img->fmt == VPX_IMG_FMT_NV12 && plane > 1) break;
     // Fixing NV12 chroma width if it is odd
-    if (img->fmt == VPX_IMG_FMT_NV12 && plane == 1) w = (w + 1) & ~1;
+    if (img->fmt == VPX_IMG_FMT_NV12 && plane == 1) w = w * 2;
 
     for (y = 0; y < h; ++y) {
       if (fread(buf, bytespp, w, file) != (size_t)w) return 0;
