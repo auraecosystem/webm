@@ -34,6 +34,24 @@
       ],
       "revId": "f601f4a1b23d2606444eb156da5b4b74c2061cab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e2ebe96_8b822b67",
+        "filename": "CHANGELOG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-06-10T18:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39a02e73_e77015dd",
+      "revId": "f601f4a1b23d2606444eb156da5b4b74c2061cab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
