@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39a02e73_e77015dd",
+        "filename": "CHANGELOG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-10T17:36:50Z",
+      "side": 1,
+      "message": "https://chromium.googlesource.com/webm/libvpx/+/49dd8ff38aaf06024cfea9d3e74d33592cc443a2 is a behavior change, but it may not affect many people. If users relied on `h` on the decode side they would see a crash. Chrome did rely on `w` to be equivalent to the stride (in pixels), so there is some potential impact.",
+      "fixSuggestions": [
+        {
+          "fixId": "b21c406d_855270f9",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "CHANGELOG",
+              "range": {
+                "startLine": 1,
+                "startChar": 0,
+                "endLine": 1,
+                "endChar": 0
+              },
+              "replacement": "    - vpx_img_wrap() now correctly sets the image width and height, which\n      could previously lead to crashes if the height was relied upon.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f601f4a1b23d2606444eb156da5b4b74c2061cab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
