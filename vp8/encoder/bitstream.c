@@ -279,7 +279,7 @@ void VPX_NO_UNSIGNED_SHIFT_CHECK vp8_pack_tokens(vp8_writer *w,
 }
 
 static void write_partition_size(unsigned char *cx_data, int size) {
-  signed char csize;
+  unsigned char csize;
 
   csize = size & 0xff;
   *cx_data = csize;

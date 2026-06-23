@@ -1214,6 +1214,7 @@ int vp8_decode_frame(VP8D_COMP *pbi) {
       vpx_internal_error(&pbi->common.error, VPX_CODEC_CORRUPT_FRAME, NULL);
     }
     vp8_yv12_extend_frame_borders(yv12_fb_new);
+    corrupt_tokens |= xd->corrupted;
     for (thread = 0; thread < pbi->decoding_thread_count; ++thread) {
       corrupt_tokens |= pbi->mb_row_di[thread].mbd.corrupted;
     }
