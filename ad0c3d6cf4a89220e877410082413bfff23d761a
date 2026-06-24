@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8951b95a_c9889190",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3399,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-06-24T21:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6226d38_df886c7d",
+      "range": {
+        "startLine": 3399,
+        "startChar": 38,
+        "endLine": 3399,
+        "endChar": 39
+      },
+      "revId": "ad0c3d6cf4a89220e877410082413bfff23d761a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "32b669ae_d82f9181",
         "filename": "vp9/encoder/vp9_encoder.c",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2026-06-24T20:43:01Z",
       "side": 1,
       "message": "As a quick fix this is fine, though we\u0027ll do an allocation that won\u0027t be used when `aq_mode` is not 3. This could be extracted to a function and the `_SET_AQ_MODE` could also handle the reallocation.",
+      "revId": "ad0c3d6cf4a89220e877410082413bfff23d761a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2524a194_20176926",
+        "filename": "vp9/encoder/vp9_encoder.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-06-24T21:43:58Z",
+      "side": 1,
+      "message": "Agree, we can try this in a follow-up. Since the buffers are always allocated at startup/init, thought it was better to just re-alloc here, to keep this fix simple.",
+      "parentUuid": "32b669ae_d82f9181",
       "revId": "ad0c3d6cf4a89220e877410082413bfff23d761a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
