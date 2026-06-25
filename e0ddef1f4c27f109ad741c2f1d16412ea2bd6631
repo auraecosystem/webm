@@ -1,0 +1,233 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc1665cb_5e9ccfe6",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T20:12:49Z",
+      "side": 1,
+      "message": "Move the new test here. It\u0027s within a `CONFIG_VP9_ENCODER` block currently.",
+      "revId": "e0ddef1f4c27f109ad741c2f1d16412ea2bd6631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbd25a8d_d50696c9",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3516,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T20:12:49Z",
+      "side": 1,
+      "message": "swap the parameters",
+      "fixSuggestions": [
+        {
+          "fixId": "dcf3138e_f9c8a7d5",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/encode_api_test.cc",
+              "range": {
+                "startLine": 3516,
+                "startChar": 0,
+                "endLine": 3517,
+                "endChar": 0
+              },
+              "replacement": "  ASSERT_EQ(vpx_codec_enc_init(\u0026enc, iface, \u0026cfg, 0), VPX_CODEC_OK);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e0ddef1f4c27f109ad741c2f1d16412ea2bd6631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb5fdb0a_d2c3aa04",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3519,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T20:12:49Z",
+      "side": 1,
+      "message": "swap the parameters",
+      "fixSuggestions": [
+        {
+          "fixId": "baad3441_60fdfdd8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/encode_api_test.cc",
+              "range": {
+                "startLine": 3519,
+                "startChar": 0,
+                "endLine": 3520,
+                "endChar": 0
+              },
+              "replacement": "  ASSERT_NE(vpx_img_alloc(\u0026raw, VPX_IMG_FMT_I420, 128, 128, 1), nullptr);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e0ddef1f4c27f109ad741c2f1d16412ea2bd6631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "043315c2_9ac8a7ec",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3525,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T20:12:49Z",
+      "side": 1,
+      "message": "swap the parameters",
+      "revId": "e0ddef1f4c27f109ad741c2f1d16412ea2bd6631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73b82c39_d444c947",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3532,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T20:12:49Z",
+      "side": 1,
+      "message": "swap the parameters",
+      "fixSuggestions": [
+        {
+          "fixId": "22cf7eea_305728a4",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/encode_api_test.cc",
+              "range": {
+                "startLine": 3532,
+                "startChar": 0,
+                "endLine": 3534,
+                "endChar": 0
+              },
+              "replacement": "  EXPECT_EQ(vpx_codec_control(\u0026enc, VP8_SET_REFERENCE, \u0026ref_frame),\n            VPX_CODEC_INVALID_PARAM);\n"
+            },
+            {
+              "path": "test/encode_api_test.cc",
+              "range": {
+                "startLine": 3536,
+                "startChar": 0,
+                "endLine": 3538,
+                "endChar": 0
+              },
+              "replacement": "  EXPECT_EQ(vpx_codec_control(\u0026enc, VP8_COPY_REFERENCE, \u0026ref_frame),\n            VPX_CODEC_INVALID_PARAM);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e0ddef1f4c27f109ad741c2f1d16412ea2bd6631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e27f669_af42b4ad",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3536,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T20:12:49Z",
+      "side": 1,
+      "message": "swap the parameters",
+      "fixSuggestions": [
+        {
+          "fixId": "97c6d61f_17bf0cca",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/encode_api_test.cc",
+              "range": {
+                "startLine": 3532,
+                "startChar": 0,
+                "endLine": 3534,
+                "endChar": 0
+              },
+              "replacement": "  EXPECT_EQ(vpx_codec_control(\u0026enc, VP8_SET_REFERENCE, \u0026ref_frame),\n            VPX_CODEC_INVALID_PARAM);\n"
+            },
+            {
+              "path": "test/encode_api_test.cc",
+              "range": {
+                "startLine": 3536,
+                "startChar": 0,
+                "endLine": 3538,
+                "endChar": 0
+              },
+              "replacement": "  EXPECT_EQ(vpx_codec_control(\u0026enc, VP8_COPY_REFERENCE, \u0026ref_frame),\n            VPX_CODEC_INVALID_PARAM);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e0ddef1f4c27f109ad741c2f1d16412ea2bd6631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af0151e8_6ff77663",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3541,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T20:12:49Z",
+      "side": 1,
+      "message": "swap the parameters",
+      "fixSuggestions": [
+        {
+          "fixId": "b3483bdb_cdf2a5ed",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/encode_api_test.cc",
+              "range": {
+                "startLine": 3541,
+                "startChar": 0,
+                "endLine": 3542,
+                "endChar": 0
+              },
+              "replacement": "  EXPECT_EQ(vpx_codec_destroy(\u0026enc), VPX_CODEC_OK);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e0ddef1f4c27f109ad741c2f1d16412ea2bd6631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
