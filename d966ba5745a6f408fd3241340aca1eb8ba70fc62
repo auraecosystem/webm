@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e19de1bc_1a25a303",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T21:49:21Z",
+      "side": 1,
+      "message": "This could be swapped too.",
+      "revId": "d966ba5745a6f408fd3241340aca1eb8ba70fc62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7672f185_d00ac171",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-25T21:49:21Z",
+      "side": 1,
+      "message": "This could be swapped too.",
+      "revId": "d966ba5745a6f408fd3241340aca1eb8ba70fc62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
