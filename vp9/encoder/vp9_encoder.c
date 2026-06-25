@@ -2986,6 +2986,9 @@ int vp9_copy_reference_enc(VP9_COMP *cpi, VP9_REFFRAME ref_frame_flag,
                            YV12_BUFFER_CONFIG *sd) {
   YV12_BUFFER_CONFIG *cfg = get_vp9_ref_frame_buffer(cpi, ref_frame_flag);
   if (cfg) {
+    if (cfg->y_width != sd->y_width || cfg->y_height != sd->y_height) {
+      return -1;
+    }
     vpx_yv12_copy_frame(cfg, sd);
     return 0;
   } else {
@@ -2997,6 +3000,9 @@ int vp9_set_reference_enc(VP9_COMP *cpi, VP9_REFFRAME ref_frame_flag,
                           YV12_BUFFER_CONFIG *sd) {
   YV12_BUFFER_CONFIG *cfg = get_vp9_ref_frame_buffer(cpi, ref_frame_flag);
   if (cfg) {
+    if (cfg->y_width != sd->y_width || cfg->y_height != sd->y_height) {
+      return -1;
+    }
     vpx_yv12_copy_frame(sd, cfg);
     return 0;
   } else {
