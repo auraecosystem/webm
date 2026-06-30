@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a56a2d_4b0eeb69",
+        "filename": "test/decode_api_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-30T21:45:05Z",
+      "side": 1,
+      "message": "The fields are `w` and `h`, better to use those as some tools may report a mistmatch.",
+      "range": {
+        "startLine": 168,
+        "startChar": 51,
+        "endLine": 168,
+        "endChar": 56
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "92f0b834_fcd65bcc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/decode_api_test.cc",
+              "range": {
+                "startLine": 168,
+                "startChar": 0,
+                "endLine": 169,
+                "endChar": 0
+              },
+              "replacement": "  vpx_codec_dec_cfg_t dec_cfg \u003d { /*threads\u003d*/4, /*w\u003d*/0, /*h\u003d*/0 };\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e1e48fb4e8890335603b1ce1985a9b0993394d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
