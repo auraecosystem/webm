@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d007dc_528ed591",
+        "filename": "test/decode_api_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-30T19:25:01Z",
+      "side": 1,
+      "message": "I guess `clang-format` is tolerant of this, but you can remove the space since that was only an issue before C++11.",
+      "range": {
+        "startLine": 111,
+        "startChar": 34,
+        "endLine": 111,
+        "endChar": 35
+      },
+      "revId": "30fcd7c50a04d102cd8e0f1c38e65c0b52d59e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fc08543_205e8bea",
+        "filename": "test/decode_api_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-30T19:25:01Z",
+      "side": 1,
+      "message": "Annotate the fields. `dec_cfg \u003d { /*threads\u003d*/4, /*w\u003d*/0, /*h\u003d*/0 }`.",
+      "fixSuggestions": [
+        {
+          "fixId": "7d3d6564_208a53f1",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/decode_api_test.cc",
+              "range": {
+                "startLine": 168,
+                "startChar": 0,
+                "endLine": 169,
+                "endChar": 0
+              },
+              "replacement": "  vpx_codec_dec_cfg_t dec_cfg \u003d { /*threads\u003d*/4, /*width\u003d*/0, /*height\u003d*/0 };\n"
+            }
+          ]
+        }
+      ],
+      "revId": "30fcd7c50a04d102cd8e0f1c38e65c0b52d59e93",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
