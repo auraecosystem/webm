@@ -406,8 +406,9 @@ int vp9_post_proc_frame(struct VP9Common *cm, YV12_BUFFER_CONFIG *dest,
   }
 
   if ((flags & VP9D_MFQE) && cm->current_video_frame >= 2 &&
-      ppstate->last_frame_valid && cm->bit_depth == 8 &&
-      ppstate->last_base_qindex <= last_q_thresh &&
+      cm->width == cm->prev_frame->buf.y_width &&
+      cm->height == cm->prev_frame->buf.y_height && ppstate->last_frame_valid &&
+      cm->bit_depth == 8 && ppstate->last_base_qindex <= last_q_thresh &&
       cm->base_qindex - ppstate->last_base_qindex >= q_diff_thresh) {
     vp9_mfqe(cm);
     // TODO(jackychen): Consider whether enable deblocking by default
