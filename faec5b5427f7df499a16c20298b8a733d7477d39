@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80a92586_66b81c44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-17T18:54:28Z",
+      "side": 1,
+      "message": "Can we remove any of the files from `kVP9FailingTestVectors[]` or are they all blocked by deblock_sse2? I thought it might be possible for some of the `*-resize-*` files.",
+      "revId": "faec5b5427f7df499a16c20298b8a733d7477d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd552f3_cfcc50da",
+        "filename": "vp9/common/vp9_mfqe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-17T18:54:28Z",
+      "side": 1,
+      "message": "This is a good start. If performance is a concern, then I think `mfqe_partition` could copy the required area in the earlier return instead.",
+      "revId": "faec5b5427f7df499a16c20298b8a733d7477d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
