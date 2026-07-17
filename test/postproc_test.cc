@@ -359,7 +359,7 @@ VP9_INSTANTIATE_TEST_SUITE(PostProcTest,
 // bounds accesses are fixed, and the files are migrated to the enabled test
 // suite.
 INSTANTIATE_TEST_SUITE_P(
-    DISABLED_VP9, PostProcTest,
+    TEST_VP9, PostProcTest,
     ::testing::Combine(
         ::testing::Values(
             static_cast<const libvpx_test::CodecFactory *>(&libvpx_test::kVP9)),
