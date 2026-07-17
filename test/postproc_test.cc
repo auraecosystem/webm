@@ -227,8 +227,7 @@ VP8_INSTANTIATE_TEST_SUITE(PostProcTestInvalidFiles,
 #endif  // CONFIG_VP8_DECODER && CONFIG_POSTPROC
 
 #if CONFIG_VP9_DECODER && CONFIG_VP9_POSTPROC
-constexpr std::array<const char *, 104> kVP9FailingTestVectors = {
-  "invalid-vp90-02-v2.webm",
+constexpr std::array<const char *, 103> kVP9FailingTestVectors = {
   "vp90-2-02-size-08x08.webm",
   "vp90-2-02-size-08x10.webm",
   "vp90-2-02-size-08x16.webm",
@@ -359,7 +358,7 @@ VP9_INSTANTIATE_TEST_SUITE(PostProcTest,
 // bounds accesses are fixed, and the files are migrated to the enabled test
 // suite.
 INSTANTIATE_TEST_SUITE_P(
-    DISABLED_VP9, PostProcTest,
+    TEST_VP9, PostProcTest,
     ::testing::Combine(
         ::testing::Values(
             static_cast<const libvpx_test::CodecFactory *>(&libvpx_test::kVP9)),
