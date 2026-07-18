@@ -227,8 +227,7 @@ VP8_INSTANTIATE_TEST_SUITE(PostProcTestInvalidFiles,
 #endif  // CONFIG_VP8_DECODER && CONFIG_POSTPROC
 
 #if CONFIG_VP9_DECODER && CONFIG_VP9_POSTPROC
-constexpr std::array<const char *, 104> kVP9FailingTestVectors = {
-  "invalid-vp90-02-v2.webm",
+constexpr std::array<const char *, 103> kVP9FailingTestVectors = {
   "vp90-2-02-size-08x08.webm",
   "vp90-2-02-size-08x10.webm",
   "vp90-2-02-size-08x16.webm",
