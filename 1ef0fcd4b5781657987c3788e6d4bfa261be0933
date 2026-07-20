@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52725461_15a26ed4",
+        "filename": "test/postproc_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-20T21:00:47Z",
+      "side": 0,
+      "message": "Add this file back to the list.",
+      "revId": "1ef0fcd4b5781657987c3788e6d4bfa261be0933",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
