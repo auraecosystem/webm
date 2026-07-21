@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7665960_88da7c9f",
+        "filename": "test/postproc_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-21T19:51:10Z",
+      "side": 1,
+      "message": "I think this can be moved back to `kVP8InvalidFiles` as the first parameter (to keep the sort order). You can delete this array, `GenerateVP8PassingTestParams` and the `DISABLED_VP8` suite. Change line 203 to:\n\n```\n    ::testing::ValuesIn(GenerateTestParams(\n        GeneratePostProcFlags(), libvpx_test::kVP8TestVectors,\n        libvpx_test::kVP8TestVectors + libvpx_test::kNumVP8TestVectors)));\n```",
+      "revId": "555d2e42261e2d32cf0c576664ecc0fbf6939685",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
