@@ -136,7 +136,7 @@ int vp8_post_proc_frame(VP8_COMMON *oci, YV12_BUFFER_CONFIG *dest,
   int flags = ppflags->post_proc_flag;
   int deblock_level = ppflags->deblocking_level;
   int noise_level = ppflags->noise_level;
-  const int generated_noise_size = oci->Width + 256;
+  const int generated_noise_size = oci->post_proc_buffer.y_width + 256;
 
   if (!oci->frame_to_show) return -1;
 
@@ -221,6 +221,8 @@ int vp8_post_proc_frame(VP8_COMMON *oci, YV12_BUFFER_CONFIG *dest,
     oci->postproc_state.last_base_qindex = oci->base_qindex;
   }
   oci->postproc_state.last_frame_valid = 1;
+
+  vp8_yv12_extend_frame_borders(&oci->post_proc_buffer);
 
   if (flags & VP8D_ADDNOISE) {
     if (oci->postproc_state.last_q != q ||
