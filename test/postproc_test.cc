@@ -177,10 +177,8 @@ TEST_P(PostProcTestInvalidFiles, Decode) { DecodeTest(); }
 #if CONFIG_VP8_DECODER && CONFIG_POSTPROC
 // TODO(issue 499602810): remove this test suite after valgrind errors are
 // fixed, and the files are migrated to the enabled test suite.
-constexpr std::array<const char *, 5> kVP8FailingTestVectors = {
-  "invalid-bug-1443.ivf", "vp80-00-comprehensive-008.ivf",
-  "vp80-02-inter-1418.ivf", "vp80-03-segmentation-1425.ivf",
-  "vp80-03-segmentation-1436.ivf"
+constexpr std::array<const char *, 1> kVP8FailingTestVectors = {
+  "invalid-bug-1443.ivf"
 };
 
 std::vector<TestParam> GenerateVP8PassingTestParams() {
