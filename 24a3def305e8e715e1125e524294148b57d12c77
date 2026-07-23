@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b3d8ab2_639130b1",
+        "filename": "vp9/common/vp9_postproc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-23T19:58:41Z",
+      "side": 1,
+      "message": "This doesn\u0027t change behavior. I didn\u0027t check to see if an overflow was possible. Naively, with 12-bit I\u0027d expect larger block sizes to be impossible with areas that had a large difference.",
+      "revId": "24a3def305e8e715e1125e524294148b57d12c77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
