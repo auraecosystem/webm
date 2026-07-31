@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16adfbfc_555888c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2026-07-31T13:26:21Z",
+      "side": 1,
+      "message": "Pushed a new version",
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8282bba3_7774135b",
@@ -31,6 +48,30 @@
       "writtenOn": "2026-07-31T04:07:20Z",
       "side": 1,
       "message": "Use `static_cast\u003c\u003e` here and in the rest of this function.",
+      "range": {
+        "startLine": 165,
+        "startChar": 35,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "117cc153_cf6d298b",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2026-07-31T13:26:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8282bba3_7774135b",
       "range": {
         "startLine": 165,
         "startChar": 35,
@@ -64,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74730a98_22620f30",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2026-07-31T13:26:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5973056f_6d1dd1d7",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 2
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61f00917_25ae1ff4",
@@ -87,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd8dc66_1d0ce598",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2026-07-31T13:26:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "61f00917_25ae1ff4",
+      "range": {
+        "startLine": 308,
+        "startChar": 37,
+        "endLine": 308,
+        "endChar": 45
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32b0345b_44a4cf0f",
@@ -100,6 +189,30 @@
       "writtenOn": "2026-07-31T04:07:20Z",
       "side": 1,
       "message": "Use `static_cast\u003c\u003e()` here and in the remainder of this block.",
+      "range": {
+        "startLine": 358,
+        "startChar": 38,
+        "endLine": 358,
+        "endChar": 53
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c02a563d_bb68734f",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2026-07-31T13:26:21Z",
+      "side": 1,
+      "message": "Actually, I do not think we need these casts, removing them",
+      "parentUuid": "32b0345b_44a4cf0f",
       "range": {
         "startLine": 358,
         "startChar": 38,
