@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2288e50b_9ff43b1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T18:47:07Z",
+      "side": 1,
+      "message": "`Bug: webm:497896136`",
+      "revId": "0ae5efd57c34c21e52cd9e83f3487f80d95797d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64f0004b_50b2c8b3",
+        "filename": "vp9/encoder/vp9_aq_complexity.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T18:47:07Z",
+      "side": 1,
+      "message": "This clamp, like the assert, looks to be incomplete. It doesn\u0027t take into account the `xmis * ymis` portion of the equation unless we assume `xmix * ymis` is less than `bw * bh`. You could assert that or clamp `target_rate` instead.",
+      "revId": "0ae5efd57c34c21e52cd9e83f3487f80d95797d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
