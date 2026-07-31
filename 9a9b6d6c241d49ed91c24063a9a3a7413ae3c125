@@ -34,6 +34,24 @@
       "parentUuid": "3a35ba74_ec02c30d",
       "revId": "9a9b6d6c241d49ed91c24063a9a3a7413ae3c125",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f668a9c_6ddcedef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T19:39:07Z",
+      "side": 1,
+      "message": "\u003e \u003e This file isn\u0027t covered by the CI (it probably should be):\n\u003e \u003e \n\u003e \n\u003e It\u0027s in the nightly (post submit), but maybe should be shifted to the presbumit.\n\nI added this to the presubmit.",
+      "parentUuid": "46f71c63_2dc2abc3",
+      "revId": "9a9b6d6c241d49ed91c24063a9a3a7413ae3c125",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
