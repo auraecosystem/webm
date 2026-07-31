@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "101050b1_80b802ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T04:07:20Z",
+      "side": 1,
+      "message": "This will reduce coverage of the more normal cases that use a fixed configuration, like WebRTC. That coverage does exist in those fuzzers, though, so for now this may be better in finding corner cases.",
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8282bba3_7774135b",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T04:07:20Z",
+      "side": 1,
+      "message": "Use `static_cast\u003c\u003e` here and in the rest of this function.",
+      "range": {
+        "startLine": 165,
+        "startChar": 35,
+        "endLine": 165,
+        "endChar": 41
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5973056f_6d1dd1d7",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T04:07:20Z",
+      "side": 1,
+      "message": "You can use `bool` here and for `reconfigured` at line 253.",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 2
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61f00917_25ae1ff4",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T04:07:20Z",
+      "side": 1,
+      "message": "use `static_cast\u003csize_t\u003e()`",
+      "range": {
+        "startLine": 308,
+        "startChar": 37,
+        "endLine": 308,
+        "endChar": 45
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b0345b_44a4cf0f",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T04:07:20Z",
+      "side": 1,
+      "message": "Use `static_cast\u003c\u003e()` here and in the remainder of this block.",
+      "range": {
+        "startLine": 358,
+        "startChar": 38,
+        "endLine": 358,
+        "endChar": 53
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
