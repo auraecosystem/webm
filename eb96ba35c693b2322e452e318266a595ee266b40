@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff8852f_3f2d73a5",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T22:32:11Z",
+      "side": 1,
+      "message": "These extra `()`s could be removed, but it\u0027s not strictly necessary.",
+      "range": {
+        "startLine": 300,
+        "startChar": 36,
+        "endLine": 300,
+        "endChar": 37
+      },
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b3fbf5_aa582989",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T22:32:11Z",
+      "side": 1,
+      "message": "This could be `static_cast\u003cvoid\u003e(...)`",
+      "range": {
+        "startLine": 356,
+        "startChar": 6,
+        "endLine": 356,
+        "endChar": 12
+      },
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
