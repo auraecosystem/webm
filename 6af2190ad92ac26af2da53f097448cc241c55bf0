@@ -221,6 +221,30 @@
       },
       "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db75c06_7994782f",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T18:54:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c02a563d_bb68734f",
+      "range": {
+        "startLine": 358,
+        "startChar": 38,
+        "endLine": 358,
+        "endChar": 53
+      },
+      "revId": "6af2190ad92ac26af2da53f097448cc241c55bf0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

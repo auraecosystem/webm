@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a35ba74_ec02c30d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-31T18:54:53Z",
+      "side": 1,
+      "message": "This file isn\u0027t covered by the CI (it probably should be):\n\n```\n$ clang -fsanitize\u003dfuzzer -DENCODER\u003dvp9 -I. -I.. ../examples/vpx_enc_fuzzer.cc libvpx_g.a \n../examples/vpx_enc_fuzzer.cc:350:56: error: expected \u0027)\u0027\n  350 |           cfg.rc_target_bitrate \u003e 1 + (data[0] \u0026 0x7F) {\n      |                                                        ^\n../examples/vpx_enc_fuzzer.cc:349:10: note: to match this \u0027(\u0027\n  349 |       if (data[0] \u0026 0x80 \u0026\u0026\n      |          ^\n../examples/vpx_enc_fuzzer.cc:355:48: warning: if statement has empty body [-Wempty-body]\n  355 |             cfg.rc_target_bitrate + 1 + data[0);\n      |                                                ^\n../examples/vpx_enc_fuzzer.cc:355:48: note: put the semicolon on a separate line to silence this warning\n../examples/vpx_enc_fuzzer.cc:357:7: error: use of undeclared identifier \u0027new_cfg\u0027\n  357 |       new_cfg.rc_dropframe_thresh \u003d\n      |       ^~~~~~~\n../examples/vpx_enc_fuzzer.cc:359:47: error: use of undeclared identifier \u0027new_cfg\u0027\n  359 |       (void)vpx_codec_enc_config_set(\u0026codec, \u0026new_cfg);\n      |                                               ^~~~~~~\n../examples/vpx_enc_fuzzer.cc:360:13: error: use of undeclared identifier \u0027new_cfg\u0027\n  360 |       cfg \u003d new_cfg;\n      |             ^~~~~~~\n../examples/vpx_enc_fuzzer.cc:366:47: error: use of undeclared identifier \u0027flags\u0027; did you mean \u0027__NSConstantString_tag::flags\u0027?\n  366 |     encode_frame(\u0026codec, \u0026raw, frame_count++, flags, out, quality);\n      |                                               ^~~~~\n      |                                               __NSConstantString_tag::flags\nnote: \u0027__NSConstantString_tag::flags\u0027 declared here\n../examples/vpx_enc_fuzzer.cc:366:47: error: invalid use of non-static data member \u0027flags\u0027\n  366 |     encode_frame(\u0026codec, \u0026raw, frame_count++, flags, out, quality);\n      |                                               ^~~~~\n../examples/vpx_enc_fuzzer.cc:315:10: error: use of undeclared label \u0027fail\u0027\n  315 |     goto fail;\n      |          ^\n../examples/vpx_enc_fuzzer.cc:370:3: error: while loop outside of a function\n  370 |   while (encode_frame(\u0026codec, nullptr, -1, 0, out, quality)) {\n      |   ^\n../examples/vpx_enc_fuzzer.cc:373:1: error: unknown type name \u0027fail\u0027\n  373 | fail:\n      | ^\n../examples/vpx_enc_fuzzer.cc:373:5: error: expected unqualified-id\n  373 | fail:\n      |     ^\n../examples/vpx_enc_fuzzer.cc:375:3: error: unknown type name \u0027vpx_img_free\u0027; did you mean \u0027vpx_img_fmt\u0027?\n  375 |   vpx_img_free(\u0026raw);\n      |   ^~~~~~~~~~~~\n      |   vpx_img_fmt\n../vpx/./././vpx_image.h:38:14: note: \u0027vpx_img_fmt\u0027 declared here\n   38 | typedef enum vpx_img_fmt {\n      |              ^\n../examples/vpx_enc_fuzzer.cc:375:17: error: declaration of reference variable \u0027raw\u0027 requires an initializer\n  375 |   vpx_img_free(\u0026raw);\n      |                 ^~~\n../examples/vpx_enc_fuzzer.cc:376:3: error: unknown type name \u0027vpx_codec_destroy\u0027\n  376 |   vpx_codec_destroy(\u0026codec);\n      |   ^\n../examples/vpx_enc_fuzzer.cc:376:22: error: declaration of reference variable \u0027codec\u0027 requires an initializer\n  376 |   vpx_codec_destroy(\u0026codec);\n      |                      ^~~~~\n../examples/vpx_enc_fuzzer.cc:377:3: error: unknown type name \u0027fclose\u0027\n  377 |   fclose(out);\n      |   ^\n../examples/vpx_enc_fuzzer.cc:378:3: error: expected unqualified-id\n  378 |   return 0;\n      |   ^\n../examples/vpx_enc_fuzzer.cc:379:1: error: extraneous closing brace (\u0027}\u0027)\n  379 | }\n      | ^\n1 warning and 17 errors generated.\n```",
+      "revId": "9a9b6d6c241d49ed91c24063a9a3a7413ae3c125",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
