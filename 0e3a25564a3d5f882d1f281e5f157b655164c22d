@@ -16,6 +16,24 @@
       "message": "These could be `constexpr int kInitialWidth \u003d 16;`, etc.",
       "revId": "0e3a25564a3d5f882d1f281e5f157b655164c22d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f006c1a4_b9089dfd",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3591,
+      "author": {
+        "id": 1126910
+      },
+      "writtenOn": "2026-07-31T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4817807_15cc84d6",
+      "revId": "0e3a25564a3d5f882d1f281e5f157b655164c22d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
