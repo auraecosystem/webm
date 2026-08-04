@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53e39ad_e1f2cfec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-04T19:05:56Z",
+      "side": 1,
+      "message": "libaom and (probably) libavm have the same issue. It would be good to keep them in sync.",
+      "revId": "9b95b8ddf628598a0f1863f61c0e1e02c0ecf8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9726886a_3a9a523f",
+        "filename": "test/vpx_image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-04T19:05:56Z",
+      "side": 1,
+      "message": "Make this `static constexpr`",
+      "revId": "9b95b8ddf628598a0f1863f61c0e1e02c0ecf8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce763ea6_7857a7d7",
+        "filename": "test/vpx_image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-04T19:05:56Z",
+      "side": 1,
+      "message": "You could also check the y plane and that the stride was negated. Doing a double pass would be good to make sure the original could be restored.",
+      "revId": "9b95b8ddf628598a0f1863f61c0e1e02c0ecf8e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
