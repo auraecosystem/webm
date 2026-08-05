@@ -1,6 +1,103 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebadd431_0a976498",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "Re: `-(arg % 16)`\n\nThe valid range is -16..16. Just wanted to confirm you do not want to test -16.",
+      "range": {
+        "startLine": 165,
+        "startChar": 65,
+        "endLine": 165,
+        "endChar": 76
+      },
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c89cbb6_4975696c",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "Nit: We should be able to omit `static_cast\u003cint\u003e` because the expression `arg % 10` is already of the `int` type because of [integral promotion](https://en.cppreference.com/cpp/language/implicit_conversion#Integral_promotion).",
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54dabfb5_4ce823fc",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "Nit: Omit the outer parentheses in `((arg + 1) * 8)`",
+      "range": {
+        "startLine": 171,
+        "startChar": 63,
+        "endLine": 171,
+        "endChar": 78
+      },
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13d283d8_e5ef6993",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "Nit: Move the declaration to line 305, where `reconfig_at` is first assigned a value.",
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a407fc_09404ff6",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "Just wanted to confirm that you intended to use `data[3]` for both `g_lag_in_frames` and `kf_mode`.",
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3ff8852f_3f2d73a5",
@@ -20,6 +117,74 @@
         "endLine": 300,
         "endChar": 37
       },
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9417b27f_a8526bb0",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "IMPORTANT: I believe the FuzzTest framework is designed specifically for this. Please see https://source.chromium.org/chromium/chromium/src/+/main:third_party/libvpx/tests/fuzzer/",
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ab18a43_e0046a11",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "Nit: I suggest changing `\u003c\u003c 1` to `* 2`, and adding a comment to say the control stream is a multiple of two bytes (the (op, arg) pairs).",
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "344242c4_66a274b6",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "Use `std::min`:\n\n```\n  const size_t bounded_control_len \u003d std::min(control_stream_len, (size - FUZZ_HDR_SZ) / 2);\n```\n\nAre we avoiding C++ code in this file? But `static_cast` is already used.",
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71e75304_b9a974ff",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:22:44Z",
+      "side": 1,
+      "message": "IMPORTANT: I haven\u0027t finished the review, but I am worries that it is no longer obvious that this fuzztest itself has no errors. The manipulation of `data` and `size` is quite complicated. The reconfiguration code below is also quite complated.",
       "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
