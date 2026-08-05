@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "346f9bb2_815c9cc3",
+        "filename": "examples/vpx_enc_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-05T22:42:23Z",
+      "side": 1,
+      "message": "For some of these codec controls, it is not clear why you picked those ranges. It would be good to document them.\n\nNo need to document the obvious ones, such as using `arg \u0026 1` for a boolean.",
+      "parentUuid": "54dabfb5_4ce823fc",
+      "range": {
+        "startLine": 171,
+        "startChar": 63,
+        "endLine": 171,
+        "endChar": 78
+      },
+      "revId": "eb96ba35c693b2322e452e318266a595ee266b40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13d283d8_e5ef6993",
         "filename": "examples/vpx_enc_fuzzer.cc",
         "patchSetId": 4
