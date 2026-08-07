@@ -51,6 +51,20 @@
     Fix to VP9 float-to-int overflow in validate_config (EOS count) and with
     zero bitrate.
 
+    Fix to VP8 decoder multithreading corruption flag reset at start of frame.
+    Fix to VP8 decoder accepting inter frames on resolution change before keyframe.
+    Fix to VP8 encoder reference frame dimension validation.
+    Fix to VP8 encoder temporal layer ID validation.
+    Fix to VP8 encoder missing setjmp in VP8E_SET_SCALEMODE.
+
+    Fix to VP9 SVC encoder crash with dynamic resize and cyclic refresh (aq_mode=3).
+    Fix to VP9 1-pass rate control last_boosted_qindex clamping and VP9E_SET_QUANTIZER_ONE_PASS validation.
+
+    Fix to NV12 x_chroma_shift calculation in vpx_image and image2yuvconfig.
+    Fix to AVX-512 CPU feature detection on older x86 CPUs.
+    Fix to x86_abi_support.asm placing read-only data tables in .rdata for Windows.
+    Fix to file leaks on error paths in vpxdec and video reader/writer utilities.
+
     Fix to crash/undefined behavior in vpx_img_flip with formats without alpha.
 
 2026-01-06 v1.16.0 "Xenonetta Duck"
