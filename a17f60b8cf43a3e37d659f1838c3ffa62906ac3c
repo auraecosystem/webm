@@ -16,6 +16,24 @@
       "message": "Please change the release date to today.",
       "revId": "a17f60b8cf43a3e37d659f1838c3ffa62906ac3c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fa9179c_1d080937",
+        "filename": "CHANGELOG",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-08-07T15:39:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71356782_de55eebc",
+      "revId": "a17f60b8cf43a3e37d659f1838c3ffa62906ac3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
