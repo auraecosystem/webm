@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e952d88_304555d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-11T16:17:22Z",
+      "side": 1,
+      "message": "I noticed this issue while reviewing [Jerome\u0027s CL](https://chromium-review.googlesource.com/c/webm/libvpx/+/8196205) for bug 541725398. Should I add `Bug: 541725398` to the commit message?",
+      "revId": "9cc8e1c18024d6b64422ecb7fdd7a43c8e873908",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
