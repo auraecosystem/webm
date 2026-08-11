@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "460d8785_cc792e9e",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-11T16:14:19Z",
+      "side": 0,
+      "message": "James: In the libaom CL https://aomedia-review.googlesource.com/c/aom/+/209861 I edited this comment to make it clearer. Now that the `signed` casts became `ptrdiff_t` casts, this comment can be simply deleted.",
+      "revId": "e4fbbbf5c0a23d2b9cd9ed117bc1bd4dc76148b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
