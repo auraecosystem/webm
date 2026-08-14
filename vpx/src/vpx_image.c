@@ -125,7 +125,13 @@ static vpx_image_t *img_alloc_helper(vpx_image_t *img, vpx_img_fmt_t fmt,
   s = (s + stride_align - 1) & ~((uint64_t)stride_align - 1);
   if (s > INT_MAX) goto fail;
   stride_in_bytes = (int)s;
-  s = (fmt & VPX_IMG_FMT_HIGHBITDEPTH) ? s / 2 : s;
+  // The rounding value should be doubled with highbitdepth buffers that have
+  // an odd width. Note `w` can only be odd when there is subsampling applied
+  // in the x direction or when wrapping an external frame buffer.
+  assert(w % 2 == 0 || xcs == 0 || img_data);
+  const int rounder =
+      xcs + xcs * ((fmt & VPX_IMG_FMT_HIGHBITDEPTH) ? w & 1 : 0);
+  const int uv_stride_in_bytes = (stride_in_bytes + rounder) >> xcs;
 
   /* Allocate the new image */
   if (!img) {
@@ -140,6 +146,10 @@ static vpx_image_t *img_alloc_helper(vpx_image_t *img, vpx_img_fmt_t fmt,
 
   if (!img_data) {
     uint64_t alloc_size;
+    // stride_in_bytes should only be odd if there is no subsampling applied in
+    // the x direction or an external frame buffer is being wrapped.
+    assert(xcs == 0 || stride_in_bytes % 2 == 0);
+    s = (fmt & VPX_IMG_FMT_HIGHBITDEPTH) ? s / 2 : s;
     alloc_size = (fmt & VPX_IMG_FMT_PLANAR) ? (uint64_t)h * s * bps / 8
                                             : (uint64_t)h * s;
 
@@ -161,7 +171,7 @@ static vpx_image_t *img_alloc_helper(vpx_image_t *img, vpx_img_fmt_t fmt,
 
   /* Calculate strides */
   img->stride[VPX_PLANE_Y] = img->stride[VPX_PLANE_ALPHA] = stride_in_bytes;
-  img->stride[VPX_PLANE_U] = img->stride[VPX_PLANE_V] = stride_in_bytes >> xcs;
+  img->stride[VPX_PLANE_U] = img->stride[VPX_PLANE_V] = uv_stride_in_bytes;
 
   if (fmt == VPX_IMG_FMT_NV12) {
     img->stride[VPX_PLANE_U] = img->stride[VPX_PLANE_V] = stride_in_bytes;
