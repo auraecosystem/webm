@@ -124,30 +124,30 @@ static vpx_codec_err_t vp8_destroy(vpx_codec_alg_priv_t *ctx) {
   return VPX_CODEC_OK;
 }
 
-static vpx_codec_err_t vp8_peek_si_internal(const uint8_t *data,
-                                            unsigned int data_sz,
+static vpx_codec_err_t vp8_peek_si_internal(const vpx_input_buffer *input,
                                             vpx_codec_stream_info_t *si,
                                             vpx_decrypt_cb decrypt_cb,
                                             void *decrypt_state) {
   vpx_codec_err_t res = VPX_CODEC_OK;
+  const uint8_t *const data = input->data;
+  const size_t data_sz = input->size;
 
-  if (data == NULL) return VPX_CODEC_INVALID_PARAM;
+  if (!vpx_input_buffer_is_valid(input) || data == NULL)
+    return VPX_CODEC_INVALID_PARAM;
 
-  if (data + data_sz <= data) {
-    res = VPX_CODEC_INVALID_PARAM;
-  } else {
+  {
     /* Parse uncompresssed part of key frame header.
      * 3 bytes:- including version, frame type and an offset
      * 3 bytes:- sync code (0x9d, 0x01, 0x2a)
      * 4 bytes:- including image width and height in the lowest 14 bits
      *           of each 2-byte value.
      */
-    uint8_t clear_buffer[10];
-    const uint8_t *clear = data;
-    if (decrypt_cb) {
-      int n = VPXMIN(sizeof(clear_buffer), data_sz);
-      decrypt_cb(decrypt_state, data, clear_buffer, n);
-      clear = clear_buffer;
+    uint8_t clear[10] = { 0 };
+    const size_t clear_size = VPXMIN(sizeof(clear), data_sz);
+    if (decrypt_cb && data_sz != 0) {
+      decrypt_cb(decrypt_state, data, clear, (int)clear_size);
+    } else if (!vpx_input_buffer_copy(input, 0, clear, clear_size)) {
+      return VPX_CODEC_INVALID_PARAM;
     }
     si->is_kf = 0;
 
@@ -177,7 +177,10 @@ static vpx_codec_err_t vp8_peek_si_internal(const uint8_t *data,
 
 static vpx_codec_err_t vp8_peek_si(const uint8_t *data, unsigned int data_sz,
                                    vpx_codec_stream_info_t *si) {
-  return vp8_peek_si_internal(data, data_sz, si, NULL, NULL);
+  vpx_input_buffer input;
+  if (!vpx_input_buffer_init(&input, data, data_sz))
+    return VPX_CODEC_INVALID_PARAM;
+  return vp8_peek_si_internal(&input, si, NULL, NULL);
 }
 
 static vpx_codec_err_t vp8_get_si(vpx_codec_alg_priv_t *ctx,
@@ -242,9 +245,8 @@ static int update_fragments(vpx_codec_alg_priv_t *ctx, const uint8_t *data,
   *res = VPX_CODEC_OK;
 
   if (ctx->fragments.count == 0) {
-    /* New frame, reset fragment pointers and sizes */
-    memset((void *)ctx->fragments.ptrs, 0, sizeof(ctx->fragments.ptrs));
-    memset(ctx->fragments.sizes, 0, sizeof(ctx->fragments.sizes));
+    /* New frame, reset fragment ranges. */
+    memset(ctx->fragments.ranges, 0, sizeof(ctx->fragments.ranges));
   }
 
   /* Flush signal in fragment mode but no fragments were accumulated yet.
@@ -263,8 +265,12 @@ static int update_fragments(vpx_codec_alg_priv_t *ctx, const uint8_t *data,
       *res = VPX_CODEC_INVALID_PARAM;
       return -1;
     }
-    ctx->fragments.ptrs[ctx->fragments.count] = data;
-    ctx->fragments.sizes[ctx->fragments.count] = data_sz;
+    if (!vpx_input_buffer_init(&ctx->fragments.ranges[ctx->fragments.count],
+                               data, data_sz)) {
+      ctx->fragments.count = 0;
+      *res = VPX_CODEC_INVALID_PARAM;
+      return -1;
+    }
     ctx->fragments.count++;
     return 0;
   }
@@ -274,8 +280,10 @@ static int update_fragments(vpx_codec_alg_priv_t *ctx, const uint8_t *data,
   }
 
   if (!ctx->fragments.enabled) {
-    ctx->fragments.ptrs[0] = data;
-    ctx->fragments.sizes[0] = data_sz;
+    if (!vpx_input_buffer_init(&ctx->fragments.ranges[0], data, data_sz)) {
+      *res = VPX_CODEC_INVALID_PARAM;
+      return -1;
+    }
     ctx->fragments.count = 1;
   }
 
@@ -296,15 +304,11 @@ static vpx_codec_err_t vp8_decode(vpx_codec_alg_priv_t *ctx,
   /* Update the input fragment data */
   if (update_fragments(ctx, data, data_sz, &res) <= 0) return res;
 
-  /* Determine the stream parameters. Note that we rely on peek_si to
-   * validate that we have a buffer that does not wrap around the top
-   * of the heap.
-   */
   w = ctx->si.w;
   h = ctx->si.h;
 
-  res = vp8_peek_si_internal(ctx->fragments.ptrs[0], ctx->fragments.sizes[0],
-                             &ctx->si, ctx->decrypt_cb, ctx->decrypt_state);
+  res = vp8_peek_si_internal(&ctx->fragments.ranges[0], &ctx->si,
+                             ctx->decrypt_cb, ctx->decrypt_state);
 
   if ((res == VPX_CODEC_UNSUP_BITSTREAM) && !ctx->si.is_kf) {
     /* the peek function returns an error for non keyframes, however for

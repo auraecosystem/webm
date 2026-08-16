@@ -15,6 +15,7 @@
 
 #include "vpx_config.h"
 #include "vpx_util/vpx_pthread.h"
+#include "vpx_util/vpx_input_buffer.h"
 #include "vp8/common/onyxd.h"
 #include "treereader.h"
 #include "vp8/common/onyxc_int.h"
@@ -41,8 +42,7 @@ typedef struct {
 typedef struct {
   int enabled;
   unsigned int count;
-  const unsigned char *ptrs[MAX_PARTITIONS];
-  unsigned int sizes[MAX_PARTITIONS];
+  vpx_input_buffer ranges[MAX_PARTITIONS];
 } FRAGMENT_DATA;
 
 #define MAX_FB_MT_DEC 32

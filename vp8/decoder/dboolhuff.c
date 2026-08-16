@@ -8,6 +8,8 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
+#include <assert.h>
+
 #include "dboolhuff.h"
 #include "vp8/common/common.h"
 #include "vpx_dsp/vpx_dsp_common.h"
@@ -15,14 +17,8 @@
 int vp8dx_start_decode(BOOL_DECODER *br, const unsigned char *source,
                        unsigned int source_sz, vpx_decrypt_cb decrypt_cb,
                        void *decrypt_state) {
-  if (source_sz && !source) return 1;
+  if (!vpx_input_buffer_init(&br->input, source, source_sz)) return 1;
 
-  // To simplify calling code this fuction can be called with |source| == null
-  // and |source_sz| == 0. This and vp8dx_bool_decoder_fill() are essentially
-  // no-ops in this case.
-  // Work around a ubsan warning with a ternary to avoid adding 0 to null.
-  br->user_buffer_end = source ? source + source_sz : source;
-  br->user_buffer = source;
   br->value = 0;
   br->count = -8;
   br->range = 255;
@@ -36,21 +32,29 @@ int vp8dx_start_decode(BOOL_DECODER *br, const unsigned char *source,
 }
 
 void vp8dx_bool_decoder_fill(BOOL_DECODER *br) {
-  const unsigned char *bufptr = br->user_buffer;
+  vpx_input_buffer input = br->input;
+  const vpx_decrypt_cb decrypt_cb = br->decrypt_cb;
+  void *const decrypt_state = br->decrypt_state;
+  const unsigned char *bufptr = input.data;
+  vpx_input_buffer window_input;
   VP8_BD_VALUE value = br->value;
   int count = br->count;
   int shift = VP8_BD_VALUE_SIZE - CHAR_BIT - (count + CHAR_BIT);
-  size_t bytes_left = br->user_buffer_end - bufptr;
-  size_t bits_left = bytes_left * CHAR_BIT;
+  const size_t bytes_left = input.size;
+  const size_t window = VPXMIN(sizeof(VP8_BD_VALUE) + 1, bytes_left);
+  const size_t bits_left = window * CHAR_BIT;
   int x = shift + CHAR_BIT - (int)bits_left;
   int loop_end = 0;
+  size_t consumed = 0;
   unsigned char decrypted[sizeof(VP8_BD_VALUE) + 1];
 
-  if (br->decrypt_cb) {
-    size_t n = VPXMIN(sizeof(decrypted), bytes_left);
-    br->decrypt_cb(br->decrypt_state, bufptr, decrypted, (int)n);
+  if (decrypt_cb && window != 0) {
+    const size_t n = window;
+    decrypt_cb(decrypt_state, bufptr, decrypted, (int)n);
     bufptr = decrypted;
   }
+  window_input.data = bufptr;
+  window_input.size = decrypt_cb ? window : bytes_left;
 
   if (x >= 0) {
     count += VP8_LOTS_OF_BITS;
@@ -58,15 +62,34 @@ void vp8dx_bool_decoder_fill(BOOL_DECODER *br) {
   }
 
   if (x < 0 || bits_left) {
+    assert(vpx_input_buffer_is_valid(&window_input));
+    assert(shift >= loop_end);
+    assert(shift < VP8_BD_VALUE_SIZE);
+    assert((size_t)(shift - loop_end) / CHAR_BIT < window_input.size);
+#if defined(__clang__)
+#if __has_warning("-Wunsafe-buffer-usage")
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunsafe-buffer-usage"
+#endif
+#endif
     while (shift >= loop_end) {
       count += CHAR_BIT;
-      value |= (VP8_BD_VALUE)*bufptr << shift;
-      ++bufptr;
-      ++br->user_buffer;
+      value |= (VP8_BD_VALUE)window_input.data[consumed] << shift;
+      ++consumed;
       shift -= CHAR_BIT;
     }
+#if defined(__clang__)
+#if __has_warning("-Wunsafe-buffer-usage")
+#pragma clang diagnostic pop
+#endif
+#endif
   }
 
+  if (!vpx_input_buffer_skip(&input, consumed)) {
+    input.size = 0;
+    count += VP8_LOTS_OF_BITS;
+  }
+  br->input = input;
   br->value = value;
   br->count = count;
 }

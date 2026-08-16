@@ -269,7 +269,7 @@ static int swap_frame_buffers(VP8_COMMON *cm) {
 
 static int check_fragments_for_errors(VP8D_COMP *pbi) {
   if (!pbi->ec_active && pbi->fragments.count <= 1 &&
-      pbi->fragments.sizes[0] == 0) {
+      pbi->fragments.ranges[0].size == 0) {
     VP8_COMMON *cm = &pbi->common;
 
     /* If error concealment is disabled we won't signal missing frames

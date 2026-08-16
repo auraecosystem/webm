@@ -140,6 +140,7 @@ ifeq ($(CONFIG_VP8),yes)
 ifeq ($(CONFIG_VP8_ENCODER)$(CONFIG_VP8_DECODER),yesyes)
 LIBVPX_TEST_SRCS-yes                   += vp8_boolcoder_test.cc
 LIBVPX_TEST_SRCS-yes                   += vp8_fragments_test.cc
+LIBVPX_TEST_SRCS-yes                   += vp8_partition_decrypt_test.cc
 endif
 LIBVPX_TEST_SRCS-$(CONFIG_POSTPROC)    += add_noise_test.cc
 LIBVPX_TEST_SRCS-$(CONFIG_POSTPROC)    += pp_filter_test.cc

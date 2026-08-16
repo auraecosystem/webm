@@ -10,11 +10,13 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <string>
 #include <vector>
 #include "gtest/gtest.h"
 #include "test/codec_factory.h"
 #include "test/ivf_video_source.h"
+#include "vp8/decoder/dboolhuff.h"
 
 namespace {
 // In a real use the 'decrypt_state' parameter will be a pointer to a struct
@@ -37,9 +39,94 @@ void test_decrypt_cb(void *decrypt_state, const uint8_t *input, uint8_t *output,
                  input - reinterpret_cast<uint8_t *>(decrypt_state));
 }
 
+// Keep the bool decoder state at its previous size.
+struct BoolDecoderSizeBaseline {
+  const unsigned char *user_buffer_end;
+  const unsigned char *user_buffer;
+  VP8_BD_VALUE value;
+  int count;
+  unsigned int range;
+  vpx_decrypt_cb decrypt_cb;
+  void *decrypt_state;
+};
+
+static_assert(sizeof(BOOL_DECODER) == sizeof(BoolDecoderSizeBaseline),
+              "BOOL_DECODER size changed");
+static_assert(alignof(BOOL_DECODER) == alignof(BoolDecoderSizeBaseline),
+              "BOOL_DECODER alignment changed");
+
+struct DecryptCallState {
+  const uint8_t *data;
+  size_t size;
+  int calls;
+  bool invalid_range;
+};
+
+void range_checked_decrypt_cb(void *decrypt_state, const uint8_t *input,
+                              uint8_t *output, int count) {
+  DecryptCallState *const state =
+      static_cast<DecryptCallState *>(decrypt_state);
+  const uintptr_t base = reinterpret_cast<uintptr_t>(state->data);
+  const uintptr_t address = reinterpret_cast<uintptr_t>(input);
+  ++state->calls;
+  if (count <= 0 || output == nullptr || address < base) {
+    state->invalid_range = true;
+    return;
+  }
+  const size_t offset = static_cast<size_t>(address - base);
+  const size_t size = static_cast<size_t>(count);
+  if (offset > state->size || size > state->size - offset) {
+    state->invalid_range = true;
+    return;
+  }
+  memcpy(output, input, size);
+}
+
 }  // namespace
 
 namespace libvpx_test {
+
+TEST(VP8, TestBitReaderAcceptsEmptyRange) {
+  BOOL_DECODER br;
+  DecryptCallState state = { nullptr, 0, 0, false };
+  EXPECT_EQ(
+      vp8dx_start_decode(&br, nullptr, 0, range_checked_decrypt_cb, &state), 0);
+  EXPECT_EQ(br.input.data, nullptr);
+  EXPECT_EQ(br.input.size, 0u);
+  EXPECT_EQ(state.calls, 0);
+}
+
+TEST(VP8, TestBitReaderRejectsNullNonemptyRange) {
+  BOOL_DECODER br;
+  DecryptCallState state = { nullptr, 0, 0, false };
+  EXPECT_EQ(
+      vp8dx_start_decode(&br, nullptr, 1, range_checked_decrypt_cb, &state), 1);
+  EXPECT_EQ(state.calls, 0);
+}
+
+TEST(VP8, TestBitReaderDecryptWindowsStayInRange) {
+  uint8_t data[sizeof(VP8_BD_VALUE) + 2] = { 0 };
+  for (size_t size = 1; size <= sizeof(data); ++size) {
+    BOOL_DECODER plain;
+    BOOL_DECODER decrypted;
+    DecryptCallState state = { data, size, 0, false };
+
+    ASSERT_EQ(vp8dx_start_decode(&plain, data, static_cast<unsigned int>(size),
+                                 nullptr, nullptr),
+              0);
+    ASSERT_EQ(
+        vp8dx_start_decode(&decrypted, data, static_cast<unsigned int>(size),
+                           range_checked_decrypt_cb, &state),
+        0);
+    EXPECT_GT(state.calls, 0);
+    EXPECT_FALSE(state.invalid_range);
+    EXPECT_EQ(decrypted.input.data, plain.input.data);
+    EXPECT_EQ(decrypted.input.size, plain.input.size);
+    EXPECT_EQ(decrypted.value, plain.value);
+    EXPECT_EQ(decrypted.count, plain.count);
+    EXPECT_EQ(decrypted.range, plain.range);
+  }
+}
 
 TEST(TestDecrypt, DecryptWorksVp8) {
   libvpx_test::IVFVideoSource video("vp80-00-comprehensive-001.ivf");

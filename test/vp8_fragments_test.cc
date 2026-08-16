@@ -33,4 +33,10 @@ TEST_F(VP8FragmentsTest, TestFragmentsEncodeDecode) {
   ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
 }
 
+TEST_F(VP8FragmentsTest, TestFragmentsWithMultithreadedEncoder) {
+  ::libvpx_test::RandomVideoSource video;
+  cfg_.g_threads = 4;
+  ASSERT_NO_FATAL_FAILURE(RunLoop(&video));
+}
+
 }  // namespace

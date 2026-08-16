@@ -19,6 +19,7 @@
 #include "vpx_ports/mem.h"
 #include "vpx/vp8dx.h"
 #include "vpx/vpx_integer.h"
+#include "vpx_util/vpx_input_buffer.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -34,8 +35,7 @@ typedef size_t VP8_BD_VALUE;
 #define VP8_LOTS_OF_BITS (0x40000000)
 
 typedef struct {
-  const unsigned char *user_buffer_end;
-  const unsigned char *user_buffer;
+  vpx_input_buffer input;
   VP8_BD_VALUE value;
   int count;
   unsigned int range;
