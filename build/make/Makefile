@@ -459,6 +459,7 @@ ifneq ($(call enabled,DIST-SRCS),)
     DIST-SRCS-yes            += build/make/configure.sh
     DIST-SRCS-yes            += build/make/gen_asm_deps.sh
     DIST-SRCS-yes            += build/make/Makefile
+    DIST-SRCS-yes            += build/make/unsafe_buffer_usage.txt
     DIST-SRCS-$(CONFIG_MSVS)  += build/make/gen_msvs_def.sh
     DIST-SRCS-$(CONFIG_MSVS)  += build/make/gen_msvs_sln.sh
     DIST-SRCS-$(CONFIG_MSVS)  += build/make/gen_msvs_vcxproj.sh

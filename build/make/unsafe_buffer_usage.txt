@@ -1,0 +1,7 @@
+# Keep the checked decoder input readers free of unaudited buffer operations.
+[unsafe-buffer-usage]
+src:*
+src:*vpx_util/vpx_input_buffer.h=emit
+src:*vpx_dsp/bitreader.c=emit
+src:*vpx_dsp/bitreader_buffer.c=emit
+src:*vp8/decoder/dboolhuff.c=emit
