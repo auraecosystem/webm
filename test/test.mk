@@ -131,6 +131,8 @@ endif
 ##
 ifeq ($(CONFIG_SHARED),)
 
+LIBVPX_TEST_SRCS-yes                   += vpx_input_buffer_test.cc
+
 ## VP8
 ifeq ($(CONFIG_VP8),yes)
 
