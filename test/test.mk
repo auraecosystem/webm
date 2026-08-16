@@ -132,6 +132,7 @@ endif
 ifeq ($(CONFIG_SHARED),)
 
 LIBVPX_TEST_SRCS-yes                   += vpx_input_buffer_test.cc
+LIBVPX_TEST_SRCS-$(CONFIG_DECODERS)    += vpx_bitreader_test.cc
 
 ## VP8
 ifeq ($(CONFIG_VP8),yes)
@@ -179,6 +180,7 @@ endif
 LIBVPX_TEST_SRCS-yes                   += vp9_boolcoder_test.cc
 LIBVPX_TEST_SRCS-yes                   += vp9_encoder_parms_get_to_decoder.cc
 LIBVPX_TEST_SRCS-yes                   += vp9_roi_test.cc
+LIBVPX_TEST_SRCS-yes                   += vp9_tile_decrypt_test.cc
 endif
 
 LIBVPX_TEST_SRCS-yes                   += convolve_test.cc

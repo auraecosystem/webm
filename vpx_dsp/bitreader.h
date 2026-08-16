@@ -20,6 +20,7 @@
 #include "vpx/vp8dx.h"
 #include "vpx/vpx_integer.h"
 #include "vpx_dsp/prob.h"
+#include "vpx_util/vpx_input_buffer.h"
 #if CONFIG_BITSTREAM_DEBUG
 #include "vpx_util/vpx_debug_util.h"
 #endif  // CONFIG_BITSTREAM_DEBUG
@@ -42,8 +43,7 @@ typedef struct {
   BD_VALUE value;
   unsigned int range;
   int count;
-  const uint8_t *buffer_end;
-  const uint8_t *buffer;
+  vpx_input_buffer input;
   vpx_decrypt_cb decrypt_cb;
   void *decrypt_state;
   uint8_t clear_buffer[sizeof(BD_VALUE) + 1];
@@ -54,7 +54,11 @@ int vpx_reader_init(vpx_reader *r, const uint8_t *buffer, size_t size,
 
 void vpx_reader_fill(vpx_reader *r);
 
-const uint8_t *vpx_reader_find_end(vpx_reader *r);
+// initial_input must match the buffer and size passed to vpx_reader_init().
+// On failure, bytes_read is unchanged.
+int vpx_reader_bytes_read(const vpx_reader *r,
+                          const vpx_input_buffer *initial_input,
+                          size_t *bytes_read);
 
 static INLINE int vpx_reader_has_error(vpx_reader *r) {
   // Check if we have reached the end of the buffer.

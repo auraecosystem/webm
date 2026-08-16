@@ -14,6 +14,7 @@
 #include <limits.h>
 
 #include "vpx/vpx_integer.h"
+#include "vpx_util/vpx_input_buffer.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -22,13 +23,18 @@ extern "C" {
 typedef void (*vpx_rb_error_handler)(void *data);
 
 struct vpx_read_bit_buffer {
-  const uint8_t *bit_buffer;
-  const uint8_t *bit_buffer_end;
+  vpx_input_buffer input;
   size_t bit_offset;
 
   void *error_handler_data;
   vpx_rb_error_handler error_handler;
 };
+
+int vpx_rb_init(struct vpx_read_bit_buffer *rb, const uint8_t *data,
+                size_t size, vpx_rb_error_handler error_handler,
+                void *error_handler_data);
+
+int vpx_rb_skip_bits(struct vpx_read_bit_buffer *rb, size_t bits);
 
 size_t vpx_rb_bytes_read(struct vpx_read_bit_buffer *rb);
 

@@ -41,13 +41,13 @@ typedef struct ThreadData {
 } ThreadData;
 
 typedef struct TileBuffer {
-  const uint8_t *data;
-  size_t size;
+  vpx_input_buffer input;
   int col;  // only used with multi-threaded decoding
 } TileBuffer;
 
 typedef struct TileWorkerData {
-  const uint8_t *data_end;
+  size_t tile_input_size;
+  size_t tile_bytes_read;
   int buf_start, buf_end;  // pbi->tile_buffers to decode, inclusive
   vpx_reader bit_reader;
   FRAME_COUNTS counts;
@@ -71,7 +71,6 @@ typedef struct RowMTWorkerData {
   PARTITION_TYPE *partition;
   tran_low_t *dqcoeff[MAX_MB_PLANE];
   int8_t *recon_map;
-  const uint8_t *data_end;
   uint8_t *jobq_buf;
   JobQueueRowMt jobq;
   size_t jobq_size;
@@ -127,8 +126,8 @@ typedef struct VP9Decoder {
   RowMTWorkerData *row_mt_worker_data;
 } VP9Decoder;
 
-int vp9_receive_compressed_data(struct VP9Decoder *pbi, size_t size,
-                                const uint8_t **psource);
+int vp9_receive_compressed_data(struct VP9Decoder *pbi, vpx_input_buffer input,
+                                size_t *bytes_read);
 
 int vp9_get_raw_frame(struct VP9Decoder *pbi, YV12_BUFFER_CONFIG *sd,
                       vp9_ppflags_t *flags);
@@ -141,14 +140,18 @@ vpx_codec_err_t vp9_set_reference_dec(VP9_COMMON *cm,
                                       VP9_REFFRAME ref_frame_flag,
                                       YV12_BUFFER_CONFIG *sd);
 
-static INLINE uint8_t read_marker(vpx_decrypt_cb decrypt_cb,
-                                  void *decrypt_state, const uint8_t *data) {
+static INLINE int read_marker(vpx_decrypt_cb decrypt_cb, void *decrypt_state,
+                              const vpx_input_buffer *input, size_t offset,
+                              uint8_t *marker) {
   if (decrypt_cb) {
-    uint8_t marker;
-    decrypt_cb(decrypt_state, data, &marker, 1);
-    return marker;
+    const uint8_t *data;
+    if (offset >= input->size || !vpx_input_buffer_at(input, offset, &data)) {
+      return 0;
+    }
+    decrypt_cb(decrypt_state, data, marker, 1);
+    return 1;
   }
-  return *data;
+  return vpx_input_buffer_read(input, offset, marker);
 }
 
 // This function is exposed for use in tests, as well as the inlined function

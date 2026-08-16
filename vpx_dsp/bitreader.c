@@ -7,6 +7,7 @@
  *  in the file PATENTS.  All contributing project authors may
  *  be found in the AUTHORS file in the root of the source tree.
  */
+#include <assert.h>
 #include <stdlib.h>
 
 #include "./vpx_config.h"
@@ -20,11 +21,9 @@
 
 int vpx_reader_init(vpx_reader *r, const uint8_t *buffer, size_t size,
                     vpx_decrypt_cb decrypt_cb, void *decrypt_state) {
-  if (size && !buffer) {
+  if (!vpx_input_buffer_init(&r->input, buffer, size)) {
     return 1;
   } else {
-    r->buffer_end = buffer + size;
-    r->buffer = buffer;
     r->value = 0;
     r->count = -8;
     r->range = 255;
@@ -36,22 +35,27 @@ int vpx_reader_init(vpx_reader *r, const uint8_t *buffer, size_t size,
 }
 
 void vpx_reader_fill(vpx_reader *r) {
-  const uint8_t *const buffer_end = r->buffer_end;
-  const uint8_t *buffer = r->buffer;
-  const uint8_t *buffer_start = buffer;
+  vpx_input_buffer input = r->input;
+  const vpx_decrypt_cb decrypt_cb = r->decrypt_cb;
+  void *const decrypt_state = r->decrypt_state;
+  const uint8_t *buffer = input.data;
+  vpx_input_buffer window;
   BD_VALUE value = r->value;
   int count = r->count;
-  const size_t bytes_left = buffer_end - buffer;
-  const size_t bits_left = bytes_left * CHAR_BIT;
+  const size_t bytes_left = input.size;
+  size_t window_size = bytes_left;
+  size_t consumed = 0;
   int shift = BD_VALUE_SIZE - CHAR_BIT - (count + CHAR_BIT);
 
-  if (r->decrypt_cb) {
-    size_t n = VPXMIN(sizeof(r->clear_buffer), bytes_left);
-    r->decrypt_cb(r->decrypt_state, buffer, r->clear_buffer, (int)n);
+  if (decrypt_cb && bytes_left != 0) {
+    const size_t n = VPXMIN(sizeof(r->clear_buffer), bytes_left);
+    window_size = n;
+    decrypt_cb(decrypt_state, buffer, r->clear_buffer, (int)n);
     buffer = r->clear_buffer;
-    buffer_start = r->clear_buffer;
   }
-  if (bits_left > BD_VALUE_SIZE) {
+  window.data = buffer;
+  window.size = window_size;
+  if (bytes_left > sizeof(BD_VALUE)) {
     const int bits = (shift & 0xfffffff8) + CHAR_BIT;
     BD_VALUE nv;
     BD_VALUE big_endian_values;
@@ -63,9 +67,10 @@ void vpx_reader_fill(vpx_reader *r) {
 #endif
     nv = big_endian_values >> (BD_VALUE_SIZE - bits);
     count += bits;
-    buffer += (bits >> 3);
+    consumed = (size_t)(bits >> 3);
     value = r->value | (nv << (shift & 0x7));
   } else {
+    const size_t bits_left = bytes_left * CHAR_BIT;
     const int bits_over = (int)(shift + CHAR_BIT - (int)bits_left);
     int loop_end = 0;
     if (bits_over >= 0) {
@@ -74,27 +79,59 @@ void vpx_reader_fill(vpx_reader *r) {
     }
 
     if (bits_over < 0 || bits_left) {
+      assert(vpx_input_buffer_is_valid(&window));
+      assert(shift >= loop_end);
+      assert(shift < BD_VALUE_SIZE);
+      assert((size_t)(shift - loop_end) / CHAR_BIT < window.size);
+#if defined(__clang__)
+#if __has_warning("-Wunsafe-buffer-usage")
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunsafe-buffer-usage"
+#endif
+#endif
       while (shift >= loop_end) {
         count += CHAR_BIT;
-        value |= (BD_VALUE)*buffer++ << shift;
+        value |= (BD_VALUE)window.data[consumed] << shift;
+        ++consumed;
         shift -= CHAR_BIT;
       }
+#if defined(__clang__)
+#if __has_warning("-Wunsafe-buffer-usage")
+#pragma clang diagnostic pop
+#endif
+#endif
     }
   }
 
-  // NOTE: Variable 'buffer' may not relate to 'r->buffer' after decryption,
-  // so we increase 'r->buffer' by the amount that 'buffer' moved, rather than
-  // assign 'buffer' to 'r->buffer'.
-  r->buffer += buffer - buffer_start;
+  if (!vpx_input_buffer_skip(&input, consumed)) {
+    input.size = 0;
+    count += LOTS_OF_BITS;
+  }
+  r->input = input;
   r->value = value;
   r->count = count;
 }
 
-const uint8_t *vpx_reader_find_end(vpx_reader *r) {
-  // Find the end of the coded buffer
-  while (r->count > CHAR_BIT && r->count < BD_VALUE_SIZE) {
-    r->count -= CHAR_BIT;
-    r->buffer--;
+int vpx_reader_bytes_read(const vpx_reader *r,
+                          const vpx_input_buffer *initial_input,
+                          size_t *bytes_read) {
+  const uint8_t *cursor;
+  size_t buffered_bytes = 0;
+  size_t consumed;
+
+  if (bytes_read == NULL || !vpx_input_buffer_is_valid(initial_input) ||
+      !vpx_input_buffer_is_valid(&r->input) ||
+      r->input.size > initial_input->size) {
+    return 0;
   }
-  return r->buffer;
+  consumed = initial_input->size - r->input.size;
+  if (!vpx_input_buffer_at(initial_input, consumed, &cursor) ||
+      cursor != r->input.data) {
+    return 0;
+  }
+  if (r->count > CHAR_BIT && r->count < BD_VALUE_SIZE) {
+    buffered_bytes = (size_t)(r->count - 1) / CHAR_BIT;
+  }
+  *bytes_read = buffered_bytes < consumed ? consumed - buffered_bytes : 0;
+  return 1;
 }

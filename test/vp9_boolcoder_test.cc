@@ -9,6 +9,7 @@
  */
 
 #include <math.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -23,6 +24,7 @@ using libvpx_test::ACMRandom;
 
 namespace {
 const int num_tests = 10;
+
 }  // namespace
 
 TEST(VP9, TestBitIO) {
@@ -90,7 +92,6 @@ TEST(VP9, TestBitIO) {
     }
   }
 }
-
 TEST(VP9, TestBitIOBufferSize0) {
   vpx_writer bw;
   uint8_t bw_buffer[1];

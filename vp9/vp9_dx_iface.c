@@ -73,17 +73,21 @@ static vpx_codec_err_t decoder_destroy(vpx_codec_alg_priv_t *ctx) {
 static int parse_bitdepth_colorspace_sampling(BITSTREAM_PROFILE profile,
                                               struct vpx_read_bit_buffer *rb) {
   vpx_color_space_t color_space;
-  if (profile >= PROFILE_2) rb->bit_offset += 1;  // Bit-depth 10 or 12.
+  if (profile >= PROFILE_2 &&
+      !vpx_rb_skip_bits(rb, 1)) {  // Bit-depth 10 or 12.
+    return 0;
+  }
   color_space = (vpx_color_space_t)vpx_rb_read_literal(rb, 3);
   if (color_space != VPX_CS_SRGB) {
-    rb->bit_offset += 1;  // [16,235] (including xvycc) vs [0,255] range.
+    // [16,235] (including xvycc) vs [0,255] range.
+    if (!vpx_rb_skip_bits(rb, 1)) return 0;
     if (profile == PROFILE_1 || profile == PROFILE_3) {
-      rb->bit_offset += 2;  // subsampling x/y.
-      rb->bit_offset += 1;  // unused.
+      if (!vpx_rb_skip_bits(rb, 2)) return 0;  // subsampling x/y.
+      if (!vpx_rb_skip_bits(rb, 1)) return 0;  // unused.
     }
   } else {
     if (profile == PROFILE_1 || profile == PROFILE_3) {
-      rb->bit_offset += 1;  // unused
+      if (!vpx_rb_skip_bits(rb, 1)) return 0;  // unused
     } else {
       // RGB is only available in version 1.
       return 0;
@@ -97,17 +101,23 @@ static vpx_codec_err_t decoder_peek_si_internal(
     int *is_intra_only, vpx_decrypt_cb decrypt_cb, void *decrypt_state) {
   int intra_only_flag = 0;
   uint8_t clear_buffer[11];
+  vpx_input_buffer input;
 
-  if (data + data_sz <= data) return VPX_CODEC_INVALID_PARAM;
+  if (!vpx_input_buffer_init(&input, data, data_sz)) {
+    return VPX_CODEC_INVALID_PARAM;
+  }
 
   si->is_kf = 0;
   si->w = si->h = 0;
 
-  if (decrypt_cb) {
-    data_sz = VPXMIN(sizeof(clear_buffer), data_sz);
-    decrypt_cb(decrypt_state, data, clear_buffer, data_sz);
+  input.size = VPXMIN(sizeof(clear_buffer), input.size);
+  if (decrypt_cb && input.size != 0) {
+    decrypt_cb(decrypt_state, input.data, clear_buffer, (int)input.size);
     data = clear_buffer;
+  } else {
+    data = input.data;
   }
+  data_sz = (unsigned int)input.size;
 
   // A maximum of 6 bits are needed to read the frame marker, profile and
   // show_existing_frame.
@@ -116,7 +126,10 @@ static vpx_codec_err_t decoder_peek_si_internal(
   {
     int show_frame;
     int error_resilient;
-    struct vpx_read_bit_buffer rb = { data, data + data_sz, 0, NULL, NULL };
+    struct vpx_read_bit_buffer rb;
+    if (!vpx_rb_init(&rb, data, data_sz, NULL, NULL)) {
+      return VPX_CODEC_INVALID_PARAM;
+    }
     const int frame_marker = vpx_rb_read_literal(&rb, 2);
     const BITSTREAM_PROFILE profile = vp9_read_profile(&rb);
 
@@ -150,7 +163,10 @@ static vpx_codec_err_t decoder_peek_si_internal(
     } else {
       intra_only_flag = show_frame ? 0 : vpx_rb_read_bit(&rb);
 
-      rb.bit_offset += error_resilient ? 0 : 2;  // reset_frame_context
+      if (!error_resilient &&
+          !vpx_rb_skip_bits(&rb, 2)) {  // reset_frame_context
+        return VPX_CODEC_UNSUP_BITSTREAM;
+      }
 
       if (intra_only_flag) {
         if (!vp9_read_sync_code(&rb)) return VPX_CODEC_UNSUP_BITSTREAM;
@@ -161,7 +177,9 @@ static vpx_codec_err_t decoder_peek_si_internal(
           // bytes.
           if (data_sz < 11) return VPX_CODEC_UNSUP_BITSTREAM;
         }
-        rb.bit_offset += REF_FRAMES;  // refresh_frame_flags
+        if (!vpx_rb_skip_bits(&rb, REF_FRAMES)) {  // refresh_frame_flags
+          return VPX_CODEC_UNSUP_BITSTREAM;
+        }
         vp9_read_frame_size(&rb, (int *)&si->w, (int *)&si->h);
       }
     }
@@ -303,16 +321,13 @@ static INLINE void check_resync(vpx_codec_alg_priv_t *const ctx,
 }
 
 static vpx_codec_err_t decode_one(vpx_codec_alg_priv_t *ctx,
-                                  const uint8_t **data, unsigned int data_sz,
+                                  vpx_input_buffer input, size_t *bytes_read,
                                   void *user_priv) {
-  // Determine the stream parameters. Note that we rely on peek_si to
-  // validate that we have a buffer that does not wrap around the top
-  // of the heap.
   if (!ctx->si.h) {
     int is_intra_only = 0;
-    const vpx_codec_err_t res =
-        decoder_peek_si_internal(*data, data_sz, &ctx->si, &is_intra_only,
-                                 ctx->decrypt_cb, ctx->decrypt_state);
+    const vpx_codec_err_t res = decoder_peek_si_internal(
+        input.data, (unsigned int)input.size, &ctx->si, &is_intra_only,
+        ctx->decrypt_cb, ctx->decrypt_state);
     if (res != VPX_CODEC_OK) return res;
 
     if (!ctx->si.is_kf && !is_intra_only) return VPX_CODEC_ERROR;
@@ -325,7 +340,7 @@ static vpx_codec_err_t decode_one(vpx_codec_alg_priv_t *ctx,
   ctx->pbi->decrypt_cb = ctx->decrypt_cb;
   ctx->pbi->decrypt_state = ctx->decrypt_state;
 
-  if (vp9_receive_compressed_data(ctx->pbi, data_sz, data)) {
+  if (vp9_receive_compressed_data(ctx->pbi, input, bytes_read)) {
     ctx->pbi->cur_buf->buf.corrupted = 1;
     ctx->pbi->need_resync = 1;
     ctx->need_resync = 1;
@@ -340,7 +355,7 @@ static vpx_codec_err_t decode_one(vpx_codec_alg_priv_t *ctx,
 static vpx_codec_err_t decoder_decode(vpx_codec_alg_priv_t *ctx,
                                       const uint8_t *data, unsigned int data_sz,
                                       void *user_priv) {
-  const uint8_t *data_start = data;
+  vpx_input_buffer input;
   vpx_codec_err_t res;
   uint32_t frame_sizes[8];
   int frame_count;
@@ -348,6 +363,10 @@ static vpx_codec_err_t decoder_decode(vpx_codec_alg_priv_t *ctx,
   if (data == NULL && data_sz == 0) {
     ctx->flushed = 1;
     return VPX_CODEC_OK;
+  }
+
+  if (!vpx_input_buffer_init(&input, data, data_sz) || input.size == 0) {
+    return VPX_CODEC_INVALID_PARAM;
   }
 
   // Reset flushed when receiving a valid frame.
@@ -368,35 +387,43 @@ static vpx_codec_err_t decoder_decode(vpx_codec_alg_priv_t *ctx,
 
   // Decode in serial mode.
   if (frame_count > 0) {
-    const uint8_t *const data_end = data + data_sz;
+    vpx_input_buffer frames = input;
     int i;
 
     for (i = 0; i < frame_count; ++i) {
-      const uint8_t *data_start_copy = data_start;
+      vpx_input_buffer frame;
+      size_t bytes_read;
       const uint32_t frame_size = frame_sizes[i];
-      if (data_start < data || frame_size > (uint32_t)(data_end - data_start)) {
+      if (!vpx_input_buffer_take(&frames, frame_size, &frame)) {
         set_error_detail(ctx, "Invalid frame size in index");
         return VPX_CODEC_CORRUPT_FRAME;
       }
 
-      res = decode_one(ctx, &data_start_copy, frame_size, user_priv);
+      res = decode_one(ctx, frame, &bytes_read, user_priv);
       if (res != VPX_CODEC_OK) return res;
-
-      data_start += frame_size;
     }
   } else {
-    const uint8_t *const data_end = data + data_sz;
-    while (data_start < data_end) {
-      const uint32_t frame_size = (uint32_t)(data_end - data_start);
-      res = decode_one(ctx, &data_start, frame_size, user_priv);
+    vpx_input_buffer frames = input;
+    while (frames.size != 0) {
+      size_t bytes_read;
+      uint8_t marker;
+      res = decode_one(ctx, frames, &bytes_read, user_priv);
       if (res != VPX_CODEC_OK) return res;
+      if (bytes_read == 0 || !vpx_input_buffer_skip(&frames, bytes_read)) {
+        set_error_detail(ctx, "Invalid frame size");
+        return VPX_CODEC_CORRUPT_FRAME;
+      }
 
       // Account for suboptimal termination by the encoder.
-      while (data_start < data_end) {
-        const uint8_t marker =
-            read_marker(ctx->decrypt_cb, ctx->decrypt_state, data_start);
+      while (frames.size != 0) {
+        if (!read_marker(ctx->decrypt_cb, ctx->decrypt_state, &frames, 0,
+                         &marker)) {
+          return VPX_CODEC_CORRUPT_FRAME;
+        }
         if (marker) break;
-        ++data_start;
+        if (!vpx_input_buffer_skip(&frames, 1)) {
+          return VPX_CODEC_CORRUPT_FRAME;
+        }
       }
     }
   }

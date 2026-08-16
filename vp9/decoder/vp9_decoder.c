@@ -412,16 +412,20 @@ static void release_fb_on_decoder_exit(VP9Decoder *pbi) {
   }
 }
 
-int vp9_receive_compressed_data(VP9Decoder *pbi, size_t size,
-                                const uint8_t **psource) {
+int vp9_receive_compressed_data(VP9Decoder *pbi, const vpx_input_buffer input,
+                                size_t *bytes_read) {
   VP9_COMMON *volatile const cm = &pbi->common;
   BufferPool *volatile const pool = cm->buffer_pool;
   RefCntBuffer *volatile const frame_bufs = cm->buffer_pool->frame_bufs;
-  const uint8_t *source = *psource;
   int retcode = 0;
   cm->error.error_code = VPX_CODEC_OK;
 
-  if (size == 0) {
+  if (!vpx_input_buffer_is_valid(&input) || bytes_read == NULL) {
+    return VPX_CODEC_INVALID_PARAM;
+  }
+  *bytes_read = 0;
+
+  if (input.size == 0) {
     // This is used to signal that we are missing frames.
     // We do not know if the missing frame(s) was supposed to update
     // any of the reference buffers, but we act conservative and
@@ -474,7 +478,7 @@ int vp9_receive_compressed_data(VP9Decoder *pbi, size_t size,
   }
 
   cm->error.setjmp = 1;
-  vp9_decode_frame(pbi, source, source + size, psource);
+  vp9_decode_frame(pbi, input, bytes_read);
 
   swap_frame_buffers(pbi);
 
@@ -552,10 +556,14 @@ vpx_codec_err_t vp9_parse_superframe_index(const uint8_t *data, size_t data_sz,
   // not the associated matching marker byte at the front of the index we have
   // an invalid bitstream and need to return an error.
 
+  vpx_input_buffer input;
   uint8_t marker;
 
-  assert(data_sz);
-  marker = read_marker(decrypt_cb, decrypt_state, data + data_sz - 1);
+  if (!vpx_input_buffer_init(&input, data, data_sz) || input.size == 0 ||
+      !read_marker(decrypt_cb, decrypt_state, &input, input.size - 1,
+                   &marker)) {
+    return VPX_CODEC_INVALID_PARAM;
+  }
   *count = 0;
 
   if ((marker & 0xe0) == 0xc0) {
@@ -568,8 +576,11 @@ vpx_codec_err_t vp9_parse_superframe_index(const uint8_t *data, size_t data_sz,
     if (data_sz < index_sz) return VPX_CODEC_CORRUPT_FRAME;
 
     {
-      const uint8_t marker2 =
-          read_marker(decrypt_cb, decrypt_state, data + data_sz - index_sz);
+      uint8_t marker2;
+      if (!read_marker(decrypt_cb, decrypt_state, &input, input.size - index_sz,
+                       &marker2)) {
+        return VPX_CODEC_CORRUPT_FRAME;
+      }
 
       // This chunk is marked as having a superframe index but doesn't have
       // the matching marker byte at the front of the index therefore it's an
@@ -580,20 +591,35 @@ vpx_codec_err_t vp9_parse_superframe_index(const uint8_t *data, size_t data_sz,
     {
       // Found a valid superframe index.
       uint32_t i, j;
-      const uint8_t *x = &data[data_sz - index_sz + 1];
+      vpx_input_buffer index;
+      vpx_input_buffer clear_index;
+      size_t offset = 0;
 
       // Frames has a maximum of 8 and mag has a maximum of 4.
       uint8_t clear_buffer[32];
       assert(sizeof(clear_buffer) >= frames * mag);
+      if (!vpx_input_buffer_subrange(&input, input.size - index_sz + 1,
+                                     frames * mag, &index)) {
+        return VPX_CODEC_CORRUPT_FRAME;
+      }
       if (decrypt_cb) {
-        decrypt_cb(decrypt_state, x, clear_buffer, frames * mag);
-        x = clear_buffer;
+        decrypt_cb(decrypt_state, index.data, clear_buffer, frames * mag);
+        if (!vpx_input_buffer_init(&clear_index, clear_buffer, index.size)) {
+          return VPX_CODEC_CORRUPT_FRAME;
+        }
+        index = clear_index;
       }
 
       for (i = 0; i < frames; ++i) {
         uint32_t this_sz = 0;
 
-        for (j = 0; j < mag; ++j) this_sz |= ((uint32_t)(*x++)) << (j * 8);
+        for (j = 0; j < mag; ++j) {
+          uint8_t value;
+          if (!vpx_input_buffer_read(&index, offset++, &value)) {
+            return VPX_CODEC_CORRUPT_FRAME;
+          }
+          this_sz |= (uint32_t)value << (j * 8);
+        }
         sizes[i] = this_sz;
       }
       *count = frames;
