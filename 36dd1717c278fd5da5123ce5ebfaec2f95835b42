@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef308843_4b0ad0cd",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-17T18:17:01Z",
+      "side": 1,
+      "message": "This could also be `w \u0026 1 \u0026 xcs`.",
+      "range": {
+        "startLine": 172,
+        "startChar": 53,
+        "endLine": 172,
+        "endChar": 59
+      },
+      "revId": "36dd1717c278fd5da5123ce5ebfaec2f95835b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
