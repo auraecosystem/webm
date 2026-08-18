@@ -3,6 +3,57 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eb0d6289_e5f9625f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-18T02:33:54Z",
+      "side": 1,
+      "message": "James: Can you add me to the bug report? Thanks.",
+      "revId": "36dd1717c278fd5da5123ce5ebfaec2f95835b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0fb7ead_fa5caa52",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-18T02:33:54Z",
+      "side": 1,
+      "message": "Would it help if we add an auxiliary variable `uv_w` and set it in this if-else statement?",
+      "revId": "36dd1717c278fd5da5123ce5ebfaec2f95835b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1243666_fa31cc70",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-18T02:33:54Z",
+      "side": 1,
+      "message": "It would be clearer to calculate `uv_stride_in_bytes` here, immediately after where `uv_w` is calculated.",
+      "revId": "36dd1717c278fd5da5123ce5ebfaec2f95835b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ef308843_4b0ad0cd",
         "filename": "vpx/src/vpx_image.c",
         "patchSetId": 2
