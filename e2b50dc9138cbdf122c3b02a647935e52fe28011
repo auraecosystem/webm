@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c50d084d_dde89371",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-19T17:37:33Z",
+      "side": 1,
+      "message": "LGTM. Thank you for working on this. That code is very hard to understand.\n\nTwo of my new suggestions in vpx/src/vpx_image.c are marked as optional. If you think they are a good idea, you can make the changes in a follow-up CL.",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af9a4478_dffd6f10",
+        "filename": "test/encode_api_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-19T17:37:33Z",
+      "side": 1,
+      "message": "Optional: An alternative is to replace `128` with `1 * 64 + 2 * 1 * 32`. Then we don\u0027t need a comment.",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e18b7e9_be072ad4",
+        "filename": "test/vpx_image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-19T17:37:33Z",
+      "side": 1,
+      "message": "Optional: It would be good to also add a test for I444.",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d12dd759_e8dab672",
+        "filename": "test/vpx_image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-19T17:37:33Z",
+      "side": 1,
+      "message": "Nit: The parameter name is `stride_align`",
+      "range": {
+        "startLine": 52,
+        "startChar": 56,
+        "endLine": 52,
+        "endChar": 61
+      },
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e38789_1b22523f",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-19T17:37:33Z",
+      "side": 1,
+      "message": "Optional: The formula for `rounder` is very complicated. We could do the chroma subsampling in number of samples as follows, which also passes your new test:\n\n```\ndiff --git a/vpx/src/vpx_image.c b/vpx/src/vpx_image.c\nindex 1aa447a38..ad3e84608 100644\n--- a/vpx/src/vpx_image.c\n+++ b/vpx/src/vpx_image.c\n@@ -129,9 +129,14 @@ static vpx_image_t *img_alloc_helper(vpx_image_t *img, vpx_img_fmt_t fmt,\n   // an odd width. Note `w` can only be odd when there is subsampling applied\n   // in the x direction or when wrapping an external frame buffer.\n   assert(w % 2 \u003d\u003d 0 || xcs \u003d\u003d 0 || img_data);\n-  const int rounder \u003d\n-      xcs + xcs * ((fmt \u0026 VPX_IMG_FMT_HIGHBITDEPTH) ? w \u0026 1 : 0);\n-  const int uv_stride_in_bytes \u003d (stride_in_bytes + rounder) \u003e\u003e xcs;\n+  uint64_t uv_s \u003d s;\n+  // Convert to number of samples.\n+  uv_s \u003d (fmt \u0026 VPX_IMG_FMT_HIGHBITDEPTH) ? uv_s / 2 : uv_s;\n+  // Apply chroma subsampling.\n+  uv_s \u003d (uv_s + xcs) \u003e\u003e xcs;\n+  // Convert back to number of bytes.\n+  uv_s \u003d (fmt \u0026 VPX_IMG_FMT_HIGHBITDEPTH) ? uv_s * 2 : uv_s;\n+  const int uv_stride_in_bytes \u003d (int)uv_s;\n \n   /* Allocate the new image */\n   if (!img) {\n```\n\nThe comments could be omitted.",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee1c669_ec2746e8",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-19T17:37:33Z",
+      "side": 1,
+      "message": "Nit: Since this block doesn\u0027t use `stride_in_bytes`, it is strange to assert a property of `stride_in_bytes` here. We can change `stride_in_bytes` to `s` in the assertion.\n\nAlternatively, we can change this block to use `stride_in_bytes` instead. See my next comment.",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fdd08f1_4933668d",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-19T17:37:33Z",
+      "side": 1,
+      "message": "Optional: Ideally we should calculate `alloc_size` using `stride_in_bytes` and `uv_stride_in_bytes`.\n\nAt least we should verify that the current `alloc_size` is greater than or equal to the value based on `stride_in_bytes` and `uv_stride_in_bytes`.",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
