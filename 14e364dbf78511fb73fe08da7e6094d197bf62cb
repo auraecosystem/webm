@@ -16,6 +16,24 @@
       "message": "Let\u0027s remove this assertion for now.\n\nThe right hand side should look like `h * stride_in_bytes + 2 * uv_h * uv_stride_in_bytes`. Also, this inequality may only make sense for planar formats.",
       "revId": "14e364dbf78511fb73fe08da7e6094d197bf62cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610223d0_c3a28077",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-19T19:05:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbf53afd_c5055acb",
+      "revId": "14e364dbf78511fb73fe08da7e6094d197bf62cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
