@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5600344_c7a45d0b",
+        "filename": "test/vpx_image_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-19T18:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d12dd759_e8dab672",
+      "range": {
+        "startLine": 52,
+        "startChar": 56,
+        "endLine": 52,
+        "endChar": 61
+      },
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32e38789_1b22523f",
@@ -88,6 +112,24 @@
       "writtenOn": "2026-08-19T17:37:33Z",
       "side": 1,
       "message": "Optional: The formula for `rounder` is very complicated. We could do the chroma subsampling in number of samples as follows, which also passes your new test:\n\n```\ndiff --git a/vpx/src/vpx_image.c b/vpx/src/vpx_image.c\nindex 1aa447a38..ad3e84608 100644\n--- a/vpx/src/vpx_image.c\n+++ b/vpx/src/vpx_image.c\n@@ -129,9 +129,14 @@ static vpx_image_t *img_alloc_helper(vpx_image_t *img, vpx_img_fmt_t fmt,\n   // an odd width. Note `w` can only be odd when there is subsampling applied\n   // in the x direction or when wrapping an external frame buffer.\n   assert(w % 2 \u003d\u003d 0 || xcs \u003d\u003d 0 || img_data);\n-  const int rounder \u003d\n-      xcs + xcs * ((fmt \u0026 VPX_IMG_FMT_HIGHBITDEPTH) ? w \u0026 1 : 0);\n-  const int uv_stride_in_bytes \u003d (stride_in_bytes + rounder) \u003e\u003e xcs;\n+  uint64_t uv_s \u003d s;\n+  // Convert to number of samples.\n+  uv_s \u003d (fmt \u0026 VPX_IMG_FMT_HIGHBITDEPTH) ? uv_s / 2 : uv_s;\n+  // Apply chroma subsampling.\n+  uv_s \u003d (uv_s + xcs) \u003e\u003e xcs;\n+  // Convert back to number of bytes.\n+  uv_s \u003d (fmt \u0026 VPX_IMG_FMT_HIGHBITDEPTH) ? uv_s * 2 : uv_s;\n+  const int uv_stride_in_bytes \u003d (int)uv_s;\n \n   /* Allocate the new image */\n   if (!img) {\n```\n\nThe comments could be omitted.",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c86f13c_66c55864",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-19T18:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32e38789_1b22523f",
       "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -109,6 +151,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9401e8a_1eabbc23",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-19T18:00:45Z",
+      "side": 1,
+      "message": "\u003e Nit: Since this block doesn\u0027t use `stride_in_bytes`, it is strange to assert a property of `stride_in_bytes` here. We can change `stride_in_bytes` to `s` in the assertion.\n\u003e \n\nThis was meant only to reinforce that `h * s * 3 / 2` is incorrect when stride is odd. I removed it.\n\n\u003e Alternatively, we can change this block to use `stride_in_bytes` instead. See my next comment.",
+      "parentUuid": "9ee1c669_ec2746e8",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fdd08f1_4933668d",
@@ -122,6 +182,24 @@
       "writtenOn": "2026-08-19T17:37:33Z",
       "side": 1,
       "message": "Optional: Ideally we should calculate `alloc_size` using `stride_in_bytes` and `uv_stride_in_bytes`.\n\nAt least we should verify that the current `alloc_size` is greater than or equal to the value based on `stride_in_bytes` and `uv_stride_in_bytes`.",
+      "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf4089dd_19916457",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-19T18:00:45Z",
+      "side": 1,
+      "message": "\u003e Optional: Ideally we should calculate `alloc_size` using `stride_in_bytes` and `uv_stride_in_bytes`.\n\u003e \n\u003e At least we should verify that the current `alloc_size` is greater than or equal to the value based on `stride_in_bytes` and `uv_stride_in_bytes`.\n\nI added an assert for now.",
+      "parentUuid": "0fdd08f1_4933668d",
       "revId": "e2b50dc9138cbdf122c3b02a647935e52fe28011",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
