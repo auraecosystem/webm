@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77489168_a4744b87",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-19T04:10:32Z",
+      "side": 1,
+      "message": "\u003e Would it help if we add an auxiliary variable `uv_w` and set it in this if-else statement?\n\nI think it could always be set as `uv_w \u003d (w + xcs) \u003e\u003e xcs`, but in patchset 2 I didn\u0027t make this change as the allocation depends on `s`. If I were to replicate all of the code for `s` then `uv_s` would be larger than it started because the `stride_align` condition was never satisfied for subsampled planes. I\u0027ll take a closer look tomorrow.",
+      "parentUuid": "c0fb7ead_fa5caa52",
+      "revId": "36dd1717c278fd5da5123ce5ebfaec2f95835b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1243666_fa31cc70",
         "filename": "vpx/src/vpx_image.c",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2026-08-18T02:33:54Z",
       "side": 1,
       "message": "It would be clearer to calculate `uv_stride_in_bytes` here, immediately after where `uv_w` is calculated.",
+      "revId": "36dd1717c278fd5da5123ce5ebfaec2f95835b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "461e0f12_9095c1a8",
+        "filename": "vpx/src/vpx_image.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-19T04:10:32Z",
+      "side": 1,
+      "message": "\u003e It would be clearer to calculate `uv_stride_in_bytes` here, immediately after where `uv_w` is calculated.\n\nGood point. Done.",
+      "parentUuid": "f1243666_fa31cc70",
       "revId": "36dd1717c278fd5da5123ce5ebfaec2f95835b42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
