@@ -16,6 +16,24 @@
       "message": "Add `Bug: 521840360`.",
       "revId": "0ad17acf396c23078931101a151da044cc85f35b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ceb63ae_f5b2547a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1171444
+      },
+      "writtenOn": "2026-08-20T19:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d2e6f7c_8a0ab30f",
+      "revId": "0ad17acf396c23078931101a151da044cc85f35b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
