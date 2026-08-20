@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d2e6f7c_8a0ab30f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-20T17:54:35Z",
+      "side": 1,
+      "message": "Add `Bug: 521840360`.",
+      "revId": "0ad17acf396c23078931101a151da044cc85f35b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
