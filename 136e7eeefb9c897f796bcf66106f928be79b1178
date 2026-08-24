@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b07f12_0565f4e1",
+        "filename": "vpx/vp8cx.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-24T21:20:52Z",
+      "side": 1,
+      "message": "Thanks for porting my libaom CL to libvpx. I noticed that libvpx does not document the parameter types of the codec controls, so this change isn\u0027t really necessary for libvpx.\n\n(I seem to remember it was Elliott Karpilovsky who started the convention of documenting the parameter types of codec controls in libaom when he worked on `aom_codec_control`.)",
+      "revId": "136e7eeefb9c897f796bcf66106f928be79b1178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd18491_9433c3f9",
+        "filename": "vpx/vp8cx.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-08-24T21:20:52Z",
+      "side": 1,
+      "message": "I verified the parameter of `VP9E_SET_VALIDATE_HBD_INPUT` is of the `int` type.",
+      "revId": "136e7eeefb9c897f796bcf66106f928be79b1178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
