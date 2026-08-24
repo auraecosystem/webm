@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8d78afda_dbf2c505",
+        "filename": "vpx/vp8cx.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-24T22:09:35Z",
+      "side": 1,
+      "message": "\u003e Thanks for porting my libaom CL to libvpx. I noticed that libvpx does not document the parameter types of the codec controls, so this change isn\u0027t really necessary for libvpx.\n\u003e \n\u003e (I seem to remember it was Elliott Karpilovsky who started the convention of documenting the parameter types of codec controls in libaom when he worked on `aom_codec_control`.)\n\nThanks, I didn\u0027t think about what the origin was. This is harmless, so no reason not to keep the blocks in sync.",
+      "parentUuid": "55b07f12_0565f4e1",
+      "revId": "136e7eeefb9c897f796bcf66106f928be79b1178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5fd18491_9433c3f9",
         "filename": "vpx/vp8cx.h",
         "patchSetId": 1
