@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0acaf515_2675e4f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-25T18:21:02Z",
+      "side": 1,
+      "message": "Thanks for the patch. Just some mostly cosmetic comments. After you upload a new patch that addresses the comments, don\u0027t forget to mark them as done so reviewers know to take another look.",
+      "revId": "d4cf335c2833821e6c98f1e910e772dc5f735119",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d4fce37_c65230d5",
+        "filename": "test/decode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-25T18:21:02Z",
+      "side": 1,
+      "message": "Better to use 16383 here and line 96 for readability.",
+      "revId": "d4cf335c2833821e6c98f1e910e772dc5f735119",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b505778_33534ff1",
+        "filename": "test/decode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-25T18:21:02Z",
+      "side": 1,
+      "message": "Make these `kWidth` and `kHeight`.",
+      "revId": "d4cf335c2833821e6c98f1e910e772dc5f735119",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a79fde6_5ee3a166",
+        "filename": "test/decode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-25T18:21:02Z",
+      "side": 1,
+      "message": "This can be `static constexpr uint8_t kOversizedKeyframe` instead.",
+      "revId": "d4cf335c2833821e6c98f1e910e772dc5f735119",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93136316_29bf9c18",
+        "filename": "test/decode_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-25T18:21:02Z",
+      "side": 1,
+      "message": "`static constexpr kInterframe...`",
+      "revId": "d4cf335c2833821e6c98f1e910e772dc5f735119",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9421d3f_0d2533de",
+        "filename": "vp8/vp8_dx_iface.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-25T18:21:02Z",
+      "side": 1,
+      "message": "Check `ctx-\u003esi.is_kf` here too so that we know `ctx-\u003esi.w` and `ctx-\u003esi.h` have been correctly set.",
+      "revId": "d4cf335c2833821e6c98f1e910e772dc5f735119",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
