@@ -1030,6 +1030,7 @@ TEST(EncodeAPI, Vp8InvalidTemporalLayerPeriodicity) {
 
   EXPECT_EQ(vpx_codec_enc_init(&enc, iface, &cfg, 0), VPX_CODEC_INVALID_PARAM);
 }
+<<<<<<< HEAD   (136e7eeefb9c897f796bcf66106f928be79b1178 vp8cx.h: Document param type of VP9E_SET_VALIDATE_HBD_INPUT)
 
 // Bug: 540945422.
 // Test resolution changes combined with noise sensitivity toggles.
@@ -1082,6 +1083,9 @@ TEST(EncodeAPI, Vp8DenoiserResolutionChange) {
 
   ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
 }
+||||||| BASE   (49dd8ff38aaf06024cfea9d3e74d33592cc443a2 vp9,yuvconfig2image: set img->{w,h} to yv12->y_{width,height)
+=======
+>>>>>>> BRANCH (6df3ec34557879fff673706f4a1d9fbd0f3a6f0e Update CHANGELOG)
 #endif  // CONFIG_VP8_ENCODER
 
 // Set up 2 spatial streams with 2 temporal layers per stream, and generate
@@ -3635,6 +3639,7 @@ TEST(EncodeAPI, SvcResolutionChangeAq3Cbr) {
 
   ASSERT_EQ(vpx_codec_destroy(&enc), VPX_CODEC_OK);
 }
+<<<<<<< HEAD   (136e7eeefb9c897f796bcf66106f928be79b1178 vp8cx.h: Document param type of VP9E_SET_VALIDATE_HBD_INPUT)
 // Bug: 540943267.
 TEST(EncodeAPI, ResizeRealtimeSourceSadOverflow) {
   vpx_codec_ctx_t codec;
@@ -3680,6 +3685,9 @@ TEST(EncodeAPI, ResizeRealtimeSourceSadOverflow) {
   vpx_img_free(image);
   ASSERT_EQ(vpx_codec_destroy(&codec), VPX_CODEC_OK);
 }
+||||||| BASE   (49dd8ff38aaf06024cfea9d3e74d33592cc443a2 vp9,yuvconfig2image: set img->{w,h} to yv12->y_{width,height)
+=======
+>>>>>>> BRANCH (6df3ec34557879fff673706f4a1d9fbd0f3a6f0e Update CHANGELOG)
 #endif  // CONFIG_VP9_ENCODER
 
 }  // namespace
