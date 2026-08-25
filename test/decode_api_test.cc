@@ -86,6 +86,40 @@ TEST(DecodeAPI, OptionalParams) {
 #endif  // CONFIG_ERROR_CONCEALMENT
 }
 
+#if CONFIG_SIZE_LIMIT && \
+    (DECODE_WIDTH_LIMIT < 0x3fff || DECODE_HEIGHT_LIMIT < 0x3fff)
+TEST(DecodeAPI, Vp8RejectsOversizedKeyframeBeforeInitialization) {
+  vpx_codec_ctx_t dec;
+  ASSERT_EQ(VPX_CODEC_OK,
+            vpx_codec_dec_init(&dec, &vpx_codec_vp8_dx_algo, nullptr, 0));
+
+#if DECODE_WIDTH_LIMIT < 0x3fff
+  constexpr uint16_t width = DECODE_WIDTH_LIMIT + 1;
+  constexpr uint16_t height = 1;
+#else
+  constexpr uint16_t width = 1;
+  constexpr uint16_t height = DECODE_HEIGHT_LIMIT + 1;
+#endif
+  const uint8_t oversized_keyframe[10] = {
+    0x00, 0x00, 0x00, 0x9d, 0x01, 0x2a,
+    static_cast<uint8_t>(width), static_cast<uint8_t>(width >> 8),
+    static_cast<uint8_t>(height), static_cast<uint8_t>(height >> 8),
+  };
+  EXPECT_EQ(VPX_CODEC_CORRUPT_FRAME,
+            vpx_codec_decode(&dec, oversized_keyframe,
+                             static_cast<unsigned int>(
+                                 sizeof(oversized_keyframe)),
+                             nullptr, 0));
+
+  const uint8_t interframe[10] = { 0x01 };
+  EXPECT_EQ(VPX_CODEC_UNSUP_BITSTREAM,
+            vpx_codec_decode(&dec, interframe,
+                             static_cast<unsigned int>(sizeof(interframe)),
+                             nullptr, 0));
+  EXPECT_EQ(VPX_CODEC_OK, vpx_codec_destroy(&dec));
+}
+#endif  // CONFIG_SIZE_LIMIT && dimension limit is representable in VP8
+
 TEST(DecodeAPI, Vp8FlushWithNoFragments) {
   vpx_codec_ctx_t dec;
   vpx_codec_dec_cfg_t cfg = { 1, 0, 0 };
