@@ -1,6 +1,4 @@
-README - 30 May 2014
-
-Welcome to the WebM VP8/VP9 Codec SDK!
+# Welcome to the WebM VP8/VP9 Codec SDK!
 
 COMPILING THE APPLICATIONS/LIBRARIES:
   The build system used is similar to autotools. Building generally consists of
@@ -30,23 +28,24 @@ COMPILING THE APPLICATIONS/LIBRARIES:
   Out of tree builds are a supported method of building the application. For
   an out of tree build, the source tree is kept separate from the object
   files produced during compilation. For instance:
-
+```bash
     $ mkdir build
     $ cd build
     $ ../libvpx/configure <options>
     $ make
-
+```
   3. Configuration options
   The 'configure' script supports a number of options. The --help option can be
   used to get a list of supported options:
+   ```bash
     $ ../libvpx/configure --help
-
+```
   4. Cross development
   For cross development, the most notable option is the --target option. The
   most up-to-date list of supported targets can be found at the bottom of the
   --help output of the configure script. As of this writing, the list of
   available targets is:
-
+```bash
     armv6-darwin-gcc
     armv6-linux-rvct
     armv6-linux-gcc
@@ -112,16 +111,16 @@ COMPILING THE APPLICATIONS/LIBRARIES:
     universal-darwin12-gcc
     universal-darwin13-gcc
     generic-gnu
-
+```
   The generic-gnu target, in conjunction with the CROSS environment variable,
   can be used to cross compile architectures that aren't explicitly listed, if
   the toolchain is a cross GNU (gcc/binutils) toolchain. Other POSIX toolchains
   will likely work as well. For instance, to build using the mipsel-linux-uclibc
   toolchain, the following command could be used (note, POSIX SH syntax, adapt
   to your shell as necessary):
-
+```bash
     $ CROSS=mipsel-linux-uclibc- ../libvpx/configure
-
+```
   In addition, the executables to be invoked can be overridden by specifying the
   environment variables: CC, AR, LD, AS, STRIP, NM. Additional flags can be
   passed to these executables with CFLAGS, LDFLAGS, and ASFLAGS.
@@ -135,10 +134,10 @@ VP8/VP9 TEST VECTORS:
   The test vectors can be downloaded and verified using the build system after
   running configure. To specify an alternate directory the
   LIBVPX_TEST_DATA_PATH environment variable can be used.
-
+```make
   $ ./configure --enable-unit-tests
   $ LIBVPX_TEST_DATA_PATH=../libvpx-test-data make testdata
-
+```
 SUPPORT
   This library is an open source project supported by its community. Please
   please email webm-discuss@webmproject.org for help.
