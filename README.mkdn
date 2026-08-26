@@ -28,6 +28,7 @@ COMPILING THE APPLICATIONS/LIBRARIES:
   Out of tree builds are a supported method of building the application. For
   an out of tree build, the source tree is kept separate from the object
   files produced during compilation. For instance:
+
 ```bash
     $ mkdir build
     $ cd build
@@ -37,8 +38,9 @@ COMPILING THE APPLICATIONS/LIBRARIES:
   3. Configuration options
   The 'configure' script supports a number of options. The --help option can be
   used to get a list of supported options:
-   ```bash
+```bash
     $ ../libvpx/configure --help
+$ man git-clone https://chromium.googlesource.com/webm
 ```
   4. Cross development
   For cross development, the most notable option is the --target option. The
